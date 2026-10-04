@@ -10,350 +10,341 @@
   <title>Qalb-e-Deen — The Heart of Deen</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5faf8;
-      color: #17342e;
-      line-height: 1.6;
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:#f5faf8;
+      color:#17342e;
+      line-height:1.6;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    a{
+      text-decoration:none;
+      color:inherit;
     }
 
-    /* HEADER */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid #e2ece8;
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,.96);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid #e2ece8;
     }
 
-    .navbar {
-      max-width: 1150px;
-      margin: auto;
-      padding: 14px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+    .navbar{
+      max-width:1150px;
+      margin:auto;
+      padding:14px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      font-size: 20px;
-      color: #0f766e;
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      font-size:20px;
+      color:#0f766e;
     }
 
-    .logo-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 13px;
-      background: #0f766e;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 21px;
+    .logo-icon{
+      width:42px;
+      height:42px;
+      border-radius:13px;
+      background:#0f766e;
+      color:white;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:21px;
     }
 
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 20px;
+    nav{
+      display:flex;
+      align-items:center;
+      gap:18px;
     }
 
-    nav a {
-      color: #35534c;
-      font-size: 14px;
-      font-weight: 600;
+    nav a{
+      color:#35534c;
+      font-size:14px;
+      font-weight:600;
     }
 
-    nav a:hover {
-      color: #0f766e;
+    nav a:hover{
+      color:#0f766e;
     }
 
-    .login-btn {
-      background: #0f766e;
-      color: white !important;
-      padding: 9px 15px;
-      border-radius: 10px;
+    .login-btn{
+      background:#0f766e;
+      color:white!important;
+      padding:9px 15px;
+      border-radius:10px;
     }
 
-    /* HERO */
+    .profile-btn{
+      display:none;
+      background:#0f766e;
+      color:white!important;
+      padding:9px 15px;
+      border-radius:10px;
+    }
 
-    .hero {
-      max-width: 1150px;
-      margin: 30px auto;
-      padding: 75px 30px;
-      border-radius: 30px;
+    .hero{
+      max-width:1150px;
+      margin:30px auto;
+      padding:75px 30px;
+      border-radius:30px;
       background:
-        radial-gradient(circle at top right, rgba(15,118,110,0.16), transparent 35%),
-        linear-gradient(135deg, #e4f6f0, #f9fcfb);
-      text-align: center;
+        radial-gradient(circle at top right,rgba(15,118,110,.16),transparent 35%),
+        linear-gradient(135deg,#e4f6f0,#f9fcfb);
+      text-align:center;
     }
 
-    .hero small {
-      color: #0f766e;
-      font-weight: 800;
-      letter-spacing: 3px;
-      font-size: 12px;
+    .hero small{
+      color:#0f766e;
+      font-weight:800;
+      letter-spacing:3px;
+      font-size:12px;
     }
 
-    .hero h1 {
-      font-size: clamp(42px, 8vw, 76px);
-      line-height: 1;
-      margin: 18px 0;
-      letter-spacing: -3px;
+    .hero h1{
+      font-size:clamp(42px,8vw,76px);
+      line-height:1;
+      margin:18px 0;
+      letter-spacing:-3px;
     }
 
-    .hero h1 span {
-      color: #0f766e;
+    .hero h1 span{
+      color:#0f766e;
     }
 
-    .hero p {
-      max-width: 700px;
-      margin: auto;
-      color: #58716b;
-      font-size: 18px;
+    .hero p{
+      max-width:700px;
+      margin:auto;
+      color:#58716b;
+      font-size:18px;
     }
 
-    .hero-buttons {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
+    .hero-buttons{
+      margin-top:30px;
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:12px;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 13px 20px;
-      border-radius: 12px;
-      border: 1px solid #c9ddd7;
-      background: white;
-      font-weight: 700;
-      transition: 0.2s;
+    .btn{
+      display:inline-block;
+      padding:13px 20px;
+      border-radius:12px;
+      border:1px solid #c9ddd7;
+      background:white;
+      font-weight:700;
+      transition:.2s;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
+    .btn:hover{
+      transform:translateY(-2px);
     }
 
-    .btn-primary {
-      background: #0f766e;
-      color: white;
-      border-color: #0f766e;
+    .btn-primary{
+      background:#0f766e;
+      color:white;
+      border-color:#0f766e;
     }
 
-    /* SECTION */
-
-    .section {
-      max-width: 1150px;
-      margin: 55px auto;
-      padding: 0 20px;
+    .section{
+      max-width:1150px;
+      margin:55px auto;
+      padding:0 20px;
     }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 25px;
+    .section-title{
+      text-align:center;
+      margin-bottom:25px;
     }
 
-    .section-title small {
-      color: #0f766e;
-      font-weight: 800;
-      letter-spacing: 2px;
+    .section-title small{
+      color:#0f766e;
+      font-weight:800;
+      letter-spacing:2px;
     }
 
-    .section-title h2 {
-      font-size: 34px;
-      margin-top: 5px;
+    .section-title h2{
+      font-size:34px;
+      margin-top:5px;
     }
 
-    /* CARDS */
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
     }
 
-    .card {
-      background: white;
-      border: 1px solid #e0ebe7;
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 8px 30px rgba(20,50,45,0.05);
-      transition: 0.25s;
+    .card{
+      background:white;
+      border:1px solid #e0ebe7;
+      border-radius:20px;
+      padding:25px;
+      box-shadow:0 8px 30px rgba(20,50,45,.05);
+      transition:.25s;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(20,50,45,0.10);
+    .card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 15px 35px rgba(20,50,45,.10);
     }
 
-    .card-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 15px;
-      background: #e7f6f1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 25px;
-      margin-bottom: 15px;
+    .card-icon{
+      width:52px;
+      height:52px;
+      border-radius:15px;
+      background:#e7f6f1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:25px;
+      margin-bottom:15px;
     }
 
-    .card h3 {
-      margin-bottom: 8px;
-      font-size: 20px;
+    .card h3{
+      margin-bottom:8px;
+      font-size:20px;
     }
 
-    .card p {
-      color: #657b75;
-      font-size: 14px;
-      margin-bottom: 15px;
+    .card p{
+      color:#657b75;
+      font-size:14px;
+      margin-bottom:15px;
     }
 
-    .card-link {
-      color: #0f766e;
-      font-weight: 700;
-      font-size: 14px;
+    .card-link{
+      color:#0f766e;
+      font-weight:700;
+      font-size:14px;
     }
 
-    /* HADITH */
-
-    .hadith {
-      max-width: 850px;
-      margin: auto;
-      padding: 35px;
-      background: white;
-      border: 1px solid #e0ebe7;
-      border-radius: 24px;
-      text-align: center;
-      box-shadow: 0 10px 35px rgba(20,50,45,0.06);
+    .hadith{
+      max-width:850px;
+      margin:auto;
+      padding:35px;
+      background:white;
+      border:1px solid #e0ebe7;
+      border-radius:24px;
+      text-align:center;
+      box-shadow:0 10px 35px rgba(20,50,45,.06);
     }
 
-    .hadith-icon {
-      font-size: 38px;
-      margin-bottom: 12px;
+    .hadith-icon{
+      font-size:38px;
+      margin-bottom:12px;
     }
 
-    .hadith h3 {
-      font-size: 25px;
-      margin-bottom: 15px;
+    .hadith h3{
+      font-size:25px;
+      margin-bottom:15px;
     }
 
-    .hadith p {
-      color: #526a63;
-      font-size: 17px;
+    .hadith p{
+      color:#526a63;
+      font-size:17px;
     }
 
-    /* AD */
-
-    .ad-box {
-      max-width: 1150px;
-      margin: 45px auto;
-      padding: 25px;
-      border: 1px dashed #afc8c0;
-      border-radius: 15px;
-      text-align: center;
-      color: #80918c;
-      font-size: 13px;
+    .ad-box{
+      max-width:1150px;
+      margin:45px auto;
+      padding:25px;
+      border:1px dashed #afc8c0;
+      border-radius:15px;
+      text-align:center;
+      color:#80918c;
+      font-size:13px;
     }
 
-    /* FOOTER */
-
-    footer {
-      margin-top: 70px;
-      background: #102f2a;
-      color: #d7e6e1;
-      padding: 45px 20px;
-      text-align: center;
+    footer{
+      margin-top:70px;
+      background:#102f2a;
+      color:#d7e6e1;
+      padding:45px 20px;
+      text-align:center;
     }
 
-    footer h3 {
-      color: white;
-      margin-bottom: 8px;
+    footer h3{
+      color:white;
+      margin-bottom:8px;
     }
 
-    footer p {
-      color: #a8beb8;
-      font-size: 14px;
+    footer p{
+      color:#a8beb8;
+      font-size:14px;
     }
 
-    /* MOBILE */
+    @media(max-width:850px){
 
-    @media (max-width: 850px) {
-
-      .cards {
-        grid-template-columns: repeat(2, 1fr);
+      .cards{
+        grid-template-columns:repeat(2,1fr);
       }
 
-      nav {
-        gap: 10px;
+      nav{
+        gap:10px;
       }
 
       nav a:nth-child(1),
       nav a:nth-child(2),
-      nav a:nth-child(3) {
-        display: none;
+      nav a:nth-child(3){
+        display:none;
       }
-
     }
 
-    @media (max-width: 600px) {
+    @media(max-width:600px){
 
-      .navbar {
-        padding: 12px 15px;
+      .navbar{
+        padding:12px 15px;
       }
 
-      .hero {
-        margin: 15px;
-        padding: 55px 20px;
-        border-radius: 24px;
+      .hero{
+        margin:15px;
+        padding:55px 20px;
+        border-radius:24px;
       }
 
-      .hero h1 {
-        font-size: 46px;
+      .hero h1{
+        font-size:46px;
       }
 
-      .hero p {
-        font-size: 16px;
+      .hero p{
+        font-size:16px;
       }
 
-      .section {
-        margin: 45px auto;
+      .section{
+        margin:45px auto;
       }
 
-      .cards {
-        grid-template-columns: 1fr;
+      .cards{
+        grid-template-columns:1fr;
       }
 
-      .hadith {
-        padding: 25px 18px;
+      .hadith{
+        padding:25px 18px;
       }
 
-      .logo {
-        font-size: 17px;
+      .logo{
+        font-size:17px;
       }
 
-      .logo-icon {
-        width: 38px;
-        height: 38px;
+      .logo-icon{
+        width:38px;
+        height:38px;
       }
     }
   </style>
@@ -361,206 +352,262 @@
 
 <body>
 
-  <!-- HEADER -->
+<header>
+  <div class="navbar">
 
-  <header>
-    <div class="navbar">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">☪</div>
+      <span>Qalb-e-Deen</span>
+    </a>
 
-      <a href="index.html" class="logo">
-        <div class="logo-icon">☪</div>
-        <span>Qalb-e-Deen</span>
+    <nav>
+      <a href="quran.html">Quran</a>
+      <a href="hadith.html">Hadith</a>
+      <a href="prayer-times.html">Prayer</a>
+      <a href="posts.html">Posts</a>
+
+      <!-- Login -->
+      <a href="login.html" class="login-btn" id="loginBtn">
+        Login
       </a>
 
-      <nav>
-        <a href="quran.html">Quran</a>
-        <a href="hadith.html">Hadith</a>
-        <a href="prayer-times.html">Prayer</a>
-        <a href="posts.html">Posts</a>
-        <a href="login.html" class="login-btn">Login</a>
-      </nav>
+      <!-- Profile -->
+      <a href="profile.html" class="profile-btn" id="profileBtn">
+        Profile
+      </a>
+    </nav>
+
+  </div>
+</header>
+
+
+<main>
+
+  <section class="hero">
+
+    <small>THE HEART OF DEEN</small>
+
+    <h1>
+      Learn. <span>Reflect.</span><br>
+      Share.
+    </h1>
+
+    <p>
+      A peaceful Islamic platform for Quran reading,
+      Hadith, prayer times, Islamic posts and beneficial knowledge.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a href="quran.html" class="btn btn-primary">
+        📖 Read Quran
+      </a>
+
+      <a href="hadith.html" class="btn">
+        📜 Today's Hadith
+      </a>
+
+      <a href="posts.html" class="btn">
+        📝 Explore Posts
+      </a>
 
     </div>
-  </header>
+
+  </section>
 
 
-  <!-- HERO -->
+  <section class="section">
 
-  <main>
+    <div class="section-title">
+      <small>EXPLORE</small>
+      <h2>Everything for Your Deen</h2>
+    </div>
 
-    <section class="hero">
+    <div class="cards">
 
-      <small>THE HEART OF DEEN</small>
+      <div class="card">
 
-      <h1>
-        Learn. <span>Reflect.</span><br>
-        Share.
-      </h1>
+        <div class="card-icon">📖</div>
 
-      <p>
-        A peaceful Islamic platform for Quran reading,
-        Hadith, prayer times, Islamic posts and beneficial knowledge.
-      </p>
-
-      <div class="hero-buttons">
-
-        <a href="quran.html" class="btn btn-primary">
-          📖 Read Quran
-        </a>
-
-        <a href="hadith.html" class="btn">
-          📜 Today's Hadith
-        </a>
-
-        <a href="posts.html" class="btn">
-          📝 Explore Posts
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- FEATURES -->
-
-    <section class="section">
-
-      <div class="section-title">
-        <small>EXPLORE</small>
-        <h2>Everything for Your Deen</h2>
-      </div>
-
-
-      <div class="cards">
-
-        <div class="card">
-
-          <div class="card-icon">📖</div>
-
-          <h3>Read Quran</h3>
-
-          <p>
-            Read the Quran directly from Qalb-e-Deen.
-          </p>
-
-          <a href="quran.html" class="card-link">
-            Read Quran →
-          </a>
-
-        </div>
-
-
-        <div class="card">
-
-          <div class="card-icon">📜</div>
-
-          <h3>Hadith</h3>
-
-          <p>
-            Discover today's Hadith and browse the complete Hadith collection.
-          </p>
-
-          <a href="hadith.html" class="card-link">
-            View All Hadith →
-          </a>
-
-        </div>
-
-
-        <div class="card">
-
-          <div class="card-icon">🕌</div>
-
-          <h3>Prayer Times</h3>
-
-          <p>
-            Get daily prayer times and track your next prayer.
-          </p>
-
-          <a href="prayer-times.html" class="card-link">
-            Prayer Times →
-          </a>
-
-        </div>
-
-
-        <div class="card">
-
-          <div class="card-icon">📝</div>
-
-          <h3>Islamic Posts</h3>
-
-          <p>
-            Share beneficial Islamic reminders and knowledge with the community.
-          </p>
-
-          <a href="posts.html" class="card-link">
-            Explore Posts →
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- TODAY'S HADITH -->
-
-    <section class="section">
-
-      <div class="section-title">
-        <small>DAILY REMINDER</small>
-        <h2>Today's Hadith</h2>
-      </div>
-
-      <div class="hadith">
-
-        <div class="hadith-icon">📜</div>
-
-        <h3>Hadith of the Day</h3>
+        <h3>Read Quran</h3>
 
         <p>
-          The daily Hadith system will automatically update
-          from the Qalb-e-Deen Hadith collection.
+          Read the Quran directly from Qalb-e-Deen.
         </p>
 
-        <br>
-
-        <a href="hadith.html" class="btn btn-primary">
-          View All Hadith
+        <a href="quran.html" class="card-link">
+          Read Quran →
         </a>
 
       </div>
 
-    </section>
+
+      <div class="card">
+
+        <div class="card-icon">📜</div>
+
+        <h3>Hadith</h3>
+
+        <p>
+          Discover today's Hadith and browse the complete Hadith collection.
+        </p>
+
+        <a href="hadith.html" class="card-link">
+          View All Hadith →
+        </a>
+
+      </div>
 
 
-    <!-- ADVERTISEMENT -->
+      <div class="card">
 
-    <div class="ad-box">
-      Advertisement
+        <div class="card-icon">🕌</div>
+
+        <h3>Prayer Times</h3>
+
+        <p>
+          Get daily prayer times and track your next prayer.
+        </p>
+
+        <a href="prayer-times.html" class="card-link">
+          Prayer Times →
+        </a>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">📝</div>
+
+        <h3>Islamic Posts</h3>
+
+        <p>
+          Share beneficial Islamic reminders and knowledge with the community.
+        </p>
+
+        <a href="posts.html" class="card-link">
+          Explore Posts →
+        </a>
+
+      </div>
+
     </div>
 
-  </main>
+  </section>
 
 
-  <!-- FOOTER -->
+  <section class="section">
 
-  <footer>
+    <div class="section-title">
+      <small>DAILY REMINDER</small>
+      <h2>Today's Hadith</h2>
+    </div>
 
-    <h3>Qalb-e-Deen</h3>
+    <div class="hadith">
 
-    <p>
-      The Heart of Deen — Learn, Reflect & Share.
-    </p>
+      <div class="hadith-icon">📜</div>
 
-    <br>
+      <h3>Hadith of the Day</h3>
 
-    <p>
-      © 2026 Qalb-e-Deen. All rights reserved.
-    </p>
+      <p>
+        The daily Hadith system will automatically update
+        from the Qalb-e-Deen Hadith collection.
+      </p>
 
-  </footer>
+      <br>
+
+      <a href="hadith.html" class="btn btn-primary">
+        View All Hadith
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <div class="ad-box">
+    Advertisement
+  </div>
+
+</main>
+
+
+<footer>
+
+  <h3>Qalb-e-Deen</h3>
+
+  <p>
+    The Heart of Deen — Learn, Reflect & Share.
+  </p>
+
+  <br>
+
+  <p>
+    © 2026 Qalb-e-Deen. All rights reserved.
+  </p>
+
+</footer>
+
+
+<!-- FIREBASE -->
+
+<script type="module">
+
+  import { initializeApp }
+    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+  import {
+    getAuth,
+    onAuthStateChanged
+  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+  const firebaseConfig = {
+
+    apiKey: "AIzaSyDQoJKty9i3BqBPehwKDemmSgXf9Oe9qo8",
+
+    authDomain: "qalb-e-deen-6af8e.firebaseapp.com",
+
+    projectId: "qalb-e-deen-6af8e",
+
+    storageBucket: "qalb-e-deen-6af8e.firebasestorage.app",
+
+    messagingSenderId: "983132945914",
+
+    appId: "1:983132945914:web:c4cd95d50a5259cbbdf843"
+
+  };
+
+
+  const app = initializeApp(firebaseConfig);
+
+  const auth = getAuth(app);
+
+
+  const loginBtn = document.getElementById("loginBtn");
+  const profileBtn = document.getElementById("profileBtn");
+
+
+  onAuthStateChanged(auth, (user) => {
+
+    if(user){
+
+      loginBtn.style.display = "none";
+
+      profileBtn.style.display = "inline-block";
+
+    }else{
+
+      loginBtn.style.display = "inline-block";
+
+      profileBtn.style.display = "none";
+
+    }
+
+  });
+
+</script>
 
 </body>
-    </html>
+                             </html>
