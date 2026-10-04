@@ -6,6 +6,11 @@
 
   <title>Login / Sign Up — Qalb-e-Deen</title>
 
+  <meta
+    name="description"
+    content="Login or create your account on Qalb-e-Deen — The Heart of Deen."
+  >
+
   <style>
     * {
       box-sizing: border-box;
@@ -14,25 +19,20 @@
     }
 
     body {
-      min-height: 100vh;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #071b16, #0d3027, #071b16);
-      color: white;
+      min-height: 100vh;
+      background:
+        linear-gradient(135deg, #061b16, #0b3027, #10251f);
+      color: #fff;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       padding: 20px;
     }
 
-    .box {
+    .container {
       width: 100%;
       max-width: 430px;
-      padding: 30px 25px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      backdrop-filter: blur(15px);
-      box-shadow: 0 20px 60px rgba(0,0,0,.35);
     }
 
     .logo {
@@ -41,14 +41,23 @@
     }
 
     .logo h1 {
-      color: #d7b56d;
       font-size: 32px;
-      margin-bottom: 6px;
+      color: #d8b46a;
+      margin-bottom: 7px;
     }
 
     .logo p {
-      color: #c7d5d0;
+      color: #b9c8c2;
       font-size: 14px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px;
+      padding: 28px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
     }
 
     .tabs {
@@ -57,257 +66,303 @@
       margin-bottom: 25px;
     }
 
-    .tabs button {
+    .tab {
       flex: 1;
-      padding: 13px;
+      padding: 12px;
       border: none;
-      border-radius: 12px;
-      background: rgba(255,255,255,.08);
-      color: white;
+      border-radius: 10px;
       cursor: pointer;
       font-size: 15px;
-    }
-
-    .tabs button.active {
-      background: #d7b56d;
-      color: #071b16;
       font-weight: bold;
+      background: rgba(255,255,255,0.08);
+      color: #bbb;
     }
 
-    form {
+    .tab.active {
+      background: #d8b46a;
+      color: #10251f;
+    }
+
+    .form {
       display: none;
     }
 
-    form.active {
+    .form.active {
       display: block;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
     }
 
     label {
       display: block;
-      margin: 14px 0 7px;
-      color: #d9e3df;
+      margin-bottom: 7px;
       font-size: 14px;
+      color: #d5dedb;
     }
 
     input {
       width: 100%;
-      padding: 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.15);
-      background: rgba(0,0,0,.2);
-      color: white;
+      padding: 13px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
       outline: none;
+      background: rgba(0,0,0,0.25);
+      color: #fff;
       font-size: 15px;
     }
 
     input:focus {
-      border-color: #d7b56d;
+      border-color: #d8b46a;
     }
 
-    .main-btn {
+    input::placeholder {
+      color: #87948f;
+    }
+
+    .btn {
       width: 100%;
-      margin-top: 22px;
       padding: 14px;
       border: none;
-      border-radius: 12px;
-      background: #d7b56d;
-      color: #071b16;
+      border-radius: 11px;
+      background: #d8b46a;
+      color: #10251f;
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
+      margin-top: 5px;
     }
 
-    .main-btn:disabled {
-      opacity: .6;
+    .btn:hover {
+      opacity: 0.9;
     }
 
-    #message {
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .message {
+      margin-top: 15px;
+      padding: 11px;
+      border-radius: 9px;
       display: none;
-      margin-top: 16px;
-      padding: 12px;
-      border-radius: 10px;
       font-size: 14px;
       line-height: 1.5;
     }
 
-    #message.success {
+    .success {
       display: block;
-      background: rgba(50,180,110,.15);
-      color: #a9f0c8;
+      background: rgba(46, 204, 113, 0.15);
+      color: #7ff0aa;
     }
 
-    #message.error {
+    .error {
       display: block;
-      background: rgba(220,60,60,.15);
-      color: #ffb1b1;
+      background: rgba(231, 76, 60, 0.15);
+      color: #ff9b91;
     }
 
     .back {
-      display: block;
       text-align: center;
-      margin-top: 22px;
-      color: #d7b56d;
+      margin-top: 20px;
+    }
+
+    .back a {
+      color: #d8b46a;
       text-decoration: none;
+      font-size: 14px;
+    }
+
+    .small-text {
+      text-align: center;
+      color: #9eaaa6;
+      font-size: 12px;
+      margin-top: 18px;
+      line-height: 1.5;
     }
   </style>
 </head>
 
 <body>
 
-<div class="box">
+<div class="container">
 
   <div class="logo">
     <h1>Qalb-e-Deen</h1>
     <p>The Heart of Deen</p>
   </div>
 
-  <div class="tabs">
-    <button id="loginTab" class="active">Login</button>
-    <button id="signupTab">Sign Up</button>
+  <div class="card">
+
+    <div class="tabs">
+      <button id="loginTab" class="tab active">
+        Login
+      </button>
+
+      <button id="signupTab" class="tab">
+        Sign Up
+      </button>
+    </div>
+
+
+    <!-- LOGIN FORM -->
+    <div id="loginForm" class="form active">
+
+      <h2>Welcome Back</h2>
+
+      <div class="input-group">
+        <label>Email Address</label>
+        <input
+          type="email"
+          id="loginEmail"
+          placeholder="Enter your email"
+          autocomplete="email"
+        >
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input
+          type="password"
+          id="loginPassword"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+        >
+      </div>
+
+      <button id="loginBtn" class="btn">
+        Login
+      </button>
+
+      <div id="loginMessage" class="message"></div>
+
+    </div>
+
+
+    <!-- SIGN UP FORM -->
+    <div id="signupForm" class="form">
+
+      <h2>Create Account</h2>
+
+      <div class="input-group">
+        <label>Your Name</label>
+        <input
+          type="text"
+          id="signupName"
+          placeholder="Enter your name"
+          autocomplete="name"
+        >
+      </div>
+
+      <div class="input-group">
+        <label>Email Address</label>
+        <input
+          type="email"
+          id="signupEmail"
+          placeholder="Enter your email"
+          autocomplete="email"
+        >
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input
+          type="password"
+          id="signupPassword"
+          placeholder="Minimum 6 characters"
+          autocomplete="new-password"
+        >
+      </div>
+
+      <div class="input-group">
+        <label>Confirm Password</label>
+        <input
+          type="password"
+          id="signupConfirmPassword"
+          placeholder="Confirm your password"
+          autocomplete="new-password"
+        >
+      </div>
+
+      <button id="signupBtn" class="btn">
+        Create Account
+      </button>
+
+      <div id="signupMessage" class="message"></div>
+
+    </div>
+
+
+    <div class="back">
+      <a href="index.html">← Back to Qalb-e-Deen</a>
+    </div>
+
+    <div class="small-text">
+      By creating an account, you agree to use Qalb-e-Deen respectfully
+      and responsibly.
+    </div>
+
   </div>
-
-
-  <!-- LOGIN -->
-
-  <form id="loginForm" class="active">
-
-    <label>Email</label>
-
-    <input
-      type="email"
-      id="loginEmail"
-      placeholder="Enter your email"
-      required
-    >
-
-    <label>Password</label>
-
-    <input
-      type="password"
-      id="loginPassword"
-      placeholder="Enter your password"
-      required
-    >
-
-    <button
-      type="submit"
-      class="main-btn"
-      id="loginBtn"
-    >
-      Login
-    </button>
-
-  </form>
-
-
-  <!-- SIGN UP -->
-
-  <form id="signupForm">
-
-    <label>Full Name</label>
-
-    <input
-      type="text"
-      id="signupName"
-      placeholder="Enter your full name"
-      required
-    >
-
-    <label>Email</label>
-
-    <input
-      type="email"
-      id="signupEmail"
-      placeholder="Enter your email"
-      required
-    >
-
-    <label>Password</label>
-
-    <input
-      type="password"
-      id="signupPassword"
-      placeholder="Minimum 6 characters"
-      minlength="6"
-      required
-    >
-
-    <button
-      type="submit"
-      class="main-btn"
-      id="signupBtn"
-    >
-      Create Account
-    </button>
-
-  </form>
-
-
-  <div id="message"></div>
-
-  <a href="index.html" class="back">
-    ← Back to Qalb-e-Deen
-  </a>
 
 </div>
 
 
+<!-- Firebase -->
 <script type="module">
 
-  // =========================
-  // FIREBASE IMPORTS
-  // =========================
-
-  import { initializeApp }
-    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { initializeApp } from
+    "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 
   import {
     getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     updateProfile
-  }
-    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  } from
+    "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 
   import {
     getFirestore,
     doc,
     setDoc,
     serverTimestamp
-  }
-    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  } from
+    "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 
-  // =========================
+  // =========================================
   // FIREBASE CONFIG
-  // =========================
+  // =========================================
 
   const firebaseConfig = {
 
-    apiKey:
-      "AIzaSyDQoJKty9i3BqBPehwKDemmSgXf9Oe9qo8",
+    apiKey: "AIzaSyC4sRpUYVLURCkbAbfvUccL5n71Dveiik4",
 
     authDomain:
-      "qalb-e-deen-6af8e.firebaseapp.com",
+      "qalb-e-deen-b765a.firebaseapp.com",
 
     projectId:
-      "qalb-e-deen-6af8e",
+      "qalb-e-deen-b765a",
 
     storageBucket:
-      "qalb-e-deen-6af8e.firebasestorage.app",
+      "qalb-e-deen-b765a.firebasestorage.app",
 
     messagingSenderId:
-      "983132945914",
+      "226972777842",
 
     appId:
-      "1:983132945914:web:c4cd95d50a5259cbbdf843"
+      "1:226972777842:web:0d1439b9d4dc66d8bfb1eb"
   };
 
 
-  // =========================
-  // INITIALIZE FIREBASE
-  // =========================
-
+  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 
   const auth = getAuth(app);
@@ -315,9 +370,9 @@
   const db = getFirestore(app);
 
 
-  // =========================
+  // =========================================
   // ELEMENTS
-  // =========================
+  // =========================================
 
   const loginTab =
     document.getElementById("loginTab");
@@ -337,196 +392,162 @@
   const signupBtn =
     document.getElementById("signupBtn");
 
-  const message =
-    document.getElementById("message");
 
-
-  // =========================
-  // MESSAGE
-  // =========================
-
-  function showMessage(text, type) {
-
-    message.textContent = text;
-
-    message.className = type;
-
-  }
-
-
-  function clearMessage() {
-
-    message.textContent = "";
-
-    message.className = "";
-
-  }
-
-
-  // =========================
-  // LOGIN TAB
-  // =========================
+  // =========================================
+  // TAB SWITCH
+  // =========================================
 
   loginTab.addEventListener("click", () => {
 
     loginTab.classList.add("active");
-
     signupTab.classList.remove("active");
 
     loginForm.classList.add("active");
-
     signupForm.classList.remove("active");
-
-    clearMessage();
 
   });
 
-
-  // =========================
-  // SIGN UP TAB
-  // =========================
 
   signupTab.addEventListener("click", () => {
 
     signupTab.classList.add("active");
-
     loginTab.classList.remove("active");
 
     signupForm.classList.add("active");
-
     loginForm.classList.remove("active");
 
-    clearMessage();
-
   });
 
 
-  // =========================
-  // LOGIN
-  // =========================
+  // =========================================
+  // MESSAGE FUNCTION
+  // =========================================
 
-  loginForm.addEventListener("submit", async (e) => {
+  function showMessage(element, message, type) {
 
-    e.preventDefault();
+    element.textContent = message;
 
-    clearMessage();
+    element.className =
+      "message " + type;
 
-    const email =
-      document.getElementById("loginEmail")
-      .value
-      .trim();
-
-    const password =
-      document.getElementById("loginPassword")
-      .value;
-
-    loginBtn.disabled = true;
-
-    loginBtn.textContent = "Logging in...";
+  }
 
 
-    try {
+  function firebaseError(error) {
 
-      await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+    switch (error.code) {
 
+      case "auth/email-already-in-use":
+        return "This email is already registered.";
 
-      showMessage(
-        "Login successful! Redirecting...",
-        "success"
-      );
+      case "auth/invalid-email":
+        return "Please enter a valid email address.";
 
+      case "auth/weak-password":
+        return "Password must be at least 6 characters.";
 
-      setTimeout(() => {
+      case "auth/invalid-credential":
+        return "Incorrect email or password.";
 
-        window.location.href = "profile.html";
+      case "auth/user-not-found":
+        return "No account found with this email.";
 
-      }, 1000);
+      case "auth/wrong-password":
+        return "Incorrect password.";
 
+      case "permission-denied":
+        return "Firestore permission denied. Please check Firestore Rules.";
 
-    } catch (error) {
-
-      console.error(error);
-
-      showMessage(
-        "Login failed: " + error.message,
-        "error"
-      );
-
+      default:
+        return error.message || "Something went wrong.";
     }
 
-
-    loginBtn.disabled = false;
-
-    loginBtn.textContent = "Login";
-
-  });
+  }
 
 
-  // =========================
+  // =========================================
   // SIGN UP
-  // =========================
+  // =========================================
 
-  signupForm.addEventListener("submit", async (e) => {
-
-    e.preventDefault();
-
-    clearMessage();
-
+  signupBtn.addEventListener("click", async () => {
 
     const name =
-      document.getElementById("signupName")
-      .value
-      .trim();
+      document.getElementById("signupName").value.trim();
 
     const email =
-      document.getElementById("signupEmail")
-      .value
-      .trim();
+      document.getElementById("signupEmail").value.trim();
 
     const password =
-      document.getElementById("signupPassword")
-      .value;
+      document.getElementById("signupPassword").value;
+
+    const confirmPassword =
+      document.getElementById("signupConfirmPassword").value;
+
+    const message =
+      document.getElementById("signupMessage");
 
 
-    if (name.length < 2) {
+    // Validation
+
+    if (!name) {
 
       showMessage(
-        "Please enter your full name.",
+        message,
+        "Please enter your name.",
         "error"
       );
 
       return;
+    }
 
+
+    if (!email) {
+
+      showMessage(
+        message,
+        "Please enter your email.",
+        "error"
+      );
+
+      return;
     }
 
 
     if (password.length < 6) {
 
       showMessage(
+        message,
         "Password must be at least 6 characters.",
         "error"
       );
 
       return;
+    }
 
+
+    if (password !== confirmPassword) {
+
+      showMessage(
+        message,
+        "Passwords do not match.",
+        "error"
+      );
+
+      return;
     }
 
 
     signupBtn.disabled = true;
 
-    signupBtn.textContent = "Creating Account...";
+    signupBtn.textContent =
+      "Creating Account...";
 
 
     try {
 
-      // STEP 1
-      // Create Authentication account
+      // Create Firebase Authentication account
 
-      const result =
+      const userCredential =
         await createUserWithEmailAndPassword(
           auth,
           email,
@@ -534,17 +555,11 @@
         );
 
 
-      const user = result.user;
+      const user =
+        userCredential.user;
 
 
-      console.log(
-        "Firebase Auth UID:",
-        user.uid
-      );
-
-
-      // STEP 2
-      // Save display name
+      // Update Firebase Auth profile
 
       await updateProfile(user, {
 
@@ -553,45 +568,47 @@
       });
 
 
-      // STEP 3
-      // Create Firestore profile
+      // =====================================
+      // CREATE FIRESTORE USER PROFILE
+      // Collection: user
+      // Document: UID
+      // =====================================
 
-      const userRef =
-        doc(db, "users", user.uid);
+      await setDoc(
+        doc(db, "user", user.uid),
+        {
 
+          uid: user.uid,
 
-      await setDoc(userRef, {
+          name: name,
 
-        name: name,
+          email: email,
 
-        email: email,
+          role: "user",
 
-        role: "user",
+          bio: "",
 
-        bio: "",
+          photoURL: "",
 
-        photoURL: "",
+          createdAt: serverTimestamp(),
 
-        createdAt: serverTimestamp(),
+          updatedAt: serverTimestamp()
 
-        updatedAt: serverTimestamp()
+        }
+      );
 
-      });
-
-
-      // STEP 4
 
       showMessage(
-        "Account created successfully! Opening profile...",
+        message,
+        "Account created successfully! Redirecting...",
         "success"
       );
 
 
-      // STEP 5
-
       setTimeout(() => {
 
-        window.location.href = "profile.html";
+        window.location.href =
+          "profile.html";
 
       }, 1200);
 
@@ -603,18 +620,105 @@
         error
       );
 
-
       showMessage(
-        "Error: " + error.message,
+        message,
+        firebaseError(error),
         "error"
       );
 
+    } finally {
+
+      signupBtn.disabled = false;
+
+      signupBtn.textContent =
+        "Create Account";
+
+    }
+
+  });
+
+
+  // =========================================
+  // LOGIN
+  // =========================================
+
+  loginBtn.addEventListener("click", async () => {
+
+    const email =
+      document.getElementById("loginEmail").value.trim();
+
+    const password =
+      document.getElementById("loginPassword").value;
+
+    const message =
+      document.getElementById("loginMessage");
+
+
+    if (!email || !password) {
+
+      showMessage(
+        message,
+        "Please enter email and password.",
+        "error"
+      );
+
+      return;
     }
 
 
-    signupBtn.disabled = false;
+    loginBtn.disabled = true;
 
-    signupBtn.textContent = "Create Account";
+    loginBtn.textContent =
+      "Logging in...";
+
+
+    try {
+
+      // Firebase Login
+
+      await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+
+      showMessage(
+        message,
+        "Login successful! Redirecting...",
+        "success"
+      );
+
+
+      setTimeout(() => {
+
+        window.location.href =
+          "profile.html";
+
+      }, 800);
+
+
+    } catch (error) {
+
+      console.error(
+        "LOGIN ERROR:",
+        error
+      );
+
+      showMessage(
+        message,
+        firebaseError(error),
+        "error"
+      );
+
+    } finally {
+
+      loginBtn.disabled = false;
+
+      loginBtn.textContent =
+        "Login";
+
+    }
 
   });
 
