@@ -1,505 +1,822 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>My Profile — Qalb-e-Deen</title>
+<title>My Profile — Qalb-e-Deen</title>
 
-  <meta name="description"
-        content="Manage your Qalb-e-Deen profile.">
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+body{
+  min-height:100vh;
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at top,#173b35 0%,#081512 45%,#050b0a 100%);
+  color:#fff;
+  padding:20px;
+}
 
-    body{
-      min-height:100vh;
-      font-family:Arial,Helvetica,sans-serif;
-      background:
-        radial-gradient(circle at top,#173b35 0%,#081512 45%,#050b0a 100%);
-      color:#fff;
-      padding:20px;
-    }
+.navbar{
+  max-width:1000px;
+  margin:0 auto 25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+  background:rgba(12,28,24,.9);
+  border:1px solid rgba(216,180,90,.15);
+  border-radius:16px;
+}
 
-    .navbar{
-      max-width:1000px;
-      margin:0 auto 25px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:15px 20px;
-      background:rgba(12,28,24,.9);
-      border:1px solid rgba(216,180,90,.15);
-      border-radius:16px;
-    }
+.logo{
+  color:#f3d98b;
+  font-family:Georgia,serif;
+  font-size:22px;
+  font-weight:bold;
+  text-decoration:none;
+}
 
-    .logo{
-      color:#f3d98b;
-      font-family:Georgia,serif;
-      font-size:22px;
-      font-weight:bold;
-      text-decoration:none;
-    }
+.nav-links a{
+  color:#b9c6c1;
+  text-decoration:none;
+  font-size:14px;
+}
 
-    .nav-links{
-      display:flex;
-      gap:10px;
-    }
+.nav-links a:hover{
+  color:#f3d98b;
+}
 
-    .nav-links a{
-      color:#b9c6c1;
-      text-decoration:none;
-      font-size:14px;
-    }
+.container{
+  max-width:700px;
+  margin:auto;
+}
 
-    .nav-links a:hover{
-      color:#f3d98b;
-    }
+.card{
+  background:rgba(14,31,27,.95);
+  border:1px solid rgba(216,180,90,.18);
+  border-radius:25px;
+  padding:30px;
+  box-shadow:0 25px 80px rgba(0,0,0,.45);
+}
 
-    .container{
-      max-width:700px;
-      margin:auto;
-    }
+.loading{
+  text-align:center;
+  padding:60px 20px;
+  color:#b5c0bc;
+}
 
-    .card{
-      background:rgba(14,31,27,.95);
-      border:1px solid rgba(216,180,90,.18);
-      border-radius:25px;
-      padding:30px;
-      box-shadow:0 25px 80px rgba(0,0,0,.45);
-    }
+.hidden{
+  display:none!important;
+}
 
-    .profile-header{
-      text-align:center;
-      padding-bottom:25px;
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
+.profile-header{
+  text-align:center;
+  padding-bottom:25px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
 
-    .avatar-wrapper{
-      position:relative;
-      width:115px;
-      height:115px;
-      margin:0 auto 15px;
-    }
+.avatar{
+  width:115px;
+  height:115px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #d8b45a;
+  background:#10251f;
+  margin-bottom:15px;
+}
 
-    .avatar{
-      width:115px;
-      height:115px;
-      border-radius:50%;
-      object-fit:cover;
-      border:3px solid #d8b45a;
-      background:#10251f;
-      display:block;
-    }
+.avatar-placeholder{
+  width:115px;
+  height:115px;
+  border-radius:50%;
+  border:3px solid #d8b45a;
+  background:linear-gradient(135deg,#173b35,#091511);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:45px;
+  color:#d8b45a;
+  margin:0 auto 15px;
+}
 
-    .avatar-placeholder{
-      width:115px;
-      height:115px;
-      border-radius:50%;
-      border:3px solid #d8b45a;
-      background:linear-gradient(135deg,#173b35,#091511);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:45px;
-      color:#d8b45a;
-    }
+.profile-header h1{
+  font-family:Georgia,serif;
+  color:#f3d98b;
+  font-size:28px;
+  margin-bottom:7px;
+}
 
-    .profile-header h1{
-      font-family:Georgia,serif;
-      color:#f3d98b;
-      font-size:28px;
-      margin-bottom:7px;
-    }
+.email{
+  color:#9ca9a4;
+  font-size:14px;
+}
 
-    .email{
-      color:#9ca9a4;
-      font-size:14px;
-    }
+.role{
+  display:inline-block;
+  margin-top:12px;
+  padding:6px 13px;
+  border-radius:20px;
+  background:rgba(216,180,90,.12);
+  color:#e8ca7b;
+  border:1px solid rgba(216,180,90,.2);
+  font-size:12px;
+  font-weight:bold;
+  text-transform:uppercase;
+}
 
-    .role{
-      display:inline-block;
-      margin-top:12px;
-      padding:6px 13px;
-      border-radius:20px;
-      background:rgba(216,180,90,.12);
-      color:#e8ca7b;
-      border:1px solid rgba(216,180,90,.2);
-      font-size:12px;
-      font-weight:bold;
-      text-transform:uppercase;
-      letter-spacing:.5px;
-    }
+.section{
+  margin-top:25px;
+}
 
-    .section{
-      margin-top:25px;
-    }
+.section-title{
+  color:#f3d98b;
+  font-family:Georgia,serif;
+  font-size:20px;
+  margin-bottom:17px;
+}
 
-    .section-title{
-      color:#f3d98b;
-      font-family:Georgia,serif;
-      font-size:20px;
-      margin-bottom:17px;
-    }
+.input-group{
+  margin-bottom:17px;
+}
 
-    .input-group{
-      margin-bottom:17px;
-    }
+label{
+  display:block;
+  color:#d1dad6;
+  font-size:14px;
+  margin-bottom:7px;
+}
 
-    label{
-      display:block;
-      color:#d1dad6;
-      font-size:14px;
-      margin-bottom:7px;
-    }
+input,
+textarea{
+  width:100%;
+  border:1px solid #29443d;
+  background:#081512;
+  color:#fff;
+  border-radius:12px;
+  padding:13px 14px;
+  outline:none;
+  font-size:15px;
+  font-family:inherit;
+}
 
-    input,
-    textarea{
-      width:100%;
-      border:1px solid #29443d;
-      background:#081512;
-      color:#fff;
-      border-radius:12px;
-      padding:13px 14px;
-      outline:none;
-      font-size:15px;
-      font-family:inherit;
-    }
+input:focus,
+textarea:focus{
+  border-color:#d8b45a;
+}
 
-    input:focus,
-    textarea:focus{
-      border-color:#d8b45a;
-      box-shadow:0 0 0 3px rgba(216,180,90,.08);
-    }
+input:disabled{
+  opacity:.65;
+}
 
-    textarea{
-      min-height:110px;
-      resize:vertical;
-    }
+textarea{
+  min-height:110px;
+  resize:vertical;
+}
 
-    input:disabled{
-      opacity:.65;
-      cursor:not-allowed;
-    }
+.btn{
+  border:0;
+  border-radius:12px;
+  padding:13px 18px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
 
-    .btn{
-      border:0;
-      border-radius:12px;
-      padding:13px 18px;
-      font-size:15px;
-      font-weight:bold;
-      cursor:pointer;
-      transition:.2s;
-    }
+.btn-primary{
+  width:100%;
+  background:linear-gradient(135deg,#d8b45a,#f0d487);
+  color:#10241f;
+}
 
-    .btn-primary{
-      width:100%;
-      background:linear-gradient(135deg,#d8b45a,#f0d487);
-      color:#10241f;
-    }
+.btn-danger{
+  width:100%;
+  margin-top:12px;
+  background:#351b1b;
+  border:1px solid #693333;
+  color:#ffaaa5;
+}
 
-    .btn-primary:hover{
-      transform:translateY(-1px);
-      box-shadow:0 8px 25px rgba(216,180,90,.2);
-    }
+.message{
+  display:none;
+  margin-top:15px;
+  padding:12px;
+  border-radius:10px;
+  font-size:14px;
+}
 
-    .btn-danger{
-      width:100%;
-      margin-top:12px;
-      background:#351b1b;
-      border:1px solid #693333;
-      color:#ffaaa5;
-    }
+.message.show{
+  display:block;
+}
 
-    .btn-danger:hover{
-      background:#4a2020;
-    }
+.message.success{
+  background:rgba(70,190,130,.12);
+  border:1px solid rgba(70,190,130,.3);
+  color:#9ff0c7;
+}
 
-    .message{
-      display:none;
-      margin-top:15px;
-      padding:12px;
-      border-radius:10px;
-      font-size:14px;
-      line-height:1.5;
-    }
+.message.error{
+  background:rgba(220,70,70,.12);
+  border:1px solid rgba(220,70,70,.3);
+  color:#ffaaa5;
+}
 
-    .message.show{
-      display:block;
-    }
+.footer{
+  text-align:center;
+  max-width:700px;
+  margin:20px auto;
+  color:#697873;
+  font-size:12px;
+}
 
-    .message.success{
-      background:rgba(70,190,130,.12);
-      border:1px solid rgba(70,190,130,.3);
-      color:#9ff0c7;
-    }
+@media(max-width:600px){
 
-    .message.error{
-      background:rgba(220,70,70,.12);
-      border:1px solid rgba(220,70,70,.3);
-      color:#ffaaa5;
-    }
+  body{
+    padding:12px;
+  }
 
-    .loading{
-      text-align:center;
-      padding:60px 20px;
-      color:#b5c0bc;
-    }
+  .card{
+    padding:22px 17px;
+  }
 
-    .hidden{
-      display:none!important;
-    }
-
-    .info-box{
-      padding:15px;
-      border-radius:12px;
-      background:#091713;
-      border:1px solid rgba(255,255,255,.06);
-      color:#aebbb6;
-      font-size:13px;
-      line-height:1.6;
-      margin-bottom:20px;
-    }
-
-    .footer{
-      text-align:center;
-      max-width:700px;
-      margin:20px auto;
-      color:#697873;
-      font-size:12px;
-    }
-
-    @media(max-width:600px){
-
-      body{
-        padding:12px;
-      }
-
-      .navbar{
-        padding:13px 15px;
-      }
-
-      .nav-links{
-        gap:6px;
-      }
-
-      .card{
-        padding:22px 17px;
-      }
-
-      .profile-header h1{
-        font-size:25px;
-      }
-    }
-  </style>
+  .profile-header h1{
+    font-size:25px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
+<nav class="navbar">
 
-    <a href="index.html" class="logo">
-      Qalb-e-Deen
-    </a>
+  <a href="index.html" class="logo">
+    Qalb-e-Deen
+  </a>
 
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-    </div>
-
-  </nav>
-
-
-  <!-- LOADING -->
-  <div id="loading" class="container">
-
-    <div class="card loading">
-      Loading your profile...
-    </div>
-
+  <div class="nav-links">
+    <a href="index.html">Home</a>
   </div>
 
+</nav>
 
-  <!-- PROFILE -->
-  <main id="profileContainer" class="container hidden">
 
-    <div class="card">
+<!-- LOADING -->
+<div id="loading" class="container">
 
-      <!-- PROFILE HEADER -->
-      <div class="profile-header">
+  <div class="card loading">
+    Loading your profile...
+  </div>
 
-        <div class="avatar-wrapper">
+</div>
 
-          <div id="avatarPlaceholder"
-               class="avatar-placeholder">
-            ☪
-          </div>
 
-          <img
-            id="avatar"
-            class="avatar hidden"
-            alt="Profile picture"
-          >
+<!-- PROFILE -->
+<main id="profileContainer" class="container hidden">
 
-        </div>
+  <div class="card">
 
-        <h1 id="displayName">
-          User
-        </h1>
+    <div class="profile-header">
 
-        <div id="displayEmail" class="email">
-          —
-        </div>
-
-        <div id="displayRole" class="role">
-          User
-        </div>
-
+      <div id="avatarPlaceholder"
+           class="avatar-placeholder">
+        ☪
       </div>
 
+      <img
+        id="avatar"
+        class="avatar hidden"
+        alt="Profile picture"
+      >
 
-      <!-- EDIT PROFILE -->
-      <section class="section">
+      <h1 id="displayName">
+        User
+      </h1>
 
-        <h2 class="section-title">
-          Edit Profile
-        </h2>
+      <div id="displayEmail" class="email">
+        —
+      </div>
 
-        <div class="info-box">
-          Keep your profile information updated.
-          Your email address is managed by Firebase
-          Authentication.
-        </div>
-
-
-        <form id="profileForm">
-
-          <div class="input-group">
-
-            <label for="name">
-              Full Name
-            </label>
-
-            <input
-              type="text"
-              id="name"
-              placeholder="Your full name"
-              required
-            >
-
-          </div>
-
-
-          <div class="input-group">
-
-            <label for="email">
-              Email Address
-            </label>
-
-            <input
-              type="email"
-              id="email"
-              disabled
-            >
-
-          </div>
-
-
-          <div class="input-group">
-
-            <label for="photoURL">
-              Profile Picture URL
-            </label>
-
-            <input
-              type="url"
-              id="photoURL"
-              placeholder="https://example.com/photo.jpg"
-            >
-
-          </div>
-
-
-          <div class="input-group">
-
-            <label for="bio">
-              About Me
-            </label>
-
-            <textarea
-              id="bio"
-              placeholder="Tell something about yourself..."
-            ></textarea>
-
-          </div>
-
-
-          <button
-            type="submit"
-            id="saveBtn"
-            class="btn btn-primary"
-          >
-            Save Profile
-          </button>
-
-        </form>
-
-
-        <div id="message" class="message"></div>
-
-      </section>
-
-
-      <!-- ACCOUNT -->
-      <section class="section">
-
-        <h2 class="section-title">
-          Account
-        </h2>
-
-        <button
-          id="logoutBtn"
-          class="btn btn-danger"
-        >
-          Logout
-        </button>
-
-      </section>
+      <div id="displayRole" class="role">
+        User
+      </div>
 
     </div>
 
-  </main>
+
+    <section class="section">
+
+      <h2 class="section-title">
+        Edit Profile
+      </h2>
+
+      <form id="profileForm">
+
+        <div class="input-group">
+
+          <label for="name">
+            Full Name
+          </label>
+
+          <input
+            type="text"
+            id="name"
+            placeholder="Your full name"
+            required
+          >
+
+        </div>
 
 
-  <div class="footer">
-    © 2026 Qalb-e-Deen — The Heart of Deen
+        <div class="input-group">
+
+          <label for="email">
+            Email Address
+          </label>
+
+          <input
+            type="email"
+            id="email"
+            disabled
+          >
+
+        </div>
+
+
+        <div class="input-group">
+
+          <label for="photoURL">
+            Profile Picture URL
+          </label>
+
+          <input
+            type="url"
+            id="photoURL"
+            placeholder="https://example.com/photo.jpg"
+          >
+
+        </div>
+
+
+        <div class="input-group">
+
+          <label for="bio">
+            About Me
+          </label>
+
+          <textarea
+            id="bio"
+            placeholder="Tell something about yourself..."
+          ></textarea>
+
+        </div>
+
+
+        <button
+          type="submit"
+          id="saveBtn"
+          class="btn btn-primary">
+          Save Profile
+        </button>
+
+      </form>
+
+      <div id="message" class="message"></div>
+
+    </section>
+
+
+    <section class="section">
+
+      <h2 class="section-title">
+        Account
+      </h2>
+
+      <button
+        id="logoutBtn"
+        class="btn btn-danger">
+        Logout
+      </button>
+
+    </section>
+
   </div>
 
-
-  <!-- FIREBASE -->
-  <script type="module">
-
-    import {
-      initializeApp
-    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+</main>
 
 
-    import {
-      getAuth,
-      onAuthStateChanged,
-      updateProfile,
-      signOut
-    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+<div class="footer">
+  © 2026 Qalb-e-Deen — The Heart of Deen
+</div>
 
 
-    import {
-      getFirestore,
-      doc,
-      getDoc,
-      setDoc,
-      serverTimestamp
-    } from "
+<script type="module">
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getAuth,
+  onAuthStateChanged,
+  updateProfile,
+  signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* FIREBASE CONFIG */
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyDQoJKty9i3BqBPehwKDemmSgXf9Oe9qo8",
+
+  authDomain:
+    "qalb-e-deen-6af8e.firebaseapp.com",
+
+  projectId:
+    "qalb-e-deen-6af8e",
+
+  storageBucket:
+    "qalb-e-deen-6af8e.firebasestorage.app",
+
+  messagingSenderId:
+    "983132945914",
+
+  appId:
+    "1:983132945914:web:c4cd95d50a5259cbbdf843"
+};
+
+
+/* INITIALIZE FIREBASE */
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+
+/* ELEMENTS */
+
+const loading =
+  document.getElementById("loading");
+
+const profileContainer =
+  document.getElementById("profileContainer");
+
+const displayName =
+  document.getElementById("displayName");
+
+const displayEmail =
+  document.getElementById("displayEmail");
+
+const displayRole =
+  document.getElementById("displayRole");
+
+const nameInput =
+  document.getElementById("name");
+
+const emailInput =
+  document.getElementById("email");
+
+const photoURLInput =
+  document.getElementById("photoURL");
+
+const bioInput =
+  document.getElementById("bio");
+
+const avatar =
+  document.getElementById("avatar");
+
+const avatarPlaceholder =
+  document.getElementById("avatarPlaceholder");
+
+const profileForm =
+  document.getElementById("profileForm");
+
+const message =
+  document.getElementById("message");
+
+const logoutBtn =
+  document.getElementById("logoutBtn");
+
+
+/* MESSAGE */
+
+function showMessage(text,type){
+
+  message.textContent = text;
+
+  message.className =
+    "message show " + type;
+
+}
+
+
+/* AUTH CHECK */
+
+onAuthStateChanged(auth, async (user) => {
+
+  if(!user){
+
+    window.location.href = "login.html";
+
+    return;
+  }
+
+
+  try{
+
+    const uid = user.uid;
+
+    const userRef =
+      doc(db,"users",uid);
+
+    const userSnap =
+      await getDoc(userRef);
+
+
+    let profileData = {};
+
+    if(userSnap.exists()){
+
+      profileData =
+        userSnap.data();
+
+    }
+
+
+    const name =
+      profileData.name ||
+      user.displayName ||
+      "User";
+
+    const email =
+      user.email || "";
+
+    const role =
+      profileData.role ||
+      "user";
+
+    const photoURL =
+      profileData.photoURL ||
+      user.photoURL ||
+      "";
+
+    const bio =
+      profileData.bio ||
+      "";
+
+
+    displayName.textContent =
+      name;
+
+    displayEmail.textContent =
+      email;
+
+    displayRole.textContent =
+      role;
+
+    nameInput.value =
+      name === "User" ? "" : name;
+
+    emailInput.value =
+      email;
+
+    photoURLInput.value =
+      photoURL;
+
+    bioInput.value =
+      bio;
+
+
+    if(photoURL){
+
+      avatar.src = photoURL;
+
+      avatar.classList.remove("hidden");
+
+      avatarPlaceholder.classList.add("hidden");
+
+      avatar.onerror = () => {
+
+        avatar.classList.add("hidden");
+
+        avatarPlaceholder.classList.remove("hidden");
+
+      };
+
+    }
+
+
+    loading.classList.add("hidden");
+
+    profileContainer.classList.remove("hidden");
+
+
+  }catch(error){
+
+    console.error(error);
+
+    loading.innerHTML = `
+      <div class="card">
+        <h3 style="color:#f3d98b;margin-bottom:10px;">
+          Profile could not be loaded
+        </h3>
+
+        <p style="color:#ffaaa5;">
+          ${error.message}
+        </p>
+      </div>
+    `;
+
+  }
+
+});
+
+
+/* SAVE PROFILE */
+
+profileForm.addEventListener("submit", async (event) => {
+
+  event.preventDefault();
+
+  const user = auth.currentUser;
+
+  if(!user){
+
+    return;
+  }
+
+
+  const name =
+    nameInput.value.trim();
+
+  const photoURL =
+    photoURLInput.value.trim();
+
+  const bio =
+    bioInput.value.trim();
+
+
+  if(!name){
+
+    showMessage(
+      "Please enter your name.",
+      "error"
+    );
+
+    return;
+  }
+
+
+  const saveBtn =
+    document.getElementById("saveBtn");
+
+  saveBtn.disabled = true;
+
+  saveBtn.textContent =
+    "Saving...";
+
+
+  try{
+
+    await updateProfile(user,{
+
+      displayName:name,
+
+      photoURL:
+        photoURL || null
+
+    });
+
+
+    const userRef =
+      doc(db,"users",user.uid);
+
+
+    const oldSnap =
+      await getDoc(userRef);
+
+    const oldData =
+      oldSnap.exists()
+      ? oldSnap.data()
+      : {};
+
+
+    await setDoc(
+
+      userRef,
+
+      {
+
+        name:name,
+
+        email:user.email || "",
+
+        role:
+          oldData.role || "user",
+
+        photoURL:photoURL,
+
+        bio:bio,
+
+        updatedAt:
+          serverTimestamp()
+
+      },
+
+      { merge:true }
+
+    );
+
+
+    displayName.textContent =
+      name;
+
+    if(photoURL){
+
+      avatar.src = photoURL;
+
+      avatar.classList.remove("hidden");
+
+      avatarPlaceholder.classList.add("hidden");
+
+    }else{
+
+      avatar.classList.add("hidden");
+
+      avatarPlaceholder.classList.remove("hidden");
+
+    }
+
+
+    showMessage(
+      "Profile saved successfully.",
+      "success"
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+    showMessage(
+      "Could not save profile: " +
+      error.message,
+      "error"
+    );
+
+  }finally{
+
+    saveBtn.disabled = false;
+
+    saveBtn.textContent =
+      "Save Profile";
+
+  }
+
+});
+
+
+/* LOGOUT */
+
+logoutBtn.addEventListener("click", async () => {
+
+  try{
+
+    await signOut(auth);
+
+    window.location.href =
+      "login.html";
+
+  }catch(error){
+
+    showMessage(
+      "Logout failed: " +
+      error.message,
+      "error"
+    );
+
+  }
+
+});
+
+</script>
+
+</body>
+  </html>
