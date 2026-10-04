@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Login / Sign Up — Qalb-e-Deen</title>
-  <meta name="description" content="Login or create your account on Qalb-e-Deen — The Heart of Deen.">
 
   <style>
     * {
@@ -18,22 +17,22 @@
       min-height: 100vh;
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #071b16, #0d3027, #071b16);
-      color: #fff;
+      color: white;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       padding: 20px;
     }
 
-    .container {
+    .box {
       width: 100%;
       max-width: 430px;
+      padding: 30px 25px;
+      border-radius: 24px;
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 24px;
-      padding: 30px 25px;
       backdrop-filter: blur(15px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
     }
 
     .logo {
@@ -42,8 +41,8 @@
     }
 
     .logo h1 {
-      font-size: 32px;
       color: #d7b56d;
+      font-size: 32px;
       margin-bottom: 6px;
     }
 
@@ -63,8 +62,8 @@
       padding: 13px;
       border: none;
       border-radius: 12px;
-      background: rgba(255,255,255,0.08);
-      color: #fff;
+      background: rgba(255,255,255,.08);
+      color: white;
       cursor: pointer;
       font-size: 15px;
     }
@@ -75,11 +74,11 @@
       font-weight: bold;
     }
 
-    .form {
+    form {
       display: none;
     }
 
-    .form.active {
+    form.active {
       display: block;
     }
 
@@ -94,9 +93,9 @@
       width: 100%;
       padding: 14px;
       border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(0,0,0,0.2);
-      color: #fff;
+      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(0,0,0,.2);
+      color: white;
       outline: none;
       font-size: 15px;
     }
@@ -119,30 +118,27 @@
     }
 
     .main-btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
+      opacity: .6;
     }
 
-    .message {
+    #message {
+      display: none;
       margin-top: 16px;
       padding: 12px;
       border-radius: 10px;
-      display: none;
       font-size: 14px;
       line-height: 1.5;
     }
 
-    .message.success {
+    #message.success {
       display: block;
-      background: rgba(50,180,110,0.15);
-      border: 1px solid rgba(50,180,110,0.35);
+      background: rgba(50,180,110,.15);
       color: #a9f0c8;
     }
 
-    .message.error {
+    #message.error {
       display: block;
-      background: rgba(220,60,60,0.15);
-      border: 1px solid rgba(220,60,60,0.35);
+      background: rgba(220,60,60,.15);
       color: #ffb1b1;
     }
 
@@ -152,434 +148,477 @@
       margin-top: 22px;
       color: #d7b56d;
       text-decoration: none;
-      font-size: 14px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+<div class="box">
 
-    <div class="logo">
-      <h1>Qalb-e-Deen</h1>
-      <p>The Heart of Deen</p>
-    </div>
+  <div class="logo">
+    <h1>Qalb-e-Deen</h1>
+    <p>The Heart of Deen</p>
+  </div>
 
-    <div class="tabs">
-      <button id="loginTab" class="active">Login</button>
-      <button id="signupTab">Sign Up</button>
-    </div>
-
-    <!-- LOGIN -->
-    <form id="loginForm" class="form active">
-
-      <label>Email</label>
-      <input
-        type="email"
-        id="loginEmail"
-        placeholder="Enter your email"
-        required
-      >
-
-      <label>Password</label>
-      <input
-        type="password"
-        id="loginPassword"
-        placeholder="Enter your password"
-        required
-      >
-
-      <button type="submit" class="main-btn" id="loginBtn">
-        Login
-      </button>
-
-    </form>
-
-    <!-- SIGN UP -->
-    <form id="signupForm" class="form">
-
-      <label>Full Name</label>
-      <input
-        type="text"
-        id="signupName"
-        placeholder="Enter your full name"
-        required
-      >
-
-      <label>Email</label>
-      <input
-        type="email"
-        id="signupEmail"
-        placeholder="Enter your email"
-        required
-      >
-
-      <label>Password</label>
-      <input
-        type="password"
-        id="signupPassword"
-        placeholder="Minimum 6 characters"
-        minlength="6"
-        required
-      >
-
-      <button type="submit" class="main-btn" id="signupBtn">
-        Create Account
-      </button>
-
-    </form>
-
-    <div id="message" class="message"></div>
-
-    <a href="index.html" class="back">
-      ← Back to Qalb-e-Deen
-    </a>
-
+  <div class="tabs">
+    <button id="loginTab" class="active">Login</button>
+    <button id="signupTab">Sign Up</button>
   </div>
 
 
-  <script type="module">
+  <!-- LOGIN -->
 
-    import { initializeApp }
-      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  <form id="loginForm" class="active">
 
-    import {
-      getAuth,
-      createUserWithEmailAndPassword,
-      signInWithEmailAndPassword,
-      updateProfile
-    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    <label>Email</label>
 
-    import {
-      getFirestore,
-      doc,
-      setDoc,
-      serverTimestamp
-    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+    <input
+      type="email"
+      id="loginEmail"
+      placeholder="Enter your email"
+      required
+    >
 
+    <label>Password</label>
 
-    // =========================
-    // FIREBASE CONFIG
-    // =========================
+    <input
+      type="password"
+      id="loginPassword"
+      placeholder="Enter your password"
+      required
+    >
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyDQoJKty9i3BqBPehwKDemmSgXf9Oe9qo8",
-      authDomain: "qalb-e-deen-6af8e.firebaseapp.com",
-      projectId: "qalb-e-deen-6af8e",
-      storageBucket: "qalb-e-deen-6af8e.firebasestorage.app",
-      messagingSenderId: "983132945914",
-      appId: "1:983132945914:web:c4cd95d50a5259cbbdf843"
-    };
+    <button
+      type="submit"
+      class="main-btn"
+      id="loginBtn"
+    >
+      Login
+    </button>
 
-
-    const app = initializeApp(firebaseConfig);
-
-    const auth = getAuth(app);
-
-    const db = getFirestore(app);
+  </form>
 
 
-    // =========================
-    // ELEMENTS
-    // =========================
+  <!-- SIGN UP -->
 
-    const loginTab = document.getElementById("loginTab");
-    const signupTab = document.getElementById("signupTab");
+  <form id="signupForm">
 
-    const loginForm = document.getElementById("loginForm");
-    const signupForm = document.getElementById("signupForm");
+    <label>Full Name</label>
 
-    const loginBtn = document.getElementById("loginBtn");
-    const signupBtn = document.getElementById("signupBtn");
+    <input
+      type="text"
+      id="signupName"
+      placeholder="Enter your full name"
+      required
+    >
 
-    const message = document.getElementById("message");
+    <label>Email</label>
+
+    <input
+      type="email"
+      id="signupEmail"
+      placeholder="Enter your email"
+      required
+    >
+
+    <label>Password</label>
+
+    <input
+      type="password"
+      id="signupPassword"
+      placeholder="Minimum 6 characters"
+      minlength="6"
+      required
+    >
+
+    <button
+      type="submit"
+      class="main-btn"
+      id="signupBtn"
+    >
+      Create Account
+    </button>
+
+  </form>
 
 
-    // =========================
-    // MESSAGE
-    // =========================
+  <div id="message"></div>
 
-    function showMessage(text, type) {
+  <a href="index.html" class="back">
+    ← Back to Qalb-e-Deen
+  </a>
 
-      message.textContent = text;
+</div>
 
-      message.className = "message " + type;
+
+<script type="module">
+
+  // =========================
+  // FIREBASE IMPORTS
+  // =========================
+
+  import { initializeApp }
+    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+  import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    updateProfile
+  }
+    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+  import {
+    getFirestore,
+    doc,
+    setDoc,
+    serverTimestamp
+  }
+    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+  // =========================
+  // FIREBASE CONFIG
+  // =========================
+
+  const firebaseConfig = {
+
+    apiKey:
+      "AIzaSyDQoJKty9i3BqBPehwKDemmSgXf9Oe9qo8",
+
+    authDomain:
+      "qalb-e-deen-6af8e.firebaseapp.com",
+
+    projectId:
+      "qalb-e-deen-6af8e",
+
+    storageBucket:
+      "qalb-e-deen-6af8e.firebasestorage.app",
+
+    messagingSenderId:
+      "983132945914",
+
+    appId:
+      "1:983132945914:web:c4cd95d50a5259cbbdf843"
+  };
+
+
+  // =========================
+  // INITIALIZE FIREBASE
+  // =========================
+
+  const app = initializeApp(firebaseConfig);
+
+  const auth = getAuth(app);
+
+  const db = getFirestore(app);
+
+
+  // =========================
+  // ELEMENTS
+  // =========================
+
+  const loginTab =
+    document.getElementById("loginTab");
+
+  const signupTab =
+    document.getElementById("signupTab");
+
+  const loginForm =
+    document.getElementById("loginForm");
+
+  const signupForm =
+    document.getElementById("signupForm");
+
+  const loginBtn =
+    document.getElementById("loginBtn");
+
+  const signupBtn =
+    document.getElementById("signupBtn");
+
+  const message =
+    document.getElementById("message");
+
+
+  // =========================
+  // MESSAGE
+  // =========================
+
+  function showMessage(text, type) {
+
+    message.textContent = text;
+
+    message.className = type;
+
+  }
+
+
+  function clearMessage() {
+
+    message.textContent = "";
+
+    message.className = "";
+
+  }
+
+
+  // =========================
+  // LOGIN TAB
+  // =========================
+
+  loginTab.addEventListener("click", () => {
+
+    loginTab.classList.add("active");
+
+    signupTab.classList.remove("active");
+
+    loginForm.classList.add("active");
+
+    signupForm.classList.remove("active");
+
+    clearMessage();
+
+  });
+
+
+  // =========================
+  // SIGN UP TAB
+  // =========================
+
+  signupTab.addEventListener("click", () => {
+
+    signupTab.classList.add("active");
+
+    loginTab.classList.remove("active");
+
+    signupForm.classList.add("active");
+
+    loginForm.classList.remove("active");
+
+    clearMessage();
+
+  });
+
+
+  // =========================
+  // LOGIN
+  // =========================
+
+  loginForm.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    clearMessage();
+
+    const email =
+      document.getElementById("loginEmail")
+      .value
+      .trim();
+
+    const password =
+      document.getElementById("loginPassword")
+      .value;
+
+    loginBtn.disabled = true;
+
+    loginBtn.textContent = "Logging in...";
+
+
+    try {
+
+      await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+
+      showMessage(
+        "Login successful! Redirecting...",
+        "success"
+      );
+
+
+      setTimeout(() => {
+
+        window.location.href = "profile.html";
+
+      }, 1000);
+
+
+    } catch (error) {
+
+      console.error(error);
+
+      showMessage(
+        "Login failed: " + error.message,
+        "error"
+      );
 
     }
 
 
-    function clearMessage() {
+    loginBtn.disabled = false;
 
-      message.textContent = "";
+    loginBtn.textContent = "Login";
 
-      message.className = "message";
+  });
+
+
+  // =========================
+  // SIGN UP
+  // =========================
+
+  signupForm.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    clearMessage();
+
+
+    const name =
+      document.getElementById("signupName")
+      .value
+      .trim();
+
+    const email =
+      document.getElementById("signupEmail")
+      .value
+      .trim();
+
+    const password =
+      document.getElementById("signupPassword")
+      .value;
+
+
+    if (name.length < 2) {
+
+      showMessage(
+        "Please enter your full name.",
+        "error"
+      );
+
+      return;
 
     }
 
 
-    // =========================
-    // TABS
-    // =========================
+    if (password.length < 6) {
 
-    loginTab.addEventListener("click", () => {
+      showMessage(
+        "Password must be at least 6 characters.",
+        "error"
+      );
 
-      loginTab.classList.add("active");
-      signupTab.classList.remove("active");
+      return;
 
-      loginForm.classList.add("active");
-      signupForm.classList.remove("active");
-
-      clearMessage();
-
-    });
+    }
 
 
-    signupTab.addEventListener("click", () => {
+    signupBtn.disabled = true;
 
-      signupTab.classList.add("active");
-      loginTab.classList.remove("active");
-
-      signupForm.classList.add("active");
-      loginForm.classList.remove("active");
-
-      clearMessage();
-
-    });
+    signupBtn.textContent = "Creating Account...";
 
 
-    // =========================
-    // LOGIN
-    // =========================
+    try {
 
-    loginForm.addEventListener("submit", async (event) => {
+      // STEP 1
+      // Create Authentication account
 
-      event.preventDefault();
-
-      clearMessage();
-
-      const email =
-        document.getElementById("loginEmail").value.trim();
-
-      const password =
-        document.getElementById("loginPassword").value;
-
-
-      loginBtn.disabled = true;
-
-      loginBtn.textContent = "Logging in...";
-
-
-      try {
-
-        await signInWithEmailAndPassword(
+      const result =
+        await createUserWithEmailAndPassword(
           auth,
           email,
           password
         );
 
-        showMessage(
-          "Login successful! Redirecting...",
-          "success"
-        );
 
+      const user = result.user;
 
-        setTimeout(() => {
 
-          window.location.href = "profile.html";
+      console.log(
+        "Firebase Auth UID:",
+        user.uid
+      );
 
-        }, 1000);
 
+      // STEP 2
+      // Save display name
 
-      } catch (error) {
+      await updateProfile(user, {
 
-        console.error(error);
+        displayName: name
 
-        let msg = "Login failed.";
+      });
 
-        if (error.code === "auth/invalid-credential") {
-          msg = "Incorrect email or password.";
-        }
 
-        if (error.code === "auth/user-not-found") {
-          msg = "No account found with this email.";
-        }
+      // STEP 3
+      // Create Firestore profile
 
-        if (error.code === "auth/wrong-password") {
-          msg = "Incorrect password.";
-        }
+      const userRef =
+        doc(db, "users", user.uid);
 
-        showMessage(msg, "error");
 
-      }
+      await setDoc(userRef, {
 
+        name: name,
 
-      loginBtn.disabled = false;
+        email: email,
 
-      loginBtn.textContent = "Login";
+        role: "user",
 
-    });
+        bio: "",
 
+        photoURL: "",
 
-    // =========================
-    // SIGN UP
-    // =========================
+        createdAt: serverTimestamp(),
 
-    signupForm.addEventListener("submit", async (event) => {
+        updatedAt: serverTimestamp()
 
-      event.preventDefault();
+      });
 
-      clearMessage();
 
+      // STEP 4
 
-      const name =
-        document.getElementById("signupName").value.trim();
+      showMessage(
+        "Account created successfully! Opening profile...",
+        "success"
+      );
 
-      const email =
-        document.getElementById("signupEmail").value.trim();
 
-      const password =
-        document.getElementById("signupPassword").value;
+      // STEP 5
 
+      setTimeout(() => {
 
-      if (name.length < 2) {
+        window.location.href = "profile.html";
 
-        showMessage(
-          "Please enter your full name.",
-          "error"
-        );
+      }, 1200);
 
-        return;
 
-      }
+    } catch (error) {
 
+      console.error(
+        "SIGN UP ERROR:",
+        error
+      );
 
-      if (password.length < 6) {
 
-        showMessage(
-          "Password must be at least 6 characters.",
-          "error"
-        );
+      showMessage(
+        "Error: " + error.message,
+        "error"
+      );
 
-        return;
+    }
 
-      }
 
+    signupBtn.disabled = false;
 
-      signupBtn.disabled = true;
+    signupBtn.textContent = "Create Account";
 
-      signupBtn.textContent = "Creating Account...";
+  });
 
-
-      try {
-
-        // 1. Create Firebase Authentication account
-
-        const userCredential =
-          await createUserWithEmailAndPassword(
-            auth,
-            email,
-            password
-          );
-
-
-        const user = userCredential.user;
-
-
-        // 2. Add name to Firebase Auth profile
-
-        await updateProfile(user, {
-
-          displayName: name
-
-        });
-
-
-        // 3. Automatically create Firestore user profile
-
-        await setDoc(
-          doc(db, "users", user.uid),
-          {
-
-            name: name,
-
-            email: email,
-
-            role: "user",
-
-            bio: "",
-
-            photoURL: "",
-
-            createdAt: serverTimestamp(),
-
-            updatedAt: serverTimestamp()
-
-          },
-          {
-            merge: true
-          }
-        );
-
-
-        showMessage(
-          "Account created successfully! Opening your profile...",
-          "success"
-        );
-
-
-        // 4. Open profile page
-
-        setTimeout(() => {
-
-          window.location.href = "profile.html";
-
-        }, 1200);
-
-
-      } catch (error) {
-
-        console.error(error);
-
-        let msg = "Could not create your account.";
-
-        if (error.code === "auth/email-already-in-use") {
-
-          msg = "This email is already registered.";
-
-        }
-
-        else if (error.code === "auth/invalid-email") {
-
-          msg = "Please enter a valid email address.";
-
-        }
-
-        else if (error.code === "auth/weak-password") {
-
-          msg = "Password is too weak. Use at least 6 characters.";
-
-        }
-
-        else if (error.code === "permission-denied") {
-
-          msg =
-            "Account created, but profile could not be saved. Please check Firestore Rules.";
-
-        }
-
-        showMessage(msg, "error");
-
-      }
-
-
-      signupBtn.disabled = false;
-
-      signupBtn.textContent = "Create Account";
-
-    });
-
-  </script>
+</script>
 
 </body>
 </html>
