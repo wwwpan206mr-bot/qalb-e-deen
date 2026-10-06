@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Admin Panel — Qalb-e-Deen</title>
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -14,22 +19,43 @@
 }
 
 body{
-  font-family:Arial, sans-serif;
+  font-family:Arial,sans-serif;
   background:#f4f7f6;
   color:#17211f;
+  line-height:1.6;
 }
+
+button{
+  cursor:pointer;
+}
+
+.hidden{
+  display:none !important;
+}
+
+
+/* =========================
+   HEADER
+========================= */
 
 header{
   background:#0d2b24;
   color:white;
-  padding:18px;
+  padding:16px 20px;
+
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
+
+  position:sticky;
+  top:0;
+  z-index:1000;
+
+  box-shadow:0 3px 15px rgba(0,0,0,.15);
 }
 
 .logo{
-  font-size:22px;
+  font-size:23px;
   font-weight:bold;
 }
 
@@ -37,24 +63,47 @@ header{
   color:#d7b56d;
 }
 
-button{
-  cursor:pointer;
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.home-btn,
+.logout{
+  border:0;
+  text-decoration:none;
+  padding:9px 14px;
+  border-radius:8px;
+  font-weight:bold;
+  font-size:13px;
+}
+
+.home-btn{
+  background:#d7b56d;
+  color:#0d2b24;
 }
 
 .logout{
   background:#c94b4b;
   color:white;
-  border:0;
-  padding:10px 16px;
-  border-radius:8px;
-  font-weight:bold;
 }
 
+
+/* =========================
+   CONTAINER
+========================= */
+
 .container{
-  max-width:1100px;
+  max-width:1150px;
   margin:auto;
-  padding:25px 16px 50px;
+  padding:28px 16px 60px;
 }
+
+
+/* =========================
+   WELCOME
+========================= */
 
 .welcome{
   margin-bottom:25px;
@@ -62,16 +111,53 @@ button{
 
 .welcome h1{
   font-size:30px;
-  margin-bottom:7px;
+  margin-bottom:5px;
 }
 
 .welcome p{
-  color:#68736f;
+  color:#69746f;
 }
+
+
+/* =========================
+   ERROR
+========================= */
+
+.error{
+  background:#fff0f0;
+  color:#a52828;
+  padding:18px;
+  border-radius:10px;
+  margin-bottom:20px;
+  word-break:break-word;
+}
+
+.success{
+  background:#e5f7ed;
+  color:#17633f;
+  padding:14px;
+  border-radius:9px;
+  margin-top:15px;
+}
+
+.warning{
+  background:#fff8e6;
+  color:#856404;
+  padding:14px;
+  border-radius:9px;
+  margin-top:15px;
+}
+
+
+/* =========================
+   STATS
+========================= */
 
 .stats{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:
+    repeat(4,minmax(0,1fr));
+
   gap:15px;
   margin-bottom:25px;
 }
@@ -88,9 +174,15 @@ button{
 }
 
 .stat h2{
-  margin-top:8px;
+  margin-top:6px;
   color:#0d5b48;
+  font-size:28px;
 }
+
+
+/* =========================
+   CARD
+========================= */
 
 .card{
   background:white;
@@ -100,9 +192,23 @@ button{
   box-shadow:0 5px 20px rgba(0,0,0,.06);
 }
 
-.card h2{
+.card-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
   margin-bottom:20px;
 }
+
+.card-header h2{
+  color:#0d2b24;
+  font-size:21px;
+}
+
+
+/* =========================
+   FORM
+========================= */
 
 label{
   display:block;
@@ -115,55 +221,94 @@ textarea,
 select{
   width:100%;
   padding:13px;
+
   border:1px solid #d8dfdc;
   border-radius:9px;
+
   font-size:15px;
+  font-family:inherit;
+
+  outline:none;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  border-color:#0d5b48;
 }
 
 textarea{
-  min-height:220px;
+  min-height:230px;
   resize:vertical;
 }
 
 .publish{
   margin-top:18px;
+
   background:#0d5b48;
   color:white;
+
   border:0;
-  padding:14px 22px;
+
+  padding:13px 20px;
   border-radius:9px;
+
   font-weight:bold;
-  font-size:16px;
+  font-size:15px;
+}
+
+.publish:hover{
+  background:#083f33;
 }
 
 .publish:disabled{
   opacity:.6;
+  cursor:not-allowed;
 }
 
-.message{
-  display:none;
-  margin-top:15px;
-  padding:12px;
+
+/* =========================
+   REFRESH
+========================= */
+
+.refresh{
+  border:1px solid #d5dfdb;
+  background:#f7faf9;
+  color:#0d5b48;
+
+  padding:8px 13px;
   border-radius:8px;
+
+  font-weight:bold;
 }
+
+
+/* =========================
+   POSTS
+========================= */
 
 .post{
   border:1px solid #e2e7e5;
   padding:16px;
+
   border-radius:12px;
   margin-bottom:12px;
+
   display:flex;
   justify-content:space-between;
-  gap:15px;
   align-items:center;
+
+  gap:15px;
 }
 
 .post-info{
   flex:1;
+  min-width:0;
 }
 
 .post-info h3{
-  margin-bottom:6px;
+  margin-bottom:5px;
+  word-break:break-word;
 }
 
 .meta{
@@ -171,37 +316,245 @@ textarea{
   color:#777;
 }
 
+.post-actions{
+  display:flex;
+  gap:8px;
+  flex-shrink:0;
+}
+
 .delete{
   background:#d94b4b;
   color:white;
+
   border:0;
+
   padding:9px 14px;
   border-radius:7px;
+
+  font-weight:bold;
 }
+
+.delete:hover{
+  background:#b73737;
+}
+
+
+/* =========================
+   COMMENTS
+========================= */
+
+.comment{
+  border:1px solid #e2e7e5;
+  padding:16px;
+
+  border-radius:12px;
+  margin-bottom:12px;
+}
+
+.comment-header{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:8px;
+}
+
+.comment-user{
+  font-weight:bold;
+  color:#0d2b24;
+}
+
+.comment-date{
+  font-size:12px;
+  color:#888;
+}
+
+.comment-text{
+  color:#394641;
+  white-space:pre-wrap;
+  word-break:break-word;
+
+  background:#f7faf9;
+  padding:12px;
+  border-radius:8px;
+}
+
+.comment-actions{
+  display:flex;
+  gap:8px;
+  margin-top:12px;
+}
+
+.approve{
+  background:#0d5b48;
+  color:white;
+
+  border:0;
+
+  padding:8px 13px;
+  border-radius:7px;
+
+  font-weight:bold;
+}
+
+.hide-btn{
+  background:#d7b56d;
+  color:#0d2b24;
+
+  border:0;
+
+  padding:8px 13px;
+  border-radius:7px;
+
+  font-weight:bold;
+}
+
+
+/* =========================
+   STATUS BADGES
+========================= */
+
+.badge{
+  display:inline-block;
+
+  padding:4px 9px;
+  border-radius:20px;
+
+  font-size:11px;
+  font-weight:bold;
+
+  margin-left:5px;
+}
+
+.pending{
+  background:#fff3cd;
+  color:#856404;
+}
+
+.approved{
+  background:#dff4e8;
+  color:#17633f;
+}
+
+
+/* =========================
+   LOADING
+========================= */
 
 .loading{
   text-align:center;
-  padding:20px;
+  padding:30px;
   color:#777;
 }
 
-.error{
-  background:#fff0f0;
-  color:#a52828;
-  padding:18px;
-  border-radius:10px;
-  margin-top:20px;
-  word-break:break-word;
+.spinner{
+  width:32px;
+  height:32px;
+
+  border:4px solid #dce5e1;
+  border-top-color:#0d5b48;
+
+  border-radius:50%;
+
+  margin:0 auto 12px;
+
+  animation:spin 1s linear infinite;
 }
 
-.hidden{
-  display:none;
+@keyframes spin{
+
+  to{
+    transform:rotate(360deg);
+  }
+
 }
 
-@media(max-width:700px){
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty{
+  text-align:center;
+  padding:30px;
+  color:#777;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#0d2b24;
+  color:white;
+  text-align:center;
+  padding:30px 15px;
+}
+
+.footer-logo{
+  font-size:21px;
+  font-weight:bold;
+}
+
+.footer-logo span{
+  color:#d7b56d;
+}
+
+footer p{
+  color:#bdccc7;
+  font-size:13px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
 
   .stats{
-    grid-template-columns:1fr;
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:600px){
+
+  header{
+    padding:13px;
+  }
+
+  .logo{
+    font-size:19px;
+  }
+
+  .home-btn{
+    display:none;
+  }
+
+  .container{
+    padding:20px 12px 50px;
+  }
+
+  .welcome h1{
+    font-size:25px;
+  }
+
+  .card{
+    padding:18px;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .stat{
+    padding:16px;
+  }
+
+  .stat h2{
+    font-size:23px;
   }
 
   .post{
@@ -209,18 +562,35 @@ textarea{
     align-items:flex-start;
   }
 
-  .delete{
+  .post-actions{
     width:100%;
   }
 
-  .welcome h1{
-    font-size:25px;
+  .post-actions button{
+    flex:1;
   }
+
+  .comment-header{
+    flex-direction:column;
+  }
+
+  .comment-actions{
+    flex-wrap:wrap;
+  }
+
 }
+
 </style>
+
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -228,18 +598,44 @@ textarea{
     Qalb<span>-e-Deen</span>
   </div>
 
-  <button class="logout" id="logoutBtn">
-    Logout
-  </button>
+  <div class="header-right">
+
+    <a
+      href="index.html"
+      class="home-btn">
+
+      🌐 Website
+
+    </a>
+
+    <button
+      class="logout"
+      id="logoutBtn">
+
+      Logout
+
+    </button>
+
+  </div>
 
 </header>
 
 
+
+<!-- =========================
+     MAIN
+========================= -->
+
 <div class="container">
+
+
+  <!-- WELCOME -->
 
   <div class="welcome">
 
-    <h1>Admin Dashboard</h1>
+    <h1>
+      Admin Dashboard
+    </h1>
 
     <p id="status">
       Checking administrator account...
@@ -248,53 +644,98 @@ textarea{
   </div>
 
 
-  <!-- ERROR AREA -->
+  <!-- ERROR -->
 
-  <div id="errorBox" class="error hidden"></div>
+  <div
+    id="errorBox"
+    class="error hidden">
+  </div>
 
 
   <!-- DASHBOARD -->
 
-  <div id="dashboard" class="hidden">
+  <div
+    id="dashboard"
+    class="hidden">
 
+
+    <!-- =====================
+         STATS
+    ====================== -->
 
     <div class="stats">
 
+
       <div class="stat">
 
-        <small>Total Posts</small>
+        <small>
+          Total Posts
+        </small>
 
-        <h2 id="totalPosts">0</h2>
+        <h2 id="totalPosts">
+          0
+        </h2>
 
       </div>
 
 
       <div class="stat">
 
-        <small>Administrator</small>
+        <small>
+          Total Comments
+        </small>
 
-        <h2>Admin</h2>
+        <h2 id="totalComments">
+          0
+        </h2>
 
       </div>
 
 
       <div class="stat">
 
-        <small>System</small>
+        <small>
+          Pending Comments
+        </small>
 
-        <h2>Active</h2>
+        <h2 id="pendingComments">
+          0
+        </h2>
 
       </div>
+
+
+      <div class="stat">
+
+        <small>
+          System
+        </small>
+
+        <h2>
+          Active
+        </h2>
+
+      </div>
+
 
     </div>
 
 
 
-    <!-- CREATE POST -->
+    <!-- =====================
+         CREATE POST
+    ====================== -->
 
     <div class="card">
 
-      <h2>✍️ Create New Post</h2>
+      <div class="card-header">
+
+        <h2>
+          ✍️ Create New Post
+        </h2>
+
+      </div>
+
 
       <form id="postForm">
 
@@ -315,7 +756,9 @@ textarea{
           Category
         </label>
 
-        <select id="category" required>
+        <select
+          id="category"
+          required>
 
           <option value="">
             Select category
@@ -381,16 +824,17 @@ textarea{
         <button
           class="publish"
           id="publishBtn"
-          type="submit"
-        >
+          type="submit">
+
           🚀 Publish Post
+
         </button>
 
 
         <div
           id="message"
-          class="message"
-        ></div>
+          class="hidden">
+        </div>
 
       </form>
 
@@ -398,47 +842,135 @@ textarea{
 
 
 
-    <!-- POSTS -->
+    <!-- =====================
+         PUBLISHED POSTS
+    ====================== -->
 
     <div class="card">
 
-      <h2>📚 Published Posts</h2>
+      <div class="card-header">
+
+        <h2>
+          📚 Published Posts
+        </h2>
+
+        <button
+          class="refresh"
+          id="refreshPosts">
+
+          🔄 Refresh
+
+        </button>
+
+      </div>
+
 
       <div id="postsList">
 
         <div class="loading">
+
+          <div class="spinner"></div>
+
           Loading posts...
+
         </div>
 
       </div>
 
     </div>
 
+
+
+    <!-- =====================
+         COMMENT MODERATION
+    ====================== -->
+
+    <div class="card">
+
+      <div class="card-header">
+
+        <h2>
+          💬 Comment Moderation
+        </h2>
+
+        <button
+          class="refresh"
+          id="refreshComments">
+
+          🔄 Refresh
+
+        </button>
+
+      </div>
+
+
+      <div id="commentsModeration">
+
+        <div class="loading">
+
+          <div class="spinner"></div>
+
+          Loading comments...
+
+        </div>
+
+      </div>
+
+    </div>
+
+
   </div>
 
 </div>
 
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  <div class="footer-logo">
+    Qalb<span>-e-Deen</span>
+  </div>
+
+  <p>
+    The Heart of Deen
+  </p>
+
+  <p>
+    © 2026 Qalb-e-Deen. All rights reserved.
+  </p>
+
+</footer>
+
+
+
+<!-- =========================
+     FIREBASE
+========================= -->
+
 <script type="module">
-
-import { initializeApp }
-
-from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 
 
 import {
+  initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 
+
+import {
   getAuth,
   onAuthStateChanged,
   signOut
-
 }
-
-from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 
 
 import {
-
   getFirestore,
   doc,
   getDoc,
@@ -446,18 +978,18 @@ import {
   addDoc,
   getDocs,
   deleteDoc,
+  updateDoc,
   serverTimestamp,
   query,
   orderBy
-
 }
-
-from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 
 
 /* =========================
-   FIREBASE
+   FIREBASE CONFIG
 ========================= */
 
 const firebaseConfig = {
@@ -487,10 +1019,8 @@ const firebaseConfig = {
 const app =
   initializeApp(firebaseConfig);
 
-
 const auth =
   getAuth(app);
-
 
 const db =
   getFirestore(app);
@@ -502,31 +1032,87 @@ const db =
 ========================= */
 
 const statusText =
-  document.getElementById("status");
+  document.getElementById(
+    "status"
+  );
 
 const errorBox =
-  document.getElementById("errorBox");
+  document.getElementById(
+    "errorBox"
+  );
 
 const dashboard =
-  document.getElementById("dashboard");
+  document.getElementById(
+    "dashboard"
+  );
 
 const postForm =
-  document.getElementById("postForm");
+  document.getElementById(
+    "postForm"
+  );
 
 const postsList =
-  document.getElementById("postsList");
+  document.getElementById(
+    "postsList"
+  );
+
+const commentsModeration =
+  document.getElementById(
+    "commentsModeration"
+  );
 
 const totalPosts =
-  document.getElementById("totalPosts");
+  document.getElementById(
+    "totalPosts"
+  );
 
-const message =
-  document.getElementById("message");
+const totalComments =
+  document.getElementById(
+    "totalComments"
+  );
+
+const pendingComments =
+  document.getElementById(
+    "pendingComments"
+  );
 
 const publishBtn =
-  document.getElementById("publishBtn");
+  document.getElementById(
+    "publishBtn"
+  );
+
+const message =
+  document.getElementById(
+    "message"
+  );
 
 const logoutBtn =
-  document.getElementById("logoutBtn");
+  document.getElementById(
+    "logoutBtn"
+  );
+
+const refreshPosts =
+  document.getElementById(
+    "refreshPosts"
+  );
+
+const refreshComments =
+  document.getElementById(
+    "refreshComments"
+  );
+
+
+
+/* =========================
+   ADMIN CHECK
+========================= */
+
+function isAdminData(data){
+
+  return data &&
+         data.role === "admin";
+
+}
 
 
 
@@ -538,7 +1124,9 @@ function showError(error){
 
   console.error(error);
 
-  errorBox.classList.remove("hidden");
+  errorBox.classList.remove(
+    "hidden"
+  );
 
   errorBox.innerHTML =
 
@@ -573,12 +1161,18 @@ onAuthStateChanged(
         statusText.textContent =
           "You are not logged in.";
 
-        setTimeout(() => {
+        setTimeout(
 
-          window.location.href =
-            "login.html";
+          () => {
 
-        }, 1200);
+            window.location.href =
+              "login.html";
+
+          },
+
+          1000
+
+        );
 
         return;
 
@@ -595,12 +1189,6 @@ onAuthStateChanged(
         "Checking admin permission...";
 
 
-      /*
-        IMPORTANT:
-        Collection name = user
-        Document ID = Auth UID
-      */
-
       const userRef =
         doc(
           db,
@@ -610,20 +1198,20 @@ onAuthStateChanged(
 
 
       const userSnap =
-        await getDoc(userRef);
+        await getDoc(
+          userRef
+        );
 
 
       if(!userSnap.exists()){
 
         throw new Error(
 
-          "Your Firebase Authentication account " +
+          "Firestore document not found: " +
 
-          "exists, but the Firestore document " +
+          "user/" +
 
-          "user/" + user.uid +
-
-          " was not found."
+          user.uid
 
         );
 
@@ -634,45 +1222,46 @@ onAuthStateChanged(
         userSnap.data();
 
 
-      console.log(
-        "Firestore user data:",
-        userData
-      );
-
-
-      if(userData.role !== "admin"){
+      if(
+        !isAdminData(
+          userData
+        )
+      ){
 
         throw new Error(
 
-          "Your account does not have admin permission. " +
-
-          "Current role: " +
-
-          (userData.role || "not set")
+          "This account does not have admin permission."
 
         );
 
       }
 
 
-      /* ADMIN VERIFIED */
+      /* =====================
+         ADMIN VERIFIED
+      ====================== */
 
       statusText.textContent =
+
         "Admin verified • " +
-        (user.email || "");
+
+        (
+          user.email ||
+          userData.name ||
+          ""
+        );
 
 
       dashboard.classList.remove(
         "hidden"
       );
 
-
       errorBox.classList.add(
         "hidden"
       );
 
 
-      await loadPosts();
+      await refreshDashboard();
 
 
     }catch(error){
@@ -684,6 +1273,24 @@ onAuthStateChanged(
   }
 
 );
+
+
+
+/* =========================
+   REFRESH DASHBOARD
+========================= */
+
+async function refreshDashboard(){
+
+  await Promise.all([
+
+    loadPosts(),
+
+    loadComments()
+
+  ]);
+
+}
 
 
 
@@ -744,9 +1351,11 @@ postForm.addEventListener(
         .trim();
 
 
-    if(!title ||
-       !category ||
-       !content){
+    if(
+      !title ||
+      !category ||
+      !content
+    ){
 
       showMessage(
         "Please complete the required fields.",
@@ -767,18 +1376,15 @@ postForm.addEventListener(
 
     try{
 
-      /*
-        Verify admin again
-        before publishing
-      */
-
       const userSnap =
         await getDoc(
+
           doc(
             db,
             "user",
             user.uid
           )
+
         );
 
 
@@ -808,37 +1414,32 @@ postForm.addEventListener(
         {
 
           title:
-
             title,
 
           category:
-
             category,
 
           imageURL:
-
             imageURL,
 
           content:
-
             content,
 
           authorId:
-
             user.uid,
 
           authorName:
-
             userData.name ||
             user.displayName ||
             "Qalb-e-Deen Admin",
 
-          createdAt:
+          views:
+            0,
 
+          createdAt:
             serverTimestamp(),
 
           updatedAt:
-
             serverTimestamp()
 
         }
@@ -861,9 +1462,12 @@ postForm.addEventListener(
     }catch(error){
 
       showMessage(
+
         "❌ Publish failed: " +
         error.message,
+
         false
+
       );
 
       console.error(error);
@@ -889,16 +1493,22 @@ postForm.addEventListener(
 
 async function loadPosts(){
 
-  postsList.innerHTML =
-    `<div class="loading">
+  postsList.innerHTML = `
+
+    <div class="loading">
+
+      <div class="spinner"></div>
+
       Loading posts...
-    </div>`;
+
+    </div>
+
+  `;
 
 
   try{
 
     const postsQuery =
-
       query(
 
         collection(
@@ -926,10 +1536,13 @@ async function loadPosts(){
 
     if(snapshot.empty){
 
-      postsList.innerHTML =
-        `<div class="loading">
+      postsList.innerHTML = `
+
+        <div class="empty">
           No posts yet.
-        </div>`;
+        </div>
+
+      `;
 
       return;
 
@@ -941,7 +1554,7 @@ async function loadPosts(){
 
     snapshot.forEach(
 
-      (postDoc) => {
+      postDoc => {
 
         const post =
           postDoc.data();
@@ -963,10 +1576,21 @@ async function loadPosts(){
 
         if(post.createdAt){
 
-          date =
-            post.createdAt
-              .toDate()
-              .toLocaleDateString();
+          try{
+
+            date =
+              post.createdAt
+                .toDate()
+                .toLocaleDateString(
+                  "en-US",
+                  {
+                    year:"numeric",
+                    month:"short",
+                    day:"numeric"
+                  }
+                );
+
+          }catch(error){}
 
         }
 
@@ -976,10 +1600,12 @@ async function loadPosts(){
           <div class="post-info">
 
             <h3>
+
               ${escapeHTML(
                 post.title ||
                 "Untitled"
               )}
+
             </h3>
 
             <div class="meta">
@@ -989,19 +1615,37 @@ async function loadPosts(){
                 "General"
               )}
 
-              • ${date}
+              •
+
+              ${escapeHTML(
+                date
+              )}
+
+              •
+
+              👁️
+              ${Number(
+                post.views || 0
+              )}
+
+              views
 
             </div>
 
           </div>
 
 
-          <button
-            class="delete"
-            data-id="${postDoc.id}"
-          >
-            Delete
-          </button>
+          <div class="post-actions">
+
+            <button
+              class="delete"
+              data-id="${postDoc.id}">
+
+              Delete
+
+            </button>
+
+          </div>
 
         `;
 
@@ -1015,8 +1659,10 @@ async function loadPosts(){
     );
 
 
-    document
-      .querySelectorAll(".delete")
+    postsList
+      .querySelectorAll(
+        ".delete"
+      )
       .forEach(
 
         button => {
@@ -1047,7 +1693,7 @@ async function loadPosts(){
       <div class="error">
 
         <strong>
-          Could not load posts
+          Could not load posts.
         </strong>
 
         <br><br>
@@ -1067,7 +1713,7 @@ async function loadPosts(){
 
 
 /* =========================
-   DELETE
+   DELETE POST
 ========================= */
 
 async function deletePost(
@@ -1076,7 +1722,7 @@ async function deletePost(
 
   if(
     !confirm(
-      "Delete this post?"
+      "Are you sure you want to delete this post?"
     )
   ){
 
@@ -1112,6 +1758,434 @@ async function deletePost(
 
 
 /* =========================
+   LOAD COMMENTS
+========================= */
+
+async function loadComments(){
+
+  commentsModeration.innerHTML = `
+
+    <div class="loading">
+
+      <div class="spinner"></div>
+
+      Loading comments...
+
+    </div>
+
+  `;
+
+
+  try{
+
+    const commentsQuery =
+      query(
+
+        collection(
+          db,
+          "comments"
+        ),
+
+        orderBy(
+          "createdAt",
+          "desc"
+        )
+
+      );
+
+
+    const snapshot =
+      await getDocs(
+        commentsQuery
+      );
+
+
+    totalComments.textContent =
+      snapshot.size;
+
+
+    let pending =
+      0;
+
+
+    snapshot.forEach(
+
+      commentDoc => {
+
+        if(
+          commentDoc.data().approved !== true
+        ){
+
+          pending++;
+
+        }
+
+      }
+
+    );
+
+
+    pendingComments.textContent =
+      pending;
+
+
+    if(snapshot.empty){
+
+      commentsModeration.innerHTML = `
+
+        <div class="empty">
+          No comments yet.
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    commentsModeration.innerHTML = "";
+
+
+    snapshot.forEach(
+
+      commentDoc => {
+
+        const comment =
+          commentDoc.data();
+
+
+        commentsModeration.appendChild(
+
+          createCommentModeration(
+            commentDoc.id,
+            comment
+          )
+
+        );
+
+      }
+
+    );
+
+
+  }catch(error){
+
+    commentsModeration.innerHTML = `
+
+      <div class="error">
+
+        <strong>
+          Could not load comments.
+        </strong>
+
+        <br><br>
+
+        ${escapeHTML(
+          error.message
+        )}
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+
+/* =========================
+   COMMENT UI
+========================= */
+
+function createCommentModeration(
+  commentId,
+  comment
+){
+
+  const div =
+    document.createElement(
+      "div"
+    );
+
+
+  div.className =
+    "comment";
+
+
+  const approved =
+    comment.approved === true;
+
+
+  let date =
+    "Recently";
+
+
+  if(comment.createdAt){
+
+    try{
+
+      date =
+        comment.createdAt
+          .toDate()
+          .toLocaleDateString(
+            "en-US",
+            {
+              year:"numeric",
+              month:"short",
+              day:"numeric"
+            }
+          );
+
+    }catch(error){}
+
+  }
+
+
+  div.innerHTML = `
+
+    <div class="comment-header">
+
+      <div>
+
+        <span class="comment-user">
+
+          ${escapeHTML(
+            comment.userName ||
+            "User"
+          )}
+
+        </span>
+
+        <span class="badge ${
+          approved
+            ? "approved"
+            : "pending"
+        }">
+
+          ${
+            approved
+              ? "Approved"
+              : "Pending"
+          }
+
+        </span>
+
+      </div>
+
+
+      <span class="comment-date">
+
+        ${escapeHTML(date)}
+
+      </span>
+
+    </div>
+
+
+    <div class="comment-text">
+
+      ${escapeHTML(
+        comment.text ||
+        ""
+      )}
+
+    </div>
+
+
+    <div class="comment-actions"></div>
+
+  `;
+
+
+  const actions =
+    div.querySelector(
+      ".comment-actions"
+    );
+
+
+  if(!approved){
+
+    const approveBtn =
+      document.createElement(
+        "button"
+      );
+
+
+    approveBtn.className =
+      "approve";
+
+
+    approveBtn.textContent =
+      "✅ Approve";
+
+
+    approveBtn.onclick =
+      async () => {
+
+        try{
+
+          await updateDoc(
+
+            doc(
+              db,
+              "comments",
+              commentId
+            ),
+
+            {
+              approved:true
+            }
+
+          );
+
+
+          await loadComments();
+
+
+        }catch(error){
+
+          alert(
+            "Approval failed: " +
+            error.message
+          );
+
+        }
+
+      };
+
+
+    actions.appendChild(
+      approveBtn
+    );
+
+  }else{
+
+    const hideBtn =
+      document.createElement(
+        "button"
+      );
+
+
+    hideBtn.className =
+      "hide-btn";
+
+
+    hideBtn.textContent =
+      "Hide";
+
+
+    hideBtn.onclick =
+      async () => {
+
+        try{
+
+          await updateDoc(
+
+            doc(
+              db,
+              "comments",
+              commentId
+            ),
+
+            {
+              approved:false
+            }
+
+          );
+
+
+          await loadComments();
+
+
+        }catch(error){
+
+          alert(
+            "Could not hide comment: " +
+            error.message
+          );
+
+        }
+
+      };
+
+
+    actions.appendChild(
+      hideBtn
+    );
+
+  }
+
+
+  const deleteBtn =
+    document.createElement(
+      "button"
+    );
+
+
+  deleteBtn.className =
+    "delete";
+
+
+  deleteBtn.textContent =
+    "🗑️ Delete";
+
+
+  deleteBtn.onclick =
+    async () => {
+
+      if(
+        !confirm(
+          "Delete this comment permanently?"
+        )
+      ){
+
+        return;
+
+      }
+
+
+      try{
+
+        await deleteDoc(
+
+          doc(
+            db,
+            "comments",
+            commentId
+          )
+
+        );
+
+
+        await loadComments();
+
+
+      }catch(error){
+
+        alert(
+          "Delete failed: " +
+          error.message
+        );
+
+      }
+
+    };
+
+
+  actions.appendChild(
+    deleteBtn
+  );
+
+
+  return div;
+
+}
+
+
+
+/* =========================
    MESSAGE
 ========================= */
 
@@ -1120,26 +2194,99 @@ function showMessage(
   success
 ){
 
-  message.style.display =
-    "block";
+  message.classList.remove(
+    "hidden"
+  );
+
+
+  message.className =
+    success
+      ? "success"
+      : "error";
 
 
   message.textContent =
     text;
 
 
-  message.style.background =
-    success
-      ? "#e3f6ed"
-      : "#fdeaea";
+  setTimeout(
 
+    () => {
 
-  message.style.color =
-    success
-      ? "#17633f"
-      : "#a52828";
+      message.classList.add(
+        "hidden"
+      );
+
+    },
+
+    5000
+
+  );
 
 }
+
+
+
+/* =========================
+   REFRESH BUTTONS
+========================= */
+
+refreshPosts.addEventListener(
+
+  "click",
+
+  async () => {
+
+    await loadPosts();
+
+  }
+
+);
+
+
+refreshComments.addEventListener(
+
+  "click",
+
+  async () => {
+
+    await loadComments();
+
+  }
+
+);
+
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+logoutBtn.addEventListener(
+
+  "click",
+
+  async () => {
+
+    try{
+
+      await signOut(auth);
+
+      window.location.href =
+        "login.html";
+
+    }catch(error){
+
+      alert(
+        "Logout failed: " +
+        error.message
+      );
+
+    }
+
+  }
+
+);
 
 
 
@@ -1147,9 +2294,7 @@ function showMessage(
    ESCAPE HTML
 ========================= */
 
-function escapeHTML(
-  value
-){
+function escapeHTML(value){
 
   return String(value)
 
@@ -1180,28 +2325,8 @@ function escapeHTML(
 
 }
 
-
-
-/* =========================
-   LOGOUT
-========================= */
-
-logoutBtn.addEventListener(
-
-  "click",
-
-  async () => {
-
-    await signOut(auth);
-
-    window.location.href =
-      "login.html";
-
-  }
-
-);
-
 </script>
 
 </body>
+
 </html>
