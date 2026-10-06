@@ -10,9 +10,6 @@
 
 <title>Post — Qalb-e-Deen</title>
 
-<meta name="description"
-      content="Qalb-e-Deen — The Heart of Deen">
-
 <style>
 
 *{
@@ -28,24 +25,18 @@ body{
   line-height:1.7;
 }
 
-/* =========================
-   HEADER
-========================= */
-
 header{
   background:#0d2b24;
   color:white;
   position:sticky;
   top:0;
   z-index:100;
-  box-shadow:0 3px 15px rgba(0,0,0,.15);
 }
 
 .navbar{
   max-width:1100px;
   margin:auto;
   padding:15px 18px;
-
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -61,19 +52,13 @@ header{
 }
 
 .home-btn{
-  color:#fff;
   text-decoration:none;
   background:#d7b56d;
   color:#0d2b24;
   padding:8px 14px;
   border-radius:8px;
   font-weight:bold;
-  font-size:14px;
 }
-
-/* =========================
-   CONTAINER
-========================= */
 
 .container{
   max-width:900px;
@@ -81,15 +66,15 @@ header{
   padding:35px 16px 70px;
 }
 
-/* =========================
-   POST
-========================= */
-
-.post-card{
+.post-card,
+.comments-card{
   background:white;
   border-radius:18px;
+  box-shadow:0 6px 25px rgba(0,0,0,.07);
+}
+
+.post-card{
   overflow:hidden;
-  box-shadow:0 6px 25px rgba(0,0,0,.08);
 }
 
 .post-image{
@@ -97,7 +82,6 @@ header{
   max-height:500px;
   object-fit:cover;
   display:block;
-  background:#e8efec;
 }
 
 .post-body{
@@ -141,22 +125,12 @@ h1{
   word-wrap:break-word;
 }
 
-.content p{
-  margin-bottom:18px;
-}
-
-/* =========================
-   ACTIONS
-========================= */
-
 .actions{
   margin-top:30px;
   padding-top:22px;
   border-top:1px solid #e4e9e7;
-
   display:flex;
   gap:10px;
-  flex-wrap:wrap;
 }
 
 .action-btn{
@@ -179,30 +153,127 @@ h1{
   text-decoration:none;
 }
 
+
 /* =========================
-   STATES
+   COMMENTS
 ========================= */
 
-.loading{
+.comments-card{
+  margin-top:25px;
+  padding:25px;
+}
+
+.comments-card h2{
+  color:#0d2b24;
+  margin-bottom:20px;
+}
+
+.login-message{
+  background:#f0f5f3;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:20px;
+  color:#52605c;
+}
+
+.login-message a{
+  color:#0d5b48;
+  font-weight:bold;
+}
+
+.comment-form{
+  margin-bottom:25px;
+}
+
+.comment-form textarea{
+  width:100%;
+  min-height:120px;
+  resize:vertical;
+  border:1px solid #d8dfdc;
+  border-radius:10px;
+  padding:13px;
+  font-size:15px;
+  outline:none;
+}
+
+.comment-form textarea:focus{
+  border-color:#0d5b48;
+}
+
+.comment-submit{
+  margin-top:10px;
+  background:#0d5b48;
+  color:white;
+  border:0;
+  padding:11px 18px;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.comment-submit:disabled{
+  opacity:.6;
+}
+
+.comments-list{
+  margin-top:15px;
+}
+
+.comment{
+  border:1px solid #e3e8e6;
+  border-radius:12px;
+  padding:16px;
+  margin-bottom:12px;
+}
+
+.comment-header{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:8px;
+}
+
+.comment-name{
+  font-weight:bold;
+  color:#0d2b24;
+}
+
+.comment-date{
+  color:#888;
+  font-size:12px;
+}
+
+.comment-text{
+  color:#394641;
+  white-space:pre-wrap;
+  word-break:break-word;
+}
+
+.comment-delete{
+  margin-top:10px;
+  border:0;
+  background:#d94b4b;
+  color:white;
+  padding:6px 10px;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:12px;
+}
+
+.comment-loading,
+.no-comments{
   text-align:center;
-  padding:70px 20px;
+  padding:25px;
   color:#777;
 }
 
-.spinner{
-  width:38px;
-  height:38px;
-  border:4px solid #dce5e1;
-  border-top-color:#0d5b48;
-  border-radius:50%;
-  margin:0 auto 15px;
-  animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-  to{
-    transform:rotate(360deg);
-  }
+.pending-note{
+  background:#fff8e6;
+  color:#856404;
+  padding:10px;
+  border-radius:8px;
+  margin-bottom:15px;
+  font-size:13px;
 }
 
 .error{
@@ -210,7 +281,6 @@ h1{
   color:#a52828;
   padding:20px;
   border-radius:12px;
-  word-break:break-word;
 }
 
 .not-found{
@@ -218,16 +288,7 @@ h1{
   text-align:center;
   padding:60px 20px;
   border-radius:16px;
-  box-shadow:0 5px 20px rgba(0,0,0,.06);
 }
-
-.not-found h2{
-  margin-bottom:10px;
-}
-
-/* =========================
-   FOOTER
-========================= */
 
 footer{
   background:#0d2b24;
@@ -239,7 +300,6 @@ footer{
 .footer-logo{
   font-size:21px;
   font-weight:bold;
-  margin-bottom:5px;
 }
 
 .footer-logo span{
@@ -249,41 +309,26 @@ footer{
 footer p{
   color:#bdccc7;
   font-size:13px;
+  margin-top:5px;
 }
-
-/* =========================
-   MOBILE
-========================= */
 
 @media(max-width:600px){
 
-  .logo{
-    font-size:20px;
-  }
-
-  .home-btn{
-    padding:7px 11px;
-    font-size:13px;
-  }
-
-  .container{
-    padding:20px 12px 50px;
+  h1{
+    font-size:28px;
   }
 
   .post-body{
     padding:20px;
   }
 
-  h1{
-    font-size:28px;
+  .comments-card{
+    padding:20px;
   }
 
-  .content{
-    font-size:16px;
-  }
-
-  .post-image{
-    max-height:300px;
+  .comment-header{
+    flex-direction:column;
+    gap:2px;
   }
 
 }
@@ -295,10 +340,6 @@ footer p{
 
 <body>
 
-
-<!-- =========================
-     HEADER
-========================= -->
 
 <header>
 
@@ -322,31 +363,87 @@ footer p{
 
 
 
-<!-- =========================
-     MAIN
-========================= -->
-
 <main class="container">
 
   <div id="postArea">
 
-    <div class="loading">
-
-      <div class="spinner"></div>
-
+    <div class="comment-loading">
       Loading post...
-
     </div>
 
   </div>
 
+
+  <!-- COMMENTS -->
+
+  <section
+    class="comments-card"
+    id="commentsSection">
+
+    <h2>
+      💬 Comments
+    </h2>
+
+
+    <!-- LOGIN MESSAGE -->
+
+    <div
+      id="loginMessage"
+      class="login-message">
+
+      Please
+      <a href="login.html">
+        login
+      </a>
+      to leave a comment.
+
+    </div>
+
+
+    <!-- COMMENT FORM -->
+
+    <form
+      id="commentForm"
+      class="comment-form"
+      style="display:none;">
+
+      <textarea
+        id="commentText"
+        placeholder="Write your comment..."
+        required
+        maxlength="1000"
+      ></textarea>
+
+
+      <button
+        type="submit"
+        class="comment-submit"
+        id="commentSubmit">
+
+        💬 Post Comment
+
+      </button>
+
+    </form>
+
+
+    <!-- COMMENTS LIST -->
+
+    <div
+      id="commentsList"
+      class="comments-list">
+
+      <div class="comment-loading">
+        Loading comments...
+      </div>
+
+    </div>
+
+  </section>
+
 </main>
 
 
-
-<!-- =========================
-     FOOTER
-========================= -->
 
 <footer>
 
@@ -366,10 +463,6 @@ footer p{
 
 
 
-<!-- =========================
-     FIREBASE
-========================= -->
-
 <script type="module">
 
 import {
@@ -380,11 +473,27 @@ from
 
 
 import {
+  getAuth,
+  onAuthStateChanged
+}
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
+
+import {
   getFirestore,
   doc,
   getDoc,
   updateDoc,
-  increment
+  increment,
+  collection,
+  addDoc,
+  getDocs,
+  deleteDoc,
+  query,
+  where,
+  orderBy,
+  serverTimestamp
 }
 from
 "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
@@ -392,7 +501,7 @@ from
 
 
 /* =========================
-   FIREBASE CONFIG
+   FIREBASE
 ========================= */
 
 const firebaseConfig = {
@@ -418,15 +527,11 @@ const firebaseConfig = {
 };
 
 
-
-/* =========================
-   INITIALIZE
-========================= */
-
 const app =
-  initializeApp(
-    firebaseConfig
-  );
+  initializeApp(firebaseConfig);
+
+const auth =
+  getAuth(app);
 
 const db =
   getFirestore(app);
@@ -434,7 +539,7 @@ const db =
 
 
 /* =========================
-   ELEMENT
+   ELEMENTS
 ========================= */
 
 const postArea =
@@ -442,10 +547,35 @@ const postArea =
     "postArea"
   );
 
+const loginMessage =
+  document.getElementById(
+    "loginMessage"
+  );
+
+const commentForm =
+  document.getElementById(
+    "commentForm"
+  );
+
+const commentText =
+  document.getElementById(
+    "commentText"
+  );
+
+const commentSubmit =
+  document.getElementById(
+    "commentSubmit"
+  );
+
+const commentsList =
+  document.getElementById(
+    "commentsList"
+  );
+
 
 
 /* =========================
-   GET POST ID
+   POST ID
 ========================= */
 
 const params =
@@ -455,6 +585,85 @@ const params =
 
 const postId =
   params.get("id");
+
+
+
+let currentUser = null;
+
+let isAdmin = false;
+
+
+
+/* =========================
+   AUTH STATE
+========================= */
+
+onAuthStateChanged(
+
+  auth,
+
+  async (user) => {
+
+    currentUser = user;
+
+    isAdmin = false;
+
+
+    if(user){
+
+      loginMessage.style.display =
+        "none";
+
+      commentForm.style.display =
+        "block";
+
+
+      try{
+
+        const userSnap =
+          await getDoc(
+            doc(
+              db,
+              "user",
+              user.uid
+            )
+          );
+
+
+        if(
+          userSnap.exists() &&
+          userSnap.data().role === "admin"
+        ){
+
+          isAdmin = true;
+
+        }
+
+      }catch(error){
+
+        console.log(
+          "Admin check error:",
+          error
+        );
+
+      }
+
+    }else{
+
+      loginMessage.style.display =
+        "block";
+
+      commentForm.style.display =
+        "none";
+
+    }
+
+
+    loadComments();
+
+  }
+
+);
 
 
 
@@ -506,46 +715,39 @@ async function loadPost(){
       postSnap.data();
 
 
-    /* =====================
-       VIEW COUNTER
-    ===================== */
-
     try{
 
       await updateDoc(
+
         postRef,
+
         {
           views:
             increment(1)
         }
+
       );
 
-    }catch(viewError){
+    }catch(error){
 
       console.log(
         "View counter error:",
-        viewError
+        error
       );
 
     }
 
 
-    renderPost(
-      post
-    );
+    renderPost(post);
 
 
   }catch(error){
-
-    console.error(error);
 
     postArea.innerHTML = `
 
       <div class="error">
 
-        <strong>
-          Could not load post.
-        </strong>
+        Could not load post.
 
         <br><br>
 
@@ -564,41 +766,33 @@ async function loadPost(){
 
 
 /* =========================
-   RENDER
+   RENDER POST
 ========================= */
 
-function renderPost(
-  post
-){
+function renderPost(post){
 
   const title =
     post.title ||
     "Untitled Post";
 
-
   const category =
     post.category ||
     "General";
-
 
   const content =
     post.content ||
     "No content available.";
 
-
   const image =
     post.imageURL ||
     "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1200&q=80";
-
 
   const author =
     post.authorName ||
     "Qalb-e-Deen";
 
-
   let date =
     "Recently";
-
 
   if(post.createdAt){
 
@@ -616,17 +810,9 @@ function renderPost(
             }
           );
 
-    }catch(error){
-
-      console.log(
-        "Date error:",
-        error
-      );
-
-    }
+    }catch(error){}
 
   }
-
 
   const views =
     Number(
@@ -643,7 +829,6 @@ function renderPost(
 
     <article class="post-card">
 
-
       <img
         class="post-image"
         src="${escapeAttribute(image)}"
@@ -651,64 +836,37 @@ function renderPost(
         onerror="this.style.display='none'"
       >
 
-
       <div class="post-body">
 
-
         <span class="category">
-
-          ${escapeHTML(
-            category
-          )}
-
+          ${escapeHTML(category)}
         </span>
 
-
         <h1>
-
-          ${escapeHTML(
-            title
-          )}
-
+          ${escapeHTML(title)}
         </h1>
-
 
         <div class="meta">
 
-          By
-          ${escapeHTML(
-            author
-          )}
+          By ${escapeHTML(author)}
 
           •
 
-          ${escapeHTML(
-            date
-          )}
+          ${escapeHTML(date)}
 
           •
 
-          👁️
-          ${views}
-          views
+          👁️ ${views} views
 
         </div>
-
 
         <div class="divider"></div>
 
-
         <div class="content">
-
-          ${escapeHTML(
-            content
-          )}
-
+          ${escapeHTML(content)}
         </div>
 
-
         <div class="actions">
-
 
           <button
             class="action-btn share"
@@ -718,7 +876,6 @@ function renderPost(
 
           </button>
 
-
           <a
             href="index.html"
             class="action-btn back">
@@ -727,9 +884,7 @@ function renderPost(
 
           </a>
 
-
         </div>
-
 
       </div>
 
@@ -739,9 +894,7 @@ function renderPost(
 
 
   document
-    .getElementById(
-      "shareBtn"
-    )
+    .getElementById("shareBtn")
     .addEventListener(
       "click",
       sharePost
@@ -752,34 +905,449 @@ function renderPost(
 
 
 /* =========================
+   LOAD COMMENTS
+========================= */
+
+async function loadComments(){
+
+  if(!postId){
+
+    return;
+
+  }
+
+
+  commentsList.innerHTML = `
+
+    <div class="comment-loading">
+      Loading comments...
+    </div>
+
+  `;
+
+
+  try{
+
+    const commentsQuery =
+      query(
+
+        collection(
+          db,
+          "comments"
+        ),
+
+        where(
+          "postId",
+          "==",
+          postId
+        ),
+
+        where(
+          "approved",
+          "==",
+          true
+        ),
+
+        orderBy(
+          "createdAt",
+          "desc"
+        )
+
+      );
+
+
+    const snapshot =
+      await getDocs(
+        commentsQuery
+      );
+
+
+    if(snapshot.empty){
+
+      commentsList.innerHTML = `
+
+        <div class="no-comments">
+
+          No comments yet.
+          Be the first to comment.
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    commentsList.innerHTML = "";
+
+
+    snapshot.forEach(
+
+      commentDoc => {
+
+        const comment =
+          commentDoc.data();
+
+
+        commentsList.appendChild(
+
+          createComment(
+            commentDoc.id,
+            comment
+          )
+
+        );
+
+      }
+
+    );
+
+
+  }catch(error){
+
+    console.error(
+      error
+    );
+
+
+    commentsList.innerHTML = `
+
+      <div class="error">
+
+        Could not load comments.
+
+        <br><br>
+
+        ${escapeHTML(
+          error.message
+        )}
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+
+/* =========================
+   CREATE COMMENT UI
+========================= */
+
+function createComment(
+  commentId,
+  comment
+){
+
+  const div =
+    document.createElement(
+      "div"
+    );
+
+  div.className =
+    "comment";
+
+
+  let date =
+    "Recently";
+
+
+  if(comment.createdAt){
+
+    try{
+
+      date =
+        comment.createdAt
+          .toDate()
+          .toLocaleDateString(
+            "en-US",
+            {
+              year:"numeric",
+              month:"short",
+              day:"numeric"
+            }
+          );
+
+    }catch(error){}
+
+  }
+
+
+  div.innerHTML = `
+
+    <div class="comment-header">
+
+      <span class="comment-name">
+
+        ${escapeHTML(
+          comment.userName ||
+          "User"
+        )}
+
+      </span>
+
+      <span class="comment-date">
+
+        ${escapeHTML(date)}
+
+      </span>
+
+    </div>
+
+
+    <div class="comment-text">
+
+      ${escapeHTML(
+        comment.text ||
+        ""
+      )}
+
+    </div>
+
+  `;
+
+
+  if(
+    currentUser &&
+    (
+      currentUser.uid ===
+      comment.userId ||
+      isAdmin
+    )
+  ){
+
+    const deleteBtn =
+      document.createElement(
+        "button"
+      );
+
+    deleteBtn.className =
+      "comment-delete";
+
+    deleteBtn.textContent =
+      "Delete";
+
+
+    deleteBtn.addEventListener(
+
+      "click",
+
+      async () => {
+
+        if(
+          !confirm(
+            "Delete this comment?"
+          )
+        ){
+
+          return;
+
+        }
+
+
+        try{
+
+          await deleteDoc(
+
+            doc(
+              db,
+              "comments",
+              commentId
+            )
+
+          );
+
+
+          await loadComments();
+
+
+        }catch(error){
+
+          alert(
+            "Delete failed: " +
+            error.message
+          );
+
+        }
+
+      }
+
+    );
+
+
+    div.appendChild(
+      deleteBtn
+    );
+
+  }
+
+
+  return div;
+
+}
+
+
+
+/* =========================
+   SUBMIT COMMENT
+========================= */
+
+commentForm.addEventListener(
+
+  "submit",
+
+  async (event) => {
+
+    event.preventDefault();
+
+
+    if(!currentUser){
+
+      alert(
+        "Please login first."
+      );
+
+      return;
+
+    }
+
+
+    const text =
+      commentText.value.trim();
+
+
+    if(!text){
+
+      return;
+
+    }
+
+
+    commentSubmit.disabled =
+      true;
+
+    commentSubmit.textContent =
+      "Posting...";
+
+
+    try{
+
+      let userName =
+        currentUser.displayName ||
+        "User";
+
+
+      const userSnap =
+        await getDoc(
+
+          doc(
+            db,
+            "user",
+            currentUser.uid
+          )
+
+        );
+
+
+      if(userSnap.exists()){
+
+        userName =
+          userSnap.data().name ||
+          userName;
+
+      }
+
+
+      await addDoc(
+
+        collection(
+          db,
+          "comments"
+        ),
+
+        {
+
+          postId:
+            postId,
+
+          userId:
+            currentUser.uid,
+
+          userName:
+            userName,
+
+          text:
+            text,
+
+          approved:
+            false,
+
+          createdAt:
+            serverTimestamp()
+
+        }
+
+      );
+
+
+      commentText.value =
+        "";
+
+
+      alert(
+        "✅ Comment submitted. It will appear after admin approval."
+      );
+
+
+    }catch(error){
+
+      alert(
+        "Comment failed: " +
+        error.message
+      );
+
+
+    }
+
+
+    commentSubmit.disabled =
+      false;
+
+    commentSubmit.textContent =
+      "💬 Post Comment";
+
+  }
+
+);
+
+
+
+/* =========================
    SHARE
 ========================= */
 
 async function sharePost(){
 
-  const shareData = {
-
-    title:
-      document.title,
-
-    text:
-      "Read this post on Qalb-e-Deen",
-
-    url:
-      window.location.href
-
-  };
-
-
   try{
 
-    if(
-      navigator.share
-    ){
+    if(navigator.share){
 
-      await navigator.share(
-        shareData
-      );
+      await navigator.share({
+
+        title:
+          document.title,
+
+        text:
+          "Read this post on Qalb-e-Deen",
+
+        url:
+          window.location.href
+
+      });
 
     }else{
 
@@ -793,14 +1361,7 @@ async function sharePost(){
 
     }
 
-  }catch(error){
-
-    console.log(
-      "Share cancelled:",
-      error
-    );
-
-  }
+  }catch(error){}
 
 }
 
@@ -810,9 +1371,7 @@ async function sharePost(){
    NOT FOUND
 ========================= */
 
-function showNotFound(
-  message
-){
+function showNotFound(message){
 
   postArea.innerHTML = `
 
@@ -823,9 +1382,7 @@ function showNotFound(
       </h2>
 
       <p>
-        ${escapeHTML(
-          message
-        )}
+        ${escapeHTML(message)}
       </p>
 
       <br>
@@ -850,66 +1407,27 @@ function showNotFound(
    ESCAPE
 ========================= */
 
-function escapeHTML(
-  value
-){
+function escapeHTML(value){
 
   return String(value)
 
-    .replaceAll(
-      "&",
-      "&amp;"
-    )
-
-    .replaceAll(
-      "<",
-      "&lt;"
-    )
-
-    .replaceAll(
-      ">",
-      "&gt;"
-    )
-
-    .replaceAll(
-      '"',
-      "&quot;"
-    )
-
-    .replaceAll(
-      "'",
-      "&#039;"
-    );
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
 
 }
 
 
-
-function escapeAttribute(
-  value
-){
+function escapeAttribute(value){
 
   return String(value)
 
-    .replaceAll(
-      "&",
-      "&amp;"
-    )
-
-    .replaceAll(
-      '"',
-      "&quot;"
-    )
-
-    .replaceAll(
-      "<",
-      "&lt;"
-    )
-
-    .replaceAll(
-      ">",
-      "&gt;"
-    );
+    .replaceAll("&","&amp;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;");
 
 }
 
@@ -923,6 +1441,6 @@ loadPost();
 
 </script>
 
-
 </body>
-  </html>
+
+</html>
