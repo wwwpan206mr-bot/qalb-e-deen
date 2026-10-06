@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
+
 <head>
 
 <meta charset="UTF-8">
@@ -7,10 +8,13 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>Qalb-e-Deen — The Heart of Deen</title>
+<meta name="theme-color"
+      content="#0d2b24">
 
 <meta name="description"
-      content="Qalb-e-Deen — The Heart of Deen. Islamic knowledge, Quran, Hadith, Dua and more.">
+      content="Qalb-e-Deen — The Heart of Deen">
+
+<title>Qalb-e-Deen — The Heart of Deen</title>
 
 <style>
 
@@ -20,69 +24,113 @@
   padding:0;
 }
 
-body{
-  font-family:Arial, sans-serif;
-  background:#f5f8f7;
-  color:#17211f;
-  line-height:1.6;
+html{
+  scroll-behavior:smooth;
 }
+
+body{
+  font-family:
+    Arial,
+    "Noto Sans Bengali",
+    sans-serif;
+
+  background:#f5f8f6;
+  color:#17211f;
+  line-height:1.7;
+}
+
+button,
+input,
+textarea,
+select{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
 
 /* =========================
    HEADER
 ========================= */
 
 header{
-  background:#0d2b24;
-  color:white;
   position:sticky;
   top:0;
   z-index:1000;
-  box-shadow:0 3px 15px rgba(0,0,0,.15);
+
+  background:#0d2b24;
+  color:white;
+
+  box-shadow:
+    0 4px 20px rgba(0,0,0,.15);
 }
 
 .navbar{
   max-width:1200px;
   margin:auto;
-  padding:15px 18px;
+
+  min-height:68px;
+
+  padding:0 18px;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:20px;
+
+  gap:15px;
 }
 
 .logo{
-  font-size:24px;
-  font-weight:bold;
-  white-space:nowrap;
+  font-size:23px;
+  font-weight:800;
+  letter-spacing:.3px;
 }
 
 .logo span{
   color:#d7b56d;
 }
 
-.nav-links{
+.nav-right{
   display:flex;
-  gap:22px;
   align-items:center;
+  gap:8px;
 }
 
-.nav-links a{
+.nav-btn{
+  border:0;
+  background:transparent;
   color:white;
-  text-decoration:none;
-  font-size:15px;
+
+  padding:9px 12px;
+  border-radius:8px;
+
+  font-weight:bold;
 }
 
-.nav-links a:hover{
-  color:#d7b56d;
+.nav-btn:hover{
+  background:rgba(255,255,255,.08);
 }
 
 .login-btn{
   background:#d7b56d;
-  color:#0d2b24 !important;
-  padding:8px 14px;
-  border-radius:8px;
-  font-weight:bold;
+  color:#0d2b24;
 }
+
+.login-btn:hover{
+  background:#e5c982;
+}
+
+.admin-btn{
+  background:#174d40;
+}
+
 
 /* =========================
    HERO
@@ -91,22 +139,31 @@ header{
 .hero{
   background:
     linear-gradient(
-      rgba(13,43,36,.93),
-      rgba(13,43,36,.93)
+      135deg,
+      #0d2b24,
+      #124b3d
     );
-  color:white;
-  padding:75px 18px;
-}
 
-.hero-inner{
-  max-width:1100px;
-  margin:auto;
+  color:white;
+
+  padding:
+    70px 18px
+    75px;
+
   text-align:center;
 }
 
+.hero-inner{
+  max-width:850px;
+  margin:auto;
+}
+
 .hero h1{
-  font-size:45px;
-  margin-bottom:12px;
+  font-size:
+    clamp(34px,6vw,58px);
+
+  line-height:1.15;
+  margin-bottom:15px;
 }
 
 .hero h1 span{
@@ -114,94 +171,162 @@ header{
 }
 
 .hero p{
-  max-width:700px;
+  max-width:650px;
   margin:auto;
-  color:#d9e3df;
-  font-size:18px;
+
+  color:#d7e3df;
+
+  font-size:17px;
 }
+
+.hero-buttons{
+  margin-top:28px;
+
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.hero-btn{
+  border:0;
+
+  padding:12px 20px;
+  border-radius:9px;
+
+  font-weight:bold;
+  font-size:15px;
+}
+
+.primary{
+  background:#d7b56d;
+  color:#0d2b24;
+}
+
+.secondary{
+  background:rgba(255,255,255,.1);
+  color:white;
+  border:1px solid rgba(255,255,255,.25);
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+  max-width:1200px;
+  margin:auto;
+
+  padding:
+    35px 16px
+    60px;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+  margin-bottom:45px;
+}
+
+.section-title{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+
+  gap:15px;
+
+  margin-bottom:18px;
+}
+
+.section-title h2{
+  color:#0d2b24;
+  font-size:25px;
+}
+
+.section-title p{
+  color:#74807b;
+  font-size:14px;
+}
+
 
 /* =========================
    SEARCH
 ========================= */
 
-.search-area{
-  max-width:900px;
-  margin:-30px auto 30px;
-  padding:0 16px;
-  position:relative;
-  z-index:5;
-}
-
 .search-box{
   background:white;
-  padding:10px;
+
   border-radius:14px;
-  box-shadow:0 8px 30px rgba(0,0,0,.12);
-  display:flex;
-  gap:10px;
+
+  padding:15px;
+
+  box-shadow:
+    0 5px 20px
+    rgba(0,0,0,.06);
+
+  margin-bottom:22px;
 }
 
-.search-box input{
-  flex:1;
-  border:0;
+.search{
+  width:100%;
+
+  border:1px solid #d9e2de;
+
+  padding:14px 15px;
+
+  border-radius:9px;
+
   outline:none;
-  padding:14px;
-  font-size:16px;
+
+  font-size:15px;
 }
+
+.search:focus{
+  border-color:#0d5b48;
+}
+
 
 /* =========================
    CATEGORIES
 ========================= */
 
 .categories{
-  max-width:1200px;
-  margin:0 auto 30px;
-  padding:0 16px;
   display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  justify-content:center;
+  gap:8px;
+
+  overflow-x:auto;
+
+  padding-bottom:5px;
+
+  margin-bottom:25px;
 }
 
 .category-btn{
-  border:1px solid #d5dfdb;
+  flex-shrink:0;
+
+  border:1px solid #d6dfdb;
+
   background:white;
-  color:#21443b;
-  padding:9px 16px;
+  color:#315049;
+
+  padding:8px 14px;
+
   border-radius:30px;
-  cursor:pointer;
-  font-size:14px;
+
+  font-size:13px;
+  font-weight:bold;
 }
 
-.category-btn:hover,
 .category-btn.active{
   background:#0d5b48;
   color:white;
   border-color:#0d5b48;
 }
 
-/* =========================
-   MAIN
-========================= */
-
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:0 16px 60px;
-}
-
-.section-title{
-  margin-bottom:22px;
-}
-
-.section-title h2{
-  font-size:28px;
-  color:#0d2b24;
-}
-
-.section-title p{
-  color:#68736f;
-}
 
 /* =========================
    POSTS GRID
@@ -209,138 +334,630 @@ header{
 
 .posts-grid{
   display:grid;
+
   grid-template-columns:
-    repeat(3, minmax(0,1fr));
-  gap:22px;
+    repeat(3,minmax(0,1fr));
+
+  gap:20px;
 }
 
 .post-card{
   background:white;
-  border-radius:16px;
+
+  border-radius:15px;
+
   overflow:hidden;
-  box-shadow:0 5px 22px rgba(0,0,0,.07);
-  transition:.25s;
-  display:flex;
-  flex-direction:column;
+
+  box-shadow:
+    0 5px 22px
+    rgba(0,0,0,.07);
+
+  transition:
+    transform .2s,
+    box-shadow .2s;
 }
 
 .post-card:hover{
   transform:translateY(-4px);
-  box-shadow:0 10px 28px rgba(0,0,0,.12);
+
+  box-shadow:
+    0 12px 30px
+    rgba(0,0,0,.1);
 }
 
 .post-image{
   width:100%;
-  height:210px;
+  height:190px;
+
   object-fit:cover;
-  background:#e8efec;
+
+  background:#e8eeeb;
 }
 
-.post-content{
-  padding:20px;
-  display:flex;
-  flex-direction:column;
-  flex:1;
+.post-body{
+  padding:18px;
 }
 
 .post-category{
   display:inline-block;
-  width:max-content;
-  background:#e7f3ee;
+
   color:#0d5b48;
-  padding:5px 10px;
+
+  background:#e7f3ee;
+
+  padding:4px 9px;
+
   border-radius:20px;
-  font-size:12px;
+
+  font-size:11px;
   font-weight:bold;
-  margin-bottom:10px;
+
+  margin-bottom:9px;
 }
 
 .post-title{
-  font-size:20px;
-  line-height:1.35;
-  margin-bottom:8px;
+  font-size:19px;
+
   color:#17211f;
+
+  line-height:1.4;
+
+  margin-bottom:8px;
 }
 
 .post-excerpt{
-  color:#66716d;
+  color:#68746f;
+
   font-size:14px;
-  margin-bottom:15px;
+
   display:-webkit-box;
   -webkit-line-clamp:3;
   -webkit-box-orient:vertical;
+
   overflow:hidden;
+
+  margin-bottom:12px;
 }
 
-.post-footer{
-  margin-top:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-}
+.post-meta{
+  border-top:1px solid #edf1ef;
 
-.post-date{
+  padding-top:10px;
+
+  color:#7a8581;
+
   font-size:12px;
-  color:#888;
+
+  display:flex;
+  justify-content:space-between;
+
+  gap:8px;
 }
 
 .read-btn{
+  width:100%;
+
+  margin-top:13px;
+
+  border:0;
+
+  background:#0d5b48;
+
+  color:white;
+
+  padding:11px;
+
+  border-radius:8px;
+
+  font-weight:bold;
+}
+
+
+/* =========================
+   EMPTY / LOADING
+========================= */
+
+.loading,
+.empty{
+  grid-column:1/-1;
+
+  background:white;
+
+  padding:40px 20px;
+
+  text-align:center;
+
+  border-radius:14px;
+
+  color:#747f7b;
+}
+
+.spinner{
+  width:32px;
+  height:32px;
+
+  border:
+    4px solid #dce6e2;
+
+  border-top-color:#0d5b48;
+
+  border-radius:50%;
+
+  margin:
+    0 auto 12px;
+
+  animation:
+    spin 1s linear infinite;
+}
+
+@keyframes spin{
+
+  to{
+    transform:rotate(360deg);
+  }
+
+}
+
+
+/* =========================
+   FEATURE CARDS
+========================= */
+
+.features{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:18px;
+}
+
+.feature{
+  background:white;
+
+  padding:25px;
+
+  border-radius:15px;
+
+  box-shadow:
+    0 5px 20px
+    rgba(0,0,0,.06);
+}
+
+.feature-icon{
+  font-size:32px;
+
+  margin-bottom:10px;
+}
+
+.feature h3{
+  color:#0d2b24;
+
+  margin-bottom:5px;
+}
+
+.feature p{
+  color:#68746f;
+
+  font-size:14px;
+}
+
+.feature-btn{
+  display:inline-block;
+
+  margin-top:13px;
+
   background:#0d5b48;
   color:white;
-  text-decoration:none;
-  padding:8px 13px;
-  border-radius:8px;
+
+  padding:9px 14px;
+
+  border-radius:7px;
+
   font-size:13px;
   font-weight:bold;
 }
 
-.read-btn:hover{
-  background:#083f33;
-}
 
 /* =========================
-   STATES
+   HADITH
 ========================= */
 
-.loading{
+.hadith-box{
+  background:
+    linear-gradient(
+      135deg,
+      #0d2b24,
+      #174d40
+    );
+
+  color:white;
+
+  border-radius:18px;
+
+  padding:30px;
+
   text-align:center;
-  padding:50px 20px;
-  color:#777;
+
+  box-shadow:
+    0 8px 30px
+    rgba(13,43,36,.18);
 }
 
-.spinner{
-  width:35px;
-  height:35px;
-  border:4px solid #dce5e1;
-  border-top-color:#0d5b48;
-  border-radius:50%;
-  margin:0 auto 15px;
-  animation:spin 1s linear infinite;
+.hadith-arabic{
+  font-size:24px;
+
+  line-height:2;
+
+  margin-bottom:15px;
 }
 
-@keyframes spin{
-  to{
-    transform:rotate(360deg);
-  }
+.hadith-text{
+  color:#dce8e3;
+
+  max-width:750px;
+
+  margin:auto;
 }
 
-.empty{
-  text-align:center;
+.hadith-source{
+  color:#d7b56d;
+
+  margin-top:13px;
+
+  font-size:13px;
+
+  font-weight:bold;
+}
+
+.hadith-refresh{
+  margin-top:20px;
+
+  background:#d7b56d;
+
+  color:#0d2b24;
+
+  border:0;
+
+  padding:9px 16px;
+
+  border-radius:8px;
+
+  font-weight:bold;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+  position:fixed;
+
+  inset:0;
+
+  z-index:3000;
+
+  background:rgba(0,0,0,.6);
+
+  display:none;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:15px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:100%;
+  max-width:750px;
+
+  max-height:
+    92vh;
+
+  overflow-y:auto;
+
   background:white;
-  padding:45px 20px;
-  border-radius:15px;
-  color:#777;
+
+  border-radius:17px;
+
+  padding:25px;
+
+  position:relative;
 }
 
-.error{
-  background:#fff0f0;
-  color:#a52828;
-  padding:20px;
-  border-radius:12px;
-  margin:20px 0;
-  word-break:break-word;
+.close{
+  position:absolute;
+
+  right:15px;
+  top:12px;
+
+  width:36px;
+  height:36px;
+
+  border:0;
+
+  border-radius:50%;
+
+  background:#edf2ef;
+
+  font-size:20px;
 }
+
+.modal-image{
+  width:100%;
+  max-height:350px;
+
+  object-fit:cover;
+
+  border-radius:12px;
+
+  margin-bottom:18px;
+}
+
+.modal-category{
+  color:#0d5b48;
+
+  font-size:13px;
+  font-weight:bold;
+
+  margin-bottom:7px;
+}
+
+.modal-title{
+  font-size:30px;
+
+  line-height:1.3;
+
+  margin-bottom:10px;
+}
+
+.modal-meta{
+  color:#7b8581;
+
+  font-size:13px;
+
+  margin-bottom:20px;
+}
+
+.modal-content{
+  color:#36433f;
+
+  white-space:pre-wrap;
+
+  font-size:16px;
+}
+
+.share-btn{
+  margin-top:20px;
+
+  background:#0d5b48;
+
+  color:white;
+
+  border:0;
+
+  padding:10px 16px;
+
+  border-radius:8px;
+
+  font-weight:bold;
+}
+
+
+/* =========================
+   COMMENTS
+========================= */
+
+.comments-section{
+  margin-top:30px;
+
+  border-top:1px solid #e6ece9;
+
+  padding-top:25px;
+}
+
+.comments-section h3{
+  margin-bottom:15px;
+
+  color:#0d2b24;
+}
+
+.comment-login{
+  background:#f1f7f4;
+
+  padding:15px;
+
+  border-radius:10px;
+
+  color:#49625a;
+
+  font-size:14px;
+}
+
+.comment-form{
+  margin-bottom:20px;
+}
+
+.comment-form textarea{
+  width:100%;
+
+  min-height:100px;
+
+  resize:vertical;
+
+  border:
+    1px solid #d6dfdb;
+
+  border-radius:9px;
+
+  padding:12px;
+
+  outline:none;
+}
+
+.comment-submit{
+  margin-top:8px;
+
+  background:#0d5b48;
+
+  color:white;
+
+  border:0;
+
+  padding:10px 16px;
+
+  border-radius:8px;
+
+  font-weight:bold;
+}
+
+.comment{
+  background:#f7f9f8;
+
+  padding:13px;
+
+  border-radius:10px;
+
+  margin-bottom:10px;
+}
+
+.comment-user{
+  font-weight:bold;
+
+  color:#0d2b24;
+
+  font-size:14px;
+}
+
+.comment-date{
+  color:#8a9490;
+
+  font-size:11px;
+
+  margin-left:7px;
+}
+
+.comment-text{
+  margin-top:5px;
+
+  color:#44534e;
+
+  white-space:pre-wrap;
+}
+
+.comment-delete{
+  margin-top:7px;
+
+  background:#d94b4b;
+
+  color:white;
+
+  border:0;
+
+  padding:5px 9px;
+
+  border-radius:6px;
+
+  font-size:11px;
+}
+
+
+/* =========================
+   LOGIN MODAL
+========================= */
+
+.login-box{
+  max-width:420px;
+}
+
+.login-box h2{
+  color:#0d2b24;
+
+  margin-bottom:18px;
+}
+
+.form-group{
+  margin-bottom:13px;
+}
+
+.form-group label{
+  display:block;
+
+  font-weight:bold;
+
+  font-size:13px;
+
+  margin-bottom:5px;
+}
+
+.form-group input{
+  width:100%;
+
+  padding:12px;
+
+  border:
+    1px solid #d6dfdb;
+
+  border-radius:8px;
+
+  outline:none;
+}
+
+.form-submit{
+  width:100%;
+
+  background:#0d5b48;
+
+  color:white;
+
+  border:0;
+
+  padding:12px;
+
+  border-radius:8px;
+
+  font-weight:bold;
+
+  margin-top:5px;
+}
+
+.switch-auth{
+  text-align:center;
+
+  margin-top:13px;
+
+  color:#68746f;
+
+  font-size:13px;
+}
+
+.switch-auth button{
+  border:0;
+
+  background:none;
+
+  color:#0d5b48;
+
+  font-weight:bold;
+}
+
+.auth-message{
+  margin-top:12px;
+
+  padding:10px;
+
+  border-radius:7px;
+
+  font-size:13px;
+
+  display:none;
+}
+
 
 /* =========================
    FOOTER
@@ -348,21 +965,18 @@ header{
 
 footer{
   background:#0d2b24;
-  color:white;
-  padding:35px 18px;
-  margin-top:20px;
-}
 
-.footer-inner{
-  max-width:1100px;
-  margin:auto;
+  color:white;
+
+  padding:40px 18px;
+
   text-align:center;
 }
 
 .footer-logo{
-  font-size:22px;
+  font-size:23px;
+
   font-weight:bold;
-  margin-bottom:8px;
 }
 
 .footer-logo span{
@@ -370,59 +984,85 @@ footer{
 }
 
 footer p{
-  color:#bdccc7;
-  font-size:14px;
+  color:#b9c9c3;
+
+  font-size:13px;
+
+  margin-top:4px;
 }
 
+
 /* =========================
-   MOBILE
+   RESPONSIVE
 ========================= */
 
 @media(max-width:900px){
 
   .posts-grid{
     grid-template-columns:
-      repeat(2,minmax(0,1fr));
+      repeat(2,1fr);
+  }
+
+  .features{
+    grid-template-columns:1fr;
   }
 
 }
 
-@media(max-width:650px){
+@media(max-width:600px){
 
   .navbar{
-    padding:13px 14px;
+    min-height:60px;
   }
 
   .logo{
-    font-size:20px;
+    font-size:19px;
   }
 
-  .nav-links{
-    gap:10px;
+  .nav-btn{
+    padding:7px 8px;
+    font-size:12px;
   }
 
-  .nav-links a:not(.login-btn){
+  .admin-btn{
     display:none;
   }
 
   .hero{
-    padding:55px 16px;
-  }
-
-  .hero h1{
-    font-size:32px;
+    padding:
+      50px 16px
+      55px;
   }
 
   .hero p{
     font-size:15px;
   }
 
+  .container{
+    padding:
+      28px 12px
+      45px;
+  }
+
   .posts-grid{
     grid-template-columns:1fr;
   }
 
-  .post-image{
-    height:220px;
+  .section-title{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .modal-box{
+    padding:18px;
+  }
+
+  .modal-title{
+    font-size:24px;
+  }
+
+  .hadith-arabic{
+    font-size:19px;
   }
 
 }
@@ -441,32 +1081,58 @@ footer p{
 
 <header>
 
-  <div class="navbar">
+<div class="navbar">
 
-    <div class="logo">
-      Qalb<span>-e-Deen</span>
-    </div>
+  <a
+    href="index.html"
+    class="logo">
 
-    <nav class="nav-links">
+    Qalb<span>-e-Deen</span>
 
-      <a href="index.html">
-        Home
-      </a>
+  </a>
 
-      <a href="#posts">
-        Posts
-      </a>
 
-      <a href="login.html"
-         class="login-btn">
-        Login
-      </a>
+  <div class="nav-right">
 
-    </nav>
+    <button
+      class="nav-btn"
+      onclick="scrollToSection('posts')">
+
+      Posts
+
+    </button>
+
+    <button
+      class="nav-btn"
+      onclick="scrollToSection('hadith')">
+
+      Hadith
+
+    </button>
+
+    <button
+      class="nav-btn admin-btn hidden"
+      id="adminBtn"
+      onclick="location.href='admin.html'">
+
+      Admin
+
+    </button>
+
+    <button
+      class="nav-btn login-btn"
+      id="authBtn">
+
+      Login
+
+    </button>
 
   </div>
 
+</div>
+
 </header>
+
 
 
 <!-- =========================
@@ -475,138 +1141,156 @@ footer p{
 
 <section class="hero">
 
-  <div class="hero-inner">
+<div class="hero-inner">
 
-    <h1>
-      Welcome to
-      <span>Qalb-e-Deen</span>
-    </h1>
+  <h1>
+    The Heart of <span>Deen</span>
+  </h1>
 
-    <p>
-      The Heart of Deen — Explore Islamic knowledge,
-      Quran, Hadith, Dua and beautiful reminders.
-    </p>
+  <p>
+    Explore Islamic knowledge, Quran,
+    Hadith, Dua and meaningful reminders
+    for everyday life.
+  </p>
+
+
+  <div class="hero-buttons">
+
+    <button
+      class="hero-btn primary"
+      onclick="scrollToSection('posts')">
+
+      📖 Explore Posts
+
+    </button>
+
+
+    <button
+      class="hero-btn secondary"
+      onclick="scrollToSection('hadith')">
+
+      🕌 Today's Hadith
+
+    </button>
 
   </div>
+
+</div>
 
 </section>
 
 
-<!-- =========================
-     SEARCH
-========================= -->
-
-<div class="search-area">
-
-  <div class="search-box">
-
-    <input
-      id="searchInput"
-      type="search"
-      placeholder="Search posts..."
-      autocomplete="off"
-    >
-
-  </div>
-
-</div>
-
 
 <!-- =========================
-     CATEGORIES
+     MAIN
 ========================= -->
 
-<div class="categories">
-
-  <button
-    class="category-btn active"
-    data-category="All">
-
-    All
-
-  </button>
-
-  <button
-    class="category-btn"
-    data-category="Quran">
-
-    Quran
-
-  </button>
-
-  <button
-    class="category-btn"
-    data-category="Hadith">
-
-    Hadith
-
-  </button>
-
-  <button
-    class="category-btn"
-    data-category="Islamic Knowledge">
-
-    Islamic Knowledge
-
-  </button>
-
-  <button
-    class="category-btn"
-    data-category="Dua">
-
-    Dua
-
-  </button>
-
-  <button
-    class="category-btn"
-    data-category="Akhlaq">
-
-    Akhlaq
-
-  </button>
-
-  <button
-    class="category-btn"
-    data-category="Lifestyle">
-
-    Lifestyle
-
-  </button>
-
-  <button
-    class="category-btn"
-    data-category="News">
-
-    News
-
-  </button>
-
-</div>
+<main class="container">
 
 
 <!-- =========================
      POSTS
 ========================= -->
 
-<main
-  class="container"
+<section
+  class="section"
   id="posts">
 
   <div class="section-title">
 
-    <h2>
-      Latest Posts
-    </h2>
+    <div>
 
-    <p>
-      Discover our latest Islamic posts.
-    </p>
+      <h2>
+        📚 Latest Posts
+      </h2>
+
+      <p>
+        Latest Islamic posts from Qalb-e-Deen
+      </p>
+
+    </div>
 
   </div>
 
 
-  <div id="postsArea">
+  <div class="search-box">
+
+    <input
+      id="searchInput"
+      class="search"
+      type="search"
+      placeholder="🔍 Search posts..."
+    >
+
+  </div>
+
+
+  <div
+    class="categories"
+    id="categories">
+
+    <button
+      class="category-btn active"
+      data-category="All">
+
+      All
+
+    </button>
+
+    <button
+      class="category-btn"
+      data-category="Quran">
+
+      Quran
+
+    </button>
+
+    <button
+      class="category-btn"
+      data-category="Hadith">
+
+      Hadith
+
+    </button>
+
+    <button
+      class="category-btn"
+      data-category="Islamic Knowledge">
+
+      Islamic Knowledge
+
+    </button>
+
+    <button
+      class="category-btn"
+      data-category="Dua">
+
+      Dua
+
+    </button>
+
+    <button
+      class="category-btn"
+      data-category="Akhlaq">
+
+      Akhlaq
+
+    </button>
+
+    <button
+      class="category-btn"
+      data-category="Lifestyle">
+
+      Lifestyle
+
+    </button>
+
+  </div>
+
+
+  <div
+    class="posts-grid"
+    id="postsGrid">
 
     <div class="loading">
 
@@ -618,7 +1302,385 @@ footer p{
 
   </div>
 
+</section>
+
+
+
+<!-- =========================
+     FEATURES
+========================= -->
+
+<section class="section">
+
+  <div class="section-title">
+
+    <div>
+
+      <h2>
+        🌙 Explore Qalb-e-Deen
+      </h2>
+
+    </div>
+
+  </div>
+
+
+  <div class="features">
+
+
+    <div class="feature">
+
+      <div class="feature-icon">
+        📖
+      </div>
+
+      <h3>
+        Quran
+      </h3>
+
+      <p>
+        Read the Quran and spend
+        meaningful time with the words
+        of Allah.
+      </p>
+
+      <a
+        href="#"
+        class="feature-btn">
+
+        Read Quran
+
+      </a>
+
+    </div>
+
+
+    <div class="feature">
+
+      <div class="feature-icon">
+        🕌
+      </div>
+
+      <h3>
+        Hadith
+      </h3>
+
+      <p>
+        Discover beneficial Hadith and
+        reminders for your daily life.
+      </p>
+
+      <button
+        class="feature-btn"
+        onclick="scrollToSection('hadith')">
+
+        Today's Hadith
+
+      </button>
+
+    </div>
+
+
+    <div class="feature">
+
+      <div class="feature-icon">
+        🤲
+      </div>
+
+      <h3>
+        Dua
+      </h3>
+
+      <p>
+        Explore authentic Duas and
+        beautiful Islamic reminders.
+      </p>
+
+      <button
+        class="feature-btn"
+        onclick="filterCategory('Dua')">
+
+        Explore Dua
+
+      </button>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     HADITH
+========================= -->
+
+<section
+  class="section"
+  id="hadith">
+
+  <div class="section-title">
+
+    <div>
+
+      <h2>
+        🕌 Today's Hadith
+      </h2>
+
+      <p>
+        A reminder for the heart
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="hadith-box">
+
+    <div
+      class="hadith-arabic"
+      id="hadithArabic">
+
+      إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ
+
+    </div>
+
+
+    <div
+      class="hadith-text"
+      id="hadithText">
+
+      Actions are judged by intentions.
+
+    </div>
+
+
+    <div
+      class="hadith-source"
+      id="hadithSource">
+
+      Sahih al-Bukhari
+
+    </div>
+
+
+    <button
+      class="hadith-refresh"
+      id="hadithRefresh">
+
+      🔄 Another Hadith
+
+    </button>
+
+  </div>
+
+</section>
+
+
 </main>
+
+
+
+<!-- =========================
+     POST MODAL
+========================= -->
+
+<div
+  class="modal"
+  id="postModal">
+
+  <div class="modal-box">
+
+    <button
+      class="close"
+      onclick="closePostModal()">
+
+      ×
+
+    </button>
+
+
+    <img
+      id="modalImage"
+      class="modal-image"
+      src=""
+      alt="Post image"
+    >
+
+
+    <div
+      id="modalCategory"
+      class="modal-category">
+    </div>
+
+
+    <h2
+      id="modalTitle"
+      class="modal-title">
+    </h2>
+
+
+    <div
+      id="modalMeta"
+      class="modal-meta">
+    </div>
+
+
+    <div
+      id="modalContent"
+      class="modal-content">
+    </div>
+
+
+    <button
+      class="share-btn"
+      id="shareBtn">
+
+      🔗 Share Post
+
+    </button>
+
+
+    <!-- COMMENTS -->
+
+    <div class="comments-section">
+
+      <h3>
+        💬 Comments
+      </h3>
+
+
+      <div
+        id="commentArea">
+      </div>
+
+
+      <div
+        id="commentsList">
+
+        <div class="loading">
+          Loading comments...
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- =========================
+     LOGIN MODAL
+========================= -->
+
+<div
+  class="modal"
+  id="loginModal">
+
+  <div class="modal-box login-box">
+
+    <button
+      class="close"
+      onclick="closeLoginModal()">
+
+      ×
+
+    </button>
+
+
+    <h2 id="authTitle">
+      🔐 Login
+    </h2>
+
+
+    <div
+      class="form-group hidden"
+      id="nameGroup">
+
+      <label>
+        Name
+      </label>
+
+      <input
+        id="nameInput"
+        type="text"
+        placeholder="Your name"
+      >
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>
+        Email
+      </label>
+
+      <input
+        id="emailInput"
+        type="email"
+        placeholder="you@example.com"
+      >
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>
+        Password
+      </label>
+
+      <input
+        id="passwordInput"
+        type="password"
+        placeholder="Password"
+      >
+
+    </div>
+
+
+    <button
+      class="form-submit"
+      id="authSubmit">
+
+      Login
+
+    </button>
+
+
+    <div
+      class="switch-auth">
+
+      <span id="switchText">
+        Don't have an account?
+      </span>
+
+      <button
+        id="switchAuth">
+
+        Register
+
+      </button>
+
+    </div>
+
+
+    <div
+      class="auth-message"
+      id="authMessage">
+    </div>
+
+  </div>
+
+</div>
+
 
 
 <!-- =========================
@@ -627,21 +1689,17 @@ footer p{
 
 <footer>
 
-  <div class="footer-inner">
-
-    <div class="footer-logo">
-      Qalb<span>-e-Deen</span>
-    </div>
-
-    <p>
-      The Heart of Deen
-    </p>
-
-    <p>
-      © 2026 Qalb-e-Deen. All rights reserved.
-    </p>
-
+  <div class="footer-logo">
+    Qalb<span>-e-Deen</span>
   </div>
+
+  <p>
+    The Heart of Deen
+  </p>
+
+  <p>
+    © 2026 Qalb-e-Deen. All rights reserved.
+  </p>
 
 </footer>
 
@@ -653,6 +1711,7 @@ footer p{
 
 <script type="module">
 
+
 import {
   initializeApp
 }
@@ -661,11 +1720,29 @@ from
 
 
 import {
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut
+}
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
+
+import {
   getFirestore,
   collection,
   getDocs,
+  getDoc,
+  doc,
+  addDoc,
+  deleteDoc,
+  updateDoc,
+  serverTimestamp,
   query,
-  orderBy
+  orderBy,
+  increment
 }
 from
 "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
@@ -699,13 +1776,13 @@ const firebaseConfig = {
 };
 
 
-
-/* =========================
-   INITIALIZE FIREBASE
-========================= */
-
 const app =
   initializeApp(firebaseConfig);
+
+
+const auth =
+  getAuth(app);
+
 
 const db =
   getFirestore(app);
@@ -713,12 +1790,26 @@ const db =
 
 
 /* =========================
+   STATE
+========================= */
+
+let allPosts = [];
+
+let selectedCategory = "All";
+
+let currentPost = null;
+
+let authMode = "login";
+
+
+
+/* =========================
    ELEMENTS
 ========================= */
 
-const postsArea =
+const postsGrid =
   document.getElementById(
-    "postsArea"
+    "postsGrid"
   );
 
 const searchInput =
@@ -726,20 +1817,25 @@ const searchInput =
     "searchInput"
   );
 
-const categoryButtons =
-  document.querySelectorAll(
-    ".category-btn"
+const postModal =
+  document.getElementById(
+    "postModal"
   );
 
+const loginModal =
+  document.getElementById(
+    "loginModal"
+  );
 
+const authBtn =
+  document.getElementById(
+    "authBtn"
+  );
 
-/* =========================
-   DATA
-========================= */
-
-let allPosts = [];
-
-let selectedCategory = "All";
+const adminBtn =
+  document.getElementById(
+    "adminBtn"
+  );
 
 
 
@@ -749,7 +1845,7 @@ let selectedCategory = "All";
 
 async function loadPosts(){
 
-  postsArea.innerHTML = `
+  postsGrid.innerHTML = `
 
     <div class="loading">
 
@@ -764,19 +1860,20 @@ async function loadPosts(){
 
   try{
 
-    const postsQuery = query(
+    const postsQuery =
+      query(
 
-      collection(
-        db,
-        "posts"
-      ),
+        collection(
+          db,
+          "posts"
+        ),
 
-      orderBy(
-        "createdAt",
-        "desc"
-      )
+        orderBy(
+          "createdAt",
+          "desc"
+        )
 
-    );
+      );
 
 
     const snapshot =
@@ -785,25 +1882,16 @@ async function loadPosts(){
       );
 
 
-    allPosts = [];
+    allPosts =
+      snapshot.docs.map(
+        item => ({
 
+          id:item.id,
 
-    snapshot.forEach(
+          ...item.data()
 
-      postDoc => {
-
-        allPosts.push({
-
-          id:
-            postDoc.id,
-
-          ...postDoc.data()
-
-        });
-
-      }
-
-    );
+        })
+      );
 
 
     renderPosts();
@@ -811,25 +1899,22 @@ async function loadPosts(){
 
   }catch(error){
 
-    console.error(
-      "Firebase error:",
-      error
-    );
+    console.error(error);
 
 
-    postsArea.innerHTML = `
+    postsGrid.innerHTML = `
 
-      <div class="error">
+      <div class="empty">
 
-        <strong>
-          Could not load posts.
-        </strong>
+        <h3>
+          Unable to load posts
+        </h3>
 
-        <br><br>
-
-        ${escapeHTML(
-          error.message
-        )}
+        <p>
+          ${escapeHTML(
+            error.message
+          )}
+        </p>
 
       </div>
 
@@ -847,72 +1932,67 @@ async function loadPosts(){
 
 function renderPosts(){
 
-  const searchText =
+  const search =
     searchInput.value
       .trim()
       .toLowerCase();
 
 
-  const filteredPosts =
+  const filtered =
     allPosts.filter(
-
       post => {
 
-        const title =
-          String(
+        const matchesCategory =
+
+          selectedCategory === "All" ||
+
+          post.category ===
+            selectedCategory;
+
+
+        const text =
+
+          (
             post.title || ""
-          ).toLowerCase();
+          ) +
 
+          " " +
 
-        const content =
-          String(
+          (
             post.content || ""
-          ).toLowerCase();
+          ) +
 
+          " " +
 
-        const category =
-          String(
+          (
             post.category || ""
           );
 
 
         const matchesSearch =
-
-          !searchText ||
-
-          title.includes(
-            searchText
-          ) ||
-
-          content.includes(
-            searchText
-          );
-
-
-        const matchesCategory =
-
-          selectedCategory ===
-          "All" ||
-
-          category ===
-          selectedCategory;
+          text
+            .toLowerCase()
+            .includes(search);
 
 
         return (
-          matchesSearch &&
-          matchesCategory
+          matchesCategory &&
+          matchesSearch
         );
 
       }
-
     );
 
 
-  if(filteredPosts.length === 0){
+  if(filtered.length === 0){
 
-    postsArea.innerHTML = `
+    postsGrid.innerHTML = `
 
       <div class="empty">
+
+        <div style="font-size:35px">
+          📭
+        </div>
 
         <h3>
           No posts found
@@ -931,33 +2011,151 @@ function renderPosts(){
   }
 
 
-  const grid =
-    document.createElement(
-      "div"
-    );
+  postsGrid.innerHTML = "";
 
 
-  grid.className =
-    "posts-grid";
-
-
-  filteredPosts.forEach(
-
+  filtered.forEach(
     post => {
 
-      grid.appendChild(
-        createPostCard(post)
+      const card =
+        document.createElement(
+          "article"
+        );
+
+
+      card.className =
+        "post-card";
+
+
+      const image =
+        post.imageURL ||
+        "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=900&q=80";
+
+
+      const excerpt =
+        post.content ||
+        "Read this post on Qalb-e-Deen.";
+
+
+      let date =
+        "Recently";
+
+
+      if(post.createdAt){
+
+        try{
+
+          date =
+            post.createdAt
+              .toDate()
+              .toLocaleDateString(
+                "en-US",
+                {
+                  year:"numeric",
+                  month:"short",
+                  day:"numeric"
+                }
+              );
+
+        }catch(e){}
+
+      }
+
+
+      card.innerHTML = `
+
+        <img
+          class="post-image"
+          src="${escapeAttribute(image)}"
+          alt="Post image"
+          loading="lazy"
+          onerror="this.src='https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=900&q=80'"
+        >
+
+
+        <div class="post-body">
+
+          <span class="post-category">
+
+            ${escapeHTML(
+              post.category ||
+              "General"
+            )}
+
+          </span>
+
+
+          <h3 class="post-title">
+
+            ${escapeHTML(
+              post.title ||
+              "Untitled"
+            )}
+
+          </h3>
+
+
+          <p class="post-excerpt">
+
+            ${escapeHTML(
+              excerpt
+            )}
+
+          </p>
+
+
+          <div class="post-meta">
+
+            <span>
+              📅 ${escapeHTML(date)}
+            </span>
+
+            <span>
+              👁️ ${Number(
+                post.views || 0
+              )}
+            </span>
+
+          </div>
+
+
+          <button
+            class="read-btn"
+            data-id="${post.id}">
+
+            Read Post →
+
+          </button>
+
+        </div>
+
+      `;
+
+
+      card
+        .querySelector(
+          ".read-btn"
+        )
+        .addEventListener(
+
+          "click",
+
+          () => {
+
+            openPost(
+              post.id
+            );
+
+          }
+
+        );
+
+
+      postsGrid.appendChild(
+        card
       );
 
     }
-
-  );
-
-
-  postsArea.innerHTML = "";
-
-  postsArea.appendChild(
-    grid
   );
 
 }
@@ -965,21 +2163,27 @@ function renderPosts(){
 
 
 /* =========================
-   POST CARD
+   OPEN POST
 ========================= */
 
-function createPostCard(
-  post
+async function openPost(
+  postId
 ){
 
-  const card =
-    document.createElement(
-      "article"
+  const post =
+    allPosts.find(
+      item =>
+        item.id === postId
     );
 
 
-  card.className =
-    "post-card";
+  if(!post){
+    return;
+  }
+
+
+  currentPost =
+    post;
 
 
   const image =
@@ -987,30 +2191,30 @@ function createPostCard(
     "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=900&q=80";
 
 
-  const title =
-    post.title ||
-    "Untitled Post";
+  document.getElementById(
+    "modalImage"
+  ).src = image;
 
 
-  const category =
+  document.getElementById(
+    "modalCategory"
+  ).textContent =
     post.category ||
     "General";
 
 
-  const content =
+  document.getElementById(
+    "modalTitle"
+  ).textContent =
+    post.title ||
+    "Untitled";
+
+
+  document.getElementById(
+    "modalContent"
+  ).textContent =
     post.content ||
     "";
-
-
-  const excerpt =
-    content.length > 180
-
-      ? content.substring(
-          0,
-          180
-        ) + "..."
-
-      : content;
 
 
   let date =
@@ -1024,87 +2228,1030 @@ function createPostCard(
       date =
         post.createdAt
           .toDate()
-          .toLocaleDateString(
-            "en-US",
-            {
-              year:"numeric",
-              month:"short",
-              day:"numeric"
-            }
-          );
+          .toLocaleDateString();
 
-    }catch(error){
-
-      console.log(
-        "Date error:",
-        error
-      );
-
-    }
+    }catch(e){}
 
   }
 
 
-  card.innerHTML = `
+  document.getElementById(
+    "modalMeta"
+  ).textContent =
 
-    <img
-      class="post-image"
-      src="${escapeAttribute(image)}"
-      alt="${escapeAttribute(title)}"
-      loading="lazy"
-      onerror="this.src='https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=900&q=80'"
-    >
+    "📅 " +
+    date +
 
+    " • 👁️ " +
 
-    <div class="post-content">
+    Number(
+      post.views || 0
+    ) +
 
-      <span class="post-category">
-
-        ${escapeHTML(category)}
-
-      </span>
+    " views";
 
 
-      <h3 class="post-title">
-
-        ${escapeHTML(title)}
-
-      </h3>
+  postModal.classList.add(
+    "show"
+  );
 
 
-      <p class="post-excerpt">
-
-        ${escapeHTML(excerpt)}
-
-      </p>
+  document.body.style.overflow =
+    "hidden";
 
 
-      <div class="post-footer">
-
-        <span class="post-date">
-
-          ${escapeHTML(date)}
-
-        </span>
+  loadComments(
+    postId
+  );
 
 
-        <a
-          class="read-btn"
-          href="post.html?id=${encodeURIComponent(post.id)}"
-        >
+  /* increment view */
 
-          Read Post →
+  try{
 
-        </a>
+    await updateDoc(
 
-      </div>
+      doc(
+        db,
+        "posts",
+        postId
+      ),
 
+      {
+        views:increment(1)
+      }
+
+    );
+
+
+    post.views =
+      Number(
+        post.views || 0
+      ) + 1;
+
+
+  }catch(error){
+
+    console.warn(
+      "View counter:",
+      error
+    );
+
+  }
+
+}
+
+
+
+/* =========================
+   CLOSE POST
+========================= */
+
+window.closePostModal =
+  function(){
+
+    postModal.classList.remove(
+      "show"
+    );
+
+    document.body.style.overflow =
+      "";
+
+    currentPost =
+      null;
+
+  };
+
+
+
+/* =========================
+   LOAD COMMENTS
+========================= */
+
+async function loadComments(
+  postId
+){
+
+  const list =
+    document.getElementById(
+      "commentsList"
+    );
+
+
+  list.innerHTML = `
+
+    <div class="loading">
+      Loading comments...
     </div>
 
   `;
 
 
-  return card;
+  updateCommentArea();
+
+
+  try{
+
+    const commentsQuery =
+      query(
+
+        collection(
+          db,
+          "comments"
+        ),
+
+        orderBy(
+          "createdAt",
+          "desc"
+        )
+
+      );
+
+
+    const snapshot =
+      await getDocs(
+        commentsQuery
+      );
+
+
+    const comments =
+      snapshot.docs
+        .map(
+          item => ({
+            id:item.id,
+            ...item.data()
+          })
+        )
+        .filter(
+          comment =>
+            comment.postId === postId &&
+            comment.approved === true
+        );
+
+
+    if(comments.length === 0){
+
+      list.innerHTML = `
+
+        <div class="empty">
+
+          No comments yet.
+          Be the first to comment.
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    list.innerHTML = "";
+
+
+    comments.forEach(
+      comment => {
+
+        const div =
+          document.createElement(
+            "div"
+          );
+
+
+        div.className =
+          "comment";
+
+
+        let date =
+          "Recently";
+
+
+        if(comment.createdAt){
+
+          try{
+
+            date =
+              comment.createdAt
+                .toDate()
+                .toLocaleDateString();
+
+          }catch(e){}
+
+        }
+
+
+        div.innerHTML = `
+
+          <div>
+
+            <span class="comment-user">
+
+              ${escapeHTML(
+                comment.userName ||
+                "User"
+              )}
+
+            </span>
+
+
+            <span class="comment-date">
+
+              ${escapeHTML(date)}
+
+            </span>
+
+          </div>
+
+
+          <div class="comment-text">
+
+            ${escapeHTML(
+              comment.text ||
+              ""
+            )}
+
+          </div>
+
+        `;
+
+
+        if(
+          auth.currentUser &&
+          auth.currentUser.uid ===
+            comment.userId
+        ){
+
+          const deleteBtn =
+            document.createElement(
+              "button"
+            );
+
+
+          deleteBtn.className =
+            "comment-delete";
+
+
+          deleteBtn.textContent =
+            "Delete";
+
+
+          deleteBtn.onclick =
+            async () => {
+
+              if(
+                !confirm(
+                  "Delete your comment?"
+                )
+              ){
+                return;
+              }
+
+
+              try{
+
+                await deleteDoc(
+
+                  doc(
+                    db,
+                    "comments",
+                    comment.id
+                  )
+
+                );
+
+
+                await loadComments(
+                  postId
+                );
+
+
+              }catch(error){
+
+                alert(
+                  error.message
+                );
+
+              }
+
+            };
+
+
+          div.appendChild(
+            deleteBtn
+          );
+
+        }
+
+
+        list.appendChild(
+          div
+        );
+
+      }
+    );
+
+
+  }catch(error){
+
+    list.innerHTML = `
+
+      <div class="empty">
+
+        Could not load comments.
+
+        <br>
+
+        ${escapeHTML(
+          error.message
+        )}
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+
+/* =========================
+   COMMENT AREA
+========================= */
+
+function updateCommentArea(){
+
+  const area =
+    document.getElementById(
+      "commentArea"
+    );
+
+
+  if(auth.currentUser){
+
+    area.innerHTML = `
+
+      <form
+        class="comment-form"
+        id="commentForm">
+
+        <textarea
+          id="commentText"
+          placeholder="Write your comment..."
+          required
+        ></textarea>
+
+        <button
+          class="comment-submit"
+          type="submit">
+
+          💬 Post Comment
+
+        </button>
+
+      </form>
+
+    `;
+
+
+    document
+      .getElementById(
+        "commentForm"
+      )
+      .addEventListener(
+
+        "submit",
+
+        submitComment
+
+      );
+
+
+  }else{
+
+    area.innerHTML = `
+
+      <div class="comment-login">
+
+        🔐 Please login to comment.
+
+        <br><br>
+
+        <button
+          class="comment-submit"
+          id="commentLoginBtn">
+
+          Login / Register
+
+        </button>
+
+      </div>
+
+    `;
+
+
+    document
+      .getElementById(
+        "commentLoginBtn"
+      )
+      .onclick =
+      openLoginModal;
+
+  }
+
+}
+
+
+
+/* =========================
+   SUBMIT COMMENT
+========================= */
+
+async function submitComment(
+  event
+){
+
+  event.preventDefault();
+
+
+  if(!auth.currentUser){
+
+    openLoginModal();
+
+    return;
+
+  }
+
+
+  if(!currentPost){
+
+    return;
+
+  }
+
+
+  const textarea =
+    document.getElementById(
+      "commentText"
+    );
+
+
+  const text =
+    textarea.value.trim();
+
+
+  if(!text){
+
+    return;
+
+  }
+
+
+  const button =
+    event.target.querySelector(
+      "button"
+    );
+
+
+  button.disabled =
+    true;
+
+  button.textContent =
+    "Posting...";
+
+
+  try{
+
+    const user =
+      auth.currentUser;
+
+
+    const userSnap =
+      await getDoc(
+
+        doc(
+          db,
+          "user",
+          user.uid
+        )
+
+      );
+
+
+    const userData =
+      userSnap.exists()
+        ? userSnap.data()
+        : {};
+
+
+    await addDoc(
+
+      collection(
+        db,
+        "comments"
+      ),
+
+      {
+
+        postId:
+          currentPost.id,
+
+        userId:
+          user.uid,
+
+        userName:
+          userData.name ||
+          user.displayName ||
+          user.email
+            .split("@")[0],
+
+        userEmail:
+          user.email || "",
+
+        text:
+          text,
+
+        approved:
+          false,
+
+        createdAt:
+          serverTimestamp()
+
+      }
+
+    );
+
+
+    textarea.value = "";
+
+
+    alert(
+      "✅ Comment submitted. It will appear after admin approval."
+    );
+
+
+    await loadComments(
+      currentPost.id
+    );
+
+
+  }catch(error){
+
+    alert(
+      "Comment failed: " +
+      error.message
+    );
+
+  }
+
+
+  button.disabled =
+    false;
+
+  button.textContent =
+    "💬 Post Comment";
+
+}
+
+
+
+/* =========================
+   AUTH STATE
+========================= */
+
+onAuthStateChanged(
+
+  auth,
+
+  async user => {
+
+    if(user){
+
+      authBtn.textContent =
+        "Logout";
+
+
+      authBtn.classList.add(
+        "login-btn"
+      );
+
+
+      try{
+
+        const snap =
+          await getDoc(
+
+            doc(
+              db,
+              "user",
+              user.uid
+            )
+
+          );
+
+
+        if(
+          snap.exists() &&
+          snap.data().role ===
+            "admin"
+        ){
+
+          adminBtn.classList.remove(
+            "hidden"
+          );
+
+        }else{
+
+          adminBtn.classList.add(
+            "hidden"
+          );
+
+        }
+
+      }catch(error){
+
+        console.warn(
+          "Admin check:",
+          error
+        );
+
+      }
+
+    }else{
+
+      authBtn.textContent =
+        "Login";
+
+      adminBtn.classList.add(
+        "hidden"
+      );
+
+    }
+
+
+    if(
+      postModal.classList.contains(
+        "show"
+      )
+    ){
+
+      updateCommentArea();
+
+      if(currentPost){
+
+        loadComments(
+          currentPost.id
+        );
+
+      }
+
+    }
+
+  }
+
+);
+
+
+
+/* =========================
+   AUTH BUTTON
+========================= */
+
+authBtn.addEventListener(
+
+  "click",
+
+  async () => {
+
+    if(auth.currentUser){
+
+      if(
+        confirm(
+          "Logout from Qalb-e-Deen?"
+        )
+      ){
+
+        await signOut(auth);
+
+      }
+
+    }else{
+
+      openLoginModal();
+
+    }
+
+  }
+
+);
+
+
+
+/* =========================
+   LOGIN MODAL
+========================= */
+
+function openLoginModal(){
+
+  loginModal.classList.add(
+    "show"
+  );
+
+  document.body.style.overflow =
+    "hidden";
+
+}
+
+
+window.openLoginModal =
+  openLoginModal;
+
+
+
+window.closeLoginModal =
+  function(){
+
+    loginModal.classList.remove(
+      "show"
+    );
+
+    document.body.style.overflow =
+      "";
+
+  };
+
+
+
+/* =========================
+   AUTH MODE
+========================= */
+
+document
+  .getElementById(
+    "switchAuth"
+  )
+  .addEventListener(
+
+    "click",
+
+    () => {
+
+      authMode =
+        authMode === "login"
+          ? "register"
+          : "login";
+
+
+      const register =
+        authMode ===
+        "register";
+
+
+      document.getElementById(
+        "authTitle"
+      ).textContent =
+
+        register
+          ? "📝 Create Account"
+          : "🔐 Login";
+
+
+      document.getElementById(
+        "nameGroup"
+      ).classList.toggle(
+        "hidden",
+        !register
+      );
+
+
+      document.getElementById(
+        "authSubmit"
+      ).textContent =
+
+        register
+          ? "Create Account"
+          : "Login";
+
+
+      document.getElementById(
+        "switchText"
+      ).textContent =
+
+        register
+          ? "Already have an account?"
+          : "Don't have an account?";
+
+
+      document.getElementById(
+        "switchAuth"
+      ).textContent =
+
+        register
+          ? "Login"
+          : "Register";
+
+
+      document.getElementById(
+        "authMessage"
+      ).style.display =
+        "none";
+
+    }
+
+  );
+
+
+
+/* =========================
+   AUTH SUBMIT
+========================= */
+
+document
+  .getElementById(
+    "authSubmit"
+  )
+  .addEventListener(
+
+    "click",
+
+    async () => {
+
+      const email =
+        document.getElementById(
+          "emailInput"
+        ).value.trim();
+
+
+      const password =
+        document.getElementById(
+          "passwordInput"
+        ).value;
+
+
+      const name =
+        document.getElementById(
+          "nameInput"
+        ).value.trim();
+
+
+      if(!email || !password){
+
+        showAuthMessage(
+          "Please enter email and password.",
+          false
+        );
+
+        return;
+
+      }
+
+
+      try{
+
+        if(
+          authMode ===
+          "login"
+        ){
+
+          await signInWithEmailAndPassword(
+
+            auth,
+            email,
+            password
+
+          );
+
+
+          showAuthMessage(
+            "✅ Login successful!",
+            true
+          );
+
+
+          setTimeout(
+            closeLoginModal,
+            700
+          );
+
+
+        }else{
+
+          if(!name){
+
+            showAuthMessage(
+              "Please enter your name.",
+              false
+            );
+
+            return;
+
+          }
+
+
+          const result =
+            await createUserWithEmailAndPassword(
+
+              auth,
+              email,
+              password
+
+            );
+
+
+          await addDoc(
+            collection(
+              db,
+              "user"
+            ),
+            {
+
+              uid:
+                result.user.uid,
+
+              name:
+                name,
+
+              email:
+                email,
+
+              role:
+                "user",
+
+              createdAt:
+                serverTimestamp()
+
+            }
+          );
+
+
+          showAuthMessage(
+            "✅ Account created successfully!",
+            true
+          );
+
+
+          setTimeout(
+            closeLoginModal,
+            700
+          );
+
+        }
+
+
+      }catch(error){
+
+        console.error(error);
+
+
+        showAuthMessage(
+          friendlyAuthError(
+            error
+          ),
+          false
+        );
+
+      }
+
+    }
+
+  );
+
+
+
+/* =========================
+   AUTH MESSAGE
+========================= */
+
+function showAuthMessage(
+  text,
+  success
+){
+
+  const box =
+    document.getElementById(
+      "authMessage"
+    );
+
+
+  box.style.display =
+    "block";
+
+
+  box.textContent =
+    text;
+
+
+  box.style.background =
+    success
+      ? "#e4f6ec"
+      : "#fdeaea";
+
+
+  box.style.color =
+    success
+      ? "#17633f"
+      : "#a52828";
 
 }
 
@@ -1118,61 +3265,303 @@ searchInput.addEventListener(
 
   "input",
 
-  () => {
+  renderPosts
+
+);
+
+
+
+/* =========================
+   CATEGORY
+========================= */
+
+document
+  .querySelectorAll(
+    ".category-btn"
+  )
+  .forEach(
+
+    button => {
+
+      button.addEventListener(
+
+        "click",
+
+        () => {
+
+          selectedCategory =
+            button.dataset.category;
+
+
+          document
+            .querySelectorAll(
+              ".category-btn"
+            )
+            .forEach(
+              item =>
+                item.classList.remove(
+                  "active"
+                )
+            );
+
+
+          button.classList.add(
+            "active"
+          );
+
+
+          renderPosts();
+
+        }
+
+      );
+
+    }
+
+  );
+
+
+
+window.filterCategory =
+  function(category){
+
+    selectedCategory =
+      category;
+
+
+    document
+      .querySelectorAll(
+        ".category-btn"
+      )
+      .forEach(
+        button => {
+
+          button.classList.toggle(
+            "active",
+            button.dataset.category ===
+              category
+          );
+
+        }
+      );
+
 
     renderPosts();
 
-  }
 
-);
+    scrollToSection(
+      "posts"
+    );
+
+  };
 
 
 
 /* =========================
-   CATEGORY FILTER
+   SHARE
 ========================= */
 
-categoryButtons.forEach(
+document
+  .getElementById(
+    "shareBtn"
+  )
+  .addEventListener(
 
-  button => {
+    "click",
 
-    button.addEventListener(
+    async () => {
 
-      "click",
+      if(!currentPost){
 
-      () => {
-
-        categoryButtons.forEach(
-          btn =>
-            btn.classList.remove(
-              "active"
-            )
-        );
-
-
-        button.classList.add(
-          "active"
-        );
-
-
-        selectedCategory =
-          button.dataset.category;
-
-
-        renderPosts();
+        return;
 
       }
 
-    );
 
-  }
+      const shareData = {
 
-);
+        title:
+          currentPost.title ||
+          "Qalb-e-Deen",
+
+        text:
+          currentPost.content
+            ? currentPost.content
+                .substring(0,120)
+            : "",
+
+        url:
+          window.location.href
+
+      };
+
+
+      try{
+
+        if(
+          navigator.share
+        ){
+
+          await navigator.share(
+            shareData
+          );
+
+        }else{
+
+          await navigator.clipboard.writeText(
+            window.location.href
+          );
+
+
+          alert(
+            "🔗 Link copied!"
+          );
+
+        }
+
+      }catch(error){
+
+        console.log(
+          "Share cancelled"
+        );
+
+      }
+
+    }
+
+  );
 
 
 
 /* =========================
-   ESCAPE HTML
+   HADITH
+========================= */
+
+const hadiths = [
+
+  {
+
+    arabic:
+      "إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ",
+
+    text:
+      "Actions are judged by intentions.",
+
+    source:
+      "Sahih al-Bukhari"
+
+  },
+
+  {
+
+    arabic:
+      "الدِّينُ النَّصِيحَةُ",
+
+    text:
+      "The religion is sincere advice.",
+
+    source:
+      "Sahih Muslim"
+
+  },
+
+  {
+
+    arabic:
+      "خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ",
+
+    text:
+      "The best of you are those who learn the Quran and teach it.",
+
+    source:
+      "Sahih al-Bukhari"
+
+  },
+
+  {
+
+    arabic:
+      "مَنْ لَا يَرْحَمْ لَا يُرْحَمْ",
+
+    text:
+      "Whoever does not show mercy will not be shown mercy.",
+
+    source:
+      "Sahih al-Bukhari"
+
+  }
+
+];
+
+
+let hadithIndex = 0;
+
+
+document
+  .getElementById(
+    "hadithRefresh"
+  )
+  .addEventListener(
+
+    "click",
+
+    () => {
+
+      hadithIndex =
+        (
+          hadithIndex + 1
+        ) %
+        hadiths.length;
+
+
+      const hadith =
+        hadiths[
+          hadithIndex
+        ];
+
+
+      document.getElementById(
+        "hadithArabic"
+      ).textContent =
+        hadith.arabic;
+
+
+      document.getElementById(
+        "hadithText"
+      ).textContent =
+        hadith.text;
+
+
+      document.getElementById(
+        "hadithSource"
+      ).textContent =
+        hadith.source;
+
+    }
+
+  );
+
+
+
+/* =========================
+   SCROLL
+========================= */
+
+window.scrollToSection =
+  function(id){
+
+    document
+      .getElementById(id)
+      ?.scrollIntoView({
+        behavior:"smooth"
+      });
+
+  };
+
+
+
+/* =========================
+   HELPERS
 ========================= */
 
 function escapeHTML(
@@ -1209,32 +3598,71 @@ function escapeHTML(
 }
 
 
-
 function escapeAttribute(
   value
 ){
 
-  return String(value)
+  return escapeHTML(
+    value
+  );
 
-    .replaceAll(
-      "&",
-      "&amp;"
+}
+
+
+function friendlyAuthError(
+  error
+){
+
+  const code =
+    error.code || "";
+
+
+  if(
+    code.includes(
+      "invalid-credential"
     )
+  ){
 
-    .replaceAll(
-      '"',
-      "&quot;"
+    return "Invalid email or password.";
+
+  }
+
+
+  if(
+    code.includes(
+      "email-already-in-use"
     )
+  ){
 
-    .replaceAll(
-      "<",
-      "&lt;"
+    return "This email is already registered.";
+
+  }
+
+
+  if(
+    code.includes(
+      "weak-password"
     )
+  ){
 
-    .replaceAll(
-      ">",
-      "&gt;"
-    );
+    return "Password should be at least 6 characters.";
+
+  }
+
+
+  if(
+    code.includes(
+      "invalid-email"
+    )
+  ){
+
+    return "Please enter a valid email.";
+
+  }
+
+
+  return error.message ||
+    "Authentication failed.";
 
 }
 
@@ -1246,8 +3674,51 @@ function escapeAttribute(
 
 loadPosts();
 
+
+/* close modal on background */
+
+postModal.addEventListener(
+
+  "click",
+
+  event => {
+
+    if(
+      event.target ===
+      postModal
+    ){
+
+      closePostModal();
+
+    }
+
+  }
+
+);
+
+
+loginModal.addEventListener(
+
+  "click",
+
+  event => {
+
+    if(
+      event.target ===
+      loginModal
+    ){
+
+      closeLoginModal();
+
+    }
+
+  }
+
+);
+
+
 </script>
 
-
 </body>
-  </html>
+
+</html>
