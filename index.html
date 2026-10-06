@@ -1,613 +1,1253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="theme-color" content="#0f766e">
-  <meta name="description" content="Qalb-e-Deen — The Heart of Deen">
+<meta charset="UTF-8">
 
-  <title>Qalb-e-Deen — The Heart of Deen</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-  <style>
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
+<title>Qalb-e-Deen — The Heart of Deen</title>
 
-    body{
-      font-family:Arial,Helvetica,sans-serif;
-      background:#f5faf8;
-      color:#17342e;
-      line-height:1.6;
-    }
+<meta name="description"
+      content="Qalb-e-Deen — The Heart of Deen. Islamic knowledge, Quran, Hadith, Dua and more.">
 
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
+<style>
 
-    header{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      background:rgba(255,255,255,.96);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid #e2ece8;
-    }
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    .navbar{
-      max-width:1150px;
-      margin:auto;
-      padding:14px 20px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-    }
+body{
+  font-family:Arial, sans-serif;
+  background:#f5f8f7;
+  color:#17211f;
+  line-height:1.6;
+}
 
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:800;
-      font-size:20px;
-      color:#0f766e;
-    }
+/* =========================
+   HEADER
+========================= */
 
-    .logo-icon{
-      width:42px;
-      height:42px;
-      border-radius:13px;
-      background:#0f766e;
-      color:white;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:21px;
-    }
+header{
+  background:#0d2b24;
+  color:white;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 3px 15px rgba(0,0,0,.15);
+}
 
-    nav{
-      display:flex;
-      align-items:center;
-      gap:18px;
-    }
+.navbar{
+  max-width:1200px;
+  margin:auto;
+  padding:15px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
 
-    nav a{
-      color:#35534c;
-      font-size:14px;
-      font-weight:600;
-    }
+.logo{
+  font-size:24px;
+  font-weight:bold;
+  white-space:nowrap;
+}
 
-    nav a:hover{
-      color:#0f766e;
-    }
+.logo span{
+  color:#d7b56d;
+}
 
-    .login-btn{
-      background:#0f766e;
-      color:white!important;
-      padding:9px 15px;
-      border-radius:10px;
-    }
+.nav-links{
+  display:flex;
+  gap:22px;
+  align-items:center;
+}
 
-    .profile-btn{
-      display:none;
-      background:#0f766e;
-      color:white!important;
-      padding:9px 15px;
-      border-radius:10px;
-    }
+.nav-links a{
+  color:white;
+  text-decoration:none;
+  font-size:15px;
+}
 
-    .hero{
-      max-width:1150px;
-      margin:30px auto;
-      padding:75px 30px;
-      border-radius:30px;
-      background:
-        radial-gradient(circle at top right,rgba(15,118,110,.16),transparent 35%),
-        linear-gradient(135deg,#e4f6f0,#f9fcfb);
-      text-align:center;
-    }
+.nav-links a:hover{
+  color:#d7b56d;
+}
 
-    .hero small{
-      color:#0f766e;
-      font-weight:800;
-      letter-spacing:3px;
-      font-size:12px;
-    }
+.login-btn{
+  background:#d7b56d;
+  color:#0d2b24 !important;
+  padding:8px 14px;
+  border-radius:8px;
+  font-weight:bold;
+}
 
-    .hero h1{
-      font-size:clamp(42px,8vw,76px);
-      line-height:1;
-      margin:18px 0;
-      letter-spacing:-3px;
-    }
+/* =========================
+   HERO
+========================= */
 
-    .hero h1 span{
-      color:#0f766e;
-    }
+.hero{
+  background:
+    linear-gradient(
+      rgba(13,43,36,.93),
+      rgba(13,43,36,.93)
+    );
+  color:white;
+  padding:75px 18px;
+}
 
-    .hero p{
-      max-width:700px;
-      margin:auto;
-      color:#58716b;
-      font-size:18px;
-    }
+.hero-inner{
+  max-width:1100px;
+  margin:auto;
+  text-align:center;
+}
 
-    .hero-buttons{
-      margin-top:30px;
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:12px;
-    }
+.hero h1{
+  font-size:45px;
+  margin-bottom:12px;
+}
 
-    .btn{
-      display:inline-block;
-      padding:13px 20px;
-      border-radius:12px;
-      border:1px solid #c9ddd7;
-      background:white;
-      font-weight:700;
-      transition:.2s;
-    }
+.hero h1 span{
+  color:#d7b56d;
+}
 
-    .btn:hover{
-      transform:translateY(-2px);
-    }
+.hero p{
+  max-width:700px;
+  margin:auto;
+  color:#d9e3df;
+  font-size:18px;
+}
 
-    .btn-primary{
-      background:#0f766e;
-      color:white;
-      border-color:#0f766e;
-    }
+/* =========================
+   SEARCH
+========================= */
 
-    .section{
-      max-width:1150px;
-      margin:55px auto;
-      padding:0 20px;
-    }
+.search-area{
+  max-width:900px;
+  margin:-30px auto 30px;
+  padding:0 16px;
+  position:relative;
+  z-index:5;
+}
 
-    .section-title{
-      text-align:center;
-      margin-bottom:25px;
-    }
+.search-box{
+  background:white;
+  padding:10px;
+  border-radius:14px;
+  box-shadow:0 8px 30px rgba(0,0,0,.12);
+  display:flex;
+  gap:10px;
+}
 
-    .section-title small{
-      color:#0f766e;
-      font-weight:800;
-      letter-spacing:2px;
-    }
+.search-box input{
+  flex:1;
+  border:0;
+  outline:none;
+  padding:14px;
+  font-size:16px;
+}
 
-    .section-title h2{
-      font-size:34px;
-      margin-top:5px;
-    }
+/* =========================
+   CATEGORIES
+========================= */
 
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-    }
+.categories{
+  max-width:1200px;
+  margin:0 auto 30px;
+  padding:0 16px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
 
-    .card{
-      background:white;
-      border:1px solid #e0ebe7;
-      border-radius:20px;
-      padding:25px;
-      box-shadow:0 8px 30px rgba(20,50,45,.05);
-      transition:.25s;
-    }
+.category-btn{
+  border:1px solid #d5dfdb;
+  background:white;
+  color:#21443b;
+  padding:9px 16px;
+  border-radius:30px;
+  cursor:pointer;
+  font-size:14px;
+}
 
-    .card:hover{
-      transform:translateY(-5px);
-      box-shadow:0 15px 35px rgba(20,50,45,.10);
-    }
+.category-btn:hover,
+.category-btn.active{
+  background:#0d5b48;
+  color:white;
+  border-color:#0d5b48;
+}
 
-    .card-icon{
-      width:52px;
-      height:52px;
-      border-radius:15px;
-      background:#e7f6f1;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:25px;
-      margin-bottom:15px;
-    }
+/* =========================
+   MAIN
+========================= */
 
-    .card h3{
-      margin-bottom:8px;
-      font-size:20px;
-    }
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:0 16px 60px;
+}
 
-    .card p{
-      color:#657b75;
-      font-size:14px;
-      margin-bottom:15px;
-    }
+.section-title{
+  margin-bottom:22px;
+}
 
-    .card-link{
-      color:#0f766e;
-      font-weight:700;
-      font-size:14px;
-    }
+.section-title h2{
+  font-size:28px;
+  color:#0d2b24;
+}
 
-    .hadith{
-      max-width:850px;
-      margin:auto;
-      padding:35px;
-      background:white;
-      border:1px solid #e0ebe7;
-      border-radius:24px;
-      text-align:center;
-      box-shadow:0 10px 35px rgba(20,50,45,.06);
-    }
+.section-title p{
+  color:#68736f;
+}
 
-    .hadith-icon{
-      font-size:38px;
-      margin-bottom:12px;
-    }
+/* =========================
+   POSTS GRID
+========================= */
 
-    .hadith h3{
-      font-size:25px;
-      margin-bottom:15px;
-    }
+.posts-grid{
+  display:grid;
+  grid-template-columns:
+    repeat(3, minmax(0,1fr));
+  gap:22px;
+}
 
-    .hadith p{
-      color:#526a63;
-      font-size:17px;
-    }
+.post-card{
+  background:white;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 5px 22px rgba(0,0,0,.07);
+  transition:.25s;
+  display:flex;
+  flex-direction:column;
+}
 
-    .ad-box{
-      max-width:1150px;
-      margin:45px auto;
-      padding:25px;
-      border:1px dashed #afc8c0;
-      border-radius:15px;
-      text-align:center;
-      color:#80918c;
-      font-size:13px;
-    }
+.post-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 28px rgba(0,0,0,.12);
+}
 
-    footer{
-      margin-top:70px;
-      background:#102f2a;
-      color:#d7e6e1;
-      padding:45px 20px;
-      text-align:center;
-    }
+.post-image{
+  width:100%;
+  height:210px;
+  object-fit:cover;
+  background:#e8efec;
+}
 
-    footer h3{
-      color:white;
-      margin-bottom:8px;
-    }
+.post-content{
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
 
-    footer p{
-      color:#a8beb8;
-      font-size:14px;
-    }
+.post-category{
+  display:inline-block;
+  width:max-content;
+  background:#e7f3ee;
+  color:#0d5b48;
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
 
-    @media(max-width:850px){
+.post-title{
+  font-size:20px;
+  line-height:1.35;
+  margin-bottom:8px;
+  color:#17211f;
+}
 
-      .cards{
-        grid-template-columns:repeat(2,1fr);
-      }
+.post-excerpt{
+  color:#66716d;
+  font-size:14px;
+  margin-bottom:15px;
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
 
-      nav{
-        gap:10px;
-      }
+.post-footer{
+  margin-top:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
 
-      nav a:nth-child(1),
-      nav a:nth-child(2),
-      nav a:nth-child(3){
-        display:none;
-      }
-    }
+.post-date{
+  font-size:12px;
+  color:#888;
+}
 
-    @media(max-width:600px){
+.read-btn{
+  background:#0d5b48;
+  color:white;
+  text-decoration:none;
+  padding:8px 13px;
+  border-radius:8px;
+  font-size:13px;
+  font-weight:bold;
+}
 
-      .navbar{
-        padding:12px 15px;
-      }
+.read-btn:hover{
+  background:#083f33;
+}
 
-      .hero{
-        margin:15px;
-        padding:55px 20px;
-        border-radius:24px;
-      }
+/* =========================
+   STATES
+========================= */
 
-      .hero h1{
-        font-size:46px;
-      }
+.loading{
+  text-align:center;
+  padding:50px 20px;
+  color:#777;
+}
 
-      .hero p{
-        font-size:16px;
-      }
+.spinner{
+  width:35px;
+  height:35px;
+  border:4px solid #dce5e1;
+  border-top-color:#0d5b48;
+  border-radius:50%;
+  margin:0 auto 15px;
+  animation:spin 1s linear infinite;
+}
 
-      .section{
-        margin:45px auto;
-      }
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
 
-      .cards{
-        grid-template-columns:1fr;
-      }
+.empty{
+  text-align:center;
+  background:white;
+  padding:45px 20px;
+  border-radius:15px;
+  color:#777;
+}
 
-      .hadith{
-        padding:25px 18px;
-      }
+.error{
+  background:#fff0f0;
+  color:#a52828;
+  padding:20px;
+  border-radius:12px;
+  margin:20px 0;
+  word-break:break-word;
+}
 
-      .logo{
-        font-size:17px;
-      }
+/* =========================
+   FOOTER
+========================= */
 
-      .logo-icon{
-        width:38px;
-        height:38px;
-      }
-    }
-  </style>
+footer{
+  background:#0d2b24;
+  color:white;
+  padding:35px 18px;
+  margin-top:20px;
+}
+
+.footer-inner{
+  max-width:1100px;
+  margin:auto;
+  text-align:center;
+}
+
+.footer-logo{
+  font-size:22px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.footer-logo span{
+  color:#d7b56d;
+}
+
+footer p{
+  color:#bdccc7;
+  font-size:14px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+  .posts-grid{
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+  }
+
+}
+
+@media(max-width:650px){
+
+  .navbar{
+    padding:13px 14px;
+  }
+
+  .logo{
+    font-size:20px;
+  }
+
+  .nav-links{
+    gap:10px;
+  }
+
+  .nav-links a:not(.login-btn){
+    display:none;
+  }
+
+  .hero{
+    padding:55px 16px;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .posts-grid{
+    grid-template-columns:1fr;
+  }
+
+  .post-image{
+    height:220px;
+  }
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
+
   <div class="navbar">
 
-    <a href="index.html" class="logo">
-      <div class="logo-icon">☪</div>
-      <span>Qalb-e-Deen</span>
-    </a>
+    <div class="logo">
+      Qalb<span>-e-Deen</span>
+    </div>
 
-    <nav>
-      <a href="quran.html">Quran</a>
-      <a href="hadith.html">Hadith</a>
-      <a href="prayer-times.html">Prayer</a>
-      <a href="posts.html">Posts</a>
+    <nav class="nav-links">
 
-      <!-- Login -->
-      <a href="login.html" class="login-btn" id="loginBtn">
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="#posts">
+        Posts
+      </a>
+
+      <a href="login.html"
+         class="login-btn">
         Login
       </a>
 
-      <!-- Profile -->
-      <a href="profile.html" class="profile-btn" id="profileBtn">
-        Profile
-      </a>
     </nav>
 
   </div>
+
 </header>
 
 
-<main>
+<!-- =========================
+     HERO
+========================= -->
 
-  <section class="hero">
+<section class="hero">
 
-    <small>THE HEART OF DEEN</small>
+  <div class="hero-inner">
 
     <h1>
-      Learn. <span>Reflect.</span><br>
-      Share.
+      Welcome to
+      <span>Qalb-e-Deen</span>
     </h1>
 
     <p>
-      A peaceful Islamic platform for Quran reading,
-      Hadith, prayer times, Islamic posts and beneficial knowledge.
+      The Heart of Deen — Explore Islamic knowledge,
+      Quran, Hadith, Dua and beautiful reminders.
     </p>
 
-    <div class="hero-buttons">
+  </div>
 
-      <a href="quran.html" class="btn btn-primary">
-        📖 Read Quran
-      </a>
+</section>
 
-      <a href="hadith.html" class="btn">
-        📜 Today's Hadith
-      </a>
 
-      <a href="posts.html" class="btn">
-        📝 Explore Posts
-      </a>
+<!-- =========================
+     SEARCH
+========================= -->
+
+<div class="search-area">
+
+  <div class="search-box">
+
+    <input
+      id="searchInput"
+      type="search"
+      placeholder="Search posts..."
+      autocomplete="off"
+    >
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     CATEGORIES
+========================= -->
+
+<div class="categories">
+
+  <button
+    class="category-btn active"
+    data-category="All">
+
+    All
+
+  </button>
+
+  <button
+    class="category-btn"
+    data-category="Quran">
+
+    Quran
+
+  </button>
+
+  <button
+    class="category-btn"
+    data-category="Hadith">
+
+    Hadith
+
+  </button>
+
+  <button
+    class="category-btn"
+    data-category="Islamic Knowledge">
+
+    Islamic Knowledge
+
+  </button>
+
+  <button
+    class="category-btn"
+    data-category="Dua">
+
+    Dua
+
+  </button>
+
+  <button
+    class="category-btn"
+    data-category="Akhlaq">
+
+    Akhlaq
+
+  </button>
+
+  <button
+    class="category-btn"
+    data-category="Lifestyle">
+
+    Lifestyle
+
+  </button>
+
+  <button
+    class="category-btn"
+    data-category="News">
+
+    News
+
+  </button>
+
+</div>
+
+
+<!-- =========================
+     POSTS
+========================= -->
+
+<main
+  class="container"
+  id="posts">
+
+  <div class="section-title">
+
+    <h2>
+      Latest Posts
+    </h2>
+
+    <p>
+      Discover our latest Islamic posts.
+    </p>
+
+  </div>
+
+
+  <div id="postsArea">
+
+    <div class="loading">
+
+      <div class="spinner"></div>
+
+      Loading posts...
 
     </div>
 
-  </section>
-
-
-  <section class="section">
-
-    <div class="section-title">
-      <small>EXPLORE</small>
-      <h2>Everything for Your Deen</h2>
-    </div>
-
-    <div class="cards">
-
-      <div class="card">
-
-        <div class="card-icon">📖</div>
-
-        <h3>Read Quran</h3>
-
-        <p>
-          Read the Quran directly from Qalb-e-Deen.
-        </p>
-
-        <a href="quran.html" class="card-link">
-          Read Quran →
-        </a>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="card-icon">📜</div>
-
-        <h3>Hadith</h3>
-
-        <p>
-          Discover today's Hadith and browse the complete Hadith collection.
-        </p>
-
-        <a href="hadith.html" class="card-link">
-          View All Hadith →
-        </a>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="card-icon">🕌</div>
-
-        <h3>Prayer Times</h3>
-
-        <p>
-          Get daily prayer times and track your next prayer.
-        </p>
-
-        <a href="prayer-times.html" class="card-link">
-          Prayer Times →
-        </a>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="card-icon">📝</div>
-
-        <h3>Islamic Posts</h3>
-
-        <p>
-          Share beneficial Islamic reminders and knowledge with the community.
-        </p>
-
-        <a href="posts.html" class="card-link">
-          Explore Posts →
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section class="section">
-
-    <div class="section-title">
-      <small>DAILY REMINDER</small>
-      <h2>Today's Hadith</h2>
-    </div>
-
-    <div class="hadith">
-
-      <div class="hadith-icon">📜</div>
-
-      <h3>Hadith of the Day</h3>
-
-      <p>
-        The daily Hadith system will automatically update
-        from the Qalb-e-Deen Hadith collection.
-      </p>
-
-      <br>
-
-      <a href="hadith.html" class="btn btn-primary">
-        View All Hadith
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <div class="ad-box">
-    Advertisement
   </div>
 
 </main>
 
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-  <h3>Qalb-e-Deen</h3>
+  <div class="footer-inner">
 
-  <p>
-    The Heart of Deen — Learn, Reflect & Share.
-  </p>
+    <div class="footer-logo">
+      Qalb<span>-e-Deen</span>
+    </div>
 
-  <br>
+    <p>
+      The Heart of Deen
+    </p>
 
-  <p>
-    © 2026 Qalb-e-Deen. All rights reserved.
-  </p>
+    <p>
+      © 2026 Qalb-e-Deen. All rights reserved.
+    </p>
+
+  </div>
 
 </footer>
 
 
-<!-- FIREBASE -->
+
+<!-- =========================
+     FIREBASE
+========================= -->
 
 <script type="module">
 
-  import { initializeApp }
-    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-  import {
-    getAuth,
-    onAuthStateChanged
-  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {
+  initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 
 
-  const firebaseConfig = {
-
-    apiKey: "AIzaSyDQoJKty9i3BqBPehwKDemmSgXf9Oe9qo8",
-
-    authDomain: "qalb-e-deen-6af8e.firebaseapp.com",
-
-    projectId: "qalb-e-deen-6af8e",
-
-    storageBucket: "qalb-e-deen-6af8e.firebasestorage.app",
-
-    messagingSenderId: "983132945914",
-
-    appId: "1:983132945914:web:c4cd95d50a5259cbbdf843"
-
-  };
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  orderBy
+}
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 
-  const app = initializeApp(firebaseConfig);
 
-  const auth = getAuth(app);
+/* =========================
+   FIREBASE CONFIG
+========================= */
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyC4sRpUYVLURCkbAbfvUccL5n71Dveiik4",
+
+  authDomain:
+    "qalb-e-deen-b765a.firebaseapp.com",
+
+  projectId:
+    "qalb-e-deen-b765a",
+
+  storageBucket:
+    "qalb-e-deen-b765a.firebasestorage.app",
+
+  messagingSenderId:
+    "226972777842",
+
+  appId:
+    "1:226972777842:web:0d1439b9d4dc66d8bfb1eb"
+
+};
 
 
-  const loginBtn = document.getElementById("loginBtn");
-  const profileBtn = document.getElementById("profileBtn");
+
+/* =========================
+   INITIALIZE FIREBASE
+========================= */
+
+const app =
+  initializeApp(firebaseConfig);
+
+const db =
+  getFirestore(app);
 
 
-  onAuthStateChanged(auth, (user) => {
 
-    if(user){
+/* =========================
+   ELEMENTS
+========================= */
 
-      loginBtn.style.display = "none";
+const postsArea =
+  document.getElementById(
+    "postsArea"
+  );
 
-      profileBtn.style.display = "inline-block";
+const searchInput =
+  document.getElementById(
+    "searchInput"
+  );
 
-    }else{
+const categoryButtons =
+  document.querySelectorAll(
+    ".category-btn"
+  );
 
-      loginBtn.style.display = "inline-block";
 
-      profileBtn.style.display = "none";
+
+/* =========================
+   DATA
+========================= */
+
+let allPosts = [];
+
+let selectedCategory = "All";
+
+
+
+/* =========================
+   LOAD POSTS
+========================= */
+
+async function loadPosts(){
+
+  postsArea.innerHTML = `
+
+    <div class="loading">
+
+      <div class="spinner"></div>
+
+      Loading posts...
+
+    </div>
+
+  `;
+
+
+  try{
+
+    const postsQuery = query(
+
+      collection(
+        db,
+        "posts"
+      ),
+
+      orderBy(
+        "createdAt",
+        "desc"
+      )
+
+    );
+
+
+    const snapshot =
+      await getDocs(
+        postsQuery
+      );
+
+
+    allPosts = [];
+
+
+    snapshot.forEach(
+
+      postDoc => {
+
+        allPosts.push({
+
+          id:
+            postDoc.id,
+
+          ...postDoc.data()
+
+        });
+
+      }
+
+    );
+
+
+    renderPosts();
+
+
+  }catch(error){
+
+    console.error(
+      "Firebase error:",
+      error
+    );
+
+
+    postsArea.innerHTML = `
+
+      <div class="error">
+
+        <strong>
+          Could not load posts.
+        </strong>
+
+        <br><br>
+
+        ${escapeHTML(
+          error.message
+        )}
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+
+/* =========================
+   RENDER POSTS
+========================= */
+
+function renderPosts(){
+
+  const searchText =
+    searchInput.value
+      .trim()
+      .toLowerCase();
+
+
+  const filteredPosts =
+    allPosts.filter(
+
+      post => {
+
+        const title =
+          String(
+            post.title || ""
+          ).toLowerCase();
+
+
+        const content =
+          String(
+            post.content || ""
+          ).toLowerCase();
+
+
+        const category =
+          String(
+            post.category || ""
+          );
+
+
+        const matchesSearch =
+
+          !searchText ||
+
+          title.includes(
+            searchText
+          ) ||
+
+          content.includes(
+            searchText
+          );
+
+
+        const matchesCategory =
+
+          selectedCategory ===
+          "All" ||
+
+          category ===
+          selectedCategory;
+
+
+        return (
+          matchesSearch &&
+          matchesCategory
+        );
+
+      }
+
+    );
+
+
+  if(filteredPosts.length === 0){
+
+    postsArea.innerHTML = `
+
+      <div class="empty">
+
+        <h3>
+          No posts found
+        </h3>
+
+        <p>
+          Try another search or category.
+        </p>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  const grid =
+    document.createElement(
+      "div"
+    );
+
+
+  grid.className =
+    "posts-grid";
+
+
+  filteredPosts.forEach(
+
+    post => {
+
+      grid.appendChild(
+        createPostCard(post)
+      );
 
     }
 
-  });
+  );
+
+
+  postsArea.innerHTML = "";
+
+  postsArea.appendChild(
+    grid
+  );
+
+}
+
+
+
+/* =========================
+   POST CARD
+========================= */
+
+function createPostCard(
+  post
+){
+
+  const card =
+    document.createElement(
+      "article"
+    );
+
+
+  card.className =
+    "post-card";
+
+
+  const image =
+    post.imageURL ||
+    "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=900&q=80";
+
+
+  const title =
+    post.title ||
+    "Untitled Post";
+
+
+  const category =
+    post.category ||
+    "General";
+
+
+  const content =
+    post.content ||
+    "";
+
+
+  const excerpt =
+    content.length > 180
+
+      ? content.substring(
+          0,
+          180
+        ) + "..."
+
+      : content;
+
+
+  let date =
+    "Recently";
+
+
+  if(post.createdAt){
+
+    try{
+
+      date =
+        post.createdAt
+          .toDate()
+          .toLocaleDateString(
+            "en-US",
+            {
+              year:"numeric",
+              month:"short",
+              day:"numeric"
+            }
+          );
+
+    }catch(error){
+
+      console.log(
+        "Date error:",
+        error
+      );
+
+    }
+
+  }
+
+
+  card.innerHTML = `
+
+    <img
+      class="post-image"
+      src="${escapeAttribute(image)}"
+      alt="${escapeAttribute(title)}"
+      loading="lazy"
+      onerror="this.src='https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=900&q=80'"
+    >
+
+
+    <div class="post-content">
+
+      <span class="post-category">
+
+        ${escapeHTML(category)}
+
+      </span>
+
+
+      <h3 class="post-title">
+
+        ${escapeHTML(title)}
+
+      </h3>
+
+
+      <p class="post-excerpt">
+
+        ${escapeHTML(excerpt)}
+
+      </p>
+
+
+      <div class="post-footer">
+
+        <span class="post-date">
+
+          ${escapeHTML(date)}
+
+        </span>
+
+
+        <a
+          class="read-btn"
+          href="post.html?id=${encodeURIComponent(post.id)}"
+        >
+
+          Read Post →
+
+        </a>
+
+      </div>
+
+    </div>
+
+  `;
+
+
+  return card;
+
+}
+
+
+
+/* =========================
+   SEARCH
+========================= */
+
+searchInput.addEventListener(
+
+  "input",
+
+  () => {
+
+    renderPosts();
+
+  }
+
+);
+
+
+
+/* =========================
+   CATEGORY FILTER
+========================= */
+
+categoryButtons.forEach(
+
+  button => {
+
+    button.addEventListener(
+
+      "click",
+
+      () => {
+
+        categoryButtons.forEach(
+          btn =>
+            btn.classList.remove(
+              "active"
+            )
+        );
+
+
+        button.classList.add(
+          "active"
+        );
+
+
+        selectedCategory =
+          button.dataset.category;
+
+
+        renderPosts();
+
+      }
+
+    );
+
+  }
+
+);
+
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHTML(
+  value
+){
+
+  return String(value)
+
+    .replaceAll(
+      "&",
+      "&amp;"
+    )
+
+    .replaceAll(
+      "<",
+      "&lt;"
+    )
+
+    .replaceAll(
+      ">",
+      "&gt;"
+    )
+
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
+
+    .replaceAll(
+      "'",
+      "&#039;"
+    );
+
+}
+
+
+
+function escapeAttribute(
+  value
+){
+
+  return String(value)
+
+    .replaceAll(
+      "&",
+      "&amp;"
+    )
+
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
+
+    .replaceAll(
+      "<",
+      "&lt;"
+    )
+
+    .replaceAll(
+      ">",
+      "&gt;"
+    );
+
+}
+
+
+
+/* =========================
+   START
+========================= */
+
+loadPosts();
 
 </script>
 
+
 </body>
-                             </html>
+  </html>
