@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Post — Qalb-e-Deen</title>
+
+<meta name="description"
+      content="Qalb-e-Deen — The Heart of Deen">
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f8f7;
+  color:#17211f;
+  line-height:1.7;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  background:#0d2b24;
+  color:white;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 3px 15px rgba(0,0,0,.15);
+}
+
+.navbar{
+  max-width:1100px;
+  margin:auto;
+  padding:15px 18px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:bold;
+}
+
+.logo span{
+  color:#d7b56d;
+}
+
+.home-btn{
+  color:#fff;
+  text-decoration:none;
+  background:#d7b56d;
+  color:#0d2b24;
+  padding:8px 14px;
+  border-radius:8px;
+  font-weight:bold;
+  font-size:14px;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:35px 16px 70px;
+}
+
+/* =========================
+   POST
+========================= */
+
+.post-card{
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 6px 25px rgba(0,0,0,.08);
+}
+
+.post-image{
+  width:100%;
+  max-height:500px;
+  object-fit:cover;
+  display:block;
+  background:#e8efec;
+}
+
+.post-body{
+  padding:30px;
+}
+
+.category{
+  display:inline-block;
+  background:#e7f3ee;
+  color:#0d5b48;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:15px;
+}
+
+h1{
+  font-size:38px;
+  line-height:1.3;
+  color:#0d2b24;
+  margin-bottom:12px;
+}
+
+.meta{
+  color:#777;
+  font-size:14px;
+  margin-bottom:25px;
+}
+
+.divider{
+  height:1px;
+  background:#e4e9e7;
+  margin-bottom:25px;
+}
+
+.content{
+  font-size:17px;
+  color:#293532;
+  white-space:pre-wrap;
+  word-wrap:break-word;
+}
+
+.content p{
+  margin-bottom:18px;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+
+.actions{
+  margin-top:30px;
+  padding-top:22px;
+  border-top:1px solid #e4e9e7;
+
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.action-btn{
+  border:0;
+  cursor:pointer;
+  padding:10px 16px;
+  border-radius:8px;
+  font-weight:bold;
+  font-size:14px;
+}
+
+.share{
+  background:#0d5b48;
+  color:white;
+}
+
+.back{
+  background:#edf2f0;
+  color:#173a31;
+  text-decoration:none;
+}
+
+/* =========================
+   STATES
+========================= */
+
+.loading{
+  text-align:center;
+  padding:70px 20px;
+  color:#777;
+}
+
+.spinner{
+  width:38px;
+  height:38px;
+  border:4px solid #dce5e1;
+  border-top-color:#0d5b48;
+  border-radius:50%;
+  margin:0 auto 15px;
+  animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+.error{
+  background:#fff0f0;
+  color:#a52828;
+  padding:20px;
+  border-radius:12px;
+  word-break:break-word;
+}
+
+.not-found{
+  background:white;
+  text-align:center;
+  padding:60px 20px;
+  border-radius:16px;
+  box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.not-found h2{
+  margin-bottom:10px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#0d2b24;
+  color:white;
+  text-align:center;
+  padding:30px 15px;
+}
+
+.footer-logo{
+  font-size:21px;
+  font-weight:bold;
+  margin-bottom:5px;
+}
+
+.footer-logo span{
+  color:#d7b56d;
+}
+
+footer p{
+  color:#bdccc7;
+  font-size:13px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+  .logo{
+    font-size:20px;
+  }
+
+  .home-btn{
+    padding:7px 11px;
+    font-size:13px;
+  }
+
+  .container{
+    padding:20px 12px 50px;
+  }
+
+  .post-body{
+    padding:20px;
+  }
+
+  h1{
+    font-size:28px;
+  }
+
+  .content{
+    font-size:16px;
+  }
+
+  .post-image{
+    max-height:300px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+  <div class="navbar">
+
+    <div class="logo">
+      Qalb<span>-e-Deen</span>
+    </div>
+
+    <a
+      href="index.html"
+      class="home-btn">
+
+      ← Home
+
+    </a>
+
+  </div>
+
+</header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="container">
+
+  <div id="postArea">
+
+    <div class="loading">
+
+      <div class="spinner"></div>
+
+      Loading post...
+
+    </div>
+
+  </div>
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  <div class="footer-logo">
+    Qalb<span>-e-Deen</span>
+  </div>
+
+  <p>
+    The Heart of Deen
+  </p>
+
+  <p>
+    © 2026 Qalb-e-Deen. All rights reserved.
+  </p>
+
+</footer>
+
+
+
+<!-- =========================
+     FIREBASE
+========================= -->
+
+<script type="module">
+
+import {
+  initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  updateDoc,
+  increment
+}
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+
+
+/* =========================
+   FIREBASE CONFIG
+========================= */
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyC4sRpUYVLURCkbAbfvUccL5n71Dveiik4",
+
+  authDomain:
+    "qalb-e-deen-b765a.firebaseapp.com",
+
+  projectId:
+    "qalb-e-deen-b765a",
+
+  storageBucket:
+    "qalb-e-deen-b765a.firebasestorage.app",
+
+  messagingSenderId:
+    "226972777842",
+
+  appId:
+    "1:226972777842:web:0d1439b9d4dc66d8bfb1eb"
+
+};
+
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+const app =
+  initializeApp(
+    firebaseConfig
+  );
+
+const db =
+  getFirestore(app);
+
+
+
+/* =========================
+   ELEMENT
+========================= */
+
+const postArea =
+  document.getElementById(
+    "postArea"
+  );
+
+
+
+/* =========================
+   GET POST ID
+========================= */
+
+const params =
+  new URLSearchParams(
+    window.location.search
+  );
+
+const postId =
+  params.get("id");
+
+
+
+/* =========================
+   LOAD POST
+========================= */
+
+async function loadPost(){
+
+  if(!postId){
+
+    showNotFound(
+      "No post ID was provided."
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    const postRef =
+      doc(
+        db,
+        "posts",
+        postId
+      );
+
+
+    const postSnap =
+      await getDoc(
+        postRef
+      );
+
+
+    if(!postSnap.exists()){
+
+      showNotFound(
+        "This post could not be found."
+      );
+
+      return;
+
+    }
+
+
+    const post =
+      postSnap.data();
+
+
+    /* =====================
+       VIEW COUNTER
+    ===================== */
+
+    try{
+
+      await updateDoc(
+        postRef,
+        {
+          views:
+            increment(1)
+        }
+      );
+
+    }catch(viewError){
+
+      console.log(
+        "View counter error:",
+        viewError
+      );
+
+    }
+
+
+    renderPost(
+      post
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+    postArea.innerHTML = `
+
+      <div class="error">
+
+        <strong>
+          Could not load post.
+        </strong>
+
+        <br><br>
+
+        ${escapeHTML(
+          error.message
+        )}
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+
+/* =========================
+   RENDER
+========================= */
+
+function renderPost(
+  post
+){
+
+  const title =
+    post.title ||
+    "Untitled Post";
+
+
+  const category =
+    post.category ||
+    "General";
+
+
+  const content =
+    post.content ||
+    "No content available.";
+
+
+  const image =
+    post.imageURL ||
+    "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1200&q=80";
+
+
+  const author =
+    post.authorName ||
+    "Qalb-e-Deen";
+
+
+  let date =
+    "Recently";
+
+
+  if(post.createdAt){
+
+    try{
+
+      date =
+        post.createdAt
+          .toDate()
+          .toLocaleDateString(
+            "en-US",
+            {
+              year:"numeric",
+              month:"long",
+              day:"numeric"
+            }
+          );
+
+    }catch(error){
+
+      console.log(
+        "Date error:",
+        error
+      );
+
+    }
+
+  }
+
+
+  const views =
+    Number(
+      post.views || 0
+    ) + 1;
+
+
+  document.title =
+    title +
+    " — Qalb-e-Deen";
+
+
+  postArea.innerHTML = `
+
+    <article class="post-card">
+
+
+      <img
+        class="post-image"
+        src="${escapeAttribute(image)}"
+        alt="${escapeAttribute(title)}"
+        onerror="this.style.display='none'"
+      >
+
+
+      <div class="post-body">
+
+
+        <span class="category">
+
+          ${escapeHTML(
+            category
+          )}
+
+        </span>
+
+
+        <h1>
+
+          ${escapeHTML(
+            title
+          )}
+
+        </h1>
+
+
+        <div class="meta">
+
+          By
+          ${escapeHTML(
+            author
+          )}
+
+          •
+
+          ${escapeHTML(
+            date
+          )}
+
+          •
+
+          👁️
+          ${views}
+          views
+
+        </div>
+
+
+        <div class="divider"></div>
+
+
+        <div class="content">
+
+          ${escapeHTML(
+            content
+          )}
+
+        </div>
+
+
+        <div class="actions">
+
+
+          <button
+            class="action-btn share"
+            id="shareBtn">
+
+            📤 Share Post
+
+          </button>
+
+
+          <a
+            href="index.html"
+            class="action-btn back">
+
+            ← Back to Home
+
+          </a>
+
+
+        </div>
+
+
+      </div>
+
+    </article>
+
+  `;
+
+
+  document
+    .getElementById(
+      "shareBtn"
+    )
+    .addEventListener(
+      "click",
+      sharePost
+    );
+
+}
+
+
+
+/* =========================
+   SHARE
+========================= */
+
+async function sharePost(){
+
+  const shareData = {
+
+    title:
+      document.title,
+
+    text:
+      "Read this post on Qalb-e-Deen",
+
+    url:
+      window.location.href
+
+  };
+
+
+  try{
+
+    if(
+      navigator.share
+    ){
+
+      await navigator.share(
+        shareData
+      );
+
+    }else{
+
+      await navigator.clipboard.writeText(
+        window.location.href
+      );
+
+      alert(
+        "Post link copied!"
+      );
+
+    }
+
+  }catch(error){
+
+    console.log(
+      "Share cancelled:",
+      error
+    );
+
+  }
+
+}
+
+
+
+/* =========================
+   NOT FOUND
+========================= */
+
+function showNotFound(
+  message
+){
+
+  postArea.innerHTML = `
+
+    <div class="not-found">
+
+      <h2>
+        Post Not Found
+      </h2>
+
+      <p>
+        ${escapeHTML(
+          message
+        )}
+      </p>
+
+      <br>
+
+      <a
+        href="index.html"
+        class="action-btn back">
+
+        ← Back to Home
+
+      </a>
+
+    </div>
+
+  `;
+
+}
+
+
+
+/* =========================
+   ESCAPE
+========================= */
+
+function escapeHTML(
+  value
+){
+
+  return String(value)
+
+    .replaceAll(
+      "&",
+      "&amp;"
+    )
+
+    .replaceAll(
+      "<",
+      "&lt;"
+    )
+
+    .replaceAll(
+      ">",
+      "&gt;"
+    )
+
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
+
+    .replaceAll(
+      "'",
+      "&#039;"
+    );
+
+}
+
+
+
+function escapeAttribute(
+  value
+){
+
+  return String(value)
+
+    .replaceAll(
+      "&",
+      "&amp;"
+    )
+
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
+
+    .replaceAll(
+      "<",
+      "&lt;"
+    )
+
+    .replaceAll(
+      ">",
+      "&gt;"
+    );
+
+}
+
+
+
+/* =========================
+   START
+========================= */
+
+loadPost();
+
+</script>
+
+
+</body>
+  </html>
