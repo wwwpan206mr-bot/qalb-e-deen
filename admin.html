@@ -16,6 +16,7 @@
   --muted:#aebdb6;
   --danger:#d95c5c;
   --success:#55c98a;
+  --warning:#e7a94b;
   --border:#25473b;
 }
 
@@ -111,6 +112,16 @@ button{
   border:1px solid var(--border);
 }
 
+.success{
+  background:var(--success);
+  color:#082018;
+}
+
+.warning{
+  background:var(--warning);
+  color:#241806;
+}
+
 .danger{
   background:var(--danger);
   color:white;
@@ -156,14 +167,26 @@ button{
   margin-top:10px;
 }
 
-/* COMMENTS */
-
 .comment{
   border:1px solid var(--border);
   background:#0a2119;
   border-radius:14px;
   padding:16px;
-  margin:12px 0;
+  margin:14px 0;
+}
+
+.comment.pending{
+  border-left:4px solid var(--warning);
+}
+
+.comment.approved{
+  border-left:4px solid var(--success);
+}
+
+.comment.reply{
+  margin-left:35px;
+  background:#0c281f;
+  border-left:3px solid var(--gold);
 }
 
 .comment-top{
@@ -196,6 +219,43 @@ button{
   color:var(--muted);
   font-size:12px;
   margin-top:10px;
+}
+
+.comment-status{
+  display:inline-block;
+  padding:4px 9px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:800;
+  margin-top:8px;
+}
+
+.status-pending{
+  background:#5a4115;
+  color:#ffd979;
+}
+
+.status-approved{
+  background:#164d35;
+  color:#72e0a5;
+}
+
+.reply-box{
+  margin-top:14px;
+  padding:14px;
+  background:#071b15;
+  border:1px solid var(--border);
+  border-radius:12px;
+}
+
+.reply-box textarea{
+  min-height:100px;
+}
+
+.reply-label{
+  color:var(--gold);
+  font-weight:700;
+  margin-bottom:8px;
 }
 
 .empty{
@@ -242,6 +302,11 @@ button{
   margin-left:8px;
 }
 
+.pending-count{
+  background:#5a4115;
+  color:#ffd979;
+}
+
 #loginCard{
   max-width:520px;
   margin:50px auto;
@@ -273,6 +338,10 @@ button{
   .comment-top button{
     width:100%;
   }
+
+  .comment.reply{
+    margin-left:12px;
+  }
 }
 </style>
 </head>
@@ -285,7 +354,9 @@ button{
 
 <div id="loginCard" class="card">
 
-  <div class="brand">Qalb-e-Deen</div>
+  <div class="brand">
+    Qalb-e-Deen
+  </div>
 
   <div class="sub">
     Admin Panel · The Heart of Deen
@@ -414,7 +485,6 @@ button{
       type="hidden"
     >
 
-
     <div class="row">
 
       <div>
@@ -439,37 +509,14 @@ button{
 
         <select id="category">
 
-          <option>
-            Quran
-          </option>
-
-          <option>
-            Hadith
-          </option>
-
-          <option>
-            Islamic Knowledge
-          </option>
-
-          <option>
-            Seerah
-          </option>
-
-          <option>
-            Dua & Zikr
-          </option>
-
-          <option>
-            Ramadan
-          </option>
-
-          <option>
-            News
-          </option>
-
-          <option>
-            Opinion
-          </option>
+          <option>Quran</option>
+          <option>Hadith</option>
+          <option>Islamic Knowledge</option>
+          <option>Seerah</option>
+          <option>Dua & Zikr</option>
+          <option>Ramadan</option>
+          <option>News</option>
+          <option>Opinion</option>
 
         </select>
 
@@ -579,6 +626,13 @@ button{
         0
       </span>
 
+      <span
+        id="pendingBadge"
+        class="comment-count pending-count"
+      >
+        0 Pending
+      </span>
+
     </h2>
 
 
@@ -590,9 +644,7 @@ button{
     </div>
 
 
-    <div id="comments">
-
-    </div>
+    <div id="comments"></div>
 
   </div>
 
@@ -609,7 +661,6 @@ import {
   initializeApp
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 
-
 import {
   getFirestore,
   collection,
@@ -619,11 +670,8 @@ import {
   doc,
   getDoc,
   getDocs,
-  query,
-  orderBy,
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
-
 
 import {
   getAuth,
@@ -631,7 +679,6 @@ import {
   onAuthStateChanged,
   signOut
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
-
 
 
 /* ================= FIREBASE CONFIG ================= */
@@ -659,30 +706,23 @@ const firebaseConfig = {
 };
 
 
-
 const app =
   initializeApp(firebaseConfig);
-
 
 const db =
   getFirestore(app);
 
-
 const auth =
   getAuth(app);
 
-
-
-const $ = id =>
-  document.getElementById(id);
-
+const $ =
+  id => document.getElementById(id);
 
 
 /* ================= DATA ================= */
 
 let posts = [];
 let comments = [];
-
 
 
 /* ================= STATUS ================= */
@@ -701,7 +741,6 @@ function setStatus(
   );
 
 }
-
 
 
 /* ================= LOGIN ================= */
@@ -753,12 +792,10 @@ $("loginBtn").onclick = async () => {
 };
 
 
-
 /* ================= LOGOUT ================= */
 
 $("logoutBtn").onclick =
   () => signOut(auth);
-
 
 
 /* ================= ADMIN AUTH CHECK ================= */
@@ -782,12 +819,6 @@ onAuthStateChanged(
 
 
     try{
-
-      /*
-        IMPORTANT:
-        Current project uses:
-        user/{uid}
-      */
 
       const adminRef =
         doc(
@@ -845,7 +876,6 @@ onAuthStateChanged(
 );
 
 
-
 /* ================= CLEAR FORM ================= */
 
 function clearForm(){
@@ -871,10 +901,8 @@ function clearForm(){
 }
 
 
-
 $("clearBtn").onclick =
   clearForm;
-
 
 
 /* ================= SAVE POST ================= */
@@ -896,7 +924,6 @@ async () => {
 
   const title =
     $("title").value.trim();
-
 
   const content =
     $("content").value.trim();
@@ -1011,7 +1038,6 @@ async () => {
 };
 
 
-
 /* ================= LOAD POSTS ================= */
 
 async function loadPosts(){
@@ -1026,18 +1052,13 @@ async function loadPosts(){
 
   try{
 
-    const postsQuery =
-      query(
-        collection(db,"posts"),
-        orderBy(
-          "createdAt",
-          "desc"
+    const snapshot =
+      await getDocs(
+        collection(
+          db,
+          "posts"
         )
       );
-
-
-    const snapshot =
-      await getDocs(postsQuery);
 
 
     posts =
@@ -1047,6 +1068,17 @@ async function loadPosts(){
           ...item.data()
         })
       );
+
+
+    posts.sort(
+      (a,b) =>
+        getTimestampMillis(
+          b.createdAt
+        ) -
+        getTimestampMillis(
+          a.createdAt
+        )
+    );
 
 
     renderPosts();
@@ -1064,7 +1096,6 @@ async function loadPosts(){
   }
 
 }
-
 
 
 /* ================= RENDER POSTS ================= */
@@ -1154,7 +1185,6 @@ function renderPosts(){
 }
 
 
-
 /* ================= EDIT POST ================= */
 
 window.editPost =
@@ -1208,7 +1238,6 @@ function(id){
 };
 
 
-
 /* ================= DELETE POST ================= */
 
 window.deletePost =
@@ -1260,7 +1289,6 @@ async function(id){
 };
 
 
-
 /* ==================================================
    COMMENT MODERATION
 ================================================== */
@@ -1272,7 +1300,6 @@ async function loadComments(){
 
   const status =
     $("commentStatus");
-
 
   const box =
     $("comments");
@@ -1290,35 +1317,19 @@ async function loadComments(){
   try{
 
     /*
-      Current structure:
+      We intentionally do NOT use
+      orderBy() here.
 
-      comments/{commentId}
-
-      Fields:
-
-      postId
-      userId
-      userName
-      text
-      createdAt
+      This avoids requiring a
+      composite Firestore index.
     */
-
-    const commentsQuery =
-      query(
-        collection(
-          db,
-          "comments"
-        ),
-        orderBy(
-          "createdAt",
-          "desc"
-        )
-      );
-
 
     const commentSnapshot =
       await getDocs(
-        commentsQuery
+        collection(
+          db,
+          "comments"
+        )
       );
 
 
@@ -1331,11 +1342,16 @@ async function loadComments(){
       );
 
 
-    /*
-      Get post titles
-      so admin can see
-      which post each comment belongs to.
-    */
+    comments.sort(
+      (a,b) =>
+        getTimestampMillis(
+          b.createdAt
+        ) -
+        getTimestampMillis(
+          a.createdAt
+        )
+    );
+
 
     const postMap = {};
 
@@ -1369,9 +1385,7 @@ async function loadComments(){
 
     renderComments();
 
-
     updateStats();
-
 
     status.classList.add(
       "hidden"
@@ -1379,19 +1393,23 @@ async function loadComments(){
 
   }catch(error){
 
+    status.classList.remove(
+      "hidden"
+    );
+
     status.textContent =
       "Could not load comments: " +
       error.message;
 
     box.innerHTML =
       "<div class='empty'>" +
-      "Please check Firebase Rules / Index." +
+      "Please check Firebase Rules. " +
+      escapeHtml(error.message) +
       "</div>";
 
   }
 
 }
-
 
 
 /* ================= RENDER COMMENTS ================= */
@@ -1402,9 +1420,25 @@ function renderComments(){
     $("comments");
 
 
+  const total =
+    comments.length;
+
+
+  const pending =
+    comments.filter(
+      comment =>
+        comment.approved === false
+    ).length;
+
+
   $("commentBadge")
     .textContent =
-    comments.length;
+    total;
+
+
+  $("pendingBadge")
+    .textContent =
+    pending + " Pending";
 
 
   if(!comments.length){
@@ -1418,73 +1452,542 @@ function renderComments(){
   }
 
 
+  /*
+    Main comments first.
+    Replies are shown below
+    their parent comment.
+  */
+
+  const mainComments =
+    comments.filter(
+      comment =>
+        !comment.parentId
+    );
+
+
+  let html = "";
+
+
+  mainComments.forEach(
+    comment => {
+
+      html +=
+        renderSingleComment(
+          comment,
+          false
+        );
+
+
+      const replies =
+        comments.filter(
+          reply =>
+            reply.parentId ===
+            comment.id
+        );
+
+
+      replies.forEach(
+        reply => {
+
+          html +=
+            renderSingleComment(
+              reply,
+              true
+            );
+
+        }
+      );
+
+    }
+  );
+
+
+  /*
+    Safety:
+    if an orphan reply exists,
+    still show it.
+  */
+
+  const shownIds =
+    new Set();
+
+
+  mainComments.forEach(
+    main => {
+
+      shownIds.add(
+        main.id
+      );
+
+      comments
+        .filter(
+          reply =>
+            reply.parentId ===
+            main.id
+        )
+        .forEach(
+          reply =>
+            shownIds.add(
+              reply.id
+            )
+        );
+
+    }
+  );
+
+
+  comments
+    .filter(
+      comment =>
+        !shownIds.has(
+          comment.id
+        )
+    )
+    .forEach(
+      comment => {
+
+        html +=
+          renderSingleComment(
+            comment,
+            true
+          );
+
+      }
+    );
+
+
   box.innerHTML =
-    comments.map(
-      comment => `
+    html;
 
-      <div class="comment">
-
-        <div class="comment-top">
-
-          <div>
-
-            <div class="comment-user">
-
-              ${escapeHtml(
-                comment.userName ||
-                "Anonymous"
-              )}
-
-            </div>
+}
 
 
-            <div class="comment-post">
+/* ================= SINGLE COMMENT ================= */
 
-              Post:
-              ${escapeHtml(
-                comment.postTitle
-              )}
+function renderSingleComment(
+  comment,
+  isReply
+){
 
-            </div>
+  const isPending =
+    comment.approved === false;
+
+
+  const statusClass =
+    isPending
+      ? "status-pending"
+      : "status-approved";
+
+
+  const statusText =
+    isPending
+      ? "Pending Approval"
+      : "Approved";
+
+
+  const cardClass =
+    isReply
+      ? "comment reply " +
+        (isPending
+          ? "pending"
+          : "approved")
+      : "comment " +
+        (isPending
+          ? "pending"
+          : "approved");
+
+
+  return `
+
+    <div class="${cardClass}">
+
+      <div class="comment-top">
+
+        <div>
+
+          <div class="comment-user">
+
+            ${isReply ? "↳ " : ""}
+
+            ${escapeHtml(
+              comment.userName ||
+              "Anonymous"
+            )}
 
           </div>
 
 
-          <button
-            class="danger"
-            onclick="deleteComment('${comment.id}')"
+          <div class="comment-post">
+
+            Post:
+            ${escapeHtml(
+              comment.postTitle ||
+              "Unknown Post"
+            )}
+
+          </div>
+
+
+          <span
+            class="comment-status ${statusClass}"
           >
-            Delete Comment
-          </button>
-
-        </div>
-
-
-        <div class="comment-text">
-
-          ${escapeHtml(
-            comment.text ||
-            ""
-          )}
-
-        </div>
-
-
-        <div class="comment-date">
-
-          ${formatDate(
-            comment.createdAt
-          )}
+            ${statusText}
+          </span>
 
         </div>
 
       </div>
 
-    `
-    ).join("");
+
+      ${
+        comment.parentUserName
+          ? `
+            <div class="meta" style="margin-top:10px">
+              Replying to:
+              ${escapeHtml(
+                comment.parentUserName
+              )}
+            </div>
+          `
+          : ""
+      }
+
+
+      <div class="comment-text">
+
+        ${escapeHtml(
+          comment.text ||
+          ""
+        )}
+
+      </div>
+
+
+      <div class="comment-date">
+
+        ${formatDate(
+          comment.createdAt
+        )}
+
+      </div>
+
+
+      <div class="actions">
+
+        ${
+          isPending
+            ? `
+              <button
+                class="success"
+                onclick="approveComment('${comment.id}')"
+              >
+                ✓ Approve
+              </button>
+            `
+            : ""
+        }
+
+
+        ${
+          !isReply
+            ? `
+              <button
+                class="secondary"
+                onclick="toggleReplyBox('${comment.id}')"
+              >
+                ↩ Reply
+              </button>
+            `
+            : ""
+        }
+
+
+        <button
+          class="danger"
+          onclick="deleteComment('${comment.id}')"
+        >
+          🗑 Delete
+        </button>
+
+      </div>
+
+
+      ${
+        !isReply
+          ? `
+            <div
+              id="replyBox-${comment.id}"
+              class="reply-box hidden"
+            >
+
+              <div class="reply-label">
+                Reply to ${escapeHtml(
+                  comment.userName ||
+                  "User"
+                )}
+              </div>
+
+
+              <textarea
+                id="replyText-${comment.id}"
+                placeholder="Write your reply..."
+              ></textarea>
+
+
+              <button
+                class="primary"
+                onclick="submitAdminReply('${comment.id}')"
+              >
+                Send Reply
+              </button>
+
+
+              <button
+                class="secondary"
+                onclick="toggleReplyBox('${comment.id}')"
+              >
+                Cancel
+              </button>
+
+
+              <div
+                id="replyStatus-${comment.id}"
+                class="status hidden"
+              ></div>
+
+            </div>
+          `
+          : ""
+      }
+
+    </div>
+
+  `;
 
 }
 
+
+/* ================= APPROVE COMMENT ================= */
+
+window.approveComment =
+async function(commentId){
+
+  const comment =
+    comments.find(
+      item =>
+        item.id === commentId
+    );
+
+
+  if(!comment) return;
+
+
+  try{
+
+    await updateDoc(
+      doc(
+        db,
+        "comments",
+        commentId
+      ),
+      {
+        approved:true
+      }
+    );
+
+
+    await loadComments();
+
+  }catch(error){
+
+    alert(
+      "Approval failed: " +
+      error.message
+    );
+
+  }
+
+};
+
+
+/* ================= TOGGLE REPLY ================= */
+
+window.toggleReplyBox =
+function(commentId){
+
+  const box =
+    $("replyBox-" + commentId);
+
+
+  if(!box) return;
+
+
+  box.classList.toggle(
+    "hidden"
+  );
+
+
+  if(
+    !box.classList.contains(
+      "hidden"
+    )
+  ){
+
+    const textarea =
+      $("replyText-" + commentId);
+
+    if(textarea){
+
+      textarea.focus();
+
+    }
+
+  }
+
+};
+
+
+/* ================= ADMIN REPLY ================= */
+
+window.submitAdminReply =
+async function(parentCommentId){
+
+  const parent =
+    comments.find(
+      item =>
+        item.id ===
+        parentCommentId
+    );
+
+
+  if(!parent){
+
+    alert(
+      "Original comment not found."
+    );
+
+    return;
+  }
+
+
+  const textarea =
+    $("replyText-" +
+      parentCommentId);
+
+
+  const status =
+    $("replyStatus-" +
+      parentCommentId);
+
+
+  const text =
+    textarea
+      .value
+      .trim();
+
+
+  if(!text){
+
+    setStatus(
+      status,
+      "Please write a reply."
+    );
+
+    return;
+  }
+
+
+  const user =
+    auth.currentUser;
+
+
+  if(!user){
+
+    setStatus(
+      status,
+      "Admin login required."
+    );
+
+    return;
+  }
+
+
+  setStatus(
+    status,
+    "Sending reply..."
+  );
+
+
+  try{
+
+    await addDoc(
+      collection(
+        db,
+        "comments"
+      ),
+      {
+
+        postId:
+          parent.postId,
+
+        userId:
+          user.uid,
+
+        userName:
+          "Qalb-e-Deen Admin",
+
+        text,
+
+        parentId:
+          parentCommentId,
+
+        parentUserName:
+          parent.userName ||
+          "User",
+
+        /*
+          Admin reply is
+          automatically approved.
+        */
+
+        approved:true,
+
+        createdAt:
+          serverTimestamp()
+
+      }
+    );
+
+
+    textarea.value = "";
+
+
+    setStatus(
+      status,
+      "Reply sent successfully."
+    );
+
+
+    setTimeout(
+      async () => {
+
+        await loadComments();
+
+      },
+      500
+    );
+
+  }catch(error){
+
+    setStatus(
+      status,
+      "Reply failed: " +
+      error.message
+    );
+
+  }
+
+};
 
 
 /* ================= DELETE COMMENT ================= */
@@ -1542,7 +2045,6 @@ async function(commentId){
 };
 
 
-
 /* ================= STATS ================= */
 
 function updateStats(){
@@ -1563,6 +2065,18 @@ function updateStats(){
     .textContent =
     comments.length
       .toLocaleString();
+
+
+  const pending =
+    comments.filter(
+      comment =>
+        comment.approved === false
+    ).length;
+
+
+  $("pendingBadge")
+    .textContent =
+    pending + " Pending";
 
 
   const totalViews =
@@ -1586,6 +2100,59 @@ function updateStats(){
 
 }
 
+
+/* ================= TIMESTAMP ================= */
+
+function getTimestampMillis(
+  timestamp
+){
+
+  if(!timestamp){
+    return 0;
+  }
+
+
+  try{
+
+    if(
+      typeof timestamp.toMillis ===
+      "function"
+    ){
+
+      return timestamp.toMillis();
+
+    }
+
+
+    if(
+      typeof timestamp.toDate ===
+      "function"
+    ){
+
+      return timestamp
+        .toDate()
+        .getTime();
+
+    }
+
+
+    const value =
+      new Date(
+        timestamp
+      ).getTime();
+
+
+    return isNaN(value)
+      ? 0
+      : value;
+
+  }catch{
+
+    return 0;
+
+  }
+
+}
 
 
 /* ================= DATE ================= */
@@ -1638,7 +2205,6 @@ function formatDate(timestamp){
   }
 
 }
-
 
 
 /* ================= ESCAPE HTML ================= */
