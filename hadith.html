@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>আজকের হাদিস — Qalb-e-Deen</title>
+
+<meta
+  name="description"
+  content="Qalb-e-Deen — আজকের হাদিস, বাংলা উচ্চারণ, অর্থ, ব্যাখ্যা ও শিক্ষা।"
+/>
+
+<meta name="theme-color" content="#063b2b">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Noto Sans Bengali",
+    "Segoe UI",
+    sans-serif;
+  background:#f5f8f6;
+  color:#17352c;
+  line-height:1.8;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:#063b2b;
+  color:white;
+  padding:14px 18px;
+  box-shadow:0 3px 15px rgba(0,0,0,.15);
+}
+
+.header-inner{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.brand{
+  text-decoration:none;
+  color:white;
+  font-size:20px;
+  font-weight:800;
+}
+
+.back-btn{
+  text-decoration:none;
+  color:white;
+  border:1px solid rgba(255,255,255,.35);
+  padding:7px 13px;
+  border-radius:10px;
+  font-size:14px;
+}
+
+.hero{
+  background:linear-gradient(135deg,#063b2b,#0b5b42);
+  color:white;
+  padding:45px 18px;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  opacity:.9;
+}
+
+.container{
+  max-width:900px;
+  margin:30px auto;
+  padding:0 16px;
+}
+
+.search-box{
+  display:flex;
+  gap:10px;
+  margin-bottom:22px;
+}
+
+.search-box input{
+  flex:1;
+  padding:14px 16px;
+  border:1px solid #d5e0db;
+  border-radius:13px;
+  font-size:16px;
+  outline:none;
+  background:white;
+}
+
+.search-box input:focus{
+  border-color:#0b6b4d;
+  box-shadow:0 0 0 3px rgba(11,107,77,.1);
+}
+
+.hadith-card{
+  background:white;
+  border-radius:22px;
+  padding:25px;
+  box-shadow:0 8px 30px rgba(0,0,0,.08);
+  margin-bottom:25px;
+}
+
+.badge{
+  display:inline-block;
+  background:#e4f4ed;
+  color:#075d43;
+  padding:5px 11px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:15px;
+}
+
+.hadith-title{
+  font-size:24px;
+  color:#063b2b;
+  margin-bottom:18px;
+}
+
+.arabic{
+  direction:rtl;
+  text-align:right;
+  font-family:
+    "Amiri",
+    "Noto Naskh Arabic",
+    serif;
+  font-size:28px;
+  line-height:2.2;
+  background:#f7faf8;
+  border-right:4px solid #0b6b4d;
+  padding:20px;
+  border-radius:14px;
+  margin-bottom:20px;
+}
+
+.section-title{
+  color:#075d43;
+  font-size:18px;
+  font-weight:800;
+  margin:22px 0 8px;
+}
+
+.transliteration{
+  background:#fffaf0;
+  border-left:4px solid #d39b22;
+  padding:16px;
+  border-radius:12px;
+  font-size:17px;
+}
+
+.translation{
+  background:#f4f8ff;
+  border-left:4px solid #4d78c4;
+  padding:16px;
+  border-radius:12px;
+  font-size:17px;
+}
+
+.explanation{
+  background:#f6f4ff;
+  border-left:4px solid #7257c7;
+  padding:16px;
+  border-radius:12px;
+  font-size:17px;
+}
+
+.lesson{
+  background:#eef9f0;
+  border-left:4px solid #3d9a55;
+  padding:16px;
+  border-radius:12px;
+  font-size:17px;
+}
+
+.reference{
+  margin-top:20px;
+  padding-top:15px;
+  border-top:1px solid #e4e9e6;
+  color:#52635c;
+  font-size:14px;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+.btn{
+  border:none;
+  cursor:pointer;
+  padding:11px 17px;
+  border-radius:11px;
+  font-size:14px;
+  font-weight:700;
+}
+
+.share-btn{
+  background:#063b2b;
+  color:white;
+}
+
+.reload-btn{
+  background:#e9f2ee;
+  color:#063b2b;
+}
+
+.loading,
+.empty,
+.error{
+  text-align:center;
+  background:white;
+  padding:35px 20px;
+  border-radius:18px;
+  box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.hadith-list{
+  margin-top:30px;
+}
+
+.hadith-item{
+  background:white;
+  border-radius:16px;
+  padding:18px;
+  margin-bottom:14px;
+  cursor:pointer;
+  box-shadow:0 4px 15px rgba(0,0,0,.05);
+  transition:.2s;
+}
+
+.hadith-item:hover{
+  transform:translateY(-2px);
+  box-shadow:0 7px 20px rgba(0,0,0,.08);
+}
+
+.hadith-item h3{
+  color:#063b2b;
+  margin-bottom:5px;
+}
+
+.hadith-item p{
+  color:#68756f;
+  font-size:14px;
+}
+
+footer{
+  text-align:center;
+  padding:30px 15px;
+  color:#6c7973;
+  font-size:13px;
+}
+
+.toast{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#063b2b;
+  color:white;
+  padding:12px 18px;
+  border-radius:12px;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:999;
+}
+
+.toast.show{
+  opacity:1;
+}
+
+@media(max-width:600px){
+
+  .hero h1{
+    font-size:25px;
+  }
+
+  .hadith-card{
+    padding:18px;
+  }
+
+  .arabic{
+    font-size:24px;
+  }
+
+  .hadith-title{
+    font-size:21px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+
+    <a href="index.html" class="brand">
+      Qalb-e-Deen
+    </a>
+
+    <a href="index.html" class="back-btn">
+      ← Home
+    </a>
+
+  </div>
+</header>
+
+<section class="hero">
+
+  <h1>📜 আজকের হাদিস</h1>
+
+  <p>
+    হাদিস • বাংলা উচ্চারণ • অর্থ • ব্যাখ্যা • শিক্ষা
+  </p>
+
+</section>
+
+<main class="container">
+
+  <div class="search-box">
+
+    <input
+      type="search"
+      id="searchInput"
+      placeholder="হাদিস খুঁজুন..."
+      autocomplete="off"
+    >
+
+  </div>
+
+  <div id="todayHadith">
+
+    <div class="loading">
+      আজকের হাদিস লোড হচ্ছে...
+    </div>
+
+  </div>
+
+  <section class="hadith-list">
+
+    <h2 style="margin-bottom:15px;">
+      📚 সকল হাদিস
+    </h2>
+
+    <div id="hadithList">
+
+      <div class="loading">
+        হাদিস লোড হচ্ছে...
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  © Qalb-e-Deen — The Heart of Deen
+</footer>
+
+<div id="toast" class="toast"></div>
+
+<script type="module">
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  orderBy
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =========================
+   FIREBASE
+========================= */
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyC4sRpUYVLURCkbAbfvUccL5n71Dveiik4",
+
+  authDomain:
+    "qalb-e-deen-b765a.firebaseapp.com",
+
+  projectId:
+    "qalb-e-deen-b765a",
+
+  storageBucket:
+    "qalb-e-deen-b765a.firebasestorage.app",
+
+  messagingSenderId:
+    "226972777842",
+
+  appId:
+    "1:226972777842:web:0d1439b9d4dc66d8bfb1eb"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+let allHadiths = [];
+
+const todayHadith =
+  document.getElementById("todayHadith");
+
+const hadithList =
+  document.getElementById("hadithList");
+
+const searchInput =
+  document.getElementById("searchInput");
+
+const toast =
+  document.getElementById("toast");
+
+
+/* =========================
+   TOAST
+========================= */
+
+function showToast(message){
+
+  toast.textContent = message;
+
+  toast.classList.add("show");
+
+  setTimeout(() => {
+
+    toast.classList.remove("show");
+
+  },2500);
+}
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHtml(value){
+
+  if(value === null || value === undefined){
+    return "";
+  }
+
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+
+/* =========================
+   LOAD HADITHS
+========================= */
+
+async function loadHadiths(){
+
+  try{
+
+    const hadithQuery = query(
+      collection(db,"hadiths"),
+      orderBy("createdAt","desc")
+    );
+
+    const snapshot =
+      await getDocs(hadithQuery);
+
+    allHadiths = [];
+
+    snapshot.forEach(docSnap => {
+
+      const data = docSnap.data();
+
+      if(data.active !== false){
+
+        allHadiths.push({
+
+          id: docSnap.id,
+
+          ...data
+
+        });
+
+      }
+
+    });
+
+    if(!allHadiths.length){
+
+      todayHadith.innerHTML = `
+        <div class="empty">
+          এখনো কোনো হাদিস যোগ করা হয়নি।
+        </div>
+      `;
+
+      hadithList.innerHTML = "";
+
+      return;
+    }
+
+    showTodayHadith();
+
+    renderHadithList(allHadiths);
+
+  }catch(error){
+
+    console.error(
+      "Hadith loading error:",
+      error
+    );
+
+    todayHadith.innerHTML = `
+      <div class="error">
+        হাদিস লোড করা যাচ্ছে না।<br><br>
+        Firebase Firestore connection অথবা
+        rules পরীক্ষা করুন।
+      </div>
+    `;
+
+  }
+
+}
+
+
+/* =========================
+   TODAY HADITH
+========================= */
+
+function showTodayHadith(){
+
+  if(!allHadiths.length) return;
+
+  /*
+    একই দিনে একই হাদিস দেখাবে।
+    দিন পরিবর্তন হলে automatic
+    অন্য হাদিস নির্বাচন হবে।
+  */
+
+  const today =
+    new Date();
+
+  const startOfYear =
+    new Date(
+      today.getFullYear(),
+      0,
+      0
+    );
+
+  const difference =
+    today - startOfYear;
+
+  const oneDay =
+    1000 * 60 * 60 * 24;
+
+  const dayNumber =
+    Math.floor(
+      difference / oneDay
+    );
+
+  const index =
+    dayNumber % allHadiths.length;
+
+  const hadith =
+    allHadiths[index];
+
+  renderTodayHadith(hadith);
+
+}
+
+
+/* =========================
+   RENDER TODAY
+========================= */
+
+function renderTodayHadith(hadith){
+
+  todayHadith.innerHTML = `
+
+    <article class="hadith-card">
+
+      <span class="badge">
+        📜 আজকের হাদিস
+      </span>
+
+      <h2 class="hadith-title">
+        ${escapeHtml(
+          hadith.title ||
+          "আজকের হাদিস"
+        )}
+      </h2>
+
+
+      ${
+        hadith.arabic
+        ?
+        `
+        <div class="arabic">
+          ${escapeHtml(hadith.arabic)}
+        </div>
+        `
+        :
+        ""
+      }
+
+
+      ${
+        hadith.transliteration
+        ?
+        `
+        <h3 class="section-title">
+          🔤 বাংলা উচ্চারণ
+        </h3>
+
+        <div class="transliteration">
+          ${escapeHtml(
+            hadith.transliteration
+          )}
+        </div>
+        `
+        :
+        ""
+      }
+
+
+      ${
+        hadith.englishPronunciation
+        ?
+        `
+        <h3 class="section-title">
+          🌍 English Pronunciation
+        </h3>
+
+        <div class="transliteration">
+          ${escapeHtml(
+            hadith.englishPronunciation
+          )}
+        </div>
+        `
+        :
+        ""
+      }
+
+
+      ${
+        hadith.translation
+        ?
+        `
+        <h3 class="section-title">
+          🇧🇩 বাংলা অর্থ
+        </h3>
+
+        <div class="translation">
+          ${escapeHtml(
+            hadith.translation
+          )}
+        </div>
+        `
+        :
+        ""
+      }
+
+
+      ${
+        hadith.explanation
+        ?
+        `
+        <h3 class="section-title">
+          📖 হাদিসের ব্যাখ্যা
+        </h3>
+
+        <div class="explanation">
+          ${escapeHtml(
+            hadith.explanation
+          )}
+        </div>
+        `
+        :
+        ""
+      }
+
+
+      ${
+        hadith.lesson
+        ?
+        `
+        <h3 class="section-title">
+          💡 মূল শিক্ষা
+        </h3>
+
+        <div class="lesson">
+          ${escapeHtml(
+            hadith.lesson
+          )}
+        </div>
+        `
+        :
+        ""
+      }
+
+
+      <div class="reference">
+
+        📚
+        ${escapeHtml(
+          hadith.source ||
+          "হাদিসের উৎস উল্লেখ করা হয়নি"
+        )}
+
+        ${
+          hadith.hadithNumber
+          ?
+          ` • হাদিস নং:
+            ${escapeHtml(
+              hadith.hadithNumber
+            )}`
+          :
+          ""
+        }
+
+      </div>
+
+
+      <div class="actions">
+
+        <button
+          class="btn share-btn"
+          id="shareHadith"
+        >
+          🔗 Share
+        </button>
+
+        <button
+          class="btn reload-btn"
+          id="anotherHadith"
+        >
+          🔄 অন্য হাদিস
+        </button>
+
+      </div>
+
+    </article>
+  `;
+
+
+  document
+    .getElementById("shareHadith")
+    ?.addEventListener(
+      "click",
+      () => shareHadith(hadith)
+    );
+
+
+  document
+    .getElementById("anotherHadith")
+    ?.addEventListener(
+      "click",
+      () => {
+
+        const random =
+          allHadiths[
+            Math.floor(
+              Math.random() *
+              allHadiths.length
+            )
+          ];
+
+        renderTodayHadith(random);
+
+      }
+    );
+
+}
+
+
+/* =========================
+   ALL HADITH LIST
+========================= */
+
+function renderHadithList(hadiths){
+
+  if(!hadiths.length){
+
+    hadithList.innerHTML = `
+      <div class="empty">
+        কোনো হাদিস পাওয়া যায়নি।
+      </div>
+    `;
+
+    return;
+  }
+
+
+  hadithList.innerHTML =
+    hadiths.map(hadith => `
+
+      <div
+        class="hadith-item"
+        data-id="${escapeHtml(hadith.id)}"
+      >
+
+        <h3>
+          ${escapeHtml(
+            hadith.title ||
+            "হাদিস"
+          )}
+        </h3>
+
+        <p>
+
+          ${
+            hadith.source
+            ?
+            escapeHtml(
+              hadith.source
+            )
+            :
+            "হাদিস"
+          }
+
+          ${
+            hadith.hadithNumber
+            ?
+            ` • ${escapeHtml(
+                hadith.hadithNumber
+              )}`
+            :
+            ""
+          }
+
+        </p>
+
+      </div>
+
+    `).join("");
+
+
+  document
+    .querySelectorAll(".hadith-item")
+    .forEach(item => {
+
+      item.addEventListener(
+        "click",
+        () => {
+
+          const id =
+            item.dataset.id;
+
+          const hadith =
+            allHadiths.find(
+              h => h.id === id
+            );
+
+          if(hadith){
+
+            renderTodayHadith(
+              hadith
+            );
+
+            window.scrollTo({
+              top:0,
+              behavior:"smooth"
+            });
+
+          }
+
+        }
+      );
+
+    });
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+searchInput.addEventListener(
+  "input",
+  () => {
+
+    const search =
+      searchInput.value
+        .trim()
+        .toLowerCase();
+
+    if(!search){
+
+      renderHadithList(
+        allHadiths
+      );
+
+      return;
+
+    }
+
+
+    const filtered =
+      allHadiths.filter(
+        hadith => {
+
+          const text = [
+
+            hadith.title,
+
+            hadith.arabic,
+
+            hadith.transliteration,
+
+            hadith.englishPronunciation,
+
+            hadith.translation,
+
+            hadith.explanation,
+
+            hadith.lesson,
+
+            hadith.source,
+
+            hadith.hadithNumber
+
+          ]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase();
+
+
+          return text.includes(
+            search
+          );
+
+        }
+      );
+
+
+    renderHadithList(
+      filtered
+    );
+
+  }
+);
+
+
+/* =========================
+   SHARE
+========================= */
+
+async function shareHadith(hadith){
+
+  const text = [
+
+    hadith.title || "আজকের হাদিস",
+
+    hadith.arabic || "",
+
+    hadith.transliteration
+      ? "বাংলা উচ্চারণ: " +
+        hadith.transliteration
+      : "",
+
+    hadith.translation
+      ? "অর্থ: " +
+        hadith.translation
+      : "",
+
+    hadith.explanation
+      ? "ব্যাখ্যা: " +
+        hadith.explanation
+      : "",
+
+    hadith.source
+      ? "উৎস: " +
+        hadith.source
+      : ""
+
+  ]
+  .filter(Boolean)
+  .join("\n\n");
+
+
+  try{
+
+    if(navigator.share){
+
+      await navigator.share({
+
+        title:
+          hadith.title ||
+          "আজকের হাদিস",
+
+        text:text,
+
+        url:
+          window.location.href
+
+      });
+
+    }else{
+
+      await navigator.clipboard
+        .writeText(text);
+
+      showToast(
+        "হাদিস কপি হয়েছে।"
+      );
+
+    }
+
+  }catch(error){
+
+    console.log(
+      "Share cancelled."
+    );
+
+  }
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+loadHadiths();
+
+</script>
+
+</body>
+</html>
