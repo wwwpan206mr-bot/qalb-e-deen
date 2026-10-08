@@ -3,7 +3,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Qalb-e-Deen — The Heart of Deen</title>
@@ -109,7 +108,6 @@ header{
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
-
   font-size:13px;
   color:#d9e5e1;
 }
@@ -168,7 +166,6 @@ header{
 .hero p{
   max-width:720px;
   margin:0 auto 27px;
-
   color:#d8e5e0;
   font-size:17px;
 }
@@ -180,13 +177,10 @@ header{
 
 .search-box input{
   width:100%;
-
   padding:16px 22px;
-
   border:0;
   outline:0;
   border-radius:50px;
-
   font-size:16px;
 
   box-shadow:
@@ -323,7 +317,6 @@ header{
   color:#0d5b48;
 
   padding:4px 10px;
-
   border-radius:20px;
 
   font-size:11px;
@@ -356,7 +349,7 @@ header{
 
 
 /* =====================================================
-   LOADING
+   LOADING / EMPTY
 ===================================================== */
 
 .loading{
@@ -498,31 +491,68 @@ header{
 
 
 /* =====================================================
-   COMMENTS
+   PREMIUM COMMENTS
 ===================================================== */
 
 .comments{
   border-top:1px solid #e4e9e6;
-
   padding-top:25px;
   margin-top:25px;
 }
 
+.comments-title-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:18px;
+}
+
 .comments h3{
   color:#0d2b24;
-  margin-bottom:16px;
+  margin:0;
+}
+
+.comment-total{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  min-width:32px;
+  height:28px;
+
+  padding:0 9px;
+
+  background:#e6f2ed;
+  color:#0d5b48;
+
+  border-radius:20px;
+
+  font-size:12px;
+  font-weight:800;
 }
 
 .comment-login{
-  background:#f0f5f3;
+  background:
+    linear-gradient(
+      135deg,
+      #f0f6f3,
+      #e7f0ec
+    );
 
-  padding:16px;
+  padding:18px;
 
-  border-radius:10px;
+  border-radius:12px;
 
   color:#53605b;
 
   margin-bottom:18px;
+
+  border:1px solid #dce8e3;
+}
+
+.comment-login strong{
+  color:#0d5b48;
 }
 
 .comment-login button{
@@ -543,7 +573,7 @@ header{
 
 .comment-form{
   display:none;
-  margin-bottom:20px;
+  margin-bottom:22px;
 }
 
 .comment-form textarea{
@@ -556,13 +586,18 @@ header{
 
   border:1px solid #d7dfdc;
 
-  border-radius:10px;
+  border-radius:12px;
 
   outline:none;
+
+  background:#fbfcfc;
 }
 
 .comment-form textarea:focus{
   border-color:#0d5b48;
+
+  box-shadow:
+    0 0 0 3px rgba(13,91,72,.08);
 }
 
 .comment-submit{
@@ -583,27 +618,37 @@ header{
 
 .comment-submit:disabled{
   opacity:.6;
+  cursor:not-allowed;
 }
 
 .comments-list{
   display:flex;
   flex-direction:column;
-  gap:12px;
+  gap:13px;
 }
 
 
 /* =====================================================
-   COMMENT
+   COMMENT CARD
 ===================================================== */
 
 .comment{
   background:#f7f9f8;
 
-  padding:14px;
+  padding:15px;
 
-  border-radius:10px;
+  border-radius:12px;
+
+  border:1px solid #e4ebe7;
 
   border-left:3px solid #d7b56d;
+
+  transition:.2s;
+}
+
+.comment:hover{
+  box-shadow:
+    0 5px 18px rgba(0,0,0,.05);
 }
 
 .comment-head{
@@ -611,19 +656,48 @@ header{
 
   justify-content:space-between;
 
+  align-items:flex-start;
+
   gap:10px;
 
-  margin-bottom:5px;
+  margin-bottom:7px;
+}
+
+.comment-author-wrap{
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+
+.comment-avatar{
+  width:34px;
+  height:34px;
+
+  flex-shrink:0;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:#0d5b48;
+  color:#d7b56d;
+
+  font-size:14px;
+  font-weight:800;
 }
 
 .comment-author{
   color:#0d5b48;
   font-weight:bold;
+  font-size:14px;
 }
 
 .comment-date{
   color:#888;
   font-size:11px;
+  white-space:nowrap;
 }
 
 .comment-text{
@@ -632,13 +706,16 @@ header{
 
   white-space:pre-wrap;
   overflow-wrap:anywhere;
+
+  padding-left:43px;
 }
 
 .comment-actions{
   margin-top:9px;
+  padding-left:43px;
 
   display:flex;
-  gap:8px;
+  gap:10px;
 }
 
 .reply-btn{
@@ -655,18 +732,29 @@ header{
   padding:3px 0;
 }
 
+.reply-btn:hover{
+  color:#084536;
+  text-decoration:underline;
+}
+
+
+/* =====================================================
+   REPLY BOX
+===================================================== */
+
 .reply-box{
   display:none;
 
-  margin-top:10px;
+  margin-top:12px;
+  margin-left:43px;
 
-  padding:10px;
+  padding:12px;
 
   background:white;
 
-  border-radius:8px;
+  border-radius:9px;
 
-  border:1px solid #e0e7e4;
+  border:1px solid #dfe8e4;
 }
 
 .reply-box textarea{
@@ -683,6 +771,10 @@ header{
   resize:vertical;
 
   outline:none;
+}
+
+.reply-box textarea:focus{
+  border-color:#0d5b48;
 }
 
 .reply-submit{
@@ -703,6 +795,10 @@ header{
   font-weight:bold;
 }
 
+.reply-submit:disabled{
+  opacity:.6;
+}
+
 
 /* =====================================================
    REPLIES
@@ -710,7 +806,7 @@ header{
 
 .replies{
   margin-top:12px;
-  margin-left:25px;
+  margin-left:35px;
 
   display:flex;
   flex-direction:column;
@@ -720,11 +816,28 @@ header{
 .reply{
   background:white;
 
-  padding:11px;
+  padding:12px;
 
-  border-radius:8px;
+  border-radius:10px;
 
-  border-left:2px solid #b8cfc7;
+  border:1px solid #e0e8e4;
+
+  border-left:3px solid #b8cfc7;
+}
+
+.reply .comment-text{
+  padding-left:43px;
+}
+
+
+/* =====================================================
+   REPLY LABEL
+===================================================== */
+
+.reply-label{
+  color:#7a8580;
+  font-size:11px;
+  margin-bottom:6px;
 }
 
 
@@ -744,11 +857,8 @@ header{
 
 footer{
   background:#0d2b24;
-
   color:white;
-
   text-align:center;
-
   padding:30px 15px;
 }
 
@@ -879,6 +989,18 @@ footer p{
 
   .replies{
     margin-left:12px;
+  }
+
+  .comment-head{
+    flex-direction:column;
+  }
+
+  .comment-date{
+    margin-left:43px;
+  }
+
+  .reply-box{
+    margin-left:0;
   }
 
 }
@@ -1130,9 +1252,20 @@ footer p{
 
       <div class="comments">
 
-        <h3 id="commentsHeading">
-          💬 Comments
-        </h3>
+        <div class="comments-title-row">
+
+          <h3 id="commentsHeading">
+            💬 Comments
+          </h3>
+
+          <span
+            id="commentTotal"
+            class="comment-total"
+          >
+            0
+          </span>
+
+        </div>
 
 
         <div
@@ -1140,7 +1273,13 @@ footer p{
           class="comment-login"
         >
 
-          Please login to write a comment.
+          <strong>
+            Join the discussion
+          </strong>
+
+          <br>
+
+          Please login to write a comment or reply.
 
           <br>
 
@@ -1226,11 +1365,6 @@ footer p{
 
 <script type="module">
 
-
-/* =====================================================
-   IMPORTS
-===================================================== */
-
 import {
   initializeApp
 }
@@ -1292,10 +1426,6 @@ const firebaseConfig = {
 };
 
 
-/* =====================================================
-   INIT
-===================================================== */
-
 const app =
   initializeApp(firebaseConfig);
 
@@ -1351,6 +1481,9 @@ const commentsList =
 
 const commentsHeading =
   document.getElementById("commentsHeading");
+
+const commentTotal =
+  document.getElementById("commentTotal");
 
 const commentLogin =
   document.getElementById("commentLogin");
@@ -1544,13 +1677,7 @@ async function loadPosts(){
     );
 
 
-    /*
-      Load comment counts
-      for every post.
-    */
-
     await loadAllCommentCounts();
-
 
     renderPosts(
       allPosts
@@ -1591,18 +1718,10 @@ async function loadPosts(){
 
 
 /* =====================================================
-   LOAD ALL COMMENT COUNTS
+   LOAD COMMENT COUNTS
 ===================================================== */
 
 async function loadAllCommentCounts(){
-
-  /*
-    We load comments post-wise.
-
-    This keeps the structure simple
-    and works with the current
-    comments collection.
-  */
 
   for(
     const post of allPosts
@@ -1633,17 +1752,6 @@ async function loadAllCommentCounts(){
         );
 
 
-      /*
-        Only approved comments
-        are counted.
-
-        Existing comments without
-        "approved" are also treated
-        as approved so your existing
-        working comments continue
-        to display.
-      */
-
       let count = 0;
 
 
@@ -1653,6 +1761,14 @@ async function loadAllCommentCounts(){
           const data =
             commentDoc.data();
 
+
+          /*
+            approved:false =
+            pending moderation.
+
+            Missing approved =
+            old approved comment.
+          */
 
           if(
             data.approved === false
@@ -2035,10 +2151,6 @@ async function openPost(post){
     "hidden";
 
 
-  /*
-    Increase view count.
-  */
-
   try{
 
     await updateDoc(
@@ -2189,17 +2301,6 @@ async function loadComments(postId){
 
   try{
 
-    /*
-      IMPORTANT:
-
-      We only use postId query here.
-
-      Therefore no composite index is
-      required for this query.
-
-      Sorting is done in JavaScript.
-    */
-
     const commentsQuery =
       query(
 
@@ -2234,14 +2335,8 @@ async function loadComments(postId){
 
 
         /*
-          Admin moderation compatibility.
-
-          approved === false
-          means hidden.
-
-          Missing approved field
-          means existing comments
-          remain visible.
+          Pending comments are hidden
+          from public homepage.
         */
 
         if(
@@ -2266,31 +2361,23 @@ async function loadComments(postId){
     );
 
 
-    /*
-      Sort newest first.
-    */
-
     currentComments.sort(
       (a,b) => {
 
-        const aTime =
-          getTimestampMillis(
-            a.createdAt
-          );
-
-        const bTime =
+        return (
           getTimestampMillis(
             b.createdAt
-          );
-
-        return bTime - aTime;
+          ) -
+          getTimestampMillis(
+            a.createdAt
+          )
+        );
 
       }
     );
 
 
     updateCommentHeading();
-
 
     renderComments();
 
@@ -2339,16 +2426,12 @@ function updateCommentHeading(){
 
 
   commentsHeading.innerHTML = `
-
     💬 Comments
-
-    <span class="comment-count">
-
-      (${count})
-
-    </span>
-
   `;
+
+
+  commentTotal.textContent =
+    count;
 
 }
 
@@ -2385,29 +2468,24 @@ function renderComments(){
   }
 
 
-  /*
-    Main comments:
-    parentId is empty/null.
-  */
-
   const mainComments =
     currentComments.filter(
-      comment => {
-
-        return !comment.parentId;
-
-      }
+      comment =>
+        !comment.parentId
     );
 
 
-  /*
-    Replies:
-    parentId contains parent
-    comment document ID.
-  */
+  const renderedIds =
+    new Set();
+
 
   mainComments.forEach(
     comment => {
+
+      renderedIds.add(
+        comment.id
+      );
+
 
       const element =
         createCommentElement(
@@ -2418,15 +2496,21 @@ function renderComments(){
 
       const replies =
         currentComments.filter(
-          reply => {
-
-            return (
-              reply.parentId ===
-              comment.id
-            );
-
-          }
+          reply =>
+            reply.parentId ===
+            comment.id
         );
+
+
+      replies.forEach(
+        reply => {
+
+          renderedIds.add(
+            reply.id
+          );
+
+        }
+      );
 
 
       if(
@@ -2475,68 +2559,36 @@ function renderComments(){
 
 
   /*
-    Safety fallback for orphan replies.
+    Orphan reply safety.
   */
 
-  const renderedIds =
-    new Set();
-
-
-  mainComments.forEach(
-    main => {
-
-      renderedIds.add(
-        main.id
-      );
-
-      currentComments
-        .filter(
-          reply =>
-            reply.parentId === main.id
-        )
-        .forEach(
-          reply => {
-
-            renderedIds.add(
-              reply.id
-            );
-
-          }
-        );
-
-    }
-  );
-
-
-  const orphanReplies =
-    currentComments.filter(
+  currentComments
+    .filter(
       comment =>
         !renderedIds.has(
           comment.id
         )
+    )
+    .forEach(
+      comment => {
+
+        commentsList.appendChild(
+
+          createCommentElement(
+            comment,
+            true
+          )
+
+        );
+
+      }
     );
-
-
-  orphanReplies.forEach(
-    comment => {
-
-      commentsList.appendChild(
-
-        createCommentElement(
-          comment,
-          true
-        )
-
-      );
-
-    }
-  );
 
 }
 
 
 /* =====================================================
-   CREATE COMMENT ELEMENT
+   CREATE COMMENT
 ===================================================== */
 
 function createCommentElement(
@@ -2556,18 +2608,49 @@ function createCommentElement(
       : "comment";
 
 
+  const name =
+    comment.userName ||
+    "User";
+
+
+  const avatar =
+    name
+      .trim()
+      .charAt(0)
+      .toUpperCase();
+
+
   div.innerHTML = `
 
     <div class="comment-head">
 
-      <span class="comment-author">
+      <div class="comment-author-wrap">
 
-        ${escapeHTML(
-          comment.userName ||
-          "User"
-        )}
+        <div class="comment-avatar">
+          ${escapeHTML(avatar)}
+        </div>
 
-      </span>
+        <div>
+
+          <div class="comment-author">
+
+            ${escapeHTML(name)}
+
+          </div>
+
+          ${
+            isReply
+              ? `
+                <div class="reply-label">
+                  ↳ Reply
+                </div>
+              `
+              : ""
+          }
+
+        </div>
+
+      </div>
 
 
       <span class="comment-date">
@@ -2776,11 +2859,6 @@ async function submitReply(
       "User";
 
 
-    /*
-      Read profile from:
-      user/{Auth UID}
-    */
-
     try{
 
       const profileSnap =
@@ -2819,10 +2897,6 @@ async function submitReply(
     }
 
 
-    /*
-      New reply document.
-    */
-
     await addDoc(
 
       collection(
@@ -2850,12 +2924,6 @@ async function submitReply(
         parentUserName:
           parentComment.userName ||
           "User",
-
-        /*
-          false = admin must approve.
-          This is compatible with
-          the moderation system.
-        */
 
         approved:
           false,
@@ -2961,11 +3029,6 @@ commentSubmit.addEventListener(
         "User";
 
 
-      /*
-        Get profile from:
-        user/{Auth UID}
-      */
-
       try{
 
         const profileSnap =
@@ -3024,14 +3087,6 @@ commentSubmit.addEventListener(
 
           text:
             text,
-
-          /*
-            New comments require
-            admin approval.
-
-            This makes the new comment
-            compatible with moderation.
-          */
 
           approved:
             false,
@@ -3246,7 +3301,7 @@ function formatDate(timestamp){
 
 
 /* =====================================================
-   TIMESTAMP TO MILLISECONDS
+   TIMESTAMP
 ===================================================== */
 
 function getTimestampMillis(
@@ -3264,6 +3319,7 @@ function getTimestampMillis(
       return timestamp.toMillis();
 
     }
+
 
     if(
       timestamp &&
