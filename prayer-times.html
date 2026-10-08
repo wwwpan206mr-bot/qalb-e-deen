@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Prayer Times — Qalb-e-Deen</title>
+
+<meta
+  name="description"
+  content="Live five daily prayer times for Qalb-e-Deen."
+>
+
+<meta name="theme-color" content="#0d2b24">
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:
+    Arial,
+    "Noto Sans Bengali",
+    sans-serif;
+
+  background:#f5f8f6;
+  color:#17211f;
+  line-height:1.7;
+}
+
+button,
+select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+
+  background:#0d2b24;
+  color:white;
+
+  box-shadow:
+    0 4px 20px rgba(0,0,0,.15);
+}
+
+.nav{
+  max-width:1100px;
+  min-height:68px;
+
+  margin:auto;
+  padding:10px 18px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:23px;
+  font-weight:800;
+}
+
+.logo span{
+  color:#d7b56d;
+}
+
+.back-btn{
+  background:#d7b56d;
+  color:#10261f;
+
+  border:0;
+  border-radius:8px;
+
+  padding:8px 14px;
+
+  font-weight:bold;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  background:
+    linear-gradient(
+      135deg,
+      #09251e,
+      #0d5b48
+    );
+
+  color:white;
+
+  padding:55px 18px;
+}
+
+.hero-inner{
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:40px;
+  line-height:1.3;
+}
+
+.hero h1 span{
+  color:#d7b56d;
+}
+
+.hero p{
+  margin-top:8px;
+  color:#d8e5e0;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.container{
+  max-width:1050px;
+
+  margin:auto;
+
+  padding:35px 16px 60px;
+}
+
+
+/* =========================
+   LOCATION
+========================= */
+
+.location-card{
+  background:white;
+
+  border-radius:18px;
+
+  padding:20px;
+
+  margin-bottom:22px;
+
+  box-shadow:
+    0 6px 25px rgba(0,0,0,.07);
+
+  display:flex;
+
+  align-items:center;
+  justify-content:space-between;
+
+  gap:15px;
+
+  flex-wrap:wrap;
+}
+
+.location-info strong{
+  display:block;
+
+  color:#0d2b24;
+
+  font-size:18px;
+}
+
+.location-info span{
+  color:#77817d;
+
+  font-size:13px;
+}
+
+.location-controls{
+  display:flex;
+
+  gap:10px;
+
+  align-items:center;
+}
+
+.location-controls select{
+  padding:9px 12px;
+
+  border:1px solid #d5dfdb;
+
+  border-radius:8px;
+
+  background:white;
+
+  outline:none;
+}
+
+.refresh-btn{
+  border:0;
+
+  background:#0d5b48;
+  color:white;
+
+  padding:9px 13px;
+
+  border-radius:8px;
+
+  font-weight:bold;
+}
+
+
+/* =========================
+   NEXT PRAYER
+========================= */
+
+.next-card{
+  background:
+    linear-gradient(
+      135deg,
+      #0d2b24,
+      #0d5b48
+    );
+
+  color:white;
+
+  border-radius:20px;
+
+  padding:28px 22px;
+
+  text-align:center;
+
+  margin-bottom:28px;
+
+  box-shadow:
+    0 10px 35px rgba(13,91,72,.20);
+}
+
+.next-label{
+  color:#bfd2cb;
+
+  font-size:13px;
+}
+
+.next-name{
+  color:#d7b56d;
+
+  font-size:30px;
+
+  font-weight:800;
+
+  margin:3px 0;
+}
+
+.next-time{
+  font-size:19px;
+
+  margin-bottom:10px;
+}
+
+.countdown{
+  font-size:35px;
+
+  font-weight:800;
+
+  letter-spacing:2px;
+
+  font-variant-numeric:tabular-nums;
+}
+
+.countdown-label{
+  color:#b9cbc5;
+
+  font-size:12px;
+
+  margin-top:3px;
+}
+
+
+/* =========================
+   DATE
+========================= */
+
+.date-card{
+  text-align:center;
+
+  margin-bottom:20px;
+
+  color:#65716c;
+}
+
+.date-card strong{
+  color:#0d2b24;
+}
+
+
+/* =========================
+   PRAYER GRID
+========================= */
+
+.prayer-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(5,1fr);
+
+  gap:14px;
+}
+
+.prayer-card{
+  background:white;
+
+  border-radius:16px;
+
+  padding:22px 12px;
+
+  text-align:center;
+
+  border:2px solid transparent;
+
+  box-shadow:
+    0 5px 20px rgba(0,0,0,.06);
+
+  transition:.2s;
+}
+
+.prayer-card:hover{
+  transform:translateY(-3px);
+}
+
+.prayer-card.active{
+  border-color:#d7b56d;
+
+  background:#fbfcfa;
+
+  box-shadow:
+    0 8px 25px rgba(13,91,72,.10);
+}
+
+.prayer-icon{
+  font-size:30px;
+
+  margin-bottom:5px;
+}
+
+.prayer-name{
+  color:#0d5b48;
+
+  font-weight:800;
+
+  font-size:17px;
+}
+
+.prayer-name-en{
+  color:#8a938f;
+
+  font-size:11px;
+}
+
+.prayer-time{
+  color:#18231f;
+
+  font-size:21px;
+
+  font-weight:800;
+
+  margin-top:7px;
+}
+
+.prayer-status{
+  min-height:20px;
+
+  margin-top:4px;
+
+  color:#0d5b48;
+
+  font-size:11px;
+
+  font-weight:bold;
+}
+
+
+/* =========================
+   NOTE
+========================= */
+
+.note{
+  margin-top:25px;
+
+  background:#eef5f2;
+
+  border-left:4px solid #d7b56d;
+
+  padding:15px;
+
+  border-radius:9px;
+
+  color:#52605b;
+
+  font-size:13px;
+}
+
+
+/* =========================
+   ERROR / LOADING
+========================= */
+
+.loading,
+.error{
+  text-align:center;
+
+  padding:35px 20px;
+
+  color:#69736f;
+}
+
+.error{
+  color:#a94442;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#0d2b24;
+
+  color:white;
+
+  text-align:center;
+
+  padding:28px 15px;
+}
+
+footer strong{
+  color:#d7b56d;
+
+  font-size:18px;
+}
+
+footer p{
+  color:#b9c9c3;
+
+  font-size:13px;
+
+  margin-top:4px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:800px){
+
+  .prayer-grid{
+    grid-template-columns:
+      repeat(3,1fr);
+  }
+
+}
+
+@media(max-width:560px){
+
+  .nav{
+    min-height:60px;
+  }
+
+  .logo{
+    font-size:19px;
+  }
+
+  .back-btn{
+    font-size:12px;
+
+    padding:7px 10px;
+  }
+
+  .hero{
+    padding:43px 15px;
+  }
+
+  .hero h1{
+    font-size:30px;
+  }
+
+  .container{
+    padding:25px 13px 45px;
+  }
+
+  .location-card{
+    align-items:flex-start;
+  }
+
+  .location-controls{
+    width:100%;
+  }
+
+  .location-controls select{
+    flex:1;
+  }
+
+  .prayer-grid{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+  .next-name{
+    font-size:26px;
+  }
+
+  .countdown{
+    font-size:29px;
+  }
+
+}
+
+@media(max-width:350px){
+
+  .prayer-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+  <div class="nav">
+
+    <a href="index.html" class="logo">
+      Qalb<span>-e-Deen</span>
+    </a>
+
+    <a
+      href="index.html"
+      class="back-btn"
+    >
+      ← Home
+    </a>
+
+  </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+  <div class="hero-inner">
+
+    <h1>
+      🕌 <span>Prayer Times</span>
+    </h1>
+
+    <p>
+      আজকের পাঁচ ওয়াক্ত নামাজের সময়সূচি
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="container">
+
+
+  <!-- LOCATION -->
+
+  <div class="location-card">
+
+    <div class="location-info">
+
+      <strong>
+        📍 Dhaka, Bangladesh
+      </strong>
+
+      <span>
+        Today's prayer schedule
+      </span>
+
+    </div>
+
+
+    <div class="location-controls">
+
+      <select id="methodSelect">
+
+        <option value="1">
+          University of Islamic Sciences, Karachi
+        </option>
+
+        <option value="2">
+          ISNA
+        </option>
+
+        <option value="3">
+          Muslim World League
+        </option>
+
+        <option value="4">
+          Umm Al-Qura, Makkah
+        </option>
+
+        <option value="5">
+          Egyptian General Authority
+        </option>
+
+      </select>
+
+
+      <button
+        id="refreshBtn"
+        class="refresh-btn"
+      >
+        🔄 Refresh
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- NEXT PRAYER -->
+
+  <div class="next-card">
+
+    <div class="next-label">
+      পরবর্তী ওয়াক্ত
+    </div>
+
+    <div
+      id="nextPrayerName"
+      class="next-name"
+    >
+      Loading...
+    </div>
+
+    <div
+      id="nextPrayerTime"
+      class="next-time"
+    >
+      --
+    </div>
+
+    <div
+      id="countdown"
+      class="countdown"
+    >
+      --:--:--
+    </div>
+
+    <div class="countdown-label">
+      সময় বাকি
+    </div>
+
+  </div>
+
+
+  <!-- DATE -->
+
+  <div class="date-card">
+
+    <strong id="todayDate">
+      Loading date...
+    </strong>
+
+    <br>
+
+    <span id="hijriDate">
+      --
+    </span>
+
+  </div>
+
+
+  <!-- PRAYER GRID -->
+
+  <div
+    id="prayerGrid"
+    class="prayer-grid"
+  >
+
+    <div class="loading">
+      নামাজের সময় লোড হচ্ছে...
+    </div>
+
+  </div>
+
+
+  <div class="note">
+
+    ℹ️ নামাজের সময় গণনার পদ্ধতি অনুযায়ী কিছু সময়ের
+    পার্থক্য হতে পারে। উপরের Method থেকে আপনার
+    প্রয়োজনীয় calculation method নির্বাচন করতে পারবেন।
+
+  </div>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  <strong>
+    Qalb-e-Deen
+  </strong>
+
+  <p>
+    The Heart of Deen • Islamic Knowledge & Reminders
+  </p>
+
+  <p>
+    © 2026 Qalb-e-Deen. All rights reserved.
+  </p>
+
+</footer>
+
+
+<script>
+
+
+/* =====================================================
+   SETTINGS
+===================================================== */
+
+const CITY =
+  "Dhaka";
+
+const COUNTRY =
+  "Bangladesh";
+
+
+/*
+  Prayer calculation method.
+
+  Default:
+  Karachi = 1
+
+  This can be changed from the dropdown.
+*/
+
+let calculationMethod =
+  Number(
+    localStorage.getItem(
+      "prayerMethod"
+    ) || 1
+  );
+
+
+/* =====================================================
+   PRAYER DATA
+===================================================== */
+
+let prayerTimes = {};
+
+let nextPrayerIndex = 0;
+
+let countdownTimer = null;
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const prayerGrid =
+  document.getElementById(
+    "prayerGrid"
+  );
+
+const nextPrayerName =
+  document.getElementById(
+    "nextPrayerName"
+  );
+
+const nextPrayerTime =
+  document.getElementById(
+    "nextPrayerTime"
+  );
+
+const countdown =
+  document.getElementById(
+    "countdown"
+  );
+
+const todayDate =
+  document.getElementById(
+    "todayDate"
+  );
+
+const hijriDate =
+  document.getElementById(
+    "hijriDate"
+  );
+
+const methodSelect =
+  document.getElementById(
+    "methodSelect"
+  );
+
+const refreshBtn =
+  document.getElementById(
+    "refreshBtn"
+  );
+
+
+/* =====================================================
+   PRAYER LIST
+===================================================== */
+
+const prayerList = [
+
+  {
+    key:"Fajr",
+    bn:"ফজর",
+    icon:"🌅"
+  },
+
+  {
+    key:"Dhuhr",
+    bn:"যোহর",
+    icon:"☀️"
+  },
+
+  {
+    key:"Asr",
+    bn:"আসর",
+    icon:"🌤️"
+  },
+
+  {
+    key:"Maghrib",
+    bn:"মাগরিব",
+    icon:"🌇"
+  },
+
+  {
+    key:"Isha",
+    bn:"এশা",
+    icon:"🌙"
+  }
+
+];
+
+
+/* =====================================================
+   INIT
+===================================================== */
+
+methodSelect.value =
+  String(
+    calculationMethod
+  );
+
+
+loadPrayerTimes();
+
+
+/* =====================================================
+   LOAD API
+===================================================== */
+
+async function loadPrayerTimes(){
+
+  prayerGrid.innerHTML = `
+
+    <div class="loading">
+      🕌 নামাজের সময় লোড হচ্ছে...
+    </div>
+
+  `;
+
+
+  stopCountdown();
+
+
+  try{
+
+    const url =
+      "https://api.aladhan.com/v1/timingsByCity" +
+      "?city=" +
+      encodeURIComponent(CITY) +
+      "&country=" +
+      encodeURIComponent(COUNTRY) +
+      "&method=" +
+      calculationMethod;
+
+
+    const response =
+      await fetch(url);
+
+
+    if(!response.ok){
+
+      throw new Error(
+        "Prayer time API request failed."
+      );
+
+    }
+
+
+    const result =
+      await response.json();
+
+
+    if(
+      result.code !== 200 ||
+      !result.data
+    ){
+
+      throw new Error(
+        "Could not retrieve prayer times."
+      );
+
+    }
+
+
+    prayerTimes =
+      result.data.timings;
+
+
+    updateDate(
+      result.data.date
+    );
+
+
+    renderPrayerTimes();
+
+
+    calculateNextPrayer();
+
+
+    startCountdown();
+
+
+  }catch(error){
+
+    console.error(
+      "Prayer API error:",
+      error
+    );
+
+
+    prayerGrid.innerHTML = `
+
+      <div class="error">
+
+        ❌ নামাজের সময় লোড করা যায়নি।
+
+        <br><br>
+
+        ${escapeHTML(
+          error.message
+        )}
+
+        <br><br>
+
+        Internet connection check করে
+        আবার Refresh চাপুন।
+
+      </div>
+
+    `;
+
+    nextPrayerName.textContent =
+      "Unavailable";
+
+    nextPrayerTime.textContent =
+      "--";
+
+    countdown.textContent =
+      "--:--:--";
+
+  }
+
+}
+
+
+/* =====================================================
+   RENDER PRAYER TIMES
+===================================================== */
+
+function renderPrayerTimes(){
+
+  prayerGrid.innerHTML =
+    "";
+
+
+  prayerList.forEach(
+    prayer => {
+
+      const time =
+        cleanTime(
+          prayerTimes[
+            prayer.key
+          ]
+        );
+
+
+      const card =
+        document.createElement(
+          "div"
+        );
+
+
+      card.className =
+        "prayer-card";
+
+
+      card.dataset.key =
+        prayer.key;
+
+
+      card.innerHTML = `
+
+        <div class="prayer-icon">
+          ${prayer.icon}
+        </div>
+
+        <div class="prayer-name">
+          ${prayer.bn}
+        </div>
+
+        <div class="prayer-name-en">
+          ${prayer.key}
+        </div>
+
+        <div class="prayer-time">
+          ${format12Hour(time)}
+        </div>
+
+        <div class="prayer-status">
+          —
+        </div>
+
+      `;
+
+
+      prayerGrid.appendChild(
+        card
+      );
+
+    }
+  );
+
+}
+
+
+/* =====================================================
+   NEXT PRAYER
+===================================================== */
+
+function calculateNextPrayer(){
+
+  const now =
+    new Date();
+
+
+  const prayerDateList =
+    [];
+
+
+  prayerList.forEach(
+    prayer => {
+
+      const time =
+        cleanTime(
+          prayerTimes[
+            prayer.key
+          ]
+        );
+
+
+      if(!time){
+        return;
+      }
+
+
+      const parts =
+        time.split(":");
+
+
+      const hour =
+        Number(
+          parts[0]
+        );
+
+
+      const minute =
+        Number(
+          parts[1]
+        );
+
+
+      const date =
+        new Date(
+          now
+        );
+
+
+      date.setHours(
+        hour,
+        minute,
+        0,
+        0
+      );
+
+
+      prayerDateList.push({
+
+        ...prayer,
+
+        time,
+
+        date
+
+      });
+
+    }
+  );
+
+
+  let next =
+    prayerDateList.find(
+      prayer =>
+        prayer.date > now
+    );
+
+
+  /*
+    If all prayers are finished,
+    next prayer is tomorrow's Fajr.
+  */
+
+  if(!next){
+
+    next =
+      prayerDateList[0];
+
+    next = {
+
+      ...next,
+
+      date:
+        new Date(
+          next.date.getTime()
+        )
+
+    };
+
+    next.date.setDate(
+      next.date.getDate() + 1
+    );
+
+  }
+
+
+  nextPrayerIndex =
+    prayerList.findIndex(
+      p =>
+        p.key === next.key
+    );
+
+
+  nextPrayerName.textContent =
+    next.bn;
+
+
+  nextPrayerTime.textContent =
+    format12Hour(
+      next.time
+    );
+
+
+  /*
+    Mark active card.
+  */
+
+  document
+    .querySelectorAll(
+      ".prayer-card"
+    )
+    .forEach(
+      card => {
+
+        card.classList.remove(
+          "active"
+        );
+
+      }
+    );
+
+
+  const activeCard =
+    document.querySelector(
+      `.prayer-card[data-key="${next.key}"]`
+    );
+
+
+  if(activeCard){
+
+    activeCard.classList.add(
+      "active"
+    );
+
+  }
+
+
+  /*
+    Save next prayer target.
+  */
+
+  window.nextPrayerDate =
+    next.date;
+
+
+  updatePrayerStatuses(
+    prayerDateList,
+    now
+  );
+
+}
+
+
+/* =====================================================
+   LIVE COUNTDOWN
+===================================================== */
+
+function startCountdown(){
+
+  stopCountdown();
+
+
+  countdownTimer =
+    setInterval(
+      () => {
+
+        if(
+          !window.nextPrayerDate
+        ){
+
+          return;
+
+        }
+
+
+        const now =
+          new Date();
+
+
+        let difference =
+          window.nextPrayerDate
+            .getTime()
+          -
+          now.getTime();
+
+
+        /*
+          If countdown reached zero,
+          reload today's data.
+        */
+
+        if(
+          difference <= 0
+        ){
+
+          calculateNextPrayer();
+
+          difference =
+            window.nextPrayerDate
+              .getTime()
+            -
+            now.getTime();
+
+        }
+
+
+        const totalSeconds =
+          Math.floor(
+            difference / 1000
+          );
+
+
+        const hours =
+          Math.floor(
+            totalSeconds / 3600
+          );
+
+
+        const minutes =
+          Math.floor(
+            (
+              totalSeconds % 3600
+            ) / 60
+          );
+
+
+        const seconds =
+          totalSeconds % 60;
+
+
+        countdown.textContent =
+          pad(hours) +
+          ":" +
+          pad(minutes) +
+          ":" +
+          pad(seconds);
+
+      },
+      1000
+    );
+
+}
+
+
+/* =====================================================
+   STOP COUNTDOWN
+===================================================== */
+
+function stopCountdown(){
+
+  if(countdownTimer){
+
+    clearInterval(
+      countdownTimer
+    );
+
+    countdownTimer =
+      null;
+
+  }
+
+}
+
+
+/* =====================================================
+   PRAYER STATUS
+===================================================== */
+
+function updatePrayerStatuses(
+  prayerDateList,
+  now
+){
+
+  document
+    .querySelectorAll(
+      ".prayer-card"
+    )
+    .forEach(
+      card => {
+
+        const key =
+          card.dataset.key;
+
+
+        const prayer =
+          prayerDateList.find(
+            item =>
+              item.key === key
+          );
+
+
+        const status =
+          card.querySelector(
+            ".prayer-status"
+          );
+
+
+        if(!prayer){
+
+          return;
+
+        }
+
+
+        if(
+          prayer.date <= now
+        ){
+
+          status.textContent =
+            "✓ সময় পার হয়েছে";
+
+        }else{
+
+          status.textContent =
+            "পরবর্তী";
+
+        }
+
+      }
+    );
+
+}
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
+function updateDate(dateData){
+
+  if(!dateData){
+
+    return;
+
+  }
+
+
+  todayDate.textContent =
+    dateData.gregorian?.weekday?.en
+    ? dateData.gregorian.weekday.en +
+      ", " +
+      dateData.gregorian.date
+    : dateData.gregorian?.date ||
+      "Today";
+
+
+  if(
+    dateData.hijri
+  ){
+
+    hijriDate.textContent =
+      dateData.hijri.day +
+      " " +
+      dateData.hijri.month.en +
+      " " +
+      dateData.hijri.year +
+      " AH";
+
+  }
+
+}
+
+
+/* =====================================================
+   TIME CLEAN
+===================================================== */
+
+function cleanTime(
+  value
+){
+
+  if(!value){
+
+    return "";
+
+  }
+
+
+  return String(
+    value
+  )
+    .replace(
+      /\s*\(.+?\)/g,
+      ""
+    )
+    .trim();
+
+}
+
+
+/* =====================================================
+   12 HOUR FORMAT
+===================================================== */
+
+function format12Hour(
+  time
+){
+
+  if(!time){
+
+    return "--";
+
+  }
+
+
+  const parts =
+    time.split(":");
+
+
+  let hour =
+    Number(
+      parts[0]
+    );
+
+
+  const minute =
+    Number(
+      parts[1]
+    );
+
+
+  const ampm =
+    hour >= 12
+      ? "PM"
+      : "AM";
+
+
+  hour =
+    hour % 12 ||
+    12;
+
+
+  return (
+    pad(hour) +
+    ":" +
+    pad(minute) +
+    " " +
+    ampm
+  );
+
+}
+
+
+/* =====================================================
+   PAD
+===================================================== */
+
+function pad(
+  number
+){
+
+  return String(
+    number
+  ).padStart(
+    2,
+    "0"
+  );
+
+}
+
+
+/* =====================================================
+   METHOD CHANGE
+===================================================== */
+
+methodSelect.addEventListener(
+  "change",
+  () => {
+
+    calculationMethod =
+      Number(
+        methodSelect.value
+      );
+
+
+    localStorage.setItem(
+      "prayerMethod",
+      calculationMethod
+    );
+
+
+    loadPrayerTimes();
+
+  }
+);
+
+
+/* =====================================================
+   REFRESH
+===================================================== */
+
+refreshBtn.addEventListener(
+  "click",
+  () => {
+
+    loadPrayerTimes();
+
+  }
+);
+
+
+/* =====================================================
+   ESCAPE
+===================================================== */
+
+function escapeHTML(
+  value
+){
+
+  return String(
+    value
+  )
+
+  .replaceAll(
+    "&",
+    "&amp;"
+  )
+
+  .replaceAll(
+    "<",
+    "&lt;"
+  )
+
+  .replaceAll(
+    ">",
+    "&gt;"
+  )
+
+  .replaceAll(
+    '"',
+    "&quot;"
+  )
+
+  .replaceAll(
+    "'",
+    "&#039;"
+  );
+
+}
+
+
+/* =====================================================
+   MIDNIGHT REFRESH
+===================================================== */
+
+setInterval(
+  () => {
+
+    const now =
+      new Date();
+
+
+    /*
+      Refresh around midnight so
+      the new day's prayer schedule
+      appears automatically.
+    */
+
+    if(
+      now.getHours() === 0 &&
+      now.getMinutes() === 0 &&
+      now.getSeconds() < 5
+    ){
+
+      loadPrayerTimes();
+
+    }
+
+  },
+  1000
+);
+
+
+</script>
+
+</body>
+</html>
