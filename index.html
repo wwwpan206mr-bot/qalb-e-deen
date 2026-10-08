@@ -1,1044 +1,1090 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>Qalb-e-Deen — The Heart of Deen</title>
+
+  <meta
+    name="description"
+    content="Qalb-e-Deen — The Heart of Deen. Quran, Hadith, Islamic Knowledge, Dua and Islamic Posts."
+  >
+
+  <meta name="theme-color" content="#063b2b">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:
+        "Noto Sans Bengali",
+        "Hind Siliguri",
+        Arial,
+        sans-serif;
+
+      background:#f4f8f6;
+      color:#17352b;
+      line-height:1.6;
+    }
+
+    button,
+    input{
+      font:inherit;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+
+      background:
+        linear-gradient(
+          135deg,
+          #063b2b,
+          #07563e
+        );
+
+      color:white;
+
+      box-shadow:
+        0 4px 20px rgba(0,0,0,.12);
+    }
+
+    .nav{
+      max-width:1200px;
+      margin:auto;
+
+      min-height:68px;
+
+      padding:
+        10px 18px;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:15px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:0;
+    }
+
+    .brand-logo{
+      width:44px;
+      height:44px;
+
+      border-radius:50%;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+
+      font-size:22px;
+      flex-shrink:0;
+    }
+
+    .brand-text{
+      min-width:0;
+    }
+
+    .brand-title{
+      font-size:19px;
+      font-weight:800;
+      line-height:1.2;
+    }
+
+    .brand-subtitle{
+      font-size:11px;
+      opacity:.78;
+      margin-top:2px;
+    }
+
+    .nav-right{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .user-name{
+      display:none;
+      font-size:13px;
+      opacity:.9;
+      max-width:100px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .nav-btn{
+      border:1px solid rgba(255,255,255,.2);
+      background:rgba(255,255,255,.1);
+      color:white;
+
+      padding:8px 13px;
+      border-radius:10px;
+
+      cursor:pointer;
+      font-size:13px;
+      font-weight:600;
+
+      transition:.2s;
+    }
+
+    .nav-btn:hover{
+      background:rgba(255,255,255,.18);
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero{
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(66,153,112,.35),
+          transparent 35%
+        ),
+        linear-gradient(
+          135deg,
+          #063b2b,
+          #0b6248
+        );
+
+      color:white;
+
+      padding:60px 18px 70px;
+
+      text-align:center;
+    }
+
+    .hero-inner{
+      max-width:900px;
+      margin:auto;
+    }
+
+    .hero-badge{
+      display:inline-block;
+
+      padding:7px 14px;
+
+      border-radius:30px;
+
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.15);
+
+      font-size:12px;
+      margin-bottom:18px;
+    }
+
+    .hero h1{
+      font-size:clamp(32px,7vw,58px);
+      line-height:1.12;
+      margin-bottom:12px;
+      font-weight:900;
+    }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Qalb-e-Deen — The Heart of Deen</title>
-
-<meta
-  name="description"
-  content="Qalb-e-Deen — The Heart of Deen. Quran, Hadith, Islamic Knowledge, Dua and Islamic Posts."
->
-
-<meta name="theme-color" content="#0d2b24">
-
-<style>
-
-/* =====================================================
-   RESET
-===================================================== */
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:
-    Arial,
-    "Noto Sans Bengali",
-    sans-serif;
-
-  background:#f5f8f6;
-  color:#17211f;
-  line-height:1.7;
-}
-
-button,
-input,
-textarea,
-select{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-img{
-  max-width:100%;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-
-/* =====================================================
-   HEADER
-===================================================== */
-
-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:#0d2b24;
-  color:white;
-  box-shadow:0 4px 20px rgba(0,0,0,.15);
-}
-
-.nav{
-  max-width:1150px;
-  margin:auto;
-  min-height:68px;
-  padding:10px 18px;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-}
-
-.logo{
-  font-size:23px;
-  font-weight:800;
-  white-space:nowrap;
-}
-
-.logo span{
-  color:#d7b56d;
-}
-
-.nav-right{
-  display:flex;
-  align-items:center;
-  gap:9px;
-}
-
-.user-name{
-  max-width:160px;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-  font-size:13px;
-  color:#d9e5e1;
-}
-
-.login-btn,
-.logout-btn{
-  border:0;
-  padding:9px 15px;
-  border-radius:8px;
-  font-weight:bold;
-}
-
-.login-btn{
-  background:#d7b56d;
-  color:#10261f;
-}
-
-.logout-btn{
-  background:#c94b4b;
-  color:white;
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero{
-  background:
-    linear-gradient(
-      135deg,
-      #09251e,
-      #0d5b48
-    );
-
-  color:white;
-  padding:65px 18px;
-}
-
-.hero-inner{
-  max-width:1000px;
-  margin:auto;
-  text-align:center;
-}
-
-.hero h1{
-  font-size:44px;
-  line-height:1.25;
-  margin-bottom:12px;
-}
-
-.hero h1 span{
-  color:#d7b56d;
-}
-
-.hero p{
-  max-width:720px;
-  margin:0 auto 27px;
-  color:#d8e5e0;
-  font-size:17px;
-}
-
-.search-box{
-  max-width:650px;
-  margin:auto;
-}
-
-.search-box input{
-  width:100%;
-  padding:16px 22px;
-  border:0;
-  outline:0;
-  border-radius:50px;
-  font-size:16px;
-
-  box-shadow:
-    0 8px 30px rgba(0,0,0,.22);
-}
-
-
-/* =====================================================
-   MAIN
-===================================================== */
-
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:38px 16px 65px;
-}
-
-.section-title{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  margin-bottom:20px;
-}
-
-.section-title h2{
-  color:#0d2b24;
-  font-size:25px;
-}
-
-
-/* =====================================================
-   QUICK ACCESS
-===================================================== */
-
-.quick-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:17px;
-  margin-bottom:42px;
-}
-
-.quick-card{
-  background:white;
-  padding:25px 18px;
-  border-radius:16px;
-  text-align:center;
-
-  box-shadow:
-    0 5px 22px rgba(0,0,0,.06);
-
-  transition:.2s;
-}
-
-.quick-card:hover{
-  transform:translateY(-4px);
-
-  box-shadow:
-    0 10px 30px rgba(0,0,0,.10);
-}
-
-.quick-icon{
-  font-size:35px;
-  margin-bottom:8px;
-}
-
-.quick-card h3{
-  color:#0d5b48;
-  margin-bottom:4px;
-}
-
-.quick-card p{
-  color:#69736f;
-  font-size:13px;
-}
-
-
-/* =====================================================
-   POSTS
-===================================================== */
-
-.posts-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.post-card{
-  background:white;
-  border-radius:16px;
-  overflow:hidden;
-
-  box-shadow:
-    0 5px 22px rgba(0,0,0,.07);
-
-  transition:.2s;
-  cursor:pointer;
-}
-
-.post-card:hover{
-  transform:translateY(-4px);
-
-  box-shadow:
-    0 10px 32px rgba(0,0,0,.12);
-}
-
-.post-image{
-  width:100%;
-  height:190px;
-  object-fit:cover;
-  display:block;
-  background:#e7eeeb;
-}
-
-.no-image{
-  height:190px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  background:#e8efec;
-  font-size:45px;
-}
-
-.post-body{
-  padding:18px;
-}
-
-.category{
-  display:inline-block;
-
-  background:#e6f2ed;
-  color:#0d5b48;
-
-  padding:4px 10px;
-  border-radius:20px;
-
-  font-size:11px;
-  font-weight:bold;
-
-  margin-bottom:9px;
-}
-
-.post-body h3{
-  color:#18231f;
-  font-size:19px;
-  line-height:1.4;
-  margin-bottom:8px;
-}
+    .hero h1 span{
+      color:#b8ead4;
+    }
 
-.excerpt{
-  color:#68736f;
-  font-size:14px;
-  margin-bottom:13px;
-}
+    .hero p{
+      max-width:650px;
+      margin:0 auto 25px;
 
-.post-meta{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-
-  color:#858e8b;
-  font-size:12px;
-}
+      opacity:.88;
+      font-size:15px;
+    }
 
+    .search-box{
+      max-width:650px;
+      margin:auto;
 
-/* =====================================================
-   LOADING / EMPTY
-===================================================== */
+      position:relative;
+    }
 
-.loading{
-  grid-column:1/-1;
-  text-align:center;
-  padding:45px 20px;
-  color:#777;
-}
+    .search-box input{
+      width:100%;
 
-.empty{
-  grid-column:1/-1;
+      padding:15px 50px 15px 18px;
 
-  background:white;
-  padding:40px 20px;
+      border:none;
+      outline:none;
 
-  border-radius:14px;
-  text-align:center;
-  color:#777;
-}
+      border-radius:15px;
 
+      background:white;
+      color:#17352b;
 
-/* =====================================================
-   MODAL
-===================================================== */
+      box-shadow:
+        0 10px 30px rgba(0,0,0,.15);
+    }
 
-.modal{
-  position:fixed;
-  inset:0;
-  z-index:3000;
+    .search-icon{
+      position:absolute;
+      right:17px;
+      top:50%;
 
-  display:none;
+      transform:translateY(-50%);
 
-  background:rgba(0,0,0,.70);
+      color:#0a6549;
+      font-size:20px;
+    }
 
-  overflow-y:auto;
+    /* =========================
+       MAIN
+    ========================== */
 
-  padding:20px 12px;
-}
+    main{
+      max-width:1200px;
+      margin:auto;
+      padding:35px 18px 60px;
+    }
 
-.modal.show{
-  display:block;
-}
+    .section{
+      margin-bottom:42px;
+    }
 
-.modal-box{
-  position:relative;
+    .section-title{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:10px;
 
-  max-width:850px;
+      margin-bottom:18px;
+    }
 
-  margin:20px auto;
+    .section-title h2{
+      font-size:24px;
+      color:#063b2b;
+    }
 
-  background:white;
+    .section-title p{
+      color:#718079;
+      font-size:13px;
+    }
 
-  border-radius:18px;
+    /* =========================
+       QUICK ACCESS
+    ========================== */
 
-  overflow:hidden;
+    .quick-grid{
+      display:grid;
 
-  box-shadow:
-    0 20px 60px rgba(0,0,0,.30);
-}
+      grid-template-columns:
+        repeat(4, 1fr);
 
-.close{
-  position:absolute;
+      gap:15px;
+    }
 
-  top:13px;
-  right:13px;
+    .quick-card{
+      position:relative;
+      overflow:hidden;
 
-  width:40px;
-  height:40px;
+      background:white;
 
-  border:0;
-  border-radius:50%;
+      border:1px solid #e1ebe6;
+      border-radius:18px;
 
-  background:rgba(0,0,0,.65);
+      padding:22px;
 
-  color:white;
+      cursor:pointer;
 
-  font-size:24px;
+      box-shadow:
+        0 7px 25px rgba(16,57,42,.06);
 
-  z-index:5;
-}
+      transition:
+        transform .2s,
+        box-shadow .2s;
+    }
 
-.modal-image{
-  width:100%;
-  max-height:420px;
+    .quick-card:hover{
+      transform:translateY(-4px);
 
-  object-fit:cover;
-  display:block;
-}
+      box-shadow:
+        0 12px 30px rgba(16,57,42,.12);
+    }
 
-.modal-content{
-  padding:27px;
-}
+    .quick-icon{
+      width:48px;
+      height:48px;
 
-.modal-content h2{
-  color:#0d2b24;
+      border-radius:14px;
 
-  font-size:30px;
-  line-height:1.4;
+      display:flex;
+      align-items:center;
+      justify-content:center;
 
-  margin:8px 0;
-}
+      background:#e7f5ee;
 
-.modal-meta{
-  color:#777;
-  font-size:13px;
-  margin-bottom:22px;
-}
+      font-size:25px;
 
-.full-content{
-  color:#29332f;
-  font-size:16px;
+      margin-bottom:15px;
+    }
 
-  white-space:pre-wrap;
-  overflow-wrap:anywhere;
-}
+    .quick-card h3{
+      color:#073d2d;
+      font-size:17px;
+      margin-bottom:5px;
+    }
 
+    .quick-card p{
+      color:#718079;
+      font-size:13px;
+    }
 
-/* =====================================================
-   SHARE
-===================================================== */
+    /* =========================
+       PRAYER PREVIEW
+    ========================== */
 
-.share-row{
-  display:flex;
-  gap:10px;
-  margin:24px 0;
-}
+    .prayer-preview{
+      margin-top:20px;
 
-.share-btn{
-  border:0;
-  background:#0d5b48;
-  color:white;
+      background:
+        linear-gradient(
+          135deg,
+          #063b2b,
+          #0a6047
+        );
 
-  padding:10px 17px;
+      color:white;
 
-  border-radius:8px;
+      border-radius:22px;
 
-  font-weight:bold;
-}
+      padding:22px;
 
+      box-shadow:
+        0 12px 35px rgba(4,61,43,.18);
 
-/* =====================================================
-   PREMIUM COMMENTS
-===================================================== */
+      position:relative;
+      overflow:hidden;
+    }
 
-.comments{
-  border-top:1px solid #e4e9e6;
-  padding-top:25px;
-  margin-top:25px;
-}
+    .prayer-preview::after{
+      content:"";
 
-.comments-title-row{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom:18px;
-}
+      position:absolute;
 
-.comments h3{
-  color:#0d2b24;
-  margin:0;
-}
+      width:180px;
+      height:180px;
 
-.comment-total{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
+      border-radius:50%;
 
-  min-width:32px;
-  height:28px;
+      right:-70px;
+      top:-70px;
 
-  padding:0 9px;
+      background:rgba(255,255,255,.06);
+    }
 
-  background:#e6f2ed;
-  color:#0d5b48;
+    .prayer-preview-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:15px;
 
-  border-radius:20px;
+      position:relative;
+      z-index:1;
+    }
 
-  font-size:12px;
-  font-weight:800;
-}
+    .prayer-label{
+      font-size:12px;
+      opacity:.75;
+    }
 
-.comment-login{
-  background:
-    linear-gradient(
-      135deg,
-      #f0f6f3,
-      #e7f0ec
-    );
+    .next-prayer{
+      font-size:24px;
+      font-weight:800;
+    }
 
-  padding:18px;
+    .countdown{
+      font-size:18px;
+      font-weight:700;
+      margin-top:3px;
+    }
 
-  border-radius:12px;
+    .prayer-link{
+      border:1px solid rgba(255,255,255,.2);
 
-  color:#53605b;
+      background:rgba(255,255,255,.1);
 
-  margin-bottom:18px;
+      color:white;
 
-  border:1px solid #dce8e3;
-}
+      padding:9px 14px;
 
-.comment-login strong{
-  color:#0d5b48;
-}
+      border-radius:11px;
 
-.comment-login button{
-  margin-top:10px;
+      cursor:pointer;
 
-  border:0;
+      font-size:12px;
+      font-weight:700;
 
-  background:#0d5b48;
+      position:relative;
+      z-index:2;
+    }
 
-  color:white;
+    .prayer-times-mini{
+      display:grid;
 
-  padding:9px 15px;
+      grid-template-columns:
+        repeat(5,1fr);
 
-  border-radius:7px;
+      gap:8px;
 
-  font-weight:bold;
-}
+      margin-top:18px;
 
-.comment-form{
-  display:none;
-  margin-bottom:22px;
-}
+      position:relative;
+      z-index:1;
+    }
 
-.comment-form textarea{
-  width:100%;
-  min-height:105px;
+    .mini-prayer{
+      background:rgba(255,255,255,.09);
 
-  resize:vertical;
+      border:1px solid rgba(255,255,255,.08);
 
-  padding:13px;
+      border-radius:12px;
 
-  border:1px solid #d7dfdc;
+      padding:10px;
 
-  border-radius:12px;
+      text-align:center;
+    }
 
-  outline:none;
+    .mini-prayer-name{
+      font-size:11px;
+      opacity:.72;
+    }
 
-  background:#fbfcfc;
-}
+    .mini-prayer-time{
+      font-size:13px;
+      font-weight:700;
+      margin-top:2px;
+    }
 
-.comment-form textarea:focus{
-  border-color:#0d5b48;
+    .mini-prayer.active{
+      background:rgba(255,255,255,.2);
+      border-color:rgba(255,255,255,.3);
+    }
 
-  box-shadow:
-    0 0 0 3px rgba(13,91,72,.08);
-}
+    /* =========================
+       POSTS
+    ========================== */
 
-.comment-submit{
-  margin-top:9px;
+    .posts-grid{
+      display:grid;
 
-  border:0;
+      grid-template-columns:
+        repeat(3,1fr);
 
-  background:#0d5b48;
+      gap:18px;
+    }
 
-  color:white;
+    .post-card{
+      background:white;
 
-  padding:10px 17px;
+      border:1px solid #e2ebe7;
 
-  border-radius:8px;
+      border-radius:18px;
 
-  font-weight:bold;
-}
+      overflow:hidden;
 
-.comment-submit:disabled{
-  opacity:.6;
-  cursor:not-allowed;
-}
+      box-shadow:
+        0 7px 25px rgba(16,57,42,.06);
 
-.comments-list{
-  display:flex;
-  flex-direction:column;
-  gap:13px;
-}
+      cursor:pointer;
 
+      transition:.2s;
+    }
 
-/* =====================================================
-   COMMENT CARD
-===================================================== */
+    .post-card:hover{
+      transform:translateY(-3px);
 
-.comment{
-  background:#f7f9f8;
+      box-shadow:
+        0 12px 30px rgba(16,57,42,.12);
+    }
 
-  padding:15px;
+    .post-image{
+      width:100%;
+      height:190px;
 
-  border-radius:12px;
+      object-fit:cover;
 
-  border:1px solid #e4ebe7;
+      background:#e9f1ed;
+    }
 
-  border-left:3px solid #d7b56d;
+    .post-content{
+      padding:18px;
+    }
 
-  transition:.2s;
-}
+    .post-category{
+      display:inline-block;
 
-.comment:hover{
-  box-shadow:
-    0 5px 18px rgba(0,0,0,.05);
-}
+      padding:4px 9px;
 
-.comment-head{
-  display:flex;
+      background:#e8f5ef;
+      color:#08704e;
 
-  justify-content:space-between;
+      border-radius:20px;
 
-  align-items:flex-start;
+      font-size:10px;
+      font-weight:700;
 
-  gap:10px;
+      margin-bottom:9px;
+    }
 
-  margin-bottom:7px;
-}
+    .post-title{
+      color:#123a2d;
 
-.comment-author-wrap{
-  display:flex;
-  align-items:center;
-  gap:9px;
-}
+      font-size:18px;
+      font-weight:800;
 
-.comment-avatar{
-  width:34px;
-  height:34px;
+      line-height:1.4;
 
-  flex-shrink:0;
+      margin-bottom:7px;
+    }
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+    .post-excerpt{
+      color:#6f7d77;
+      font-size:13px;
 
-  border-radius:50%;
+      display:-webkit-box;
+      -webkit-line-clamp:3;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
 
-  background:#0d5b48;
-  color:#d7b56d;
+    .post-meta{
+      display:flex;
+      justify-content:space-between;
 
-  font-size:14px;
-  font-weight:800;
-}
+      color:#89958f;
 
-.comment-author{
-  color:#0d5b48;
-  font-weight:bold;
-  font-size:14px;
-}
+      font-size:11px;
 
-.comment-date{
-  color:#888;
-  font-size:11px;
-  white-space:nowrap;
-}
+      margin-top:14px;
+    }
 
-.comment-text{
-  color:#37413d;
-  font-size:14px;
+    .loading{
+      text-align:center;
+      padding:40px 15px;
 
-  white-space:pre-wrap;
-  overflow-wrap:anywhere;
+      color:#738079;
+    }
 
-  padding-left:43px;
-}
+    .empty{
+      background:white;
 
-.comment-actions{
-  margin-top:9px;
-  padding-left:43px;
+      border:1px dashed #ccdcd4;
 
-  display:flex;
-  gap:10px;
-}
+      border-radius:16px;
 
-.reply-btn{
-  border:0;
+      padding:35px 15px;
 
-  background:transparent;
+      text-align:center;
 
-  color:#0d5b48;
+      color:#78867f;
+    }
 
-  font-size:12px;
+    /* =========================
+       MODAL
+    ========================== */
 
-  font-weight:bold;
+    .modal{
+      display:none;
 
-  padding:3px 0;
-}
+      position:fixed;
+      inset:0;
 
-.reply-btn:hover{
-  color:#084536;
-  text-decoration:underline;
-}
+      z-index:2000;
 
+      background:rgba(0,0,0,.68);
 
-/* =====================================================
-   REPLY BOX
-===================================================== */
+      padding:20px;
 
-.reply-box{
-  display:none;
+      overflow:auto;
+    }
 
-  margin-top:12px;
-  margin-left:43px;
+    .modal.show{
+      display:block;
+    }
 
-  padding:12px;
+    .modal-box{
+      max-width:850px;
+      margin:30px auto;
 
-  background:white;
+      background:white;
 
-  border-radius:9px;
+      border-radius:22px;
 
-  border:1px solid #dfe8e4;
-}
+      overflow:hidden;
 
-.reply-box textarea{
-  width:100%;
+      box-shadow:
+        0 25px 80px rgba(0,0,0,.3);
+    }
 
-  min-height:75px;
+    .modal-header{
+      position:relative;
+    }
 
-  padding:9px;
+    .modal-image{
+      width:100%;
+      max-height:400px;
 
-  border:1px solid #d7dfdc;
+      object-fit:cover;
 
-  border-radius:7px;
+      background:#e9f1ed;
+    }
 
-  resize:vertical;
+    .close-btn{
+      position:absolute;
 
-  outline:none;
-}
+      right:15px;
+      top:15px;
 
-.reply-box textarea:focus{
-  border-color:#0d5b48;
-}
+      width:40px;
+      height:40px;
 
-.reply-submit{
-  margin-top:7px;
+      border:none;
+      border-radius:50%;
 
-  border:0;
+      background:rgba(0,0,0,.5);
 
-  background:#0d5b48;
+      color:white;
 
-  color:white;
+      font-size:22px;
 
-  padding:7px 12px;
+      cursor:pointer;
+    }
 
-  border-radius:6px;
+    .modal-content{
+      padding:25px;
+    }
 
-  font-size:12px;
+    .modal-category{
+      color:#08704e;
+      font-size:12px;
+      font-weight:700;
+    }
 
-  font-weight:bold;
-}
+    .modal-title{
+      color:#063b2b;
 
-.reply-submit:disabled{
-  opacity:.6;
-}
+      font-size:30px;
 
+      line-height:1.3;
 
-/* =====================================================
-   REPLIES
-===================================================== */
+      margin:7px 0 10px;
+    }
 
-.replies{
-  margin-top:12px;
-  margin-left:35px;
+    .modal-meta{
+      display:flex;
+      gap:15px;
 
-  display:flex;
-  flex-direction:column;
-  gap:9px;
-}
+      flex-wrap:wrap;
 
-.reply{
-  background:white;
+      color:#7b8781;
 
-  padding:12px;
+      font-size:12px;
 
-  border-radius:10px;
+      margin-bottom:20px;
+    }
 
-  border:1px solid #e0e8e4;
+    .post-body{
+      color:#31443c;
+      font-size:15px;
 
-  border-left:3px solid #b8cfc7;
-}
+      white-space:pre-wrap;
+    }
 
-.reply .comment-text{
-  padding-left:43px;
-}
+    .action-row{
+      display:flex;
+      gap:9px;
 
+      margin-top:22px;
+    }
 
-/* =====================================================
-   REPLY LABEL
-===================================================== */
+    .action-btn{
+      border:none;
 
-.reply-label{
-  color:#7a8580;
-  font-size:11px;
-  margin-bottom:6px;
-}
+      background:#e9f5ef;
+      color:#075d43;
 
+      padding:9px 14px;
 
-/* =====================================================
-   COMMENT COUNT
-===================================================== */
+      border-radius:10px;
 
-.comment-count{
-  color:#0d5b48;
-  font-weight:bold;
-}
+      cursor:pointer;
 
+      font-size:13px;
+      font-weight:700;
+    }
 
-/* =====================================================
-   FOOTER
-===================================================== */
+    /* =========================
+       COMMENTS
+    ========================== */
 
-footer{
-  background:#0d2b24;
-  color:white;
-  text-align:center;
-  padding:30px 15px;
-}
+    .comments-section{
+      margin-top:35px;
 
-footer strong{
-  color:#d7b56d;
-  font-size:18px;
-}
+      border-top:1px solid #e5ece8;
 
-footer p{
-  color:#b9c9c3;
-  font-size:13px;
-  margin-top:5px;
-}
+      padding-top:25px;
+    }
 
+    .comments-section h3{
+      color:#063b2b;
+      margin-bottom:15px;
+    }
 
-/* =====================================================
-   TOAST
-===================================================== */
+    .comment-form{
+      display:flex;
+      gap:8px;
 
-.toast{
-  position:fixed;
+      margin-bottom:20px;
+    }
 
-  left:50%;
-  bottom:25px;
+    .comment-form input{
+      flex:1;
 
-  transform:
-    translateX(-50%)
-    translateY(100px);
+      border:1px solid #dce7e1;
+      outline:none;
 
-  background:#17211f;
-  color:white;
+      padding:11px 13px;
 
-  padding:12px 18px;
+      border-radius:10px;
+    }
 
-  border-radius:9px;
+    .comment-form button{
+      border:none;
 
-  z-index:5000;
+      background:#07563e;
+      color:white;
 
-  opacity:0;
+      border-radius:10px;
 
-  transition:.3s;
+      padding:10px 15px;
 
-  max-width:calc(100% - 30px);
+      cursor:pointer;
 
-  text-align:center;
-}
+      font-weight:700;
+    }
 
-.toast.show{
-  transform:
-    translateX(-50%)
-    translateY(0);
+    .comment{
+      padding:13px 0;
 
-  opacity:1;
-}
+      border-bottom:1px solid #edf1ef;
+    }
 
+    .comment.reply{
+      margin-left:25px;
+      border-left:2px solid #dcebe4;
+      padding-left:14px;
+    }
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
+    .comment-author{
+      font-weight:800;
+      color:#173c30;
+      font-size:13px;
+    }
 
-@media(max-width:850px){
+    .comment-text{
+      font-size:13px;
+      color:#65736c;
+      margin-top:3px;
+    }
 
-  .posts-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
+    .reply-btn{
+      border:none;
+      background:none;
+      color:#08704e;
+      cursor:pointer;
+      font-size:11px;
+      font-weight:700;
+      margin-top:5px;
+    }
 
-  .quick-grid{
-    grid-template-columns:1fr;
-  }
+    /* =========================
+       TOAST
+    ========================== */
 
-  .hero h1{
-    font-size:36px;
-  }
+    .toast{
+      position:fixed;
 
-}
+      left:50%;
+      bottom:25px;
 
-@media(max-width:560px){
+      transform:
+        translate(-50%,120px);
 
-  .logo{
-    font-size:19px;
-  }
+      background:#063b2b;
+      color:white;
 
-  .user-name{
-    display:none;
-  }
+      padding:12px 18px;
 
-  .login-btn,
-  .logout-btn{
-    padding:8px 11px;
-    font-size:13px;
-  }
+      border-radius:12px;
 
-  .hero{
-    padding:48px 15px;
-  }
+      font-size:13px;
 
-  .hero h1{
-    font-size:30px;
-  }
+      z-index:5000;
 
-  .hero p{
-    font-size:14px;
-  }
+      opacity:0;
 
-  .posts-grid{
-    grid-template-columns:1fr;
-  }
+      transition:.3s;
 
-  .container{
-    padding:30px 14px 50px;
-  }
+      max-width:90%;
 
-  .modal{
-    padding:8px;
-  }
+      text-align:center;
+    }
 
-  .modal-box{
-    margin:8px auto;
-  }
+    .toast.show{
+      opacity:1;
 
-  .modal-content{
-    padding:19px;
-  }
+      transform:
+        translate(-50%,0);
+    }
 
-  .modal-content h2{
-    font-size:23px;
-  }
+    /* =========================
+       FOOTER
+    ========================== */
 
-  .replies{
-    margin-left:12px;
-  }
+    footer{
+      background:#052d21;
+      color:white;
 
-  .comment-head{
-    flex-direction:column;
-  }
+      padding:35px 18px;
 
-  .comment-date{
-    margin-left:43px;
-  }
+      text-align:center;
+    }
 
-  .reply-box{
-    margin-left:0;
-  }
+    .footer-title{
+      font-size:20px;
+      font-weight:800;
+    }
 
-}
+    .footer-sub{
+      opacity:.7;
+      font-size:12px;
+      margin-top:5px;
+    }
 
-</style>
+    /* =========================
+       RESPONSIVE
+    ========================== */
 
+    @media(max-width:900px){
+
+      .quick-grid{
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+
+      .posts-grid{
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+    }
+
+    @media(max-width:600px){
+
+      .nav{
+        padding:9px 12px;
+      }
+
+      .brand-title{
+        font-size:16px;
+      }
+
+      .brand-subtitle{
+        font-size:9px;
+      }
+
+      .brand-logo{
+        width:38px;
+        height:38px;
+        font-size:19px;
+      }
+
+      .user-name{
+        display:block;
+      }
+
+      .nav-btn{
+        padding:7px 9px;
+        font-size:11px;
+      }
+
+      .hero{
+        padding:45px 15px 50px;
+      }
+
+      main{
+        padding:
+          28px 13px 50px;
+      }
+
+      .quick-grid{
+        grid-template-columns:
+          repeat(2,1fr);
+
+        gap:10px;
+      }
+
+      .quick-card{
+        padding:16px;
+        border-radius:15px;
+      }
+
+      .quick-card h3{
+        font-size:15px;
+      }
+
+      .quick-card p{
+        font-size:11px;
+      }
+
+      .quick-icon{
+        width:42px;
+        height:42px;
+        font-size:21px;
+      }
+
+      .prayer-preview{
+        padding:17px;
+        border-radius:18px;
+      }
+
+      .prayer-preview-top{
+        align-items:flex-start;
+      }
+
+      .next-prayer{
+        font-size:20px;
+      }
+
+      .countdown{
+        font-size:15px;
+      }
+
+      .prayer-times-mini{
+        grid-template-columns:
+          repeat(5,1fr);
+
+        gap:4px;
+      }
+
+      .mini-prayer{
+        padding:7px 3px;
+      }
+
+      .mini-prayer-name{
+        font-size:8px;
+      }
+
+      .mini-prayer-time{
+        font-size:9px;
+      }
+
+      .posts-grid{
+        grid-template-columns:1fr;
+      }
+
+      .post-image{
+        height:200px;
+      }
+
+      .modal{
+        padding:10px;
+      }
+
+      .modal-box{
+        margin:15px auto;
+        border-radius:17px;
+      }
+
+      .modal-content{
+        padding:18px;
+      }
+
+      .modal-title{
+        font-size:23px;
+      }
+
+      .comment-form{
+        flex-direction:column;
+      }
+
+      .comment-form button{
+        width:100%;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-
-<!-- =====================================================
+<!-- =========================
      HEADER
-===================================================== -->
+========================== -->
 
 <header>
 
   <div class="nav">
 
-    <a href="index.html" class="logo">
-      Qalb<span>-e-Deen</span>
+    <a href="index.html" class="brand">
+
+      <div class="brand-logo">
+        ☪️
+      </div>
+
+      <div class="brand-text">
+
+        <div class="brand-title">
+          Qalb-e-Deen
+        </div>
+
+        <div class="brand-subtitle">
+          The Heart of Deen
+        </div>
+
+      </div>
+
     </a>
 
     <div class="nav-right">
 
-      <span id="userName" class="user-name"></span>
-
-      <button id="loginBtn" class="login-btn">
-        Login
-      </button>
+      <span
+        id="userName"
+        class="user-name">
+      </span>
 
       <button
-        id="logoutBtn"
-        class="logout-btn"
-        style="display:none"
-      >
-        Logout
+        id="authBtn"
+        class="nav-btn">
+        Login
       </button>
 
     </div>
@@ -1048,33 +1094,39 @@ footer p{
 </header>
 
 
-<!-- =====================================================
+<!-- =========================
      HERO
-===================================================== -->
+========================== -->
 
 <section class="hero">
 
   <div class="hero-inner">
 
+    <div class="hero-badge">
+      بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+    </div>
+
     <h1>
-      Welcome to
-      <span>Qalb-e-Deen</span>
+      Qalb-e-<span>Deen</span>
     </h1>
 
     <p>
-      The Heart of Deen — Explore Quran,
-      Hadith, Islamic knowledge, Dua and
-      beautiful reminders.
+      The Heart of Deen — Quran, Hadith, Islamic Knowledge,
+      Dua and meaningful Islamic Posts.
     </p>
 
     <div class="search-box">
 
       <input
-        id="searchInput"
         type="search"
+        id="searchInput"
+        placeholder="পোস্ট খুঁজুন..."
         autocomplete="off"
-        placeholder="🔎 Search Islamic posts..."
       >
+
+      <span class="search-icon">
+        🔎
+      </span>
 
     </div>
 
@@ -1083,244 +1135,315 @@ footer p{
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      MAIN
-===================================================== -->
+========================== -->
 
-<main class="container">
-
-
-  <div class="section-title">
-
-    <h2>
-      Explore
-    </h2>
-
-  </div>
+<main>
 
 
-  <div class="quick-grid">
+  <!-- QUICK ACCESS -->
 
+  <section class="section">
 
-    <div
-      class="quick-card"
-      id="quranCard"
-    >
+    <div class="section-title">
 
-      <div class="quick-icon">
-        📖
+      <div>
+        <h2>Quick Access</h2>
+        <p>দ্বীনের প্রয়োজনীয় বিষয়গুলো এক জায়গায়</p>
       </div>
 
-      <h3>
-        কোরআন পড়ুন
-      </h3>
-
-      <p>
-        Read and reflect upon the Holy Quran.
-      </p>
-
     </div>
 
 
-    <div
-      class="quick-card"
-      id="hadithCard"
-    >
-
-      <div class="quick-icon">
-        📜
-      </div>
-
-      <h3>
-        আজকের হাদিস
-      </h3>
-
-      <p>
-        A beautiful Hadith reminder for today.
-      </p>
-
-    </div>
+    <div class="quick-grid">
 
 
-    <div
-      class="quick-card"
-      id="postsCard"
-    >
-
-      <div class="quick-icon">
-        🌙
-      </div>
-
-      <h3>
-        Islamic Posts
-      </h3>
-
-      <p>
-        Explore the latest Islamic posts.
-      </p>
-
-    </div>
-
-  </div>
-
-
-  <div
-    id="postsSection"
-    class="section-title"
-  >
-
-    <h2>
-      Latest Posts
-    </h2>
-
-  </div>
-
-
-  <div
-    id="postsGrid"
-    class="posts-grid"
-  >
-
-    <div class="loading">
-      Loading posts...
-    </div>
-
-  </div>
-
-</main>
-
-
-<!-- =====================================================
-     POST MODAL
-===================================================== -->
-
-<div
-  id="postModal"
-  class="modal"
->
-
-  <div class="modal-box">
-
-
-    <button
-      id="closeModal"
-      class="close"
-    >
-      ×
-    </button>
-
-
-    <div id="modalImageContainer"></div>
-
-
-    <div class="modal-content">
-
-
-      <div id="modalCategory"></div>
-
-
-      <h2 id="modalTitle"></h2>
-
+      <!-- QURAN -->
 
       <div
-        id="modalMeta"
-        class="modal-meta"
-      ></div>
+        class="quick-card"
+        id="quranCard">
 
+        <div class="quick-icon">
+          📖
+        </div>
+
+        <h3>
+          কোরআন পড়ুন
+        </h3>
+
+        <p>
+          কোরআনের PDF ও Reader section
+        </p>
+
+      </div>
+
+
+      <!-- HADITH -->
 
       <div
-        id="modalContent"
-        class="full-content"
-      ></div>
+        class="quick-card"
+        id="hadithCard">
+
+        <div class="quick-icon">
+          📜
+        </div>
+
+        <h3>
+          আজকের হাদিস
+        </h3>
+
+        <p>
+          প্রতিদিনের নির্বাচিত হাদিস
+        </p>
+
+      </div>
 
 
-      <div class="share-row">
+      <!-- PRAYER -->
+
+      <div
+        class="quick-card"
+        id="prayerCard">
+
+        <div class="quick-icon">
+          🕌
+        </div>
+
+        <h3>
+          নামাজের সময়সূচি
+        </h3>
+
+        <p>
+          ৫ ওয়াক্ত নামাজের আজকের সময়
+        </p>
+
+      </div>
+
+
+      <!-- POSTS -->
+
+      <div
+        class="quick-card"
+        id="postsCard">
+
+        <div class="quick-icon">
+          📝
+        </div>
+
+        <h3>
+          ইসলামিক পোস্ট
+        </h3>
+
+        <p>
+          নতুন ও উপকারী ইসলামিক পোস্ট
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- PRAYER LIVE PREVIEW -->
+
+    <div class="prayer-preview">
+
+      <div class="prayer-preview-top">
+
+        <div>
+
+          <div class="prayer-label">
+            🕌 আজকের নামাজের সময়
+          </div>
+
+          <div
+            class="next-prayer"
+            id="nextPrayer">
+            Loading...
+          </div>
+
+          <div
+            class="countdown"
+            id="prayerCountdown">
+            --
+          </div>
+
+        </div>
 
         <button
-          id="shareBtn"
-          class="share-btn"
-        >
-          📤 Share Post
+          class="prayer-link"
+          id="openPrayerPage">
+          সম্পূর্ণ সময়সূচি →
         </button>
 
       </div>
 
 
-      <!-- =================================================
-           COMMENTS
-      ================================================== -->
+      <div
+        class="prayer-times-mini"
+        id="miniPrayerTimes">
 
-      <div class="comments">
+        <div class="mini-prayer">
+          <div class="mini-prayer-name">ফজর</div>
+          <div class="mini-prayer-time">--:--</div>
+        </div>
 
-        <div class="comments-title-row">
+        <div class="mini-prayer">
+          <div class="mini-prayer-name">যোহর</div>
+          <div class="mini-prayer-time">--:--</div>
+        </div>
 
-          <h3 id="commentsHeading">
-            💬 Comments
-          </h3>
+        <div class="mini-prayer">
+          <div class="mini-prayer-name">আসর</div>
+          <div class="mini-prayer-time">--:--</div>
+        </div>
 
-          <span
-            id="commentTotal"
-            class="comment-total"
+        <div class="mini-prayer">
+          <div class="mini-prayer-name">মাগরিব</div>
+          <div class="mini-prayer-time">--:--</div>
+        </div>
+
+        <div class="mini-prayer">
+          <div class="mini-prayer-name">এশা</div>
+          <div class="mini-prayer-time">--:--</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- POSTS -->
+
+  <section
+    class="section"
+    id="postsSection">
+
+    <div class="section-title">
+
+      <div>
+        <h2>
+          ইসলামিক পোস্ট
+        </h2>
+
+        <p>
+          জ্ঞান ও আমলের জন্য উপকারী পোস্ট
+        </p>
+      </div>
+
+    </div>
+
+
+    <div
+      id="postsGrid"
+      class="posts-grid">
+
+      <div class="loading">
+        পোস্ট লোড হচ্ছে...
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<!-- =========================
+     POST MODAL
+========================== -->
+
+<div
+  class="modal"
+  id="postModal">
+
+  <div class="modal-box">
+
+    <div class="modal-header">
+
+      <img
+        id="modalImage"
+        class="modal-image"
+        src=""
+        alt="Post image"
+        style="display:none"
+      >
+
+      <button
+        id="closeModal"
+        class="close-btn">
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="modal-content">
+
+      <div
+        id="modalCategory"
+        class="modal-category">
+      </div>
+
+      <h1
+        id="modalTitle"
+        class="modal-title">
+      </h1>
+
+      <div
+        id="modalMeta"
+        class="modal-meta">
+      </div>
+
+      <div
+        id="modalBody"
+        class="post-body">
+      </div>
+
+
+      <div class="action-row">
+
+        <button
+          id="shareBtn"
+          class="action-btn">
+          🔗 Share
+        </button>
+
+      </div>
+
+
+      <!-- COMMENTS -->
+
+      <div class="comments-section">
+
+        <h3>
+          💬 Comments
+        </h3>
+
+
+        <div
+          class="comment-form">
+
+          <input
+            id="commentInput"
+            type="text"
+            placeholder="আপনার মন্তব্য লিখুন..."
+            maxlength="500"
           >
-            0
-          </span>
-
-        </div>
-
-
-        <div
-          id="commentLogin"
-          class="comment-login"
-        >
-
-          <strong>
-            Join the discussion
-          </strong>
-
-          <br>
-
-          Please login to write a comment or reply.
-
-          <br>
-
-          <button id="commentLoginBtn">
-            Login to Comment
-          </button>
-
-        </div>
-
-
-        <div
-          id="commentForm"
-          class="comment-form"
-        >
-
-          <textarea
-            id="commentText"
-            maxlength="1000"
-            placeholder="Write your comment..."
-          ></textarea>
-
 
           <button
-            id="commentSubmit"
-            class="comment-submit"
-          >
-            💬 Post Comment
+            id="commentBtn">
+            Comment
           </button>
 
         </div>
 
 
         <div
-          id="commentsList"
-          class="comments-list"
-        >
-
-          <div class="loading">
-            Loading comments...
-          </div>
-
+          id="commentsList">
         </div>
 
       </div>
@@ -1332,417 +1455,817 @@ footer p{
 </div>
 
 
-<!-- =====================================================
+<!-- =========================
+     TOAST
+========================== -->
+
+<div
+  id="toast"
+  class="toast">
+</div>
+
+
+<!-- =========================
      FOOTER
-===================================================== -->
+========================== -->
 
 <footer>
 
-  <strong>
+  <div class="footer-title">
     Qalb-e-Deen
-  </strong>
+  </div>
 
-  <p>
-    The Heart of Deen • Islamic Knowledge & Reminders
-  </p>
-
-  <p>
-    © 2026 Qalb-e-Deen. All rights reserved.
-  </p>
+  <div class="footer-sub">
+    The Heart of Deen • Quran • Hadith • Islamic Knowledge
+  </div>
 
 </footer>
 
 
-<div
-  id="toast"
-  class="toast"
-></div>
-
-
-<!-- =====================================================
+<!-- =========================
      FIREBASE
-===================================================== -->
+========================== -->
 
 <script type="module">
 
-import {
-  initializeApp
-}
-from
-"https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+  import {
+    initializeApp
+  } from
+  "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 
-import {
-  getAuth,
-  onAuthStateChanged,
-  signOut
-}
-from
-"https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+  import {
+    getAuth,
+    onAuthStateChanged,
+    signOut
+  } from
+  "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
-import {
-  getFirestore,
-  collection,
-  getDocs,
-  getDoc,
-  doc,
-  addDoc,
-  updateDoc,
-  increment,
-  query,
-  where,
-  orderBy,
-  serverTimestamp
-}
-from
-"https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+  import {
+    getFirestore,
+    collection,
+    getDocs,
+    getDoc,
+    doc,
+    query,
+    orderBy,
+    limit,
+    where,
+    addDoc,
+    updateDoc,
+    increment,
+    serverTimestamp,
+    runTransaction
+  } from
+  "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-/* =====================================================
-   FIREBASE CONFIG
-===================================================== */
+  /* =========================
+     FIREBASE CONFIG
+  ========================== */
 
-const firebaseConfig = {
+  const firebaseConfig = {
 
-  apiKey:
-    "AIzaSyC4sRpUYVLURCkbAbfvUccL5n71Dveiik4",
+    apiKey:
+      "PASTE_YOUR_FIREBASE_API_KEY",
 
-  authDomain:
-    "qalb-e-deen-b765a.firebaseapp.com",
+    authDomain:
+      "qalb-e-deen-b765a.firebaseapp.com",
 
-  projectId:
-    "qalb-e-deen-b765a",
+    projectId:
+      "qalb-e-deen-b765a",
 
-  storageBucket:
-    "qalb-e-deen-b765a.firebasestorage.app",
+    storageBucket:
+      "qalb-e-deen-b765a.firebasestorage.app",
 
-  messagingSenderId:
-    "226972777842",
+    messagingSenderId:
+      "226972777842",
 
-  appId:
-    "1:226972777842:web:0d1439b9d4dc66d8bfb1eb"
+    appId:
+      "1:226972777842:web:0d1439b9d4dc66d8bfb1eb"
 
-};
-
-
-const app =
-  initializeApp(firebaseConfig);
-
-const auth =
-  getAuth(app);
-
-const db =
-  getFirestore(app);
+  };
 
 
-/* =====================================================
-   ELEMENTS
-===================================================== */
-
-const postsGrid =
-  document.getElementById("postsGrid");
-
-const searchInput =
-  document.getElementById("searchInput");
-
-const loginBtn =
-  document.getElementById("loginBtn");
-
-const logoutBtn =
-  document.getElementById("logoutBtn");
-
-const userName =
-  document.getElementById("userName");
-
-const postModal =
-  document.getElementById("postModal");
-
-const closeModal =
-  document.getElementById("closeModal");
-
-const modalTitle =
-  document.getElementById("modalTitle");
-
-const modalContent =
-  document.getElementById("modalContent");
-
-const modalMeta =
-  document.getElementById("modalMeta");
-
-const modalCategory =
-  document.getElementById("modalCategory");
-
-const modalImageContainer =
-  document.getElementById("modalImageContainer");
-
-const commentsList =
-  document.getElementById("commentsList");
-
-const commentsHeading =
-  document.getElementById("commentsHeading");
-
-const commentTotal =
-  document.getElementById("commentTotal");
-
-const commentLogin =
-  document.getElementById("commentLogin");
-
-const commentForm =
-  document.getElementById("commentForm");
-
-const commentText =
-  document.getElementById("commentText");
-
-const commentSubmit =
-  document.getElementById("commentSubmit");
-
-const commentLoginBtn =
-  document.getElementById("commentLoginBtn");
-
-const shareBtn =
-  document.getElementById("shareBtn");
+  const app =
+    initializeApp(firebaseConfig);
 
 
-/* =====================================================
-   VARIABLES
-===================================================== */
-
-let allPosts = [];
-
-let currentPost = null;
-
-let currentComments = [];
+  const auth =
+    getAuth(app);
 
 
-/* =====================================================
-   AUTH STATE
-===================================================== */
+  const db =
+    getFirestore(app);
 
-onAuthStateChanged(
-  auth,
-  user => {
 
-    if(user){
+  /* =========================
+     GLOBAL
+  ========================== */
 
-      loginBtn.style.display =
-        "none";
+  let currentUser = null;
 
-      logoutBtn.style.display =
-        "block";
+  let allPosts = [];
 
-      userName.textContent =
-        user.displayName ||
-        user.email ||
-        "User";
+  let selectedPost = null;
 
-      commentLogin.style.display =
-        "none";
 
-      commentForm.style.display =
+  /* =========================
+     ELEMENTS
+  ========================== */
+
+  const authBtn =
+    document.getElementById("authBtn");
+
+  const userName =
+    document.getElementById("userName");
+
+  const postsGrid =
+    document.getElementById("postsGrid");
+
+  const searchInput =
+    document.getElementById("searchInput");
+
+  const postModal =
+    document.getElementById("postModal");
+
+  const closeModal =
+    document.getElementById("closeModal");
+
+  const modalImage =
+    document.getElementById("modalImage");
+
+  const modalCategory =
+    document.getElementById("modalCategory");
+
+  const modalTitle =
+    document.getElementById("modalTitle");
+
+  const modalMeta =
+    document.getElementById("modalMeta");
+
+  const modalBody =
+    document.getElementById("modalBody");
+
+  const shareBtn =
+    document.getElementById("shareBtn");
+
+  const commentInput =
+    document.getElementById("commentInput");
+
+  const commentBtn =
+    document.getElementById("commentBtn");
+
+  const commentsList =
+    document.getElementById("commentsList");
+
+  const toast =
+    document.getElementById("toast");
+
+
+  /* =========================
+     TOAST
+  ========================== */
+
+  function showToast(message){
+
+    toast.textContent =
+      message;
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+
+      toast.classList.remove("show");
+
+    },3000);
+
+  }
+
+
+  /* =========================
+     AUTH
+  ========================== */
+
+  onAuthStateChanged(
+    auth,
+    async user => {
+
+      currentUser =
+        user || null;
+
+
+      if(user){
+
+        authBtn.textContent =
+          "Logout";
+
+        try{
+
+          const userRef =
+            doc(
+              db,
+              "user",
+              user.uid
+            );
+
+          const userSnap =
+            await getDoc(userRef);
+
+
+          if(userSnap.exists()){
+
+            const data =
+              userSnap.data();
+
+            userName.textContent =
+              data.name ||
+              user.displayName ||
+              "User";
+
+          }else{
+
+            userName.textContent =
+              user.displayName ||
+              "User";
+
+          }
+
+        }catch(error){
+
+          userName.textContent =
+            user.displayName ||
+            "User";
+
+        }
+
+      }else{
+
+        authBtn.textContent =
+          "Login";
+
+        userName.textContent =
+          "";
+
+      }
+
+    }
+  );
+
+
+  authBtn.addEventListener(
+    "click",
+    async () => {
+
+      if(currentUser){
+
+        try{
+
+          await signOut(auth);
+
+          showToast(
+            "Successfully logged out."
+          );
+
+        }catch(error){
+
+          showToast(
+            "Logout failed."
+          );
+
+        }
+
+      }else{
+
+        window.location.href =
+          "login.html";
+
+      }
+
+    }
+  );
+
+
+  /* =========================
+     LOAD POSTS
+  ========================== */
+
+  async function loadPosts(){
+
+    postsGrid.innerHTML =
+      `<div class="loading">
+        পোস্ট লোড হচ্ছে...
+      </div>`;
+
+
+    try{
+
+      const postsQuery =
+        query(
+          collection(db,"posts"),
+          orderBy(
+            "createdAt",
+            "desc"
+          ),
+          limit(50)
+        );
+
+
+      const snapshot =
+        await getDocs(
+          postsQuery
+        );
+
+
+      allPosts = [];
+
+
+      snapshot.forEach(
+        documentSnapshot => {
+
+          allPosts.push({
+
+            id:
+              documentSnapshot.id,
+
+            ...documentSnapshot.data()
+
+          });
+
+        }
+      );
+
+
+      renderPosts(
+        allPosts
+      );
+
+
+    }catch(error){
+
+      console.error(
+        "Posts error:",
+        error
+      );
+
+
+      postsGrid.innerHTML =
+        `<div class="empty">
+          পোস্ট লোড করা যাচ্ছে না।<br>
+          Firebase connection অথবা Firestore rules check করুন।
+        </div>`;
+
+    }
+
+  }
+
+
+  /* =========================
+     RENDER POSTS
+  ========================== */
+
+  function renderPosts(posts){
+
+    if(!posts.length){
+
+      postsGrid.innerHTML =
+        `<div class="empty">
+          কোনো পোস্ট পাওয়া যায়নি।
+        </div>`;
+
+      return;
+
+    }
+
+
+    postsGrid.innerHTML =
+      "";
+
+
+    posts.forEach(post => {
+
+      const card =
+        document.createElement(
+          "div"
+        );
+
+
+      card.className =
+        "post-card";
+
+
+      const image =
+        post.image ||
+        post.imageUrl ||
+        "";
+
+
+      const title =
+        post.title ||
+        "Untitled Post";
+
+
+      const category =
+        post.category ||
+        "Islamic Post";
+
+
+      const content =
+        post.content ||
+        post.body ||
+        "";
+
+
+      const excerpt =
+        content.length > 160
+          ? content.substring(0,160) + "..."
+          : content;
+
+
+      const views =
+        Number(
+          post.views || 0
+        );
+
+
+      card.innerHTML = `
+
+        ${
+          image
+          ?
+          `<img
+            class="post-image"
+            src="${escapeHtml(image)}"
+            alt="${escapeHtml(title)}"
+            loading="lazy"
+          >`
+          :
+          `<div
+            class="post-image"
+            style="
+              display:flex;
+              align-items:center;
+              justify-content:center;
+              font-size:45px;
+            ">
+            🕌
+          </div>`
+        }
+
+
+        <div class="post-content">
+
+          <span class="post-category">
+            ${escapeHtml(category)}
+          </span>
+
+          <div class="post-title">
+            ${escapeHtml(title)}
+          </div>
+
+          <div class="post-excerpt">
+            ${escapeHtml(excerpt)}
+          </div>
+
+          <div class="post-meta">
+
+            <span>
+              👁️ ${views} views
+            </span>
+
+            <span>
+              পড়ুন →
+            </span>
+
+          </div>
+
+        </div>
+      `;
+
+
+      card.addEventListener(
+        "click",
+        () => openPost(post)
+      );
+
+
+      postsGrid.appendChild(card);
+
+    });
+
+  }
+
+
+  /* =========================
+     SEARCH
+  ========================== */
+
+  searchInput.addEventListener(
+    "input",
+    () => {
+
+      const keyword =
+        searchInput.value
+          .trim()
+          .toLowerCase();
+
+
+      if(!keyword){
+
+        renderPosts(
+          allPosts
+        );
+
+        return;
+
+      }
+
+
+      const filtered =
+        allPosts.filter(
+          post => {
+
+            const title =
+              String(
+                post.title || ""
+              ).toLowerCase();
+
+
+            const content =
+              String(
+                post.content ||
+                post.body ||
+                ""
+              ).toLowerCase();
+
+
+            const category =
+              String(
+                post.category ||
+                ""
+              ).toLowerCase();
+
+
+            return (
+              title.includes(keyword) ||
+              content.includes(keyword) ||
+              category.includes(keyword)
+            );
+
+          }
+        );
+
+
+      renderPosts(
+        filtered
+      );
+
+    }
+  );
+
+
+  /* =========================
+     OPEN POST
+  ========================== */
+
+  async function openPost(post){
+
+    selectedPost =
+      post;
+
+
+    const image =
+      post.image ||
+      post.imageUrl ||
+      "";
+
+
+    modalCategory.textContent =
+      post.category ||
+      "Islamic Post";
+
+
+    modalTitle.textContent =
+      post.title ||
+      "Untitled Post";
+
+
+    modalBody.textContent =
+      post.content ||
+      post.body ||
+      "";
+
+
+    const views =
+      Number(
+        post.views || 0
+      ) + 1;
+
+
+    modalMeta.innerHTML = `
+      <span>👁️ ${views} views</span>
+    `;
+
+
+    if(image){
+
+      modalImage.src =
+        image;
+
+      modalImage.style.display =
         "block";
 
     }else{
 
-      loginBtn.style.display =
-        "block";
-
-      logoutBtn.style.display =
-        "none";
-
-      userName.textContent =
-        "";
-
-      commentLogin.style.display =
-        "block";
-
-      commentForm.style.display =
+      modalImage.style.display =
         "none";
 
     }
 
-  }
-);
+
+    postModal.classList.add(
+      "show"
+    );
 
 
-/* =====================================================
-   LOGIN
-===================================================== */
-
-loginBtn.addEventListener(
-  "click",
-  () => {
-
-    window.location.href =
-      "login.html";
-
-  }
-);
+    document.body.style.overflow =
+      "hidden";
 
 
-commentLoginBtn.addEventListener(
-  "click",
-  () => {
-
-    window.location.href =
-      "login.html";
-
-  }
-);
+    loadComments(
+      post.id
+    );
 
 
-/* =====================================================
-   LOGOUT
-===================================================== */
-
-logoutBtn.addEventListener(
-  "click",
-  async () => {
+    /*
+      Increase views safely
+    */
 
     try{
 
-      await signOut(auth);
-
-      showToast(
-        "Logged out successfully."
+      await updateDoc(
+        doc(
+          db,
+          "posts",
+          post.id
+        ),
+        {
+          views:
+            increment(1)
+        }
       );
+
+
+      post.views =
+        views;
 
     }catch(error){
 
-      showToast(
-        error.message
+      console.log(
+        "View update:",
+        error
       );
 
     }
 
   }
-);
 
 
-/* =====================================================
-   LOAD POSTS
-===================================================== */
+  /* =========================
+     CLOSE MODAL
+  ========================== */
 
-async function loadPosts(){
+  function closePostModal(){
 
-  postsGrid.innerHTML = `
-
-    <div class="loading">
-      Loading posts...
-    </div>
-
-  `;
-
-
-  try{
-
-    const postsQuery =
-      query(
-
-        collection(
-          db,
-          "posts"
-        ),
-
-        orderBy(
-          "createdAt",
-          "desc"
-        )
-
-      );
-
-
-    const snapshot =
-      await getDocs(
-        postsQuery
-      );
-
-
-    allPosts = [];
-
-
-    snapshot.forEach(
-      postDoc => {
-
-        allPosts.push({
-
-          id:
-            postDoc.id,
-
-          ...postDoc.data()
-
-        });
-
-      }
+    postModal.classList.remove(
+      "show"
     );
 
+    document.body.style.overflow =
+      "";
 
-    await loadAllCommentCounts();
-
-    renderPosts(
-      allPosts
-    );
-
-
-  }catch(error){
-
-    console.error(
-      "Post loading error:",
-      error
-    );
-
-
-    postsGrid.innerHTML = `
-
-      <div class="empty">
-
-        <h3>
-          Could not load posts
-        </h3>
-
-        <br>
-
-        <p>
-          ${escapeHTML(
-            error.message
-          )}
-        </p>
-
-      </div>
-
-    `;
+    selectedPost =
+      null;
 
   }
 
-}
+
+  closeModal.addEventListener(
+    "click",
+    closePostModal
+  );
 
 
-/* =====================================================
-   LOAD COMMENT COUNTS
-===================================================== */
+  postModal.addEventListener(
+    "click",
+    event => {
 
-async function loadAllCommentCounts(){
+      if(
+        event.target ===
+        postModal
+      ){
 
-  for(
-    const post of allPosts
+        closePostModal();
+
+      }
+
+    }
+  );
+
+
+  /* =========================
+     SHARE
+  ========================== */
+
+  shareBtn.addEventListener(
+    "click",
+    async () => {
+
+      if(!selectedPost)
+        return;
+
+
+      const shareData = {
+
+        title:
+          selectedPost.title ||
+          "Qalb-e-Deen",
+
+        text:
+          selectedPost.content ||
+          "Qalb-e-Deen Islamic Post",
+
+        url:
+          window.location.origin +
+          window.location.pathname +
+          "?post=" +
+          selectedPost.id
+
+      };
+
+
+      try{
+
+        if(
+          navigator.share
+        ){
+
+          await navigator.share(
+            shareData
+          );
+
+        }else{
+
+          await navigator.clipboard.writeText(
+            shareData.url
+          );
+
+          showToast(
+            "Post link copied."
+          );
+
+        }
+
+      }catch(error){
+
+        console.log(
+          "Share cancelled"
+        );
+
+      }
+
+    }
+  );
+
+
+  /* =========================
+     COMMENTS
+  ========================== */
+
+  async function loadComments(
+    postId
   ){
+
+    commentsList.innerHTML =
+      `<div class="loading">
+        Comments loading...
+      </div>`;
+
 
     try{
 
       const commentsQuery =
         query(
-
           collection(
             db,
             "comments"
           ),
-
           where(
             "postId",
             "==",
-            post.id
+            postId
           )
-
         );
 
 
@@ -1752,1684 +2275,1015 @@ async function loadAllCommentCounts(){
         );
 
 
-      let count = 0;
+      const comments = [];
 
 
       snapshot.forEach(
-        commentDoc => {
+        snap => {
 
           const data =
-            commentDoc.data();
+            snap.data();
 
 
           /*
-            approved:false =
-            pending moderation.
-
-            Missing approved =
-            old approved comment.
+            Only approved comments
+            are displayed.
           */
 
           if(
-            data.approved === false
+            data.approved === true ||
+            data.approved === undefined
           ){
 
-            return;
+            comments.push({
+
+              id:
+                snap.id,
+
+              ...data
+
+            });
 
           }
 
+        }
+      );
 
-          count++;
+
+      comments.sort(
+        (a,b) => {
+
+          const aTime =
+            a.createdAt?.seconds ||
+            0;
+
+          const bTime =
+            b.createdAt?.seconds ||
+            0;
+
+          return aTime - bTime;
 
         }
       );
 
 
-      post.commentCount =
-        count;
-
-
-    }catch(error){
-
-      console.log(
-        "Comment count error:",
-        error
-      );
-
-
-      post.commentCount =
-        0;
-
-    }
-
-  }
-
-}
-
-
-/* =====================================================
-   RENDER POSTS
-===================================================== */
-
-function renderPosts(posts){
-
-  if(
-    posts.length === 0
-  ){
-
-    postsGrid.innerHTML = `
-
-      <div class="empty">
-
-        <h3>
-          No posts found
-        </h3>
-
-        <p>
-          New Islamic posts will appear here.
-        </p>
-
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-
-  postsGrid.innerHTML = "";
-
-
-  posts.forEach(
-    post => {
-
-      const card =
-        document.createElement(
-          "article"
-        );
-
-
-      card.className =
-        "post-card";
-
-
-      let imageHTML;
-
-
-      if(post.imageURL){
-
-        imageHTML = `
-
-          <img
-            class="post-image"
-            src="${escapeAttribute(
-              post.imageURL
-            )}"
-            alt="${escapeAttribute(
-              post.title ||
-              "Islamic Post"
-            )}"
-            loading="lazy"
-          >
-
-        `;
-
-      }else{
-
-        imageHTML = `
-
-          <div class="no-image">
-            📖
-          </div>
-
-        `;
-
-      }
-
-
-      const content =
-        String(
-          post.content || ""
-        );
-
-
-      const excerpt =
-        content.length > 130
-          ? content.substring(0,130) + "..."
-          : content;
-
-
-      card.innerHTML = `
-
-        ${imageHTML}
-
-        <div class="post-body">
-
-          <span class="category">
-
-            ${escapeHTML(
-              post.category ||
-              "General"
-            )}
-
-          </span>
-
-
-          <h3>
-
-            ${escapeHTML(
-              post.title ||
-              "Untitled"
-            )}
-
-          </h3>
-
-
-          <p class="excerpt">
-
-            ${escapeHTML(
-              excerpt
-            )}
-
-          </p>
-
-
-          <div class="post-meta">
-
-            <span>
-              👁️
-              ${Number(
-                post.views || 0
-              )}
-            </span>
-
-
-            <span>
-              💬
-              <span class="comment-count">
-
-                ${Number(
-                  post.commentCount || 0
-                )}
-
-              </span>
-              Comments
-            </span>
-
-
-            <span>
-              📅
-              ${formatDate(
-                post.createdAt
-              )}
-            </span>
-
-          </div>
-
-        </div>
-
-      `;
-
-
-      card.addEventListener(
-        "click",
-        () => {
-
-          openPost(
-            post
-          );
-
-        }
-      );
-
-
-      postsGrid.appendChild(
-        card
-      );
-
-    }
-  );
-
-}
-
-
-/* =====================================================
-   SEARCH
-===================================================== */
-
-searchInput.addEventListener(
-  "input",
-  () => {
-
-    const term =
-      searchInput.value
-        .trim()
-        .toLowerCase();
-
-
-    if(!term){
-
-      renderPosts(
-        allPosts
-      );
-
-      return;
-
-    }
-
-
-    const filtered =
-      allPosts.filter(
-        post => {
-
-          const title =
-            String(
-              post.title || ""
-            ).toLowerCase();
-
-
-          const category =
-            String(
-              post.category || ""
-            ).toLowerCase();
-
-
-          const content =
-            String(
-              post.content || ""
-            ).toLowerCase();
-
-
-          return (
-
-            title.includes(term)
-
-            ||
-
-            category.includes(term)
-
-            ||
-
-            content.includes(term)
-
-          );
-
-        }
-      );
-
-
-    renderPosts(
-      filtered
-    );
-
-  }
-);
-
-
-/* =====================================================
-   OPEN POST
-===================================================== */
-
-async function openPost(post){
-
-  currentPost =
-    post;
-
-
-  modalTitle.textContent =
-    post.title ||
-    "Untitled";
-
-
-  modalContent.textContent =
-    post.content ||
-    "";
-
-
-  modalCategory.innerHTML = `
-
-    <span class="category">
-
-      ${escapeHTML(
-        post.category ||
-        "General"
-      )}
-
-    </span>
-
-  `;
-
-
-  modalMeta.textContent =
-    "👁️ " +
-    Number(
-      post.views || 0
-    ) +
-    " views • " +
-    formatDate(
-      post.createdAt
-    ) +
-    " • " +
-    (
-      post.authorName ||
-      "Qalb-e-Deen"
-    );
-
-
-  if(post.imageURL){
-
-    modalImageContainer.innerHTML = `
-
-      <img
-        class="modal-image"
-        src="${escapeAttribute(
-          post.imageURL
-        )}"
-        alt="${escapeAttribute(
-          post.title ||
-          "Islamic Post"
-        )}"
-      >
-
-    `;
-
-  }else{
-
-    modalImageContainer.innerHTML =
-      "";
-
-  }
-
-
-  postModal.classList.add(
-    "show"
-  );
-
-
-  document.body.style.overflow =
-    "hidden";
-
-
-  try{
-
-    await updateDoc(
-
-      doc(
-        db,
-        "posts",
-        post.id
-      ),
-
-      {
-        views:
-          increment(1)
-      }
-
-    );
-
-
-    post.views =
-      Number(
-        post.views || 0
-      ) + 1;
-
-
-    updateModalMeta();
-
-  }catch(error){
-
-    console.log(
-      "View counter skipped:",
-      error
-    );
-
-  }
-
-
-  await loadComments(
-    post.id
-  );
-
-}
-
-
-/* =====================================================
-   MODAL META
-===================================================== */
-
-function updateModalMeta(){
-
-  if(!currentPost){
-    return;
-  }
-
-
-  modalMeta.textContent =
-    "👁️ " +
-    Number(
-      currentPost.views || 0
-    ) +
-    " views • " +
-    formatDate(
-      currentPost.createdAt
-    ) +
-    " • " +
-    (
-      currentPost.authorName ||
-      "Qalb-e-Deen"
-    );
-
-}
-
-
-/* =====================================================
-   CLOSE MODAL
-===================================================== */
-
-closeModal.addEventListener(
-  "click",
-  closePost
-);
-
-
-postModal.addEventListener(
-  "click",
-  event => {
-
-    if(
-      event.target ===
-      postModal
-    ){
-
-      closePost();
-
-    }
-
-  }
-);
-
-
-document.addEventListener(
-  "keydown",
-  event => {
-
-    if(
-      event.key === "Escape"
-    ){
-
-      closePost();
-
-    }
-
-  }
-);
-
-
-function closePost(){
-
-  postModal.classList.remove(
-    "show"
-  );
-
-  document.body.style.overflow =
-    "";
-
-  currentPost =
-    null;
-
-  currentComments =
-    [];
-
-}
-
-
-/* =====================================================
-   LOAD COMMENTS
-===================================================== */
-
-async function loadComments(postId){
-
-  commentsList.innerHTML = `
-
-    <div class="loading">
-      Loading comments...
-    </div>
-
-  `;
-
-
-  try{
-
-    const commentsQuery =
-      query(
-
-        collection(
-          db,
-          "comments"
-        ),
-
-        where(
-          "postId",
-          "==",
-          postId
-        )
-
-      );
-
-
-    const snapshot =
-      await getDocs(
-        commentsQuery
-      );
-
-
-    currentComments = [];
-
-
-    snapshot.forEach(
-      commentDoc => {
-
-        const data =
-          commentDoc.data();
-
-
-        /*
-          Pending comments are hidden
-          from public homepage.
-        */
-
-        if(
-          data.approved === false
-        ){
-
-          return;
-
-        }
-
-
-        currentComments.push({
-
-          id:
-            commentDoc.id,
-
-          ...data
-
-        });
-
-      }
-    );
-
-
-    currentComments.sort(
-      (a,b) => {
-
-        return (
-          getTimestampMillis(
-            b.createdAt
-          ) -
-          getTimestampMillis(
-            a.createdAt
-          )
-        );
-
-      }
-    );
-
-
-    updateCommentHeading();
-
-    renderComments();
-
-
-  }catch(error){
-
-    console.error(
-      "Comments error:",
-      error
-    );
-
-
-    commentsList.innerHTML = `
-
-      <div class="empty">
-
-        <h3>
-          Could not load comments
-        </h3>
-
-        <br>
-
-        <p>
-          ${escapeHTML(
-            error.message
-          )}
-        </p>
-
-      </div>
-
-    `;
-
-  }
-
-}
-
-
-/* =====================================================
-   COMMENT HEADING
-===================================================== */
-
-function updateCommentHeading(){
-
-  const count =
-    currentComments.length;
-
-
-  commentsHeading.innerHTML = `
-    💬 Comments
-  `;
-
-
-  commentTotal.textContent =
-    count;
-
-}
-
-
-/* =====================================================
-   RENDER COMMENTS
-===================================================== */
-
-function renderComments(){
-
-  commentsList.innerHTML = "";
-
-
-  if(
-    currentComments.length === 0
-  ){
-
-    commentsList.innerHTML = `
-
-      <div class="empty">
-
-        No comments yet.
-
-        <br>
-
-        Be the first to comment.
-
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-
-  const mainComments =
-    currentComments.filter(
-      comment =>
-        !comment.parentId
-    );
-
-
-  const renderedIds =
-    new Set();
-
-
-  mainComments.forEach(
-    comment => {
-
-      renderedIds.add(
-        comment.id
-      );
-
-
-      const element =
-        createCommentElement(
-          comment,
-          false
-        );
-
-
-      const replies =
-        currentComments.filter(
-          reply =>
-            reply.parentId ===
-            comment.id
-        );
-
-
-      replies.forEach(
-        reply => {
-
-          renderedIds.add(
-            reply.id
-          );
-
-        }
-      );
-
-
-      if(
-        replies.length
-      ){
-
-        const repliesContainer =
-          document.createElement(
-            "div"
-          );
-
-
-        repliesContainer.className =
-          "replies";
-
-
-        replies.forEach(
-          reply => {
-
-            repliesContainer.appendChild(
-
-              createCommentElement(
-                reply,
-                true
-              )
-
-            );
-
-          }
-        );
-
-
-        element.appendChild(
-          repliesContainer
-        );
-
-      }
-
-
-      commentsList.appendChild(
-        element
-      );
-
-    }
-  );
-
-
-  /*
-    Orphan reply safety.
-  */
-
-  currentComments
-    .filter(
-      comment =>
-        !renderedIds.has(
-          comment.id
-        )
-    )
-    .forEach(
-      comment => {
-
-        commentsList.appendChild(
-
-          createCommentElement(
-            comment,
-            true
-          )
-
-        );
-
-      }
-    );
-
-}
-
-
-/* =====================================================
-   CREATE COMMENT
-===================================================== */
-
-function createCommentElement(
-  comment,
-  isReply
-){
-
-  const div =
-    document.createElement(
-      "div"
-    );
-
-
-  div.className =
-    isReply
-      ? "reply"
-      : "comment";
-
-
-  const name =
-    comment.userName ||
-    "User";
-
-
-  const avatar =
-    name
-      .trim()
-      .charAt(0)
-      .toUpperCase();
-
-
-  div.innerHTML = `
-
-    <div class="comment-head">
-
-      <div class="comment-author-wrap">
-
-        <div class="comment-avatar">
-          ${escapeHTML(avatar)}
-        </div>
-
-        <div>
-
-          <div class="comment-author">
-
-            ${escapeHTML(name)}
-
-          </div>
-
-          ${
-            isReply
-              ? `
-                <div class="reply-label">
-                  ↳ Reply
-                </div>
-              `
-              : ""
-          }
-
-        </div>
-
-      </div>
-
-
-      <span class="comment-date">
-
-        ${formatDate(
-          comment.createdAt
-        )}
-
-      </span>
-
-    </div>
-
-
-    <div class="comment-text">
-
-      ${escapeHTML(
-        comment.text ||
-        ""
-      )}
-
-    </div>
-
-
-    ${
-      !isReply
-        ? `
-
-          <div class="comment-actions">
-
-            <button
-              class="reply-btn"
-              type="button"
-            >
-              ↩ Reply
-            </button>
-
-          </div>
-
-
-          <div class="reply-box">
-
-            <textarea
-              maxlength="1000"
-              placeholder="Write a reply..."
-            ></textarea>
-
-
-            <button
-              class="reply-submit"
-              type="button"
-            >
-              Send Reply
-            </button>
-
-          </div>
-
-        `
-        : ""
-    }
-
-  `;
-
-
-  if(!isReply){
-
-    const replyBtn =
-      div.querySelector(
-        ".reply-btn"
-      );
-
-
-    const replyBox =
-      div.querySelector(
-        ".reply-box"
-      );
-
-
-    const replyTextarea =
-      div.querySelector(
-        ".reply-box textarea"
-      );
-
-
-    const replySubmit =
-      div.querySelector(
-        ".reply-submit"
-      );
-
-
-    replyBtn.addEventListener(
-      "click",
-      () => {
-
-        if(
-          !auth.currentUser
-        ){
-
-          window.location.href =
-            "login.html";
-
-          return;
-
-        }
-
-
-        if(
-          replyBox.style.display ===
-          "block"
-        ){
-
-          replyBox.style.display =
-            "none";
-
-        }else{
-
-          replyBox.style.display =
-            "block";
-
-          replyTextarea.focus();
-
-        }
-
-      }
-    );
-
-
-    replySubmit.addEventListener(
-      "click",
-      async () => {
-
-        await submitReply(
-          comment,
-          replyTextarea,
-          replySubmit
-        );
-
-      }
-    );
-
-  }
-
-
-  return div;
-
-}
-
-
-/* =====================================================
-   SUBMIT REPLY
-===================================================== */
-
-async function submitReply(
-  parentComment,
-  textarea,
-  button
-){
-
-  const user =
-    auth.currentUser;
-
-
-  if(!user){
-
-    window.location.href =
-      "login.html";
-
-    return;
-
-  }
-
-
-  if(!currentPost){
-
-    return;
-
-  }
-
-
-  const text =
-    textarea.value.trim();
-
-
-  if(!text){
-
-    showToast(
-      "Please write a reply."
-    );
-
-    return;
-
-  }
-
-
-  button.disabled =
-    true;
-
-  button.textContent =
-    "Sending...";
-
-
-  try{
-
-    let name =
-      user.displayName ||
-      user.email ||
-      "User";
-
-
-    try{
-
-      const profileSnap =
-        await getDoc(
-
-          doc(
-            db,
-            "user",
-            user.uid
-          )
-
-        );
-
-
-      if(
-        profileSnap.exists()
-      ){
-
-        const profile =
-          profileSnap.data();
-
-
-        name =
-          profile.name ||
-          name;
-
-      }
-
-    }catch(error){
-
-      console.log(
-        "Profile lookup skipped:",
-        error
-      );
-
-    }
-
-
-    await addDoc(
-
-      collection(
-        db,
-        "comments"
-      ),
-
-      {
-
-        postId:
-          currentPost.id,
-
-        userId:
-          user.uid,
-
-        userName:
-          name,
-
-        text:
-          text,
-
-        parentId:
-          parentComment.id,
-
-        parentUserName:
-          parentComment.userName ||
-          "User",
-
-        approved:
-          false,
-
-        createdAt:
-          serverTimestamp()
-
-      }
-
-    );
-
-
-    textarea.value =
-      "";
-
-
-    showToast(
-      "Reply submitted for review."
-    );
-
-
-  }catch(error){
-
-    console.error(
-      "Reply error:",
-      error
-    );
-
-
-    showToast(
-      "Reply failed: " +
-      error.message
-    );
-
-  }
-
-
-  button.disabled =
-    false;
-
-  button.textContent =
-    "Send Reply";
-
-}
-
-
-/* =====================================================
-   ADD COMMENT
-===================================================== */
-
-commentSubmit.addEventListener(
-  "click",
-  async () => {
-
-    const user =
-      auth.currentUser;
-
-
-    if(!user){
-
-      window.location.href =
-        "login.html";
-
-      return;
-
-    }
-
-
-    if(!currentPost){
-
-      return;
-
-    }
-
-
-    const text =
-      commentText.value.trim();
-
-
-    if(!text){
-
-      showToast(
-        "Please write a comment."
-      );
-
-      return;
-
-    }
-
-
-    commentSubmit.disabled =
-      true;
-
-    commentSubmit.textContent =
-      "Posting...";
-
-
-    try{
-
-      let name =
-        user.displayName ||
-        user.email ||
-        "User";
-
-
-      try{
-
-        const profileSnap =
-          await getDoc(
-
-            doc(
-              db,
-              "user",
-              user.uid
-            )
-
-          );
-
-
-        if(
-          profileSnap.exists()
-        ){
-
-          const profile =
-            profileSnap.data();
-
-
-          name =
-            profile.name ||
-            name;
-
-        }
-
-      }catch(error){
-
-        console.log(
-          "Profile lookup skipped:",
-          error
-        );
-
-      }
-
-
-      await addDoc(
-
-        collection(
-          db,
-          "comments"
-        ),
-
-        {
-
-          postId:
-            currentPost.id,
-
-          userId:
-            user.uid,
-
-          userName:
-            name,
-
-          text:
-            text,
-
-          approved:
-            false,
-
-          createdAt:
-            serverTimestamp()
-
-        }
-
-      );
-
-
-      commentText.value =
-        "";
-
-
-      showToast(
-        "Comment submitted for review."
+      renderComments(
+        comments
       );
 
 
     }catch(error){
 
       console.error(
-        "Comment error:",
+        "Comments error:",
         error
       );
 
 
-      showToast(
-        "Comment failed: " +
-        error.message
-      );
+      commentsList.innerHTML =
+        `<div class="empty">
+          Comments load করা যাচ্ছে না।
+        </div>`;
 
     }
 
-
-    commentSubmit.disabled =
-      false;
-
-    commentSubmit.textContent =
-      "💬 Post Comment";
-
   }
-);
 
 
-/* =====================================================
-   SHARE
-===================================================== */
+  function renderComments(
+    comments
+  ){
 
-shareBtn.addEventListener(
-  "click",
-  async () => {
+    if(!comments.length){
 
-    if(!currentPost){
+      commentsList.innerHTML =
+        `<div class="empty">
+          এখনো কোনো comment নেই।
+        </div>`;
 
       return;
 
     }
 
 
-    const url =
-      window.location.href;
+    commentsList.innerHTML =
+      "";
+
+
+    const parents =
+      comments.filter(
+        c =>
+          !c.parentId
+      );
+
+
+    parents.forEach(
+      parent => {
+
+        commentsList.appendChild(
+          createCommentElement(
+            parent,
+            false
+          )
+        );
+
+
+        const replies =
+          comments.filter(
+            c =>
+              c.parentId ===
+              parent.id
+          );
+
+
+        replies.forEach(
+          reply => {
+
+            commentsList.appendChild(
+              createCommentElement(
+                reply,
+                true
+              )
+            );
+
+          }
+        );
+
+      }
+    );
+
+  }
+
+
+  function createCommentElement(
+    comment,
+    isReply
+  ){
+
+    const div =
+      document.createElement(
+        "div"
+      );
+
+
+    div.className =
+      isReply
+        ? "comment reply"
+        : "comment";
+
+
+    const name =
+      comment.userName ||
+      comment.name ||
+      "User";
+
+
+    const text =
+      comment.text ||
+      comment.comment ||
+      "";
+
+
+    div.innerHTML = `
+
+      <div class="comment-author">
+        ${escapeHtml(name)}
+      </div>
+
+      <div class="comment-text">
+        ${escapeHtml(text)}
+      </div>
+
+      ${
+        !isReply
+        ?
+        `<button
+          class="reply-btn">
+          Reply
+        </button>`
+        :
+        ""
+      }
+
+    `;
+
+
+    if(!isReply){
+
+      const replyBtn =
+        div.querySelector(
+          ".reply-btn"
+        );
+
+
+      replyBtn.addEventListener(
+        "click",
+        () => {
+
+          if(!currentUser){
+
+            showToast(
+              "Reply করতে Login করুন।"
+            );
+
+            return;
+
+          }
+
+
+          commentInput.focus();
+
+          commentInput.value =
+            "@" +
+            name +
+            " ";
+
+        }
+      );
+
+    }
+
+
+    return div;
+
+  }
+
+
+  /* =========================
+     ADD COMMENT
+  ========================== */
+
+  commentBtn.addEventListener(
+    "click",
+    async () => {
+
+      if(!currentUser){
+
+        showToast(
+          "Comment করতে Login করুন।"
+        );
+
+        return;
+
+      }
+
+
+      if(!selectedPost){
+
+        return;
+
+      }
+
+
+      const text =
+        commentInput.value.trim();
+
+
+      if(!text){
+
+        showToast(
+          "Comment লিখুন।"
+        );
+
+        return;
+
+      }
+
+
+      commentBtn.disabled =
+        true;
+
+
+      try{
+
+        let name =
+          currentUser.displayName ||
+          "User";
+
+
+        try{
+
+          const profileSnap =
+            await getDoc(
+              doc(
+                db,
+                "user",
+                currentUser.uid
+              )
+            );
+
+
+          if(
+            profileSnap.exists()
+          ){
+
+            name =
+              profileSnap.data().name ||
+              name;
+
+          }
+
+        }catch(e){}
+
+
+        await addDoc(
+          collection(
+            db,
+            "comments"
+          ),
+          {
+
+            postId:
+              selectedPost.id,
+
+            userId:
+              currentUser.uid,
+
+            userName:
+              name,
+
+            text:
+              text,
+
+            approved:
+              true,
+
+            parentId:
+              null,
+
+            createdAt:
+              serverTimestamp()
+
+          }
+        );
+
+
+        commentInput.value =
+          "";
+
+
+        showToast(
+          "Comment posted."
+        );
+
+
+        loadComments(
+          selectedPost.id
+        );
+
+
+      }catch(error){
+
+        console.error(
+          error
+        );
+
+
+        showToast(
+          "Comment failed: " +
+          error.message
+        );
+
+      }
+
+
+      commentBtn.disabled =
+        false;
+
+    }
+  );
+
+
+  /* =========================
+     QUICK ACCESS
+  ========================== */
+
+  document
+    .getElementById(
+      "quranCard"
+    )
+    .addEventListener(
+      "click",
+      () => {
+
+        /*
+          Quran PDF Library
+          Firebase Storage feature
+          আপাতত paused.
+        */
+
+        showToast(
+          "Quran Reader section will be connected next."
+        );
+
+      }
+    );
+
+
+  document
+    .getElementById(
+      "hadithCard"
+    )
+    .addEventListener(
+      "click",
+      () => {
+
+        showToast(
+          "Today's Hadith section will be connected next."
+        );
+
+      }
+    );
+
+
+  document
+    .getElementById(
+      "postsCard"
+    )
+    .addEventListener(
+      "click",
+      () => {
+
+        document
+          .getElementById(
+            "postsSection"
+          )
+          .scrollIntoView({
+            behavior:"smooth"
+          });
+
+      }
+    );
+
+
+  document
+    .getElementById(
+      "prayerCard"
+    )
+    .addEventListener(
+      "click",
+      () => {
+
+        window.location.href =
+          "prayer-times.html";
+
+      }
+    );
+
+
+  document
+    .getElementById(
+      "openPrayerPage"
+    )
+    .addEventListener(
+      "click",
+      () => {
+
+        window.location.href =
+          "prayer-times.html";
+
+      }
+    );
+
+
+  /* =========================
+     PRAYER TIMES API
+     Dhaka / Bangladesh
+  ========================== */
+
+  const prayerNames = [
+    "Fajr",
+    "Dhuhr",
+    "Asr",
+    "Maghrib",
+    "Isha"
+  ];
+
+
+  const prayerBangla = {
+    Fajr:"ফজর",
+    Dhuhr:"যোহর",
+    Asr:"আসর",
+    Maghrib:"মাগরিব",
+    Isha:"এশা"
+  };
+
+
+  let prayerData =
+    null;
+
+
+  async function loadPrayerPreview(){
+
+    try{
+
+      const url =
+        "https://api.aladhan.com/v1/timingsByCity" +
+        "?city=Dhaka" +
+        "&country=Bangladesh" +
+        "&method=1" +
+        "&school=1";
+
+
+      const response =
+        await fetch(url);
+
+
+      if(!response.ok){
+
+        throw new Error(
+          "Prayer API failed"
+        );
+
+      }
+
+
+      const result =
+        await response.json();
+
+
+      if(
+        result.code !== 200 ||
+        !result.data
+      ){
+
+        throw new Error(
+          "Invalid prayer data"
+        );
+
+      }
+
+
+      prayerData =
+        result.data.timings;
+
+
+      updateMiniPrayerTimes();
+
+
+      updateNextPrayer();
+
+
+    }catch(error){
+
+      console.error(
+        "Prayer API:",
+        error
+      );
+
+
+      document.getElementById(
+        "nextPrayer"
+      ).textContent =
+        "সময় পাওয়া যাচ্ছে না";
+
+
+      document.getElementById(
+        "prayerCountdown"
+      ).textContent =
+        "সম্পূর্ণ সময়সূচির জন্য দেখুন →";
+
+    }
+
+  }
+
+
+  function convertTo12Hour(
+    time
+  ){
+
+    if(!time)
+      return "--:--";
+
+
+    const clean =
+      time.split(" ")[0];
+
+
+    const parts =
+      clean.split(":");
+
+
+    let hour =
+      parseInt(parts[0],10);
+
+
+    const minute =
+      parts[1];
+
+
+    const suffix =
+      hour >= 12
+        ? "PM"
+        : "AM";
+
+
+    hour =
+      hour % 12 || 12;
+
+
+    return (
+      hour +
+      ":" +
+      minute +
+      " " +
+      suffix
+    );
+
+  }
+
+
+  function updateMiniPrayerTimes(){
+
+    const container =
+      document.getElementById(
+        "miniPrayerTimes"
+      );
+
+
+    container.innerHTML =
+      "";
+
+
+    prayerNames.forEach(
+      name => {
+
+        const div =
+          document.createElement(
+            "div"
+          );
+
+
+        div.className =
+          "mini-prayer";
+
+
+        div.dataset.prayer =
+          name;
+
+
+        div.innerHTML = `
+
+          <div class="mini-prayer-name">
+            ${prayerBangla[name]}
+          </div>
+
+          <div class="mini-prayer-time">
+            ${convertTo12Hour(
+              prayerData[name]
+            )}
+          </div>
+
+        `;
+
+
+        container.appendChild(
+          div
+        );
+
+      }
+    );
+
+  }
+
+
+  function getPrayerDate(
+    timeString,
+    addDay = false
+  ){
+
+    const now =
+      new Date();
+
+
+    const parts =
+      timeString
+        .split(":");
+
+
+    const date =
+      new Date(
+        now
+      );
+
+
+    date.setHours(
+      parseInt(parts[0],10),
+      parseInt(parts[1],10),
+      0,
+      0
+    );
+
+
+    if(addDay){
+
+      date.setDate(
+        date.getDate() + 1
+      );
+
+    }
+
+
+    return date;
+
+  }
+
+
+  function updateNextPrayer(){
+
+    if(!prayerData)
+      return;
+
+
+    const now =
+      new Date();
+
+
+    let next = null;
+
+
+    for(
+      const name of prayerNames
+    ){
+
+      const prayerDate =
+        getPrayerDate(
+          prayerData[name]
+        );
+
+
+      if(
+        prayerDate > now
+      ){
+
+        next = {
+
+          name:
+            name,
+
+          date:
+            prayerDate
+
+        };
+
+        break;
+
+      }
+
+    }
+
+
+    /*
+      After Isha:
+      Tomorrow's Fajr
+    */
+
+    if(!next){
+
+      next = {
+
+        name:
+          "Fajr",
+
+        date:
+          getPrayerDate(
+            prayerData.Fajr,
+            true
+          )
+
+      };
+
+    }
+
+
+    document.getElementById(
+      "nextPrayer"
+    ).textContent =
+      "পরবর্তী: " +
+      prayerBangla[next.name];
+
+
+    updateCountdown(
+      next
+    );
+
+
+    document
+      .querySelectorAll(
+        ".mini-prayer"
+      )
+      .forEach(
+        element => {
+
+          element.classList.toggle(
+            "active",
+            element.dataset.prayer ===
+            next.name
+          );
+
+        }
+      );
+
+  }
+
+
+  function updateCountdown(
+    next
+  ){
+
+    const now =
+      new Date();
+
+
+    let difference =
+      next.date.getTime() -
+      now.getTime();
+
+
+    if(
+      difference <= 0
+    ){
+
+      updateNextPrayer();
+
+      return;
+
+    }
+
+
+    const totalSeconds =
+      Math.floor(
+        difference / 1000
+      );
+
+
+    const hours =
+      Math.floor(
+        totalSeconds / 3600
+      );
+
+
+    const minutes =
+      Math.floor(
+        (totalSeconds % 3600) /
+        60
+      );
+
+
+    const seconds =
+      totalSeconds % 60;
+
+
+    document.getElementById(
+      "prayerCountdown"
+    ).textContent =
+      String(hours).padStart(2,"0") +
+      ":" +
+      String(minutes).padStart(2,"0") +
+      ":" +
+      String(seconds).padStart(2,"0");
+
+  }
+
+
+  /*
+    Refresh prayer preview
+    every 60 seconds.
+  */
+
+  loadPrayerPreview();
+
+
+  setInterval(
+    () => {
+
+      updateNextPrayer();
+
+    },
+    1000
+  );
+
+
+  setInterval(
+    () => {
+
+      loadPrayerPreview();
+
+    },
+    60000
+  );
+
+
+  /* =========================
+     ESCAPE HTML
+  ========================== */
+
+  function escapeHtml(
+    value
+  ){
+
+    const div =
+      document.createElement(
+        "div"
+      );
+
+    div.textContent =
+      String(
+        value ?? ""
+      );
+
+    return div.innerHTML;
+
+  }
+
+
+  /* =========================
+     INITIAL LOAD
+  ========================== */
+
+  loadPosts();
+
+
+  /* =========================
+     OPEN POST FROM URL
+     ?post=DOCUMENT_ID
+  ========================== */
+
+  async function openPostFromUrl(){
+
+    const params =
+      new URLSearchParams(
+        window.location.search
+      );
+
+
+    const postId =
+      params.get("post");
+
+
+    if(!postId)
+      return;
+
+
+    const post =
+      allPosts.find(
+        item =>
+          item.id === postId
+      );
+
+
+    if(post){
+
+      openPost(post);
+
+      return;
+
+    }
 
 
     try{
 
+      const snap =
+        await getDoc(
+          doc(
+            db,
+            "posts",
+            postId
+          )
+        );
+
+
       if(
-        navigator.share
+        snap.exists()
       ){
 
-        await navigator.share({
+        openPost({
 
-          title:
-            currentPost.title ||
-            "Qalb-e-Deen",
+          id:
+            snap.id,
 
-          text:
-            currentPost.content
-              ? String(
-                  currentPost.content
-                ).substring(
-                  0,
-                  150
-                )
-              : "Qalb-e-Deen",
-
-          url:
-            url
+          ...snap.data()
 
         });
-
-      }else{
-
-        await navigator.clipboard.writeText(
-          url
-        );
-
-        showToast(
-          "Post link copied."
-        );
 
       }
 
     }catch(error){
 
       console.log(
-        "Share cancelled:",
+        "URL post error:",
         error
       );
 
     }
 
   }
-);
-
-
-/* =====================================================
-   QUICK ACCESS
-===================================================== */
-
-document
-  .getElementById("postsCard")
-  .addEventListener(
-    "click",
-    () => {
-
-      document
-        .getElementById(
-          "postsSection"
-        )
-        .scrollIntoView({
-          behavior:"smooth"
-        });
-
-    }
-  );
-
-
-document
-  .getElementById("quranCard")
-  .addEventListener(
-    "click",
-    () => {
-
-      showToast(
-        "Quran reader will be connected next."
-      );
-
-    }
-  );
-
-
-document
-  .getElementById("hadithCard")
-  .addEventListener(
-    "click",
-    () => {
-
-      showToast(
-        "Today's Hadith will be connected next."
-      );
-
-    }
-  );
-
-
-/* =====================================================
-   DATE
-===================================================== */
-
-function formatDate(timestamp){
-
-  if(!timestamp){
-
-    return "Recently";
-
-  }
-
-
-  try{
-
-    if(
-      typeof timestamp.toDate ===
-      "function"
-    ){
-
-      return timestamp
-        .toDate()
-        .toLocaleDateString(
-          "en-GB",
-          {
-            day:"2-digit",
-            month:"short",
-            year:"numeric"
-          }
-        );
-
-    }
-
-  }catch(error){
-
-    console.log(error);
-
-  }
-
-
-  return "Recently";
-
-}
-
-
-/* =====================================================
-   TIMESTAMP
-===================================================== */
-
-function getTimestampMillis(
-  timestamp
-){
-
-  try{
-
-    if(
-      timestamp &&
-      typeof timestamp.toMillis ===
-      "function"
-    ){
-
-      return timestamp.toMillis();
-
-    }
-
-
-    if(
-      timestamp &&
-      typeof timestamp.toDate ===
-      "function"
-    ){
-
-      return timestamp
-        .toDate()
-        .getTime();
-
-    }
-
-  }catch(error){
-
-    console.log(error);
-
-  }
-
-
-  return 0;
-
-}
-
-
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
-
-function escapeHTML(value){
-
-  return String(value)
-
-    .replaceAll(
-      "&",
-      "&amp;"
-    )
-
-    .replaceAll(
-      "<",
-      "&lt;"
-    )
-
-    .replaceAll(
-      ">",
-      "&gt;"
-    )
-
-    .replaceAll(
-      '"',
-      "&quot;"
-    )
-
-    .replaceAll(
-      "'",
-      "&#039;"
-    );
-
-}
-
-
-function escapeAttribute(value){
-
-  return escapeHTML(
-    value
-  );
-
-}
-
-
-/* =====================================================
-   TOAST
-===================================================== */
-
-function showToast(text){
-
-  const toast =
-    document.getElementById(
-      "toast"
-    );
-
-
-  toast.textContent =
-    text;
-
-
-  toast.classList.add(
-    "show"
-  );
 
 
   setTimeout(
-    () => {
-
-      toast.classList.remove(
-        "show"
-      );
-
-    },
-    2500
+    openPostFromUrl,
+    1200
   );
-
-}
-
-
-/* =====================================================
-   START
-===================================================== */
-
-loadPosts();
 
 </script>
 
