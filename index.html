@@ -32,14 +32,12 @@
         "Hind Siliguri",
         Arial,
         sans-serif;
-
       background:#f4f8f6;
       color:#17352b;
       line-height:1.6;
     }
 
-    button,
-    input{
+    button,input{
       font:inherit;
     }
 
@@ -48,37 +46,20 @@
       color:inherit;
     }
 
-    /* =========================
-       HEADER
-    ========================== */
-
     header{
       position:sticky;
       top:0;
       z-index:1000;
-
-      background:
-        linear-gradient(
-          135deg,
-          #063b2b,
-          #07563e
-        );
-
+      background:linear-gradient(135deg,#063b2b,#07563e);
       color:white;
-
-      box-shadow:
-        0 4px 20px rgba(0,0,0,.12);
+      box-shadow:0 4px 20px rgba(0,0,0,.12);
     }
 
     .nav{
       max-width:1200px;
       margin:auto;
-
       min-height:68px;
-
-      padding:
-        10px 18px;
-
+      padding:10px 18px;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -95,16 +76,12 @@
     .brand-logo{
       width:44px;
       height:44px;
-
       border-radius:50%;
-
       display:flex;
       align-items:center;
       justify-content:center;
-
       background:rgba(255,255,255,.12);
       border:1px solid rgba(255,255,255,.18);
-
       font-size:22px;
       flex-shrink:0;
     }
@@ -145,14 +122,11 @@
       border:1px solid rgba(255,255,255,.2);
       background:rgba(255,255,255,.1);
       color:white;
-
       padding:8px 13px;
       border-radius:10px;
-
       cursor:pointer;
       font-size:13px;
       font-weight:600;
-
       transition:.2s;
     }
 
@@ -160,9 +134,7 @@
       background:rgba(255,255,255,.18);
     }
 
-    /* =========================
-       HERO
-    ========================== */
+    /* HERO */
 
     .hero{
       background:
@@ -171,16 +143,9 @@
           rgba(66,153,112,.35),
           transparent 35%
         ),
-        linear-gradient(
-          135deg,
-          #063b2b,
-          #0b6248
-        );
-
+        linear-gradient(135deg,#063b2b,#0b6248);
       color:white;
-
       padding:60px 18px 70px;
-
       text-align:center;
     }
 
@@ -191,14 +156,10 @@
 
     .hero-badge{
       display:inline-block;
-
       padding:7px 14px;
-
       border-radius:30px;
-
       background:rgba(255,255,255,.1);
       border:1px solid rgba(255,255,255,.15);
-
       font-size:12px;
       margin-bottom:18px;
     }
@@ -217,7 +178,6 @@
     .hero p{
       max-width:650px;
       margin:0 auto 25px;
-
       opacity:.88;
       font-size:15px;
     }
@@ -225,41 +185,30 @@
     .search-box{
       max-width:650px;
       margin:auto;
-
       position:relative;
     }
 
     .search-box input{
       width:100%;
-
       padding:15px 50px 15px 18px;
-
       border:none;
       outline:none;
-
       border-radius:15px;
-
       background:white;
       color:#17352b;
-
-      box-shadow:
-        0 10px 30px rgba(0,0,0,.15);
+      box-shadow:0 10px 30px rgba(0,0,0,.15);
     }
 
     .search-icon{
       position:absolute;
       right:17px;
       top:50%;
-
       transform:translateY(-50%);
-
       color:#0a6549;
       font-size:20px;
     }
 
-    /* =========================
-       MAIN
-    ========================== */
+    /* MAIN */
 
     main{
       max-width:1200px;
@@ -276,7 +225,6 @@
       align-items:end;
       justify-content:space-between;
       gap:10px;
-
       margin-bottom:18px;
     }
 
@@ -290,61 +238,40 @@
       font-size:13px;
     }
 
-    /* =========================
-       QUICK ACCESS
-    ========================== */
+    /* QUICK ACCESS */
 
     .quick-grid{
       display:grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
+      grid-template-columns:repeat(4,1fr);
       gap:15px;
     }
 
     .quick-card{
       position:relative;
       overflow:hidden;
-
       background:white;
-
       border:1px solid #e1ebe6;
       border-radius:18px;
-
       padding:22px;
-
       cursor:pointer;
-
-      box-shadow:
-        0 7px 25px rgba(16,57,42,.06);
-
-      transition:
-        transform .2s,
-        box-shadow .2s;
+      box-shadow:0 7px 25px rgba(16,57,42,.06);
+      transition:transform .2s,box-shadow .2s;
     }
 
     .quick-card:hover{
       transform:translateY(-4px);
-
-      box-shadow:
-        0 12px 30px rgba(16,57,42,.12);
+      box-shadow:0 12px 30px rgba(16,57,42,.12);
     }
 
     .quick-icon{
       width:48px;
       height:48px;
-
       border-radius:14px;
-
       display:flex;
       align-items:center;
       justify-content:center;
-
       background:#e7f5ee;
-
       font-size:25px;
-
       margin-bottom:15px;
     }
 
@@ -359,46 +286,27 @@
       font-size:13px;
     }
 
-    /* =========================
-       PRAYER PREVIEW
-    ========================== */
+    /* PRAYER */
 
     .prayer-preview{
       margin-top:20px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #063b2b,
-          #0a6047
-        );
-
+      background:linear-gradient(135deg,#063b2b,#0a6047);
       color:white;
-
       border-radius:22px;
-
       padding:22px;
-
-      box-shadow:
-        0 12px 35px rgba(4,61,43,.18);
-
+      box-shadow:0 12px 35px rgba(4,61,43,.18);
       position:relative;
       overflow:hidden;
     }
 
     .prayer-preview::after{
       content:"";
-
       position:absolute;
-
       width:180px;
       height:180px;
-
       border-radius:50%;
-
       right:-70px;
       top:-70px;
-
       background:rgba(255,255,255,.06);
     }
 
@@ -407,7 +315,6 @@
       align-items:center;
       justify-content:space-between;
       gap:15px;
-
       position:relative;
       z-index:1;
     }
@@ -423,55 +330,45 @@
     }
 
     .countdown{
-      font-size:18px;
-      font-weight:700;
+      font-size:20px;
+      font-weight:800;
       margin-top:3px;
+      letter-spacing:1px;
     }
 
     .prayer-link{
       border:1px solid rgba(255,255,255,.2);
-
       background:rgba(255,255,255,.1);
-
       color:white;
-
       padding:9px 14px;
-
       border-radius:11px;
-
       cursor:pointer;
-
       font-size:12px;
       font-weight:700;
-
       position:relative;
       z-index:2;
     }
 
+    .prayer-link:hover{
+      background:rgba(255,255,255,.18);
+    }
+
     .prayer-times-mini{
       display:grid;
-
-      grid-template-columns:
-        repeat(5,1fr);
-
+      grid-template-columns:repeat(5,1fr);
       gap:8px;
-
       margin-top:18px;
-
       position:relative;
       z-index:1;
     }
 
     .mini-prayer{
       background:rgba(255,255,255,.09);
-
       border:1px solid rgba(255,255,255,.08);
-
       border-radius:12px;
-
       padding:10px;
-
       text-align:center;
+      transition:.2s;
     }
 
     .mini-prayer-name{
@@ -486,53 +383,38 @@
     }
 
     .mini-prayer.active{
-      background:rgba(255,255,255,.2);
-      border-color:rgba(255,255,255,.3);
+      background:rgba(255,255,255,.23);
+      border-color:rgba(255,255,255,.4);
+      transform:translateY(-2px);
     }
 
-    /* =========================
-       POSTS
-    ========================== */
+    /* POSTS */
 
     .posts-grid{
       display:grid;
-
-      grid-template-columns:
-        repeat(3,1fr);
-
+      grid-template-columns:repeat(3,1fr);
       gap:18px;
     }
 
     .post-card{
       background:white;
-
       border:1px solid #e2ebe7;
-
       border-radius:18px;
-
       overflow:hidden;
-
-      box-shadow:
-        0 7px 25px rgba(16,57,42,.06);
-
+      box-shadow:0 7px 25px rgba(16,57,42,.06);
       cursor:pointer;
-
       transition:.2s;
     }
 
     .post-card:hover{
       transform:translateY(-3px);
-
-      box-shadow:
-        0 12px 30px rgba(16,57,42,.12);
+      box-shadow:0 12px 30px rgba(16,57,42,.12);
     }
 
     .post-image{
       width:100%;
       height:190px;
-
       object-fit:cover;
-
       background:#e9f1ed;
     }
 
@@ -542,35 +424,26 @@
 
     .post-category{
       display:inline-block;
-
       padding:4px 9px;
-
       background:#e8f5ef;
       color:#08704e;
-
       border-radius:20px;
-
       font-size:10px;
       font-weight:700;
-
       margin-bottom:9px;
     }
 
     .post-title{
       color:#123a2d;
-
       font-size:18px;
       font-weight:800;
-
       line-height:1.4;
-
       margin-bottom:7px;
     }
 
     .post-excerpt{
       color:#6f7d77;
       font-size:13px;
-
       display:-webkit-box;
       -webkit-line-clamp:3;
       -webkit-box-orient:vertical;
@@ -580,51 +453,35 @@
     .post-meta{
       display:flex;
       justify-content:space-between;
-
       color:#89958f;
-
       font-size:11px;
-
       margin-top:14px;
     }
 
     .loading{
       text-align:center;
       padding:40px 15px;
-
       color:#738079;
     }
 
     .empty{
       background:white;
-
       border:1px dashed #ccdcd4;
-
       border-radius:16px;
-
       padding:35px 15px;
-
       text-align:center;
-
       color:#78867f;
     }
 
-    /* =========================
-       MODAL
-    ========================== */
+    /* MODAL */
 
     .modal{
       display:none;
-
       position:fixed;
       inset:0;
-
       z-index:2000;
-
       background:rgba(0,0,0,.68);
-
       padding:20px;
-
       overflow:auto;
     }
 
@@ -635,15 +492,10 @@
     .modal-box{
       max-width:850px;
       margin:30px auto;
-
       background:white;
-
       border-radius:22px;
-
       overflow:hidden;
-
-      box-shadow:
-        0 25px 80px rgba(0,0,0,.3);
+      box-shadow:0 25px 80px rgba(0,0,0,.3);
     }
 
     .modal-header{
@@ -653,30 +505,21 @@
     .modal-image{
       width:100%;
       max-height:400px;
-
       object-fit:cover;
-
       background:#e9f1ed;
     }
 
     .close-btn{
       position:absolute;
-
       right:15px;
       top:15px;
-
       width:40px;
       height:40px;
-
       border:none;
       border-radius:50%;
-
       background:rgba(0,0,0,.5);
-
       color:white;
-
       font-size:22px;
-
       cursor:pointer;
     }
 
@@ -692,66 +535,48 @@
 
     .modal-title{
       color:#063b2b;
-
       font-size:30px;
-
       line-height:1.3;
-
       margin:7px 0 10px;
     }
 
     .modal-meta{
       display:flex;
       gap:15px;
-
       flex-wrap:wrap;
-
       color:#7b8781;
-
       font-size:12px;
-
       margin-bottom:20px;
     }
 
     .post-body{
       color:#31443c;
       font-size:15px;
-
       white-space:pre-wrap;
     }
 
     .action-row{
       display:flex;
       gap:9px;
-
       margin-top:22px;
     }
 
     .action-btn{
       border:none;
-
       background:#e9f5ef;
       color:#075d43;
-
       padding:9px 14px;
-
       border-radius:10px;
-
       cursor:pointer;
-
       font-size:13px;
       font-weight:700;
     }
 
-    /* =========================
-       COMMENTS
-    ========================== */
+    /* COMMENTS */
 
     .comments-section{
       margin-top:35px;
-
       border-top:1px solid #e5ece8;
-
       padding-top:25px;
     }
 
@@ -763,39 +588,33 @@
     .comment-form{
       display:flex;
       gap:8px;
-
       margin-bottom:20px;
     }
 
     .comment-form input{
       flex:1;
-
       border:1px solid #dce7e1;
       outline:none;
-
       padding:11px 13px;
-
       border-radius:10px;
+    }
+
+    .comment-form input:focus{
+      border-color:#0a6549;
     }
 
     .comment-form button{
       border:none;
-
       background:#07563e;
       color:white;
-
       border-radius:10px;
-
       padding:10px 15px;
-
       cursor:pointer;
-
       font-weight:700;
     }
 
     .comment{
       padding:13px 0;
-
       border-bottom:1px solid #edf1ef;
     }
 
@@ -827,56 +646,36 @@
       margin-top:5px;
     }
 
-    /* =========================
-       TOAST
-    ========================== */
+    /* TOAST */
 
     .toast{
       position:fixed;
-
       left:50%;
       bottom:25px;
-
-      transform:
-        translate(-50%,120px);
-
+      transform:translate(-50%,120px);
       background:#063b2b;
       color:white;
-
       padding:12px 18px;
-
       border-radius:12px;
-
       font-size:13px;
-
       z-index:5000;
-
       opacity:0;
-
       transition:.3s;
-
       max-width:90%;
-
       text-align:center;
     }
 
     .toast.show{
       opacity:1;
-
-      transform:
-        translate(-50%,0);
+      transform:translate(-50%,0);
     }
 
-    /* =========================
-       FOOTER
-    ========================== */
+    /* FOOTER */
 
     footer{
       background:#052d21;
       color:white;
-
       padding:35px 18px;
-
       text-align:center;
     }
 
@@ -891,20 +690,16 @@
       margin-top:5px;
     }
 
-    /* =========================
-       RESPONSIVE
-    ========================== */
+    /* RESPONSIVE */
 
     @media(max-width:900px){
 
       .quick-grid{
-        grid-template-columns:
-          repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
       }
 
       .posts-grid{
-        grid-template-columns:
-          repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
       }
     }
 
@@ -942,14 +737,11 @@
       }
 
       main{
-        padding:
-          28px 13px 50px;
+        padding:28px 13px 50px;
       }
 
       .quick-grid{
-        grid-template-columns:
-          repeat(2,1fr);
-
+        grid-template-columns:repeat(2,1fr);
         gap:10px;
       }
 
@@ -986,13 +778,11 @@
       }
 
       .countdown{
-        font-size:15px;
+        font-size:16px;
       }
 
       .prayer-times-mini{
-        grid-template-columns:
-          repeat(5,1fr);
-
+        grid-template-columns:repeat(5,1fr);
         gap:4px;
       }
 
@@ -1046,9 +836,7 @@
 
 <body>
 
-<!-- =========================
-     HEADER
-========================== -->
+<!-- HEADER -->
 
 <header>
 
@@ -1094,9 +882,7 @@
 </header>
 
 
-<!-- =========================
-     HERO
-========================== -->
+<!-- HERO -->
 
 <section class="hero">
 
@@ -1135,12 +921,9 @@
 </section>
 
 
-<!-- =========================
-     MAIN
-========================== -->
+<!-- MAIN -->
 
 <main>
-
 
   <!-- QUICK ACCESS -->
 
@@ -1157,9 +940,6 @@
 
 
     <div class="quick-grid">
-
-
-      <!-- QURAN -->
 
       <div
         class="quick-card"
@@ -1180,8 +960,6 @@
       </div>
 
 
-      <!-- HADITH -->
-
       <div
         class="quick-card"
         id="hadithCard">
@@ -1201,8 +979,6 @@
       </div>
 
 
-      <!-- PRAYER -->
-
       <div
         class="quick-card"
         id="prayerCard">
@@ -1221,8 +997,6 @@
 
       </div>
 
-
-      <!-- POSTS -->
 
       <div
         class="quick-card"
@@ -1245,7 +1019,7 @@
     </div>
 
 
-    <!-- PRAYER LIVE PREVIEW -->
+    <!-- LIVE PRAYER PREVIEW -->
 
     <div class="prayer-preview">
 
@@ -1260,13 +1034,13 @@
           <div
             class="next-prayer"
             id="nextPrayer">
-            Loading...
+            সময় লোড হচ্ছে...
           </div>
 
           <div
             class="countdown"
             id="prayerCountdown">
-            --
+            00:00:00
           </div>
 
         </div>
@@ -1325,6 +1099,7 @@
     <div class="section-title">
 
       <div>
+
         <h2>
           ইসলামিক পোস্ট
         </h2>
@@ -1332,6 +1107,7 @@
         <p>
           জ্ঞান ও আমলের জন্য উপকারী পোস্ট
         </p>
+
       </div>
 
     </div>
@@ -1352,9 +1128,7 @@
 </main>
 
 
-<!-- =========================
-     POST MODAL
-========================== -->
+<!-- POST MODAL -->
 
 <div
   class="modal"
@@ -1424,8 +1198,7 @@
         </h3>
 
 
-        <div
-          class="comment-form">
+        <div class="comment-form">
 
           <input
             id="commentInput"
@@ -1434,17 +1207,14 @@
             maxlength="500"
           >
 
-          <button
-            id="commentBtn">
+          <button id="commentBtn">
             Comment
           </button>
 
         </div>
 
 
-        <div
-          id="commentsList">
-        </div>
+        <div id="commentsList"></div>
 
       </div>
 
@@ -1455,9 +1225,7 @@
 </div>
 
 
-<!-- =========================
-     TOAST
-========================== -->
+<!-- TOAST -->
 
 <div
   id="toast"
@@ -1465,9 +1233,7 @@
 </div>
 
 
-<!-- =========================
-     FOOTER
-========================== -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -1482,9 +1248,7 @@
 </footer>
 
 
-<!-- =========================
-     FIREBASE
-========================== -->
+<!-- FIREBASE + APP SCRIPT -->
 
 <script type="module">
 
@@ -1515,20 +1279,19 @@
     addDoc,
     updateDoc,
     increment,
-    serverTimestamp,
-    runTransaction
+    serverTimestamp
   } from
   "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-  /* =========================
-     FIREBASE CONFIG
-  ========================== */
+  /* =================================
+     YOUR CURRENT FIREBASE CONFIG
+  ================================= */
 
   const firebaseConfig = {
 
     apiKey:
-      "PASTE_YOUR_FIREBASE_API_KEY",
+      "AIzaSyC4sRpUYVLURCkbAbfvUccL5n71Dveiik4",
 
     authDomain:
       "qalb-e-deen-b765a.firebaseapp.com",
@@ -1560,9 +1323,9 @@
     getFirestore(app);
 
 
-  /* =========================
+  /* =================================
      GLOBAL
-  ========================== */
+  ================================= */
 
   let currentUser = null;
 
@@ -1570,10 +1333,14 @@
 
   let selectedPost = null;
 
+  let prayerData = null;
 
-  /* =========================
+  let nextPrayer = null;
+
+
+  /* =================================
      ELEMENTS
-  ========================== */
+  ================================= */
 
   const authBtn =
     document.getElementById("authBtn");
@@ -1624,14 +1391,13 @@
     document.getElementById("toast");
 
 
-  /* =========================
+  /* =================================
      TOAST
-  ========================== */
+  ================================= */
 
   function showToast(message){
 
-    toast.textContent =
-      message;
+    toast.textContent = message;
 
     toast.classList.add("show");
 
@@ -1644,22 +1410,22 @@
   }
 
 
-  /* =========================
+  /* =================================
      AUTH
-  ========================== */
+  ================================= */
 
   onAuthStateChanged(
     auth,
     async user => {
 
-      currentUser =
-        user || null;
+      currentUser = user || null;
 
 
       if(user){
 
         authBtn.textContent =
           "Logout";
+
 
         try{
 
@@ -1670,6 +1436,7 @@
               user.uid
             );
 
+
           const userSnap =
             await getDoc(userRef);
 
@@ -1678,6 +1445,7 @@
 
             const data =
               userSnap.data();
+
 
             userName.textContent =
               data.name ||
@@ -1705,8 +1473,7 @@
         authBtn.textContent =
           "Login";
 
-        userName.textContent =
-          "";
+        userName.textContent = "";
 
       }
 
@@ -1747,9 +1514,9 @@
   );
 
 
-  /* =========================
+  /* =================================
      LOAD POSTS
-  ========================== */
+  ================================= */
 
   async function loadPosts(){
 
@@ -1773,23 +1540,21 @@
 
 
       const snapshot =
-        await getDocs(
-          postsQuery
-        );
+        await getDocs(postsQuery);
 
 
       allPosts = [];
 
 
       snapshot.forEach(
-        documentSnapshot => {
+        snap => {
 
           allPosts.push({
 
             id:
-              documentSnapshot.id,
+              snap.id,
 
-            ...documentSnapshot.data()
+            ...snap.data()
 
           });
 
@@ -1797,9 +1562,7 @@
       );
 
 
-      renderPosts(
-        allPosts
-      );
+      renderPosts(allPosts);
 
 
     }catch(error){
@@ -1821,9 +1584,9 @@
   }
 
 
-  /* =========================
+  /* =================================
      RENDER POSTS
-  ========================== */
+  ================================= */
 
   function renderPosts(posts){
 
@@ -1839,16 +1602,13 @@
     }
 
 
-    postsGrid.innerHTML =
-      "";
+    postsGrid.innerHTML = "";
 
 
     posts.forEach(post => {
 
       const card =
-        document.createElement(
-          "div"
-        );
+        document.createElement("div");
 
 
       card.className =
@@ -1884,9 +1644,7 @@
 
 
       const views =
-        Number(
-          post.views || 0
-        );
+        Number(post.views || 0);
 
 
       card.innerHTML = `
@@ -1912,7 +1670,6 @@
             🕌
           </div>`
         }
-
 
         <div class="post-content">
 
@@ -1957,9 +1714,9 @@
   }
 
 
-  /* =========================
+  /* =================================
      SEARCH
-  ========================== */
+  ================================= */
 
   searchInput.addEventListener(
     "input",
@@ -1973,9 +1730,7 @@
 
       if(!keyword){
 
-        renderPosts(
-          allPosts
-        );
+        renderPosts(allPosts);
 
         return;
 
@@ -1983,56 +1738,51 @@
 
 
       const filtered =
-        allPosts.filter(
-          post => {
+        allPosts.filter(post => {
 
-            const title =
-              String(
-                post.title || ""
-              ).toLowerCase();
-
-
-            const content =
-              String(
-                post.content ||
-                post.body ||
-                ""
-              ).toLowerCase();
+          const title =
+            String(
+              post.title || ""
+            ).toLowerCase();
 
 
-            const category =
-              String(
-                post.category ||
-                ""
-              ).toLowerCase();
+          const content =
+            String(
+              post.content ||
+              post.body ||
+              ""
+            ).toLowerCase();
 
 
-            return (
-              title.includes(keyword) ||
-              content.includes(keyword) ||
-              category.includes(keyword)
-            );
-
-          }
-        );
+          const category =
+            String(
+              post.category ||
+              ""
+            ).toLowerCase();
 
 
-      renderPosts(
-        filtered
-      );
+          return (
+            title.includes(keyword) ||
+            content.includes(keyword) ||
+            category.includes(keyword)
+          );
+
+        });
+
+
+      renderPosts(filtered);
 
     }
   );
 
 
-  /* =========================
+  /* =================================
      OPEN POST
-  ========================== */
+  ================================= */
 
   async function openPost(post){
 
-    selectedPost =
-      post;
+    selectedPost = post;
 
 
     const image =
@@ -2058,20 +1808,16 @@
 
 
     const views =
-      Number(
-        post.views || 0
-      ) + 1;
+      Number(post.views || 0) + 1;
 
 
-    modalMeta.innerHTML = `
-      <span>👁️ ${views} views</span>
-    `;
+    modalMeta.innerHTML =
+      `<span>👁️ ${views} views</span>`;
 
 
     if(image){
 
-      modalImage.src =
-        image;
+      modalImage.src = image;
 
       modalImage.style.display =
         "block";
@@ -2084,23 +1830,14 @@
     }
 
 
-    postModal.classList.add(
-      "show"
-    );
-
+    postModal.classList.add("show");
 
     document.body.style.overflow =
       "hidden";
 
 
-    loadComments(
-      post.id
-    );
+    loadComments(post.id);
 
-
-    /*
-      Increase views safely
-    */
 
     try{
 
@@ -2117,8 +1854,7 @@
       );
 
 
-      post.views =
-        views;
+      post.views = views;
 
     }catch(error){
 
@@ -2132,21 +1868,17 @@
   }
 
 
-  /* =========================
+  /* =================================
      CLOSE MODAL
-  ========================== */
+  ================================= */
 
   function closePostModal(){
 
-    postModal.classList.remove(
-      "show"
-    );
+    postModal.classList.remove("show");
 
-    document.body.style.overflow =
-      "";
+    document.body.style.overflow = "";
 
-    selectedPost =
-      null;
+    selectedPost = null;
 
   }
 
@@ -2162,8 +1894,7 @@
     event => {
 
       if(
-        event.target ===
-        postModal
+        event.target === postModal
       ){
 
         closePostModal();
@@ -2174,16 +1905,15 @@
   );
 
 
-  /* =========================
+  /* =================================
      SHARE
-  ========================== */
+  ================================= */
 
   shareBtn.addEventListener(
     "click",
     async () => {
 
-      if(!selectedPost)
-        return;
+      if(!selectedPost) return;
 
 
       const shareData = {
@@ -2207,9 +1937,7 @@
 
       try{
 
-        if(
-          navigator.share
-        ){
+        if(navigator.share){
 
           await navigator.share(
             shareData
@@ -2239,13 +1967,11 @@
   );
 
 
-  /* =========================
+  /* =================================
      COMMENTS
-  ========================== */
+  ================================= */
 
-  async function loadComments(
-    postId
-  ){
+  async function loadComments(postId){
 
     commentsList.innerHTML =
       `<div class="loading">
@@ -2278,58 +2004,45 @@
       const comments = [];
 
 
-      snapshot.forEach(
-        snap => {
+      snapshot.forEach(snap => {
 
-          const data =
-            snap.data();
+        const data =
+          snap.data();
 
 
-          /*
-            Only approved comments
-            are displayed.
-          */
+        if(
+          data.approved === true ||
+          data.approved === undefined
+        ){
 
-          if(
-            data.approved === true ||
-            data.approved === undefined
-          ){
+          comments.push({
 
-            comments.push({
+            id:
+              snap.id,
 
-              id:
-                snap.id,
+            ...data
 
-              ...data
-
-            });
-
-          }
+          });
 
         }
-      );
+
+      });
 
 
-      comments.sort(
-        (a,b) => {
+      comments.sort((a,b) => {
 
-          const aTime =
-            a.createdAt?.seconds ||
-            0;
+        const aTime =
+          a.createdAt?.seconds || 0;
 
-          const bTime =
-            b.createdAt?.seconds ||
-            0;
+        const bTime =
+          b.createdAt?.seconds || 0;
 
-          return aTime - bTime;
+        return aTime - bTime;
 
-        }
-      );
+      });
 
 
-      renderComments(
-        comments
-      );
+      renderComments(comments);
 
 
     }catch(error){
@@ -2350,9 +2063,7 @@
   }
 
 
-  function renderComments(
-    comments
-  ){
+  function renderComments(comments){
 
     if(!comments.length){
 
@@ -2366,51 +2077,44 @@
     }
 
 
-    commentsList.innerHTML =
-      "";
+    commentsList.innerHTML = "";
 
 
     const parents =
       comments.filter(
-        c =>
-          !c.parentId
+        c => !c.parentId
       );
 
 
-    parents.forEach(
-      parent => {
+    parents.forEach(parent => {
+
+      commentsList.appendChild(
+        createCommentElement(
+          parent,
+          false
+        )
+      );
+
+
+      const replies =
+        comments.filter(
+          c =>
+            c.parentId === parent.id
+        );
+
+
+      replies.forEach(reply => {
 
         commentsList.appendChild(
           createCommentElement(
-            parent,
-            false
+            reply,
+            true
           )
         );
 
+      });
 
-        const replies =
-          comments.filter(
-            c =>
-              c.parentId ===
-              parent.id
-          );
-
-
-        replies.forEach(
-          reply => {
-
-            commentsList.appendChild(
-              createCommentElement(
-                reply,
-                true
-              )
-            );
-
-          }
-        );
-
-      }
-    );
+    });
 
   }
 
@@ -2421,9 +2125,7 @@
   ){
 
     const div =
-      document.createElement(
-        "div"
-      );
+      document.createElement("div");
 
 
     div.className =
@@ -2457,8 +2159,7 @@
       ${
         !isReply
         ?
-        `<button
-          class="reply-btn">
+        `<button class="reply-btn">
           Reply
         </button>`
         :
@@ -2494,9 +2195,7 @@
           commentInput.focus();
 
           commentInput.value =
-            "@" +
-            name +
-            " ";
+            "@" + name + " ";
 
         }
       );
@@ -2509,9 +2208,9 @@
   }
 
 
-  /* =========================
+  /* =================================
      ADD COMMENT
-  ========================== */
+  ================================= */
 
   commentBtn.addEventListener(
     "click",
@@ -2528,11 +2227,7 @@
       }
 
 
-      if(!selectedPost){
-
-        return;
-
-      }
+      if(!selectedPost) return;
 
 
       const text =
@@ -2550,8 +2245,7 @@
       }
 
 
-      commentBtn.disabled =
-        true;
+      commentBtn.disabled = true;
 
 
       try{
@@ -2618,8 +2312,7 @@
         );
 
 
-        commentInput.value =
-          "";
+        commentInput.value = "";
 
 
         showToast(
@@ -2634,9 +2327,7 @@
 
       }catch(error){
 
-        console.error(
-          error
-        );
+        console.error(error);
 
 
         showToast(
@@ -2647,30 +2338,21 @@
       }
 
 
-      commentBtn.disabled =
-        false;
+      commentBtn.disabled = false;
 
     }
   );
 
 
-  /* =========================
+  /* =================================
      QUICK ACCESS
-  ========================== */
+  ================================= */
 
   document
-    .getElementById(
-      "quranCard"
-    )
+    .getElementById("quranCard")
     .addEventListener(
       "click",
       () => {
-
-        /*
-          Quran PDF Library
-          Firebase Storage feature
-          আপাতত paused.
-        */
 
         showToast(
           "Quran Reader section will be connected next."
@@ -2681,9 +2363,7 @@
 
 
   document
-    .getElementById(
-      "hadithCard"
-    )
+    .getElementById("hadithCard")
     .addEventListener(
       "click",
       () => {
@@ -2697,17 +2377,13 @@
 
 
   document
-    .getElementById(
-      "postsCard"
-    )
+    .getElementById("postsCard")
     .addEventListener(
       "click",
       () => {
 
         document
-          .getElementById(
-            "postsSection"
-          )
+          .getElementById("postsSection")
           .scrollIntoView({
             behavior:"smooth"
           });
@@ -2717,9 +2393,7 @@
 
 
   document
-    .getElementById(
-      "prayerCard"
-    )
+    .getElementById("prayerCard")
     .addEventListener(
       "click",
       () => {
@@ -2732,9 +2406,7 @@
 
 
   document
-    .getElementById(
-      "openPrayerPage"
-    )
+    .getElementById("openPrayerPage")
     .addEventListener(
       "click",
       () => {
@@ -2746,10 +2418,10 @@
     );
 
 
-  /* =========================
-     PRAYER TIMES API
-     Dhaka / Bangladesh
-  ========================== */
+  /* =================================
+     PRAYER TIMES
+     DHAKA, BANGLADESH
+  ================================= */
 
   const prayerNames = [
     "Fajr",
@@ -2761,96 +2433,30 @@
 
 
   const prayerBangla = {
-    Fajr:"ফজর",
-    Dhuhr:"যোহর",
-    Asr:"আসর",
-    Maghrib:"মাগরিব",
-    Isha:"এশা"
+
+    Fajr:
+      "ফজর",
+
+    Dhuhr:
+      "যোহর",
+
+    Asr:
+      "আসর",
+
+    Maghrib:
+      "মাগরিব",
+
+    Isha:
+      "এশা"
+
   };
 
 
-  let prayerData =
-    null;
+  /* =================================
+     FORMAT TIME
+  ================================= */
 
-
-  async function loadPrayerPreview(){
-
-    try{
-
-      const url =
-        "https://api.aladhan.com/v1/timingsByCity" +
-        "?city=Dhaka" +
-        "&country=Bangladesh" +
-        "&method=1" +
-        "&school=1";
-
-
-      const response =
-        await fetch(url);
-
-
-      if(!response.ok){
-
-        throw new Error(
-          "Prayer API failed"
-        );
-
-      }
-
-
-      const result =
-        await response.json();
-
-
-      if(
-        result.code !== 200 ||
-        !result.data
-      ){
-
-        throw new Error(
-          "Invalid prayer data"
-        );
-
-      }
-
-
-      prayerData =
-        result.data.timings;
-
-
-      updateMiniPrayerTimes();
-
-
-      updateNextPrayer();
-
-
-    }catch(error){
-
-      console.error(
-        "Prayer API:",
-        error
-      );
-
-
-      document.getElementById(
-        "nextPrayer"
-      ).textContent =
-        "সময় পাওয়া যাচ্ছে না";
-
-
-      document.getElementById(
-        "prayerCountdown"
-      ).textContent =
-        "সম্পূর্ণ সময়সূচির জন্য দেখুন →";
-
-    }
-
-  }
-
-
-  function convertTo12Hour(
-    time
-  ){
+  function convertTo12Hour(time){
 
     if(!time)
       return "--:--";
@@ -2893,78 +2499,26 @@
   }
 
 
-  function updateMiniPrayerTimes(){
-
-    const container =
-      document.getElementById(
-        "miniPrayerTimes"
-      );
-
-
-    container.innerHTML =
-      "";
-
-
-    prayerNames.forEach(
-      name => {
-
-        const div =
-          document.createElement(
-            "div"
-          );
-
-
-        div.className =
-          "mini-prayer";
-
-
-        div.dataset.prayer =
-          name;
-
-
-        div.innerHTML = `
-
-          <div class="mini-prayer-name">
-            ${prayerBangla[name]}
-          </div>
-
-          <div class="mini-prayer-time">
-            ${convertTo12Hour(
-              prayerData[name]
-            )}
-          </div>
-
-        `;
-
-
-        container.appendChild(
-          div
-        );
-
-      }
-    );
-
-  }
-
+  /* =================================
+     PRAYER DATE
+  ================================= */
 
   function getPrayerDate(
     timeString,
-    addDay = false
+    tomorrow = false
   ){
 
-    const now =
-      new Date();
+    const clean =
+      timeString
+        .split(" ")[0];
 
 
     const parts =
-      timeString
-        .split(":");
+      clean.split(":");
 
 
     const date =
-      new Date(
-        now
-      );
+      new Date();
 
 
     date.setHours(
@@ -2975,7 +2529,7 @@
     );
 
 
-    if(addDay){
+    if(tomorrow){
 
       date.setDate(
         date.getDate() + 1
@@ -2989,7 +2543,165 @@
   }
 
 
-  function updateNextPrayer(){
+  /* =================================
+     LOAD PRAYER API
+  ================================= */
+
+  async function loadPrayerPreview(){
+
+    try{
+
+      const today =
+        new Date();
+
+
+      const day =
+        String(
+          today.getDate()
+        ).padStart(2,"0");
+
+
+      const month =
+        String(
+          today.getMonth()+1
+        ).padStart(2,"0");
+
+
+      const year =
+        today.getFullYear();
+
+
+      const date =
+        `${day}-${month}-${year}`;
+
+
+      const url =
+        `https://api.aladhan.com/v1/timingsByCity/${date}` +
+        `?city=Dhaka` +
+        `&country=Bangladesh` +
+        `&method=1` +
+        `&school=1`;
+
+
+      const response =
+        await fetch(url);
+
+
+      if(!response.ok){
+
+        throw new Error(
+          "Prayer API request failed"
+        );
+
+      }
+
+
+      const result =
+        await response.json();
+
+
+      if(
+        result.code !== 200 ||
+        !result.data ||
+        !result.data.timings
+      ){
+
+        throw new Error(
+          "Invalid prayer data"
+        );
+
+      }
+
+
+      prayerData =
+        result.data.timings;
+
+
+      updateMiniPrayerTimes();
+
+      findNextPrayer();
+
+
+    }catch(error){
+
+      console.error(
+        "Prayer API Error:",
+        error
+      );
+
+
+      document.getElementById(
+        "nextPrayer"
+      ).textContent =
+        "সময় পাওয়া যাচ্ছে না";
+
+
+      document.getElementById(
+        "prayerCountdown"
+      ).textContent =
+        "আবার চেষ্টা করুন";
+
+    }
+
+  }
+
+
+  /* =================================
+     MINI PRAYER TIMES
+  ================================= */
+
+  function updateMiniPrayerTimes(){
+
+    const container =
+      document.getElementById(
+        "miniPrayerTimes"
+      );
+
+
+    container.innerHTML = "";
+
+
+    prayerNames.forEach(name => {
+
+      const div =
+        document.createElement("div");
+
+
+      div.className =
+        "mini-prayer";
+
+
+      div.dataset.prayer =
+        name;
+
+
+      div.innerHTML = `
+
+        <div class="mini-prayer-name">
+          ${prayerBangla[name]}
+        </div>
+
+        <div class="mini-prayer-time">
+          ${convertTo12Hour(
+            prayerData[name]
+          )}
+        </div>
+
+      `;
+
+
+      container.appendChild(div);
+
+    });
+
+  }
+
+
+  /* =================================
+     FIND NEXT PRAYER
+  ================================= */
+
+  function findNextPrayer(){
 
     if(!prayerData)
       return;
@@ -2999,12 +2711,16 @@
       new Date();
 
 
-    let next = null;
+    let found = null;
 
 
     for(
       const name of prayerNames
     ){
+
+      if(!prayerData[name])
+        continue;
+
 
       const prayerDate =
         getPrayerDate(
@@ -3016,13 +2732,16 @@
         prayerDate > now
       ){
 
-        next = {
+        found = {
 
           name:
             name,
 
           date:
-            prayerDate
+            prayerDate,
+
+          tomorrow:
+            false
 
         };
 
@@ -3034,13 +2753,13 @@
 
 
     /*
-      After Isha:
-      Tomorrow's Fajr
+      যদি আজকের সব নামাজ শেষ হয়ে যায়,
+      তাহলে আগামীকালের ফজর হবে next prayer.
     */
 
-    if(!next){
+    if(!found){
 
-      next = {
+      found = {
 
         name:
           "Fajr",
@@ -3049,36 +2768,54 @@
           getPrayerDate(
             prayerData.Fajr,
             true
-          )
+          ),
+
+        tomorrow:
+          true
 
       };
 
     }
 
 
+    nextPrayer =
+      found;
+
+
     document.getElementById(
       "nextPrayer"
     ).textContent =
       "পরবর্তী: " +
-      prayerBangla[next.name];
+      prayerBangla[
+        found.name
+      ];
 
 
-    updateCountdown(
-      next
-    );
+    highlightNextPrayer();
 
+    updatePrayerCountdown();
+
+  }
+
+
+  /* =================================
+     HIGHLIGHT NEXT PRAYER
+  ================================= */
+
+  function highlightNextPrayer(){
 
     document
       .querySelectorAll(
         ".mini-prayer"
       )
       .forEach(
-        element => {
+        card => {
 
-          element.classList.toggle(
+          card.classList.toggle(
             "active",
-            element.dataset.prayer ===
-            next.name
+            nextPrayer &&
+            card.dataset.prayer ===
+            nextPrayer.name
           );
 
         }
@@ -3087,24 +2824,28 @@
   }
 
 
-  function updateCountdown(
-    next
-  ){
+  /* =================================
+     LIVE COUNTDOWN
+  ================================= */
+
+  function updatePrayerCountdown(){
+
+    if(!nextPrayer)
+      return;
+
 
     const now =
       new Date();
 
 
-    let difference =
-      next.date.getTime() -
+    const difference =
+      nextPrayer.date.getTime() -
       now.getTime();
 
 
-    if(
-      difference <= 0
-    ){
+    if(difference <= 0){
 
-      updateNextPrayer();
+      loadPrayerPreview();
 
       return;
 
@@ -3125,8 +2866,7 @@
 
     const minutes =
       Math.floor(
-        (totalSeconds % 3600) /
-        60
+        (totalSeconds % 3600) / 60
       );
 
 
@@ -3137,77 +2877,74 @@
     document.getElementById(
       "prayerCountdown"
     ).textContent =
-      String(hours).padStart(2,"0") +
+
+      String(hours)
+        .padStart(2,"0") +
+
       ":" +
-      String(minutes).padStart(2,"0") +
+
+      String(minutes)
+        .padStart(2,"0") +
+
       ":" +
-      String(seconds).padStart(2,"0");
+
+      String(seconds)
+        .padStart(2,"0");
 
   }
 
 
-  /*
-    Refresh prayer preview
-    every 60 seconds.
-  */
-
-  loadPrayerPreview();
-
-
-  setInterval(
-    () => {
-
-      updateNextPrayer();
-
-    },
-    1000
-  );
-
-
-  setInterval(
-    () => {
-
-      loadPrayerPreview();
-
-    },
-    60000
-  );
-
-
-  /* =========================
+  /* =================================
      ESCAPE HTML
-  ========================== */
+  ================================= */
 
-  function escapeHtml(
-    value
-  ){
+  function escapeHtml(value){
 
     const div =
-      document.createElement(
-        "div"
-      );
+      document.createElement("div");
+
 
     div.textContent =
-      String(
-        value ?? ""
-      );
+      String(value ?? "");
+
 
     return div.innerHTML;
 
   }
 
 
-  /* =========================
+  /* =================================
      INITIAL LOAD
-  ========================== */
+  ================================= */
 
   loadPosts();
 
+  loadPrayerPreview();
 
-  /* =========================
-     OPEN POST FROM URL
-     ?post=DOCUMENT_ID
-  ========================== */
+
+  /*
+    Countdown প্রতি ১ সেকেন্ডে update
+  */
+
+  setInterval(
+    updatePrayerCountdown,
+    1000
+  );
+
+
+  /*
+    Prayer API প্রতি ৩০ মিনিটে refresh
+  */
+
+  setInterval(
+    loadPrayerPreview,
+    30 * 60 * 1000
+  );
+
+
+  /* =================================
+     OPEN POST FROM SHARED URL
+  ================================= */
 
   async function openPostFromUrl(){
 
@@ -3253,9 +2990,7 @@
         );
 
 
-      if(
-        snap.exists()
-      ){
+      if(snap.exists()){
 
         openPost({
 
@@ -3280,9 +3015,14 @@
   }
 
 
+  /*
+    Firebase posts load হওয়ার একটু পরে
+    shared post open হবে.
+  */
+
   setTimeout(
     openPostFromUrl,
-    1200
+    1500
   );
 
 </script>
