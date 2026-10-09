@@ -671,10 +671,6 @@
         <h2>📚 কোরআন লাইব্রেরি</h2>
       </div>
       <div class="card">
-        <p>
-          আপনার আপলোড করা আল-কোরআনের Arabic & English PDF এখন
-          কোরআন লাইব্রেরি থেকে খোলা, পড়া ও ডাউনলোড করা যাবে।
-        </p>
         <a class="btn btn-green" href="./quran.html">📖 কোরআন লাইব্রেরি খুলুন</a>
         <a class="btn btn-white" href="./Quranpdfhub-Arabic-English-Text-Quran.pdf" target="_blank" rel="noopener">↗ PDF সরাসরি খুলুন</a>
       </div>
@@ -860,19 +856,19 @@
       try {
         const snapshot = await db.collection("hadiths").get();
 
-        if (snapshot.empty) {
-          allHadiths = [];
+        allHadiths = snapshot.docs
+          .map(doc => ({ id: doc.id, ...doc.data() }))
+          // Inactive records should not appear in the rotating homepage hadith.
+          // Older records without an active field remain available.
+          .filter(hadith => hadith.active !== false);
+
+        if (allHadiths.length === 0) {
           stopHadithRotation();
           $("hadithStatus").textContent =
-            "এখনো কোনো হাদিস যোগ করা হয়নি। Admin Panel থেকে হাদিস যোগ করুন।";
+            "এখনো কোনো সক্রিয় হাদিস নেই। Admin Panel থেকে অন্তত ২টি হাদিস যোগ করে Active করুন।";
           $("hadithContent").hidden = true;
           return;
         }
-
-        allHadiths = snapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
 
         allHadiths.sort((a, b) => {
           const aDate = a.createdAt?.toMillis
