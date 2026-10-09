@@ -8,63 +8,84 @@
 <title>Admin Panel | Qalb-e-Deen</title>
 
 <style>
-:root{
-  --bg:#f3f6f4;--card:#fff;--green:#123d2d;--green2:#1b6246;
-  --gold:#c9a45c;--text:#20342b;--muted:#6d7d74;
-  --border:#dce6df;--red:#b42318;--blue:#2459a9;
+:root {
+  --bg:#f3f6f4;
+  --card:#fff;
+  --green:#123d2d;
+  --green2:#1b6246;
+  --gold:#c9a45c;
+  --text:#20342b;
+  --muted:#6d7d74;
+  --border:#dce6df;
+  --red:#b42318;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);
-  font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif
+}
 header{background:var(--green);color:white;padding:20px 16px}
-.header-inner{max-width:1150px;margin:auto;display:flex;
-  justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.header-inner{
+  max-width:1150px;margin:auto;display:flex;
+  justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap
+}
 header h1{margin:0;font-size:22px}
 header p{margin:5px 0 0;color:#d8e7dc;font-size:13px}
 .container{max-width:1150px;margin:22px auto;padding:0 14px 40px}
 .hidden{display:none!important}
-.card{background:var(--card);border:1px solid var(--border);
+.card{
+  background:var(--card);border:1px solid var(--border);
   border-radius:15px;padding:18px;margin-bottom:18px;
-  box-shadow:0 3px 12px #142d1b08}
+  box-shadow:0 3px 12px #142d1b08
+}
 h2{font-size:19px;margin:0 0 14px}
-h3{font-size:16px;margin:0 0 12px}
 label{display:block;font-size:13px;font-weight:650;margin:12px 0 6px}
-input,textarea,select{width:100%;padding:12px;border:1px solid #ccd8cf;
-  border-radius:9px;background:#fff;font:inherit;color:var(--text)}
+input,textarea,select{
+  width:100%;padding:12px;border:1px solid #ccd8cf;
+  border-radius:9px;background:#fff;font:inherit;color:var(--text)
+}
 textarea{min-height:110px;resize:vertical}
-button,.button{border:0;border-radius:9px;padding:11px 15px;
-  background:var(--green2);color:white;font-weight:650;cursor:pointer;
-  font:inherit;font-size:14px;text-decoration:none;display:inline-block}
-button:hover,.button:hover{opacity:.9}
+button,.button{
+  border:0;border-radius:9px;padding:11px 15px;
+  background:var(--green2);color:white;font-weight:650;
+  cursor:pointer;font:inherit;font-size:14px;
+  text-decoration:none;display:inline-block
+}
 button:disabled{opacity:.55;cursor:not-allowed}
 .btn-secondary{background:#e7eee9;color:var(--green)}
 .btn-danger{background:#b42318;color:white}
 .btn-gold{background:#a47b2d;color:white}
 .btn-small{padding:7px 10px;font-size:12px;margin:3px 2px}
 .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.notice{padding:12px 14px;border-radius:10px;margin:12px 0;
-  background:#edf4ef;border:1px solid var(--border);font-size:14px;
-  overflow-wrap:anywhere}
+.notice{
+  padding:12px 14px;border-radius:10px;margin:12px 0;
+  background:#edf4ef;border:1px solid var(--border);
+  font-size:14px;overflow-wrap:anywhere
+}
 .notice.error{background:#fff0ee;color:#8e2017;border-color:#f2c5bf}
 .notice.success{background:#e9f7ed;color:#17603a}
 .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.stat{background:#fff;border:1px solid var(--border);padding:17px;
-  border-radius:13px;min-width:0}
+.stat{background:#fff;border:1px solid var(--border);padding:17px;border-radius:13px}
 .stat span{display:block;font-size:13px;color:var(--muted)}
 .stat strong{display:block;font-size:29px;margin-top:5px;color:var(--green)}
 .tabs{display:flex;gap:8px;overflow-x:auto;margin:20px 0}
 .tabs button{white-space:nowrap;flex-shrink:0}
 .tabs button.active{background:var(--gold);color:#fff}
+.tab-panel{min-width:0}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.item{border:1px solid var(--border);border-radius:11px;padding:13px;
-  margin:10px 0;overflow-wrap:anywhere}
+.item{
+  border:1px solid var(--border);border-radius:11px;
+  padding:13px;margin:10px 0;overflow-wrap:anywhere
+}
 .item p{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px}
-.item small{color:var(--muted)}
-.item img{max-width:120px;max-height:90px;object-fit:cover;border-radius:8px}
-.status{font-size:13px;color:var(--muted);margin:8px 0}
+.item small,.status{color:var(--muted);font-size:13px}
 footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
-@media(max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-.two-col{grid-template-columns:1fr}.container{margin-top:14px}.card{padding:14px}}
+@media(max-width:760px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .two-col{grid-template-columns:1fr}
+  .container{margin-top:14px}
+  .card{padding:14px}
+}
 </style>
 </head>
 
@@ -80,19 +101,19 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 </header>
 
 <main class="container">
-
   <div id="globalMessage" class="notice hidden" role="status"></div>
 
-  <!-- LOGIN -->
   <section id="loginSection" class="card">
     <h2>Admin Login</h2>
-    <p>শুধু অনুমোদিত অ্যাডমিন অ্যাকাউন্ট দিয়ে লগইন করো।</p>
+    <p>অনুমোদিত অ্যাডমিন অ্যাকাউন্ট দিয়ে লগইন করো।</p>
     <form id="loginForm">
       <label for="loginEmail">Email</label>
       <input id="loginEmail" type="email" autocomplete="username" required>
+
       <label for="loginPassword">Password</label>
       <input id="loginPassword" type="password"
         autocomplete="current-password" required>
+
       <div class="actions">
         <button id="loginBtn" type="submit">Login to Dashboard</button>
       </div>
@@ -100,21 +121,19 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
     <div id="loginMessage" class="notice hidden"></div>
   </section>
 
-  <!-- ADMIN APP -->
   <section id="adminApp" class="hidden">
-
     <div class="card">
       <h2>Dashboard Overview</h2>
       <div id="adminIdentity" class="status">Admin যাচাই করা হচ্ছে…</div>
+
       <div class="grid">
         <div class="stat"><span>মোট পোস্ট</span><strong id="postsCount">—</strong></div>
         <div class="stat"><span>মোট কমেন্ট</span><strong id="commentsCount">—</strong></div>
         <div class="stat"><span>Quran PDF Records</span><strong id="pdfCount">—</strong></div>
         <div class="stat"><span>মোট হাদিস</span><strong id="hadithCount">—</strong></div>
       </div>
-      <div id="dashboardStatus" class="status">
-        Dashboard-এর তথ্য লোড হচ্ছে…
-      </div>
+
+      <p id="dashboardStatus" class="status">Dashboard লোড হচ্ছে…</p>
       <button id="refreshDashboard" class="btn-secondary">Refresh Dashboard</button>
     </div>
 
@@ -133,24 +152,19 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
           <input id="postId" type="hidden">
 
           <label for="postTitle">পোস্টের শিরোনাম *</label>
-          <input id="postTitle" required maxlength="250"
-            placeholder="পোস্টের শিরোনাম লিখুন">
+          <input id="postTitle" required maxlength="250">
 
           <label for="postCategory">বিভাগ</label>
-          <input id="postCategory" maxlength="100"
-            placeholder="যেমন: ইসলামিক জ্ঞান, কোরআন, হাদিস">
+          <input id="postCategory" maxlength="100" placeholder="ইসলামিক জ্ঞান, কোরআন, হাদিস">
 
-          <label for="postImage">ছবির URL (ঐচ্ছিক)</label>
-          <input id="postImage" type="url"
-            placeholder="https://example.com/image.jpg">
+          <label for="postImage">ছবির URL</label>
+          <input id="postImage" type="url" placeholder="https://example.com/image.jpg">
 
           <label for="postExcerpt">সংক্ষিপ্ত বিবরণ</label>
-          <textarea id="postExcerpt" rows="3"
-            placeholder="পোস্টের সংক্ষিপ্ত পরিচিতি"></textarea>
+          <textarea id="postExcerpt" rows="3"></textarea>
 
-          <label for="postContent">পোস্টের সম্পূর্ণ লেখা *</label>
-          <textarea id="postContent" required
-            placeholder="এখানে পোস্টের লেখা লিখুন"></textarea>
+          <label for="postContent">সম্পূর্ণ পোস্ট *</label>
+          <textarea id="postContent" required></textarea>
 
           <div class="actions">
             <button id="savePostBtn" type="submit">Publish Post</button>
@@ -162,9 +176,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 
       <div class="card">
         <h2>প্রকাশিত পোস্ট</h2>
-        <div class="actions">
-          <button id="reloadPosts" class="btn-secondary">Reload Posts</button>
-        </div>
+        <button id="reloadPosts" class="btn-secondary">Reload Posts</button>
         <div id="postsList" class="status">পোস্ট লোড হচ্ছে…</div>
       </div>
     </section>
@@ -173,7 +185,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
     <section id="commentsPanel" class="tab-panel hidden">
       <div class="card">
         <h2>Comment Moderation</h2>
-        <p>এখানে Firestore-এর <code>comments</code> collection-এর কমেন্ট দেখা ও মুছে ফেলা যাবে।</p>
+        <p>কমেন্ট দেখা ও মুছে ফেলার ব্যবস্থা।</p>
         <button id="reloadComments" class="btn-secondary">Reload Comments</button>
         <div id="commentsList" class="status">কমেন্ট লোড হচ্ছে…</div>
       </div>
@@ -183,20 +195,20 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
     <section id="pdfPanel" class="tab-panel hidden">
       <div class="card">
         <h2>Quran PDF Library</h2>
-        <p>এই অংশে PDF-এর নাম ও URL সংরক্ষণ করা হয়। এটি সরাসরি PDF ফাইল Firebase Storage-এ আপলোড করে না।</p>
+        <p>এখানে PDF-এর নাম ও URL সংরক্ষণ হবে। সরাসরি ফাইল আপলোডের জন্য Storage প্রয়োজন।</p>
+
         <form id="pdfForm">
           <input id="pdfId" type="hidden">
-          <label for="pdfTitle">PDF-এর নাম *</label>
-          <input id="pdfTitle" required maxlength="200"
-            placeholder="যেমন: পবিত্র কোরআন">
 
-          <label for="pdfUrl">PDF-এর URL *</label>
+          <label for="pdfTitle">PDF-এর নাম *</label>
+          <input id="pdfTitle" required maxlength="200">
+
+          <label for="pdfUrl">PDF URL *</label>
           <input id="pdfUrl" type="url" required
             placeholder="https://... অথবা repository-র relative path">
 
           <label for="pdfLanguage">ভাষা / বিবরণ</label>
-          <input id="pdfLanguage" maxlength="100"
-            placeholder="যেমন: Arabic-English">
+          <input id="pdfLanguage" maxlength="100" placeholder="Arabic-English">
 
           <div class="actions">
             <button id="savePdfBtn" type="submit">Save PDF Record</button>
@@ -204,10 +216,9 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
               class="btn-secondary hidden">Cancel Edit</button>
           </div>
         </form>
+
         <div class="notice">
-          GitHub repository-তে PDF থাকলে relative path হিসেবে, উদাহরণ:
-          <code>Quranpdfhub-Arabic-English-Text-Quran.pdf</code>
-          ব্যবহার করতে পারো। ফাইলের নাম ও path অবশ্যই মিলতে হবে।
+          GitHub repository-তে থাকা PDF-এর ফাইলনাম ও path সঠিকভাবে দিতে হবে।
         </div>
       </div>
 
@@ -222,54 +233,46 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
     <section id="hadithPanel" class="tab-panel hidden">
       <div class="card">
         <h2 id="hadithFormTitle">নতুন হাদিস যোগ করুন</h2>
+
         <form id="hadithForm">
           <input id="hadithId" type="hidden">
 
           <label for="hadithTitle">শিরোনাম</label>
-          <input id="hadithTitle" maxlength="200"
-            placeholder="হাদিসের শিরোনাম">
+          <input id="hadithTitle" maxlength="200">
 
           <label for="hadithArabic">আরবি *</label>
-          <textarea id="hadithArabic" required
-            placeholder="আরবি হাদিস লিখুন"></textarea>
+          <textarea id="hadithArabic" required></textarea>
 
           <label for="hadithTransliteration">বাংলা উচ্চারণ</label>
-          <textarea id="hadithTransliteration"
-            placeholder="বাংলা উচ্চারণ লিখুন"></textarea>
+          <textarea id="hadithTransliteration"></textarea>
 
           <label for="hadithEnglishPronunciation">English Pronunciation</label>
-          <textarea id="hadithEnglishPronunciation"
-            placeholder="English transliteration (optional)"></textarea>
+          <textarea id="hadithEnglishPronunciation"></textarea>
 
           <label for="hadithTranslation">বাংলা অনুবাদ *</label>
-          <textarea id="hadithTranslation" required
-            placeholder="হাদিসের বাংলা অনুবাদ"></textarea>
+          <textarea id="hadithTranslation" required></textarea>
 
           <label for="hadithExplanation">ব্যাখ্যা</label>
-          <textarea id="hadithExplanation"
-            placeholder="হাদিসের ব্যাখ্যা লিখুন"></textarea>
+          <textarea id="hadithExplanation"></textarea>
 
           <label for="hadithLesson">শিক্ষা / করণীয়</label>
-          <textarea id="hadithLesson"
-            placeholder="এই হাদিস থেকে কী শিক্ষা পাওয়া যায়"></textarea>
+          <textarea id="hadithLesson"></textarea>
 
           <div class="two-col">
             <div>
-              <label for="hadithSource">সূত্র / গ্রন্থের নাম</label>
-              <input id="hadithSource" maxlength="200"
-                placeholder="যেমন: সহিহ বুখারি">
+              <label for="hadithSource">সূত্র / গ্রন্থ</label>
+              <input id="hadithSource" maxlength="200">
             </div>
             <div>
               <label for="hadithNumber">হাদিস নম্বর</label>
-              <input id="hadithNumber" maxlength="100"
-                placeholder="হাদিস নম্বর">
+              <input id="hadithNumber" maxlength="100">
             </div>
           </div>
 
           <label for="hadithActive">প্রদর্শনের অবস্থা</label>
           <select id="hadithActive">
-            <option value="true">সক্রিয় — ব্যবহারকারীরা দেখতে পারবেন</option>
-            <option value="false">নিষ্ক্রিয় — লুকানো থাকবে</option>
+            <option value="true">সক্রিয়</option>
+            <option value="false">নিষ্ক্রিয়</option>
           </select>
 
           <div class="actions">
@@ -286,7 +289,6 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
         <div id="hadithList" class="status">হাদিস লোড হচ্ছে…</div>
       </div>
     </section>
-
   </section>
 </main>
 
@@ -305,9 +307,9 @@ import {
   updateDoc, deleteDoc, serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-/* CURRENT QALB-E-DEEN FIREBASE PROJECT */
+/* FIREBASE CONFIG — তোমার পাঠানো configuration */
 const firebaseConfig = {
-  apiKey: "AIzaSyC4sRpUYVLURCkbAbfvUcc5Ln71Dveiik4",
+  apiKey: "AIzaSyC4sRpUYVLURCkbAbfvUccL5n71Dveiik4",
   authDomain: "qalb-e-deen-b765a.firebaseapp.com",
   projectId: "qalb-e-deen-b765a",
   storageBucket: "qalb-e-deen-b765a.firebasestorage.app",
@@ -320,18 +322,17 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 /*
-  IMPORTANT:
-  তোমার বর্তমান Firestore admin document:
-  user/{ADMIN_UID}
-  তাই এখানে "user" singular রাখা হয়েছে।
-  যদি Firestore Rules-এ "users" লেখা থাকে, Rules-এও একই
-  collection name ব্যবহার নিশ্চিত করতে হবে।
-*/
+  তোমার Admin document:
+  user/{UID}
+  Fields: email, name, role: admin
 
+  যদি Firestore Rules-এ users (plural) থাকে,
+  collection নাম মিলিয়ে নিতে হবে।
+*/
 const ADMIN_COLLECTION = "user";
 
-let isAdmin = false;
 let currentUser = null;
+let isAdmin = false;
 
 const $ = id => document.getElementById(id);
 
@@ -340,13 +341,13 @@ function showMessage(message, type = "") {
   box.textContent = message;
   box.className = "notice" + (type ? " " + type : "");
   box.classList.remove("hidden");
-  window.scrollTo({top: 0, behavior: "smooth"});
+  window.scrollTo({top:0,behavior:"smooth"});
 }
 
 function showLoginMessage(message, isError = true) {
   const box = $("loginMessage");
   box.textContent = message;
-  box.className = "notice" + (isError ? " error" : " success");
+  box.className = "notice " + (isError ? "error" : "success");
   box.classList.remove("hidden");
 }
 
@@ -354,8 +355,11 @@ function errorText(error) {
   const code = error?.code || "";
   const message = error?.message || String(error);
 
+  if (code.includes("api-key-not-valid")) {
+    return "Firebase API Key সঠিক নয়। Firebase Console থেকে আসল apiKey কপি করো।";
+  }
   if (code.includes("permission-denied")) {
-    return "Permission denied: Firestore Rules-এ admin permission পরীক্ষা করো।";
+    return "Permission denied: Firestore Rules পরীক্ষা করো।";
   }
   if (code.includes("unauthenticated")) {
     return "লগইন সেশন শেষ হয়েছে। আবার লগইন করো।";
@@ -368,8 +372,8 @@ function errorText(error) {
 
 function escapeHtml(value = "") {
   return String(value).replace(/[&<>"']/g, char => ({
-    "&":"&amp;", "<":"&lt;", ">":"&gt;",
-    '"':"&quot;", "'":"&#39;"
+    "&":"&amp;","<":"&lt;",">":"&gt;",
+    '"':"&quot;","'":"&#39;"
   })[char]);
 }
 
@@ -378,8 +382,7 @@ function formatDate(value) {
   try {
     const date = value.toDate ? value.toDate() : new Date(value);
     return Number.isNaN(date.getTime())
-      ? "তারিখ নেই"
-      : date.toLocaleString("bn-BD");
+      ? "তারিখ নেই" : date.toLocaleString("bn-BD");
   } catch {
     return "তারিখ নেই";
   }
@@ -394,13 +397,10 @@ function requireAdmin() {
 async function getCollectionDocs(name) {
   requireAdmin();
   const snapshot = await getDocs(collection(db, name));
-  return snapshot.docs.map(item => ({
-    id: item.id,
-    ...item.data()
-  }));
+  return snapshot.docs.map(item => ({id:item.id,...item.data()}));
 }
 
-/* AUTHENTICATION */
+/* LOGIN */
 $("loginForm").addEventListener("submit", async event => {
   event.preventDefault();
   $("loginBtn").disabled = true;
@@ -420,9 +420,7 @@ $("loginForm").addEventListener("submit", async event => {
   }
 });
 
-$("logoutBtn").addEventListener("click", async () => {
-  await signOut(auth);
-});
+$("logoutBtn").addEventListener("click", () => signOut(auth));
 
 onAuthStateChanged(auth, async user => {
   currentUser = user;
@@ -440,16 +438,15 @@ onAuthStateChanged(auth, async user => {
   $("loginSection").classList.add("hidden");
   $("adminApp").classList.remove("hidden");
   $("logoutBtn").classList.remove("hidden");
-  $("adminIdentity").textContent = "অ্যাডমিন অনুমতি যাচাই করা হচ্ছে…";
+  $("adminIdentity").textContent = "Admin যাচাই করা হচ্ছে…";
 
   try {
-    const adminRef = doc(db, ADMIN_COLLECTION, user.uid);
-    const adminSnap = await getDoc(adminRef);
+    const adminSnap = await getDoc(doc(db, ADMIN_COLLECTION, user.uid));
 
     if (!adminSnap.exists() || adminSnap.data().role !== "admin") {
       throw new Error(
-        "এই অ্যাকাউন্ট অ্যাডমিন নয়। Firestore-এ user/" +
-        user.uid + " ডকুমেন্টের role: admin আছে কি না পরীক্ষা করো।"
+        "অ্যাডমিন ডকুমেন্ট পাওয়া যায়নি। Firestore-এ user/" +
+        user.uid + " ডকুমেন্টের role: admin পরীক্ষা করো।"
       );
     }
 
@@ -469,28 +466,26 @@ onAuthStateChanged(auth, async user => {
   }
 });
 
-/* DASHBOARD: EACH COLLECTION LOADS INDEPENDENTLY */
+/* DASHBOARD — independent collection reads */
 async function loadDashboard() {
   requireAdmin();
-  const status = $("dashboardStatus");
-  status.textContent = "সংখ্যাগুলো লোড হচ্ছে…";
+  $("dashboardStatus").textContent = "সংখ্যাগুলো লোড হচ্ছে…";
 
   const jobs = [
-    ["posts", "postsCount"],
-    ["comments", "commentsCount"],
-    ["quranPDFs", "pdfCount"],
-    ["hadiths", "hadithCount"]
+    ["posts","postsCount"],
+    ["comments","commentsCount"],
+    ["quranPDFs","pdfCount"],
+    ["hadiths","hadithCount"]
   ];
 
   const results = await Promise.allSettled(
-    jobs.map(([name]) => getDocs(collection(db, name)))
+    jobs.map(([name]) => getDocs(collection(db,name)))
   );
 
   const problems = [];
 
-  results.forEach((result, index) => {
-    const [name, countId] = jobs[index];
-
+  results.forEach((result,index) => {
+    const [name,countId] = jobs[index];
     if (result.status === "fulfilled") {
       $(countId).textContent = result.value.size;
     } else {
@@ -499,28 +494,24 @@ async function loadDashboard() {
     }
   });
 
-  status.textContent = problems.length
+  $("dashboardStatus").textContent = problems.length
     ? "কিছু collection পড়া যায়নি — " + problems.join(" | ")
     : "Dashboard সফলভাবে আপডেট হয়েছে।";
 }
 
 $("refreshDashboard").addEventListener("click", async () => {
-  try {
-    await loadDashboard();
-  } catch (error) {
-    showMessage(errorText(error), "error");
-  }
+  try { await loadDashboard(); }
+  catch (error) { showMessage(errorText(error),"error"); }
 });
 
-/* TABS */
+/* NAVIGATION */
 document.querySelectorAll("[data-tab]").forEach(button => {
   button.addEventListener("click", async () => {
     document.querySelectorAll("[data-tab]").forEach(item =>
-      item.classList.toggle("active", item === button)
+      item.classList.toggle("active",item === button)
     );
-
     document.querySelectorAll(".tab-panel").forEach(panel =>
-      panel.classList.toggle("hidden", panel.id !== button.dataset.tab)
+      panel.classList.toggle("hidden",panel.id !== button.dataset.tab)
     );
 
     try {
@@ -529,7 +520,7 @@ document.querySelectorAll("[data-tab]").forEach(button => {
       if (button.dataset.tab === "pdfPanel") await loadPdfs();
       if (button.dataset.tab === "hadithPanel") await loadHadiths();
     } catch (error) {
-      showMessage(errorText(error), "error");
+      showMessage(errorText(error),"error");
     }
   });
 });
@@ -543,21 +534,21 @@ function resetPostForm() {
   $("cancelPostEdit").classList.add("hidden");
 }
 
-$("cancelPostEdit").addEventListener("click", resetPostForm);
+$("cancelPostEdit").addEventListener("click",resetPostForm);
 
-$("postForm").addEventListener("submit", async event => {
+$("postForm").addEventListener("submit",async event => {
   event.preventDefault();
+
   try {
     requireAdmin();
-
     const id = $("postId").value;
     const payload = {
-      title: $("postTitle").value.trim(),
-      category: $("postCategory").value.trim(),
-      image: $("postImage").value.trim(),
-      excerpt: $("postExcerpt").value.trim(),
-      content: $("postContent").value.trim(),
-      updatedAt: serverTimestamp()
+      title:$("postTitle").value.trim(),
+      category:$("postCategory").value.trim(),
+      image:$("postImage").value.trim(),
+      excerpt:$("postExcerpt").value.trim(),
+      content:$("postContent").value.trim(),
+      updatedAt:serverTimestamp()
     };
 
     if (!payload.title || !payload.content) {
@@ -567,19 +558,19 @@ $("postForm").addEventListener("submit", async event => {
     $("savePostBtn").disabled = true;
 
     if (id) {
-      await updateDoc(doc(db, "posts", id), payload);
-      showMessage("পোস্ট আপডেট হয়েছে।", "success");
+      await updateDoc(doc(db,"posts",id),payload);
+      showMessage("পোস্ট আপডেট হয়েছে।","success");
     } else {
       payload.createdAt = serverTimestamp();
       payload.views = 0;
-      await addDoc(collection(db, "posts"), payload);
-      showMessage("নতুন পোস্ট প্রকাশ হয়েছে।", "success");
+      await addDoc(collection(db,"posts"),payload);
+      showMessage("নতুন পোস্ট প্রকাশ হয়েছে।","success");
     }
 
     resetPostForm();
-    await Promise.all([loadPosts(), loadDashboard()]);
+    await Promise.all([loadPosts(),loadDashboard()]);
   } catch (error) {
-    showMessage("পোস্ট সংরক্ষণ করা যায়নি: " + errorText(error), "error");
+    showMessage("পোস্ট সংরক্ষণ করা যায়নি: "+errorText(error),"error");
   } finally {
     $("savePostBtn").disabled = false;
   }
@@ -592,11 +583,7 @@ async function loadPosts() {
 
   try {
     const items = await getCollectionDocs("posts");
-    items.sort((a, b) => {
-      const ta = a.createdAt?.seconds || 0;
-      const tb = b.createdAt?.seconds || 0;
-      return tb - ta;
-    });
+    items.sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0));
 
     if (!items.length) {
       box.textContent = "এখনো কোনো পোস্ট নেই।";
@@ -606,28 +593,26 @@ async function loadPosts() {
     box.innerHTML = items.map(item => `
       <article class="item">
         <strong>${escapeHtml(item.title || "শিরোনাম নেই")}</strong>
-        <p>${escapeHtml(item.excerpt || item.content || "").slice(0, 350)}</p>
+        <p>${escapeHtml(item.excerpt || item.content || "").slice(0,350)}</p>
         <small>বিভাগ: ${escapeHtml(item.category || "নির্ধারিত নয়")}
-          · Views: ${Number(item.views) || 0}
+          · Views: ${Number(item.views)||0}
           · ${escapeHtml(formatDate(item.createdAt))}</small>
         <div class="actions">
           <button class="btn-small" data-edit-post="${escapeHtml(item.id)}">Edit</button>
           <button class="btn-small btn-danger" data-delete-post="${escapeHtml(item.id)}">Delete</button>
         </div>
-      </article>
-    `).join("");
+      </article>`).join("");
 
     box.querySelectorAll("[data-edit-post]").forEach(button => {
-      button.addEventListener("click", () => {
-        const item = items.find(x => x.id === button.dataset.editPost);
+      button.addEventListener("click",() => {
+        const item = items.find(x=>x.id===button.dataset.editPost);
         if (!item) return;
-
         $("postId").value = item.id;
-        $("postTitle").value = item.title || "";
-        $("postCategory").value = item.category || "";
-        $("postImage").value = item.image || "";
-        $("postExcerpt").value = item.excerpt || "";
-        $("postContent").value = item.content || "";
+        $("postTitle").value = item.title||"";
+        $("postCategory").value = item.category||"";
+        $("postImage").value = item.image||"";
+        $("postExcerpt").value = item.excerpt||"";
+        $("postContent").value = item.content||"";
         $("postFormTitle").textContent = "পোস্ট সম্পাদনা";
         $("savePostBtn").textContent = "Update Post";
         $("cancelPostEdit").classList.remove("hidden");
@@ -636,24 +621,23 @@ async function loadPosts() {
     });
 
     box.querySelectorAll("[data-delete-post]").forEach(button => {
-      button.addEventListener("click", async () => {
+      button.addEventListener("click",async () => {
         if (!confirm("এই পোস্টটি স্থায়ীভাবে মুছে ফেলবে?")) return;
         try {
           requireAdmin();
-          await deleteDoc(doc(db, "posts", button.dataset.deletePost));
-          showMessage("পোস্ট মুছে ফেলা হয়েছে।", "success");
-          await Promise.all([loadPosts(), loadDashboard()]);
+          await deleteDoc(doc(db,"posts",button.dataset.deletePost));
+          showMessage("পোস্ট মুছে ফেলা হয়েছে।","success");
+          await Promise.all([loadPosts(),loadDashboard()]);
         } catch (error) {
-          showMessage("পোস্ট মুছতে সমস্যা: " + errorText(error), "error");
+          showMessage("পোস্ট মুছতে সমস্যা: "+errorText(error),"error");
         }
       });
     });
   } catch (error) {
-    box.textContent = "পোস্ট লোড করা যায়নি: " + errorText(error);
+    box.textContent = "পোস্ট লোড করা যায়নি: "+errorText(error);
   }
 }
-
-$("reloadPosts").addEventListener("click", loadPosts);
+$("reloadPosts").addEventListener("click",loadPosts);
 
 /* COMMENTS */
 async function loadComments() {
@@ -663,9 +647,7 @@ async function loadComments() {
 
   try {
     const items = await getCollectionDocs("comments");
-    items.sort((a, b) =>
-      (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0)
-    );
+    items.sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0));
 
     if (!items.length) {
       box.textContent = "কোনো কমেন্ট পাওয়া যায়নি।";
@@ -674,58 +656,54 @@ async function loadComments() {
 
     box.innerHTML = items.map(item => `
       <article class="item">
-        <strong>${escapeHtml(item.name || item.userName || item.email || "ব্যবহারকারী")}</strong>
-        <p>${escapeHtml(item.text || item.comment || item.content || item.message || "কমেন্টের লেখা পাওয়া যায়নি")}</p>
-        <small>Post ID: ${escapeHtml(item.postId || "উল্লেখ নেই")}
+        <strong>${escapeHtml(item.name||item.userName||item.email||"ব্যবহারকারী")}</strong>
+        <p>${escapeHtml(item.text||item.comment||item.content||item.message||"কমেন্টের লেখা নেই")}</p>
+        <small>Post ID: ${escapeHtml(item.postId||"উল্লেখ নেই")}
           · ${escapeHtml(formatDate(item.createdAt))}</small>
         <div class="actions">
           <button class="btn-small btn-danger"
             data-delete-comment="${escapeHtml(item.id)}">Delete Comment</button>
         </div>
-      </article>
-    `).join("");
+      </article>`).join("");
 
     box.querySelectorAll("[data-delete-comment]").forEach(button => {
-      button.addEventListener("click", async () => {
+      button.addEventListener("click",async () => {
         if (!confirm("এই কমেন্টটি মুছে ফেলবে?")) return;
         try {
           requireAdmin();
-          await deleteDoc(doc(db, "comments", button.dataset.deleteComment));
-          showMessage("কমেন্ট মুছে ফেলা হয়েছে।", "success");
-          await Promise.all([loadComments(), loadDashboard()]);
+          await deleteDoc(doc(db,"comments",button.dataset.deleteComment));
+          showMessage("কমেন্ট মুছে ফেলা হয়েছে।","success");
+          await Promise.all([loadComments(),loadDashboard()]);
         } catch (error) {
-          showMessage("কমেন্ট মুছতে সমস্যা: " + errorText(error), "error");
+          showMessage("কমেন্ট মুছতে সমস্যা: "+errorText(error),"error");
         }
       });
     });
   } catch (error) {
-    box.textContent = "কমেন্ট লোড করা যায়নি: " + errorText(error);
+    box.textContent = "কমেন্ট লোড করা যায়নি: "+errorText(error);
   }
 }
+$("reloadComments").addEventListener("click",loadComments);
 
-$("reloadComments").addEventListener("click", loadComments);
-
-/* QURAN PDF RECORDS */
+/* QURAN PDF LIBRARY */
 function resetPdfForm() {
   $("pdfForm").reset();
   $("pdfId").value = "";
   $("savePdfBtn").textContent = "Save PDF Record";
   $("cancelPdfEdit").classList.add("hidden");
 }
+$("cancelPdfEdit").addEventListener("click",resetPdfForm);
 
-$("cancelPdfEdit").addEventListener("click", resetPdfForm);
-
-$("pdfForm").addEventListener("submit", async event => {
+$("pdfForm").addEventListener("submit",async event => {
   event.preventDefault();
-
   try {
     requireAdmin();
     const id = $("pdfId").value;
     const payload = {
-      title: $("pdfTitle").value.trim(),
-      url: $("pdfUrl").value.trim(),
-      language: $("pdfLanguage").value.trim(),
-      updatedAt: serverTimestamp()
+      title:$("pdfTitle").value.trim(),
+      url:$("pdfUrl").value.trim(),
+      language:$("pdfLanguage").value.trim(),
+      updatedAt:serverTimestamp()
     };
 
     if (!payload.title || !payload.url) {
@@ -733,20 +711,19 @@ $("pdfForm").addEventListener("submit", async event => {
     }
 
     $("savePdfBtn").disabled = true;
-
     if (id) {
-      await updateDoc(doc(db, "quranPDFs", id), payload);
-      showMessage("PDF রেকর্ড আপডেট হয়েছে।", "success");
+      await updateDoc(doc(db,"quranPDFs",id),payload);
+      showMessage("PDF রেকর্ড আপডেট হয়েছে।","success");
     } else {
       payload.createdAt = serverTimestamp();
-      await addDoc(collection(db, "quranPDFs"), payload);
-      showMessage("PDF রেকর্ড সংরক্ষিত হয়েছে।", "success");
+      await addDoc(collection(db,"quranPDFs"),payload);
+      showMessage("PDF রেকর্ড সংরক্ষিত হয়েছে।","success");
     }
 
     resetPdfForm();
-    await Promise.all([loadPdfs(), loadDashboard()]);
+    await Promise.all([loadPdfs(),loadDashboard()]);
   } catch (error) {
-    showMessage("PDF রেকর্ড সংরক্ষণ হয়নি: " + errorText(error), "error");
+    showMessage("PDF রেকর্ড সংরক্ষণ হয়নি: "+errorText(error),"error");
   } finally {
     $("savePdfBtn").disabled = false;
   }
@@ -759,7 +736,6 @@ async function loadPdfs() {
 
   try {
     const items = await getCollectionDocs("quranPDFs");
-
     if (!items.length) {
       box.textContent = "কোনো PDF রেকর্ড নেই।";
       return;
@@ -767,26 +743,25 @@ async function loadPdfs() {
 
     box.innerHTML = items.map(item => `
       <article class="item">
-        <strong>${escapeHtml(item.title || "নাম নেই")}</strong>
-        <p>${escapeHtml(item.language || "")}</p>
-        <p>${escapeHtml(item.url || "")}</p>
+        <strong>${escapeHtml(item.title||"নাম নেই")}</strong>
+        <p>${escapeHtml(item.language||"")}</p>
+        <p>${escapeHtml(item.url||"")}</p>
         <div class="actions">
           <button class="btn-small" data-edit-pdf="${escapeHtml(item.id)}">Edit</button>
-          <a class="button btn-small" href="${escapeHtml(item.url || "#")}"
+          <a class="button btn-small" href="${escapeHtml(item.url||"#")}"
             target="_blank" rel="noopener noreferrer">Open PDF</a>
           <button class="btn-small btn-danger" data-delete-pdf="${escapeHtml(item.id)}">Delete</button>
         </div>
-      </article>
-    `).join("");
+      </article>`).join("");
 
     box.querySelectorAll("[data-edit-pdf]").forEach(button => {
-      button.addEventListener("click", () => {
-        const item = items.find(x => x.id === button.dataset.editPdf);
+      button.addEventListener("click",() => {
+        const item = items.find(x=>x.id===button.dataset.editPdf);
         if (!item) return;
         $("pdfId").value = item.id;
-        $("pdfTitle").value = item.title || "";
-        $("pdfUrl").value = item.url || "";
-        $("pdfLanguage").value = item.language || "";
+        $("pdfTitle").value = item.title||"";
+        $("pdfUrl").value = item.url||"";
+        $("pdfLanguage").value = item.language||"";
         $("savePdfBtn").textContent = "Update PDF Record";
         $("cancelPdfEdit").classList.remove("hidden");
         $("pdfForm").scrollIntoView({behavior:"smooth"});
@@ -794,24 +769,23 @@ async function loadPdfs() {
     });
 
     box.querySelectorAll("[data-delete-pdf]").forEach(button => {
-      button.addEventListener("click", async () => {
+      button.addEventListener("click",async () => {
         if (!confirm("এই PDF রেকর্ড মুছে ফেলবে?")) return;
         try {
           requireAdmin();
-          await deleteDoc(doc(db, "quranPDFs", button.dataset.deletePdf));
-          showMessage("PDF রেকর্ড মুছে ফেলা হয়েছে।", "success");
-          await Promise.all([loadPdfs(), loadDashboard()]);
+          await deleteDoc(doc(db,"quranPDFs",button.dataset.deletePdf));
+          showMessage("PDF রেকর্ড মুছে ফেলা হয়েছে।","success");
+          await Promise.all([loadPdfs(),loadDashboard()]);
         } catch (error) {
-          showMessage("PDF রেকর্ড মুছতে সমস্যা: " + errorText(error), "error");
+          showMessage("PDF রেকর্ড মুছতে সমস্যা: "+errorText(error),"error");
         }
       });
     });
   } catch (error) {
-    box.textContent = "PDF রেকর্ড লোড করা যায়নি: " + errorText(error);
+    box.textContent = "PDF রেকর্ড লোড করা যায়নি: "+errorText(error);
   }
 }
-
-$("reloadPdfs").addEventListener("click", loadPdfs);
+$("reloadPdfs").addEventListener("click",loadPdfs);
 
 /* HADITH MANAGEMENT */
 function resetHadithForm() {
@@ -822,28 +796,25 @@ function resetHadithForm() {
   $("saveHadithBtn").textContent = "Save Hadith";
   $("cancelHadithEdit").classList.add("hidden");
 }
+$("cancelHadithEdit").addEventListener("click",resetHadithForm);
 
-$("cancelHadithEdit").addEventListener("click", resetHadithForm);
-
-$("hadithForm").addEventListener("submit", async event => {
+$("hadithForm").addEventListener("submit",async event => {
   event.preventDefault();
-
   try {
     requireAdmin();
     const id = $("hadithId").value;
-
     const payload = {
-      title: $("hadithTitle").value.trim(),
-      arabic: $("hadithArabic").value.trim(),
-      transliteration: $("hadithTransliteration").value.trim(),
-      englishPronunciation: $("hadithEnglishPronunciation").value.trim(),
-      translation: $("hadithTranslation").value.trim(),
-      explanation: $("hadithExplanation").value.trim(),
-      lesson: $("hadithLesson").value.trim(),
-      source: $("hadithSource").value.trim(),
-      hadithNumber: $("hadithNumber").value.trim(),
-      active: $("hadithActive").value === "true",
-      updatedAt: serverTimestamp()
+      title:$("hadithTitle").value.trim(),
+      arabic:$("hadithArabic").value.trim(),
+      transliteration:$("hadithTransliteration").value.trim(),
+      englishPronunciation:$("hadithEnglishPronunciation").value.trim(),
+      translation:$("hadithTranslation").value.trim(),
+      explanation:$("hadithExplanation").value.trim(),
+      lesson:$("hadithLesson").value.trim(),
+      source:$("hadithSource").value.trim(),
+      hadithNumber:$("hadithNumber").value.trim(),
+      active:$("hadithActive").value==="true",
+      updatedAt:serverTimestamp()
     };
 
     if (!payload.arabic || !payload.translation) {
@@ -851,20 +822,19 @@ $("hadithForm").addEventListener("submit", async event => {
     }
 
     $("saveHadithBtn").disabled = true;
-
     if (id) {
-      await updateDoc(doc(db, "hadiths", id), payload);
-      showMessage("হাদিস আপডেট হয়েছে।", "success");
+      await updateDoc(doc(db,"hadiths",id),payload);
+      showMessage("হাদিস আপডেট হয়েছে।","success");
     } else {
       payload.createdAt = serverTimestamp();
-      await addDoc(collection(db, "hadiths"), payload);
-      showMessage("নতুন হাদিস যোগ হয়েছে।", "success");
+      await addDoc(collection(db,"hadiths"),payload);
+      showMessage("নতুন হাদিস যোগ হয়েছে।","success");
     }
 
     resetHadithForm();
-    await Promise.all([loadHadiths(), loadDashboard()]);
+    await Promise.all([loadHadiths(),loadDashboard()]);
   } catch (error) {
-    showMessage("হাদিস সংরক্ষণ হয়নি: " + errorText(error), "error");
+    showMessage("হাদিস সংরক্ষণ হয়নি: "+errorText(error),"error");
   } finally {
     $("saveHadithBtn").disabled = false;
   }
@@ -877,7 +847,6 @@ async function loadHadiths() {
 
   try {
     const items = await getCollectionDocs("hadiths");
-
     if (!items.length) {
       box.textContent = "কোনো হাদিস পাওয়া যায়নি।";
       return;
@@ -885,40 +854,36 @@ async function loadHadiths() {
 
     box.innerHTML = items.map(item => `
       <article class="item">
-        <strong>${escapeHtml(item.title || "হাদিস")}</strong>
-        <p dir="rtl">${escapeHtml(item.arabic || "")}</p>
-        <p>${escapeHtml(item.translation || "")}</p>
-        <small>সূত্র: ${escapeHtml(item.source || "উল্লেখ নেই")}
-          · নম্বর: ${escapeHtml(item.hadithNumber || "—")}
-          · ${item.active === false ? "নিষ্ক্রিয়" : "সক্রিয়"}</small>
+        <strong>${escapeHtml(item.title||"হাদিস")}</strong>
+        <p dir="rtl">${escapeHtml(item.arabic||"")}</p>
+        <p>${escapeHtml(item.translation||"")}</p>
+        <small>সূত্র: ${escapeHtml(item.source||"উল্লেখ নেই")}
+          · নম্বর: ${escapeHtml(item.hadithNumber||"—")}
+          · ${item.active===false?"নিষ্ক্রিয়":"সক্রিয়"}</small>
         <div class="actions">
           <button class="btn-small" data-edit-hadith="${escapeHtml(item.id)}">Edit</button>
-          <button class="btn-small btn-gold"
-            data-toggle-hadith="${escapeHtml(item.id)}">
-            ${item.active === false ? "Activate" : "Deactivate"}
+          <button class="btn-small btn-gold" data-toggle-hadith="${escapeHtml(item.id)}">
+            ${item.active===false?"Activate":"Deactivate"}
           </button>
-          <button class="btn-small btn-danger"
-            data-delete-hadith="${escapeHtml(item.id)}">Delete</button>
+          <button class="btn-small btn-danger" data-delete-hadith="${escapeHtml(item.id)}">Delete</button>
         </div>
-      </article>
-    `).join("");
+      </article>`).join("");
 
     box.querySelectorAll("[data-edit-hadith]").forEach(button => {
-      button.addEventListener("click", () => {
-        const item = items.find(x => x.id === button.dataset.editHadith);
+      button.addEventListener("click",() => {
+        const item = items.find(x=>x.id===button.dataset.editHadith);
         if (!item) return;
-
         $("hadithId").value = item.id;
-        $("hadithTitle").value = item.title || "";
-        $("hadithArabic").value = item.arabic || "";
-        $("hadithTransliteration").value = item.transliteration || "";
-        $("hadithEnglishPronunciation").value = item.englishPronunciation || "";
-        $("hadithTranslation").value = item.translation || "";
-        $("hadithExplanation").value = item.explanation || "";
-        $("hadithLesson").value = item.lesson || "";
-        $("hadithSource").value = item.source || "";
-        $("hadithNumber").value = item.hadithNumber || "";
-        $("hadithActive").value = item.active === false ? "false" : "true";
+        $("hadithTitle").value = item.title||"";
+        $("hadithArabic").value = item.arabic||"";
+        $("hadithTransliteration").value = item.transliteration||"";
+        $("hadithEnglishPronunciation").value = item.englishPronunciation||"";
+        $("hadithTranslation").value = item.translation||"";
+        $("hadithExplanation").value = item.explanation||"";
+        $("hadithLesson").value = item.lesson||"";
+        $("hadithSource").value = item.source||"";
+        $("hadithNumber").value = item.hadithNumber||"";
+        $("hadithActive").value = item.active===false?"false":"true";
         $("hadithFormTitle").textContent = "হাদিস সম্পাদনা";
         $("saveHadithBtn").textContent = "Update Hadith";
         $("cancelHadithEdit").classList.remove("hidden");
@@ -927,42 +892,41 @@ async function loadHadiths() {
     });
 
     box.querySelectorAll("[data-toggle-hadith]").forEach(button => {
-      button.addEventListener("click", async () => {
-        const item = items.find(x => x.id === button.dataset.toggleHadith);
+      button.addEventListener("click",async () => {
+        const item = items.find(x=>x.id===button.dataset.toggleHadith);
         if (!item) return;
         try {
           requireAdmin();
-          await updateDoc(doc(db, "hadiths", item.id), {
-            active: item.active === false,
-            updatedAt: serverTimestamp()
+          await updateDoc(doc(db,"hadiths",item.id),{
+            active:item.active===false,
+            updatedAt:serverTimestamp()
           });
-          showMessage("হাদিসের অবস্থা পরিবর্তন হয়েছে।", "success");
-          await Promise.all([loadHadiths(), loadDashboard()]);
+          showMessage("হাদিসের অবস্থা পরিবর্তন হয়েছে।","success");
+          await Promise.all([loadHadiths(),loadDashboard()]);
         } catch (error) {
-          showMessage("হাদিস আপডেট হয়নি: " + errorText(error), "error");
+          showMessage("হাদিস আপডেট হয়নি: "+errorText(error),"error");
         }
       });
     });
 
     box.querySelectorAll("[data-delete-hadith]").forEach(button => {
-      button.addEventListener("click", async () => {
+      button.addEventListener("click",async () => {
         if (!confirm("এই হাদিসটি স্থায়ীভাবে মুছে ফেলবে?")) return;
         try {
           requireAdmin();
-          await deleteDoc(doc(db, "hadiths", button.dataset.deleteHadith));
-          showMessage("হাদিস মুছে ফেলা হয়েছে।", "success");
-          await Promise.all([loadHadiths(), loadDashboard()]);
+          await deleteDoc(doc(db,"hadiths",button.dataset.deleteHadith));
+          showMessage("হাদিস মুছে ফেলা হয়েছে।","success");
+          await Promise.all([loadHadiths(),loadDashboard()]);
         } catch (error) {
-          showMessage("হাদিস মুছতে সমস্যা: " + errorText(error), "error");
+          showMessage("হাদিস মুছতে সমস্যা: "+errorText(error),"error");
         }
       });
     });
   } catch (error) {
-    box.textContent = "হাদিস লোড করা যায়নি: " + errorText(error);
+    box.textContent = "হাদিস লোড করা যায়নি: "+errorText(error);
   }
 }
-
-$("reloadHadiths").addEventListener("click", loadHadiths);
+$("reloadHadiths").addEventListener("click",loadHadiths);
 </script>
 </body>
 </html>
