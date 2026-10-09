@@ -1,1576 +1,664 @@
+
 <!DOCTYPE html>
 <html lang="bn">
-
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Qalb-e-Deen — The Heart of Deen</title>
+  <meta name="description" content="Qalb-e-Deen — The Heart of Deen. Quran, Hadith, Islamic Knowledge, Dua and Islamic Posts.">
+  <meta name="theme-color" content="#0b6b50">
 
-  <meta
-    name="description"
-    content="Qalb-e-Deen — The Heart of Deen. Quran, Hadith, Islamic Knowledge, Dua and Islamic Posts."
-  >
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/png" href="./logo.png">
+  <link rel="apple-touch-icon" href="./icon-512.png">
 
-  <meta
-    name="theme-color"
-    content="#0f766e"
-  >
-
-  <!-- PWA -->
-  <link
-    rel="manifest"
-    href="manifest.json"
-  >
-
-  <meta
-    name="mobile-web-app-capable"
-    content="yes"
-  >
-
-  <meta
-    name="apple-mobile-web-app-capable"
-    content="yes"
-  >
-
-  <meta
-    name="apple-mobile-web-app-status-bar-style"
-    content="default"
-  >
-
-  <meta
-    name="apple-mobile-web-app-title"
-    content="Qalb-e-Deen"
-  >
-
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Qalb-e-Deen">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
   <style>
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; }
 
     body {
-
-      font-family:
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-
-      background:
-        linear-gradient(
-          180deg,
-          #f0fdfa 0%,
-          #f8fafc 35%,
-          #ffffff 100%
-        );
-
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #f0fdfa, #f8fafc 45%, #fff);
       color: #172033;
-
       min-height: 100vh;
     }
 
-
-    button,
-    input {
-
-      font-family: inherit;
-    }
-
-
-    button {
-
-      cursor: pointer;
-    }
-
-
-    /* =====================================
-       HEADER
-    ===================================== */
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { cursor: pointer; }
 
     header {
-
       position: sticky;
       top: 0;
       z-index: 1000;
-
-      background:
-        rgba(255, 255, 255, 0.94);
-
+      background: rgba(255,255,255,.95);
       backdrop-filter: blur(14px);
-
-      border-bottom:
-        1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
     }
-
 
     .nav {
-
       max-width: 1180px;
-
       margin: auto;
-
-      padding:
-        14px 18px;
-
+      padding: 13px 18px;
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
-
-      gap: 15px;
+      gap: 12px;
     }
-
 
     .brand {
-
       display: flex;
-
       align-items: center;
-
       gap: 11px;
-
       text-decoration: none;
-
       color: #172033;
+      min-width: 0;
     }
-
 
     .brand-logo {
-
       width: 46px;
       height: 46px;
-
+      object-fit: contain;
       border-radius: 14px;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      background:
-        linear-gradient(
-          135deg,
-          #0f766e,
-          #14b8a6
-        );
-
-      color: white;
-
-      font-size: 23px;
-
-      box-shadow:
-        0 8px 20px
-        rgba(15, 118, 110, 0.22);
+      background: #ecfdf5;
+      flex-shrink: 0;
     }
 
+    .brand-fallback {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #0b6b50, #14b8a6);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
 
     .brand-text strong {
-
       display: block;
-
+      color: #0b6b50;
       font-size: 17px;
-
-      color: #0f766e;
     }
-
 
     .brand-text span {
-
       display: block;
-
-      font-size: 11px;
-
       color: #64748b;
+      font-size: 11px;
     }
-
 
     .admin-btn {
-
       border: 0;
-
-      background: #ecfeff;
-
-      color: #0f766e;
-
-      padding:
-        9px 13px;
-
+      background: #ecfdf5;
+      color: #0b6b50;
+      padding: 10px 13px;
       border-radius: 10px;
-
-      font-weight: 700;
-
       font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
     }
 
-
-    /* =====================================
-       HERO
-    ===================================== */
-
     .hero {
-
       max-width: 1180px;
-
       margin: auto;
-
-      padding:
-        48px 18px 30px;
-
+      padding: 45px 18px 30px;
       text-align: center;
     }
 
-
     .hero-badge {
-
       display: inline-block;
-
-      padding:
-        7px 13px;
-
+      padding: 7px 13px;
       border-radius: 50px;
-
       background: #ccfbf1;
-
-      color: #0f766e;
-
+      color: #0b6b50;
       font-size: 12px;
-
       font-weight: 700;
-
       margin-bottom: 15px;
     }
 
-
     .hero h1 {
-
-      font-size:
-        clamp(30px, 7vw, 54px);
-
-      line-height: 1.15;
-
-      margin-bottom: 12px;
-
+      font-size: clamp(30px, 7vw, 54px);
+      line-height: 1.2;
+      margin: 0 0 12px;
       color: #0f172a;
     }
 
-
-    .hero h1 span {
-
-      color: #0f766e;
-    }
-
+    .hero h1 span { color: #0b6b50; }
 
     .hero p {
-
       max-width: 650px;
-
       margin: auto;
-
       color: #64748b;
-
       line-height: 1.8;
-
       font-size: 15px;
     }
 
-
     .search-box {
-
       max-width: 600px;
-
-      margin:
-        25px auto 0;
-
+      margin: 25px auto 0;
       display: flex;
-
-      align-items: center;
-
       gap: 8px;
-
       background: white;
-
-      border:
-        1px solid #dbe4ea;
-
+      border: 1px solid #dbe4ea;
       padding: 7px;
-
       border-radius: 16px;
-
-      box-shadow:
-        0 12px 35px
-        rgba(15, 23, 42, 0.07);
+      box-shadow: 0 12px 35px rgba(15,23,42,.07);
     }
 
-
     .search-box input {
-
       flex: 1;
-
+      min-width: 0;
       border: 0;
-
       outline: 0;
-
-      padding:
-        11px 12px;
-
+      padding: 11px 12px;
       font-size: 14px;
-
       background: transparent;
     }
 
-
     .search-box button {
-
       border: 0;
-
-      background: #0f766e;
-
+      background: #0b6b50;
       color: white;
-
-      padding:
-        11px 15px;
-
+      padding: 11px 15px;
       border-radius: 11px;
-
       font-weight: 700;
     }
 
-
-    /* =====================================
-       MAIN
-    ===================================== */
-
     main {
-
       max-width: 1180px;
-
       margin: auto;
-
-      padding:
-        0 18px 60px;
+      padding: 0 18px 55px;
     }
-
 
     .section-title {
-
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
-
       gap: 10px;
-
-      margin:
-        25px 0 15px;
+      margin: 25px 0 15px;
     }
 
-
     .section-title h2 {
-
       font-size: 21px;
-
+      margin: 0;
       color: #172033;
     }
 
-
     .section-title span {
-
       color: #64748b;
-
       font-size: 12px;
-    }
-
-
-    /* =====================================
-       QUICK ACCESS
-    ===================================== */
-
-    .quick-grid {
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
-      gap: 14px;
-    }
-
-
-    .quick-card {
-
-      border: 1px solid #e2e8f0;
-
-      background: white;
-
-      border-radius: 18px;
-
-      padding: 20px 15px;
-
-      text-align: center;
-
-      transition:
-        transform .2s ease,
-        box-shadow .2s ease;
-    }
-
-
-    .quick-card:hover {
-
-      transform: translateY(-3px);
-
-      box-shadow:
-        0 12px 28px
-        rgba(15, 23, 42, .08);
-    }
-
-
-    .quick-icon {
-
-      width: 50px;
-      height: 50px;
-
-      margin:
-        0 auto 11px;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 15px;
-
-      background: #f0fdfa;
-
-      font-size: 25px;
-    }
-
-
-    .quick-card h3 {
-
-      font-size: 15px;
-
-      margin-bottom: 5px;
-    }
-
-
-    .quick-card p {
-
-      color: #64748b;
-
-      font-size: 11px;
-
-      line-height: 1.5;
-    }
-
-
-    /* =====================================
-       PRAYER PREVIEW
-    ===================================== */
-
-    .prayer-section {
-
-      margin-top: 28px;
-    }
-
-
-    .prayer-card {
-
-      background:
-        linear-gradient(
-          135deg,
-          #0f766e,
-          #115e59
-        );
-
-      color: white;
-
-      border-radius: 22px;
-
-      padding: 22px;
-
-      box-shadow:
-        0 15px 35px
-        rgba(15, 118, 110, .20);
-    }
-
-
-    .prayer-top {
-
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
-      gap: 10px;
-
-      margin-bottom: 17px;
-    }
-
-
-    .prayer-top h2 {
-
-      font-size: 20px;
-    }
-
-
-    .prayer-top p {
-
-      font-size: 12px;
-
-      opacity: .8;
-
-      margin-top: 3px;
-    }
-
-
-    .prayer-next {
-
       text-align: right;
     }
 
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .quick-card {
+      border: 1px solid #e2e8f0;
+      background: white;
+      border-radius: 18px;
+      padding: 20px 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .quick-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(15,23,42,.08);
+    }
+
+    .quick-icon {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 11px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: #f0fdfa;
+      font-size: 25px;
+    }
+
+    .quick-card h3 {
+      font-size: 15px;
+      margin: 0 0 5px;
+    }
+
+    .quick-card p {
+      color: #64748b;
+      font-size: 11px;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .prayer-section { margin-top: 28px; }
+
+    .prayer-card {
+      background: linear-gradient(135deg, #0b6b50, #115e59);
+      color: white;
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 15px 35px rgba(15,118,110,.20);
+    }
+
+    .prayer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 17px;
+    }
+
+    .prayer-top h2 { font-size: 20px; margin: 0; }
+
+    .prayer-top p {
+      font-size: 12px;
+      opacity: .85;
+      margin: 5px 0 0;
+    }
+
+    .prayer-next { text-align: right; }
 
     .prayer-next small {
-
       display: block;
-
-      opacity: .75;
-
+      opacity: .8;
       font-size: 10px;
     }
 
-
-    #nextPrayer {
-
-      font-weight: 800;
-
-      font-size: 15px;
-    }
-
-
-    #countdown {
-
-      font-size: 20px;
-
-      font-weight: 800;
-
-      margin-top: 2px;
-    }
-
+    #nextPrayer { font-weight: 800; font-size: 15px; }
+    #countdown { font-size: 20px; font-weight: 800; margin-top: 3px; }
 
     .prayer-times {
-
       display: grid;
-
-      grid-template-columns:
-        repeat(5, 1fr);
-
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 8px;
     }
 
-
     .prayer-item {
-
-      background:
-        rgba(255,255,255,.11);
-
-      border:
-        1px solid
-        rgba(255,255,255,.12);
-
+      background: rgba(255,255,255,.11);
+      border: 1px solid rgba(255,255,255,.12);
       border-radius: 14px;
-
-      padding:
-        12px 7px;
-
+      padding: 12px 7px;
       text-align: center;
     }
 
-
-    .prayer-item.active {
-
-      background:
-        rgba(255,255,255,.22);
-    }
-
+    .prayer-item.active { background: rgba(255,255,255,.25); }
 
     .prayer-item span {
-
       display: block;
-
       font-size: 11px;
-
-      opacity: .78;
-
+      opacity: .85;
       margin-bottom: 4px;
     }
 
-
-    .prayer-item strong {
-
-      font-size: 13px;
-    }
-
+    .prayer-item strong { font-size: 12px; }
 
     .prayer-more {
-
       display: inline-block;
-
       margin-top: 15px;
-
       color: white;
-
       text-decoration: none;
-
       font-size: 12px;
-
       font-weight: 700;
-
-      opacity: .9;
     }
 
-
-    /* =====================================
-       POSTS
-    ===================================== */
-
     .posts-grid {
-
       display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
     }
 
-
     .post-card {
-
       background: white;
-
-      border:
-        1px solid #e2e8f0;
-
+      border: 1px solid #e2e8f0;
       border-radius: 18px;
-
       overflow: hidden;
-
-      transition:
-        transform .2s ease,
-        box-shadow .2s ease;
+      min-width: 0;
+      transition: transform .2s, box-shadow .2s;
     }
-
 
     .post-card:hover {
-
       transform: translateY(-3px);
-
-      box-shadow:
-        0 12px 30px
-        rgba(15,23,42,.08);
+      box-shadow: 0 12px 30px rgba(15,23,42,.08);
     }
 
-
     .post-image {
-
+      display: block;
       width: 100%;
-
       height: 180px;
-
       object-fit: cover;
-
       background: #f1f5f9;
     }
 
-
-    .post-content {
-
-      padding: 17px;
-    }
-
+    .post-content { padding: 17px; }
 
     .post-content h3 {
-
       font-size: 17px;
-
-      margin-bottom: 8px;
-
+      margin: 0 0 8px;
       line-height: 1.45;
+      overflow-wrap: anywhere;
     }
 
-
     .post-content p {
-
       color: #64748b;
-
       font-size: 13px;
-
       line-height: 1.7;
-
+      margin: 0;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
       display: -webkit-box;
-
       -webkit-line-clamp: 3;
-
       -webkit-box-orient: vertical;
-
       overflow: hidden;
     }
 
-
     .post-meta {
-
       display: flex;
-
       justify-content: space-between;
-
+      gap: 8px;
       margin-top: 12px;
-
       color: #94a3b8;
-
       font-size: 10px;
     }
 
-
     .read-btn {
-
       width: 100%;
-
       border: 0;
-
       margin-top: 13px;
-
-      padding: 10px;
-
+      padding: 11px;
       border-radius: 10px;
-
       background: #f0fdfa;
-
-      color: #0f766e;
-
+      color: #0b6b50;
       font-weight: 700;
     }
 
-
     .empty {
-
-      padding: 35px 15px;
-
+      padding: 30px 15px;
       text-align: center;
-
       color: #64748b;
-
       background: white;
-
       border-radius: 18px;
-
-      border:
-        1px dashed #cbd5e1;
-
+      border: 1px dashed #cbd5e1;
       grid-column: 1 / -1;
+      line-height: 1.8;
     }
-
-
-    /* =====================================
-       MODAL
-    ===================================== */
 
     .modal {
-
       position: fixed;
-
       inset: 0;
-
       z-index: 2000;
-
-      background:
-        rgba(15, 23, 42, .60);
-
+      background: rgba(15,23,42,.65);
       display: none;
-
       align-items: center;
-
       justify-content: center;
-
-      padding: 18px;
+      padding: 16px;
     }
 
-
-    .modal.show {
-
-      display: flex;
-    }
-
+    .modal.show { display: flex; }
 
     .modal-box {
-
       width: 100%;
-
-      max-width: 700px;
-
+      max-width: 720px;
       max-height: 90vh;
-
       overflow-y: auto;
-
       background: white;
-
-      border-radius: 22px;
-
+      border-radius: 20px;
       padding: 22px;
-
       position: relative;
     }
 
-
     .close-modal {
-
-      position: absolute;
-
-      right: 14px;
-
-      top: 12px;
-
-      width: 35px;
-      height: 35px;
-
+      position: sticky;
+      float: right;
+      top: 0;
+      width: 36px;
+      height: 36px;
       border: 0;
-
       border-radius: 50%;
-
       background: #f1f5f9;
-
-      font-size: 20px;
+      font-size: 22px;
     }
-
 
     #modalTitle {
-
-      padding-right: 45px;
-
+      padding-right: 42px;
       font-size: 23px;
-
-      line-height: 1.4;
-
-      margin-bottom: 12px;
+      line-height: 1.5;
+      margin: 0 0 14px;
+      overflow-wrap: anywhere;
     }
-
 
     #modalBody {
-
-      color: #475569;
-
-      line-height: 1.85;
-
-      font-size: 14px;
-
+      color: #334155;
+      line-height: 1.95;
+      font-size: 15px;
       white-space: pre-wrap;
+      overflow-wrap: anywhere;
     }
 
-
     .modal-meta {
-
-      margin-top: 15px;
-
+      margin-top: 16px;
       color: #94a3b8;
-
       font-size: 11px;
     }
 
-
-    /* =====================================
-       TOAST
-    ===================================== */
-
     .toast {
-
       position: fixed;
-
       bottom: 20px;
-
       left: 50%;
-
-      transform:
-        translateX(-50%)
-        translateY(100px);
-
+      transform: translate(-50%, 100px);
       z-index: 3000;
-
       background: #172033;
-
       color: white;
-
-      padding:
-        12px 18px;
-
+      padding: 12px 18px;
       border-radius: 12px;
-
       font-size: 13px;
-
       opacity: 0;
-
       transition: .3s;
-
       max-width: 90%;
-
       text-align: center;
     }
-
 
     .toast.show {
-
       opacity: 1;
-
-      transform:
-        translateX(-50%)
-        translateY(0);
+      transform: translate(-50%, 0);
     }
-
-
-    /* =====================================
-       FOOTER
-    ===================================== */
 
     footer {
-
-      border-top:
-        1px solid #e2e8f0;
-
+      border-top: 1px solid #e2e8f0;
       background: white;
-
-      padding:
-        25px 18px;
-
+      padding: 25px 18px;
       text-align: center;
-
       color: #64748b;
-
       font-size: 12px;
+      line-height: 1.9;
     }
 
-
-    footer strong {
-
-      color: #0f766e;
-    }
-
-
-    /* =====================================
-       RESPONSIVE
-    ===================================== */
+    footer strong { color: #0b6b50; }
 
     @media (max-width: 800px) {
-
-      .quick-grid {
-
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
-
-
-      .posts-grid {
-
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
-
-
-      .prayer-times {
-
-        grid-template-columns:
-          repeat(5, 1fr);
-
-        overflow-x: auto;
-      }
-
-
-      .prayer-item {
-
-        min-width: 70px;
-      }
+      .quick-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .posts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
-
 
     @media (max-width: 560px) {
-
-      .hero {
-
-        padding-top: 35px;
-      }
-
-
-      .quick-grid {
-
-        gap: 10px;
-      }
-
-
-      .quick-card {
-
-        padding: 16px 10px;
-      }
-
-
-      .posts-grid {
-
-        grid-template-columns: 1fr;
-      }
-
-
-      .post-image {
-
-        height: 190px;
-      }
-
-
-      .prayer-card {
-
-        padding: 17px;
-      }
-
-
-      .prayer-top {
-
-        align-items: flex-start;
-      }
-
-
-      .prayer-next {
-
-        min-width: 105px;
-      }
-
-
-      #countdown {
-
-        font-size: 16px;
-      }
-
-
-      .brand-text span {
-
-        display: none;
-      }
-
-
-      .admin-btn {
-
-        font-size: 11px;
-
-        padding:
-          8px 10px;
-      }
+      .hero { padding-top: 35px; }
+      .quick-grid { gap: 10px; }
+      .quick-card { padding: 16px 10px; }
+      .posts-grid { grid-template-columns: 1fr; }
+      .post-image { height: 195px; }
+      .prayer-card { padding: 16px; }
+      .prayer-top { align-items: flex-start; }
+      .prayer-times { gap: 5px; }
+      .prayer-item { padding: 11px 3px; }
+      .prayer-item span { font-size: 10px; }
+      .prayer-item strong { font-size: 11px; }
+      #countdown { font-size: 16px; }
+      .brand-text span { display: none; }
+      .admin-btn { font-size: 11px; padding: 9px; }
+      .section-title h2 { font-size: 18px; }
     }
-
   </style>
-
 </head>
 
-
 <body>
-
-
-<!-- =====================================
-     HEADER
-===================================== -->
-
 <header>
-
   <nav class="nav">
-
-    <a
-      href="index.html"
-      class="brand"
-    >
-
-      <div class="brand-logo">
-        ☪
-      </div>
-
+    <a href="./index.html" class="brand">
+      <img
+        class="brand-logo"
+        src="./logo.png"
+        alt="Qalb-e-Deen logo"
+        onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'brand-fallback',textContent:'☪'}))"
+      >
       <div class="brand-text">
-
-        <strong>
-          Qalb-e-Deen
-        </strong>
-
-        <span>
-          The Heart of Deen
-        </span>
-
+        <strong>Qalb-e-Deen</strong>
+        <span>The Heart of Deen</span>
       </div>
-
     </a>
-
-
-    <button
-      class="admin-btn"
-      id="adminBtn"
-    >
-      Admin Panel
-    </button>
-
+    <button class="admin-btn" id="adminBtn" type="button">Admin Panel</button>
   </nav>
-
 </header>
 
-
-
-<!-- =====================================
-     HERO
-===================================== -->
-
 <section class="hero">
-
-  <div class="hero-badge">
-    بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
-  </div>
-
-
-  <h1>
-    Qalb-e-Deen —
-    <span>The Heart of Deen</span>
-  </h1>
-
-
+  <div class="hero-badge">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+  <h1>Qalb-e-Deen — <span>The Heart of Deen</span></h1>
   <p>
-    কুরআন, হাদিস, ইসলামিক জ্ঞান,
-    দোয়া এবং উপকারী ইসলামিক পোস্টের
+    কুরআন, হাদিস, ইসলামিক জ্ঞান, দোয়া এবং উপকারী ইসলামিক পোস্টের
     একটি সুন্দর সংগ্রহ।
   </p>
 
-
   <div class="search-box">
-
     <input
       type="search"
       id="searchInput"
-      placeholder="পোস্ট খুঁজুন..."
+      placeholder="ইসলামিক পোস্ট খুঁজুন..."
       autocomplete="off"
+      aria-label="পোস্ট খুঁজুন"
     >
-
-    <button id="searchBtn">
-      Search
-    </button>
-
+    <button id="searchBtn" type="button">Search</button>
   </div>
-
 </section>
 
-
-
-<!-- =====================================
-     MAIN
-===================================== -->
-
 <main>
-
-
-  <!-- QUICK ACCESS -->
-
   <section>
-
     <div class="section-title">
-
-      <h2>
-        Quick Access
-      </h2>
-
-      <span>
-        Explore Qalb-e-Deen
-      </span>
-
+      <h2>Quick Access</h2>
+      <span>Explore Qalb-e-Deen</span>
     </div>
-
 
     <div class="quick-grid">
-
-
-      <!-- Quran -->
-
-      <div
-        class="quick-card"
-        id="quranCard"
-      >
-
-        <div class="quick-icon">
-          📖
-        </div>
-
-        <h3>
-          কোরআন পড়ুন
-        </h3>
-
-        <p>
-          Quran PDF Library
-        </p>
-
+      <div class="quick-card" id="quranCard" role="link" tabindex="0">
+        <div class="quick-icon">📖</div>
+        <h3>কোরআন পড়ুন</h3>
+        <p>Quran PDF Library</p>
       </div>
 
-
-
-      <!-- Hadith -->
-
-      <div
-        class="quick-card"
-        id="hadithCard"
-      >
-
-        <div class="quick-icon">
-          📜
-        </div>
-
-        <h3>
-          আজকের হাদিস
-        </h3>
-
-        <p>
-          Hadith ও ব্যাখ্যা
-        </p>
-
+      <div class="quick-card" id="hadithCard" role="link" tabindex="0">
+        <div class="quick-icon">📜</div>
+        <h3>আজকের হাদিস</h3>
+        <p>হাদিস ও ব্যাখ্যা</p>
       </div>
 
-
-
-      <!-- Prayer -->
-
-      <div
-        class="quick-card"
-        id="prayerCard"
-      >
-
-        <div class="quick-icon">
-          🕌
-        </div>
-
-        <h3>
-          নামাজের সময়
-        </h3>
-
-        <p>
-          ৫ ওয়াক্তের সময়সূচি
-        </p>
-
+      <div class="quick-card" id="prayerCard" role="link" tabindex="0">
+        <div class="quick-icon">🕌</div>
+        <h3>নামাজের সময়</h3>
+        <p>৫ ওয়াক্তের সময়সূচি</p>
       </div>
 
-
-
-      <!-- Posts -->
-
-      <div
-        class="quick-card"
-        id="postsCard"
-      >
-
-        <div class="quick-icon">
-          📝
-        </div>
-
-        <h3>
-          ইসলামিক পোস্ট
-        </h3>
-
-        <p>
-          উপকারী পোস্ট পড়ুন
-        </p>
-
+      <div class="quick-card" id="postsCard" role="link" tabindex="0">
+        <div class="quick-icon">📝</div>
+        <h3>ইসলামিক পোস্ট</h3>
+        <p>উপকারী পোস্ট পড়ুন</p>
       </div>
-
-
     </div>
-
   </section>
-
-
-
-  <!-- =====================================
-       PRAYER
-  ===================================== -->
 
   <section class="prayer-section">
-
     <div class="section-title">
-
-      <h2>
-        আজকের নামাজের সময়
-      </h2>
-
-      <span>
-        Dhaka
-      </span>
-
+      <h2>আজকের নামাজের সময়</h2>
+      <span>Dhaka, Bangladesh</span>
     </div>
-
 
     <div class="prayer-card">
-
-
       <div class="prayer-top">
-
         <div>
-
-          <h2>
-            Prayer Times
-          </h2>
-
-          <p id="prayerDate">
-            সময় লোড হচ্ছে...
-          </p>
-
+          <h2>Prayer Times</h2>
+          <p id="prayerDate">সময় লোড হচ্ছে...</p>
         </div>
-
 
         <div class="prayer-next">
-
-          <small>
-            পরবর্তী নামাজ
-          </small>
-
-          <div id="nextPrayer">
-            Loading...
-          </div>
-
-          <div id="countdown">
-            --:--:--
-          </div>
-
+          <small>পরবর্তী নামাজ</small>
+          <div id="nextPrayer">লোড হচ্ছে...</div>
+          <div id="countdown">--:--:--</div>
         </div>
-
       </div>
-
 
       <div class="prayer-times">
-
-
-        <div
-          class="prayer-item"
-          id="fajrBox"
-        >
-
-          <span>
-            ফজর
-          </span>
-
-          <strong id="fajrTime">
-            --
-          </strong>
-
+        <div class="prayer-item" id="fajrBox">
+          <span>ফজর</span><strong id="fajrTime">--</strong>
         </div>
-
-
-        <div
-          class="prayer-item"
-          id="dhuhrBox"
-        >
-
-          <span>
-            যোহর
-          </span>
-
-          <strong id="dhuhrTime">
-            --
-          </strong>
-
+        <div class="prayer-item" id="dhuhrBox">
+          <span>যোহর</span><strong id="dhuhrTime">--</strong>
         </div>
-
-
-        <div
-          class="prayer-item"
-          id="asrBox"
-        >
-
-          <span>
-            আসর
-          </span>
-
-          <strong id="asrTime">
-            --
-          </strong>
-
+        <div class="prayer-item" id="asrBox">
+          <span>আসর</span><strong id="asrTime">--</strong>
         </div>
-
-
-        <div
-          class="prayer-item"
-          id="maghribBox"
-        >
-
-          <span>
-            মাগরিব
-          </span>
-
-          <strong id="maghribTime">
-            --
-          </strong>
-
+        <div class="prayer-item" id="maghribBox">
+          <span>মাগরিব</span><strong id="maghribTime">--</strong>
         </div>
-
-
-        <div
-          class="prayer-item"
-          id="ishaBox"
-        >
-
-          <span>
-            এশা
-          </span>
-
-          <strong id="ishaTime">
-            --
-          </strong>
-
+        <div class="prayer-item" id="ishaBox">
+          <span>এশা</span><strong id="ishaTime">--</strong>
         </div>
-
-
       </div>
 
-
-      <a
-        href="prayer-times.html"
-        class="prayer-more"
-      >
+      <a href="./prayer-times.html" class="prayer-more">
         সম্পূর্ণ নামাজের সময়সূচি →
       </a>
-
     </div>
-
   </section>
-
-
-
-  <!-- =====================================
-       POSTS
-  ===================================== -->
 
   <section id="postsSection">
-
     <div class="section-title">
-
-      <h2>
-        Latest Islamic Posts
-      </h2>
-
-      <span id="postStatus">
-        Loading...
-      </span>
-
+      <h2>Latest Islamic Posts</h2>
+      <span id="postStatus">লোড হচ্ছে...</span>
     </div>
 
-
-    <div
-      class="posts-grid"
-      id="postsContainer"
-    >
-
-      <div class="empty">
-        পোস্ট লোড হচ্ছে...
-      </div>
-
+    <div class="posts-grid" id="postsContainer">
+      <div class="empty">ইসলামিক পোস্ট লোড হচ্ছে...</div>
     </div>
-
   </section>
-
-
 </main>
 
-
-
-<!-- =====================================
-     POST MODAL
-===================================== -->
-
-<div
-  class="modal"
-  id="postModal"
->
-
+<div class="modal" id="postModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-box">
-
-    <button
-      class="close-modal"
-      id="closeModal"
-    >
-      ×
-    </button>
-
-
-    <h2 id="modalTitle">
-      Post
-    </h2>
-
-
-    <div id="modalBody">
-      Loading...
-    </div>
-
-
-    <div
-      class="modal-meta"
-      id="modalMeta"
-    ></div>
-
+    <button class="close-modal" id="closeModal" type="button" aria-label="বন্ধ করুন">×</button>
+    <h2 id="modalTitle">Islamic Post</h2>
+    <div id="modalBody">লোড হচ্ছে...</div>
+    <div class="modal-meta" id="modalMeta"></div>
   </div>
-
 </div>
 
-
-
-<!-- =====================================
-     TOAST
-===================================== -->
-
-<div
-  class="toast"
-  id="toast"
-></div>
-
-
-
-<!-- =====================================
-     FOOTER
-===================================== -->
+<div class="toast" id="toast" role="status"></div>
 
 <footer>
-
-  <strong>
-    Qalb-e-Deen
-  </strong>
-
-  — The Heart of Deen
-
-  <br>
-
-  <span>
-    Quran • Hadith • Islamic Knowledge • Posts
-  </span>
-
+  <strong>Qalb-e-Deen</strong> — The Heart of Deen<br>
+  Quran • Hadith • Islamic Knowledge • Islamic Posts
 </footer>
 
-
-
-<!-- =====================================
-     FIREBASE
-===================================== -->
-
 <script type="module">
-
-  import {
-    initializeApp
-  }
-  from
-  "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
+  import { initializeApp } from
+    "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
   import {
     getFirestore,
@@ -1582,1230 +670,465 @@
     doc,
     updateDoc,
     increment
-  }
-  from
-  "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  } from
+    "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-
-  import {
-    getAuth
-  }
-  from
-  "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-
-  // =====================================
-  // FIREBASE CONFIG
-  // =====================================
-
+  // তোমার বর্তমান Firebase project configuration
   const firebaseConfig = {
-
-    apiKey:
-      "AIzaSyC4sRpUYVLURCkbAbfvUccL5n71Dveiik4",
-
-    authDomain:
-      "qalb-e-deen-b765a.firebaseapp.com",
-
-    projectId:
-      "qalb-e-deen-b765a",
-
-    storageBucket:
-      "qalb-e-deen-b765a.firebasestorage.app",
-
-    messagingSenderId:
-      "226972777842",
-
-    appId:
-      "1:226972777842:web:0d1439b9d4dc66d8bfb1eb"
-
+    apiKey: "AIzaSyC4sRpUYVLURCkbAbfvUccL5n71Dveiik4",
+    authDomain: "qalb-e-deen-b765a.firebaseapp.com",
+    projectId: "qalb-e-deen-b765a",
+    storageBucket: "qalb-e-deen-b765a.firebasestorage.app",
+    messagingSenderId: "226972777842",
+    appId: "1:226972777842:web:0d1439b9d4dc66d8bfb1eb"
   };
 
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
-  const app =
-    initializeApp(firebaseConfig);
+  const $ = id => document.getElementById(id);
 
-
-  const db =
-    getFirestore(app);
-
-
-  const auth =
-    getAuth(app);
-
-
-  // =====================================
-  // ELEMENTS
-  // =====================================
-
-  const postsContainer =
-    document.getElementById(
-      "postsContainer"
-    );
-
-
-  const postStatus =
-    document.getElementById(
-      "postStatus"
-    );
-
-
-  const searchInput =
-    document.getElementById(
-      "searchInput"
-    );
-
-
-  const searchBtn =
-    document.getElementById(
-      "searchBtn"
-    );
-
-
-  const modal =
-    document.getElementById(
-      "postModal"
-    );
-
-
-  const modalTitle =
-    document.getElementById(
-      "modalTitle"
-    );
-
-
-  const modalBody =
-    document.getElementById(
-      "modalBody"
-    );
-
-
-  const modalMeta =
-    document.getElementById(
-      "modalMeta"
-    );
-
-
-  const closeModal =
-    document.getElementById(
-      "closeModal"
-    );
-
-
-  const toast =
-    document.getElementById(
-      "toast"
-    );
-
+  const postsContainer = $("postsContainer");
+  const postStatus = $("postStatus");
+  const searchInput = $("searchInput");
+  const modal = $("postModal");
+  const modalTitle = $("modalTitle");
+  const modalBody = $("modalBody");
+  const modalMeta = $("modalMeta");
 
   let allPosts = [];
-
-
-  // =====================================
-  // TOAST
-  // =====================================
+  let nextPrayerTarget = null;
+  let prayerData = null;
 
   function showToast(message) {
-
+    const toast = $("toast");
     toast.textContent = message;
-
     toast.classList.add("show");
 
-    setTimeout(() => {
-
-      toast.classList.remove("show");
-
-    }, 3000);
-
+    setTimeout(() => toast.classList.remove("show"), 3000);
   }
-
-
-  // =====================================
-  // DATE FORMAT
-  // =====================================
-
-  function formatDate(value) {
-
-    if (!value) {
-      return "";
-    }
-
-
-    try {
-
-      const date =
-        value.toDate
-          ? value.toDate()
-          : new Date(value);
-
-
-      return date.toLocaleDateString(
-        "bn-BD",
-        {
-          year: "numeric",
-          month: "long",
-          day: "numeric"
-        }
-      );
-
-    }
-
-    catch {
-
-      return "";
-
-    }
-
-  }
-
-
-  // =====================================
-  // LOAD POSTS
-  // =====================================
-
-  async function loadPosts() {
-
-    try {
-
-      postStatus.textContent =
-        "Loading...";
-
-
-      const postsQuery =
-        query(
-          collection(db, "posts"),
-          orderBy(
-            "createdAt",
-            "desc"
-          ),
-          limit(50)
-        );
-
-
-      const snapshot =
-        await getDocs(postsQuery);
-
-
-      allPosts = [];
-
-
-      snapshot.forEach(item => {
-
-        allPosts.push({
-
-          id: item.id,
-
-          ...item.data()
-
-        });
-
-      });
-
-
-      renderPosts(allPosts);
-
-
-      postStatus.textContent =
-        `${allPosts.length} Posts`;
-
-    }
-
-    catch (error) {
-
-      console.error(
-        "Post loading error:",
-        error
-      );
-
-
-      postsContainer.innerHTML = `
-
-        <div class="empty">
-
-          পোস্ট লোড করা যায়নি।
-
-          <br><br>
-
-          Firebase connection বা
-          Firestore rules পরীক্ষা করুন।
-
-        </div>
-
-      `;
-
-
-      postStatus.textContent =
-        "Error";
-
-    }
-
-  }
-
-
-  // =====================================
-  // RENDER POSTS
-  // =====================================
-
-  function renderPosts(posts) {
-
-    if (!posts.length) {
-
-      postsContainer.innerHTML = `
-
-        <div class="empty">
-
-          এখনো কোনো পোস্ট প্রকাশিত হয়নি।
-
-        </div>
-
-      `;
-
-      return;
-
-    }
-
-
-    postsContainer.innerHTML = "";
-
-
-    posts.forEach(post => {
-
-      const card =
-        document.createElement("article");
-
-
-      card.className =
-        "post-card";
-
-
-      const image =
-        post.imageUrl ||
-        post.image ||
-        "";
-
-
-      const title =
-        post.title ||
-        "Untitled Post";
-
-
-      const content =
-        post.content ||
-        post.description ||
-        post.body ||
-        "";
-
-
-      const views =
-        Number(post.views || 0);
-
-
-      card.innerHTML = `
-
-        ${
-          image
-            ? `
-              <img
-                class="post-image"
-                src="${escapeHtml(image)}"
-                alt="${escapeHtml(title)}"
-                loading="lazy"
-                onerror="this.style.display='none'"
-              >
-            `
-            : `
-              <div
-                class="post-image"
-                style="
-                  display:flex;
-                  align-items:center;
-                  justify-content:center;
-                  font-size:42px;
-                "
-              >
-                📖
-              </div>
-            `
-        }
-
-
-        <div class="post-content">
-
-          <h3>
-            ${escapeHtml(title)}
-          </h3>
-
-
-          <p>
-            ${escapeHtml(
-              stripHtml(content)
-            )}
-          </p>
-
-
-          <div class="post-meta">
-
-            <span>
-              ${formatDate(
-                post.createdAt
-              )}
-            </span>
-
-            <span>
-              👁 ${views}
-            </span>
-
-          </div>
-
-
-          <button
-            class="read-btn"
-            data-id="${post.id}"
-          >
-            পড়ুন
-          </button>
-
-        </div>
-
-      `;
-
-
-      const button =
-        card.querySelector(
-          ".read-btn"
-        );
-
-
-      button.addEventListener(
-        "click",
-        () => {
-
-          openPost(post);
-
-        }
-      );
-
-
-      postsContainer.appendChild(card);
-
-    });
-
-  }
-
-
-  // =====================================
-  // ESCAPE HTML
-  // =====================================
-
-  function escapeHtml(value) {
-
-    return String(value || "")
-      .replace(
-        /&/g,
-        "&amp;"
-      )
-      .replace(
-        /</g,
-        "&lt;"
-      )
-      .replace(
-        />/g,
-        "&gt;"
-      )
-      .replace(
-        /"/g,
-        "&quot;"
-      )
-      .replace(
-        /'/g,
-        "&#039;"
-      );
-
-  }
-
-
-  // =====================================
-  // STRIP HTML
-  // =====================================
 
   function stripHtml(value) {
-
-    const temp =
-      document.createElement(
-        "div"
-      );
-
-    temp.innerHTML =
-      value || "";
-
-    return temp.textContent ||
-      temp.innerText ||
-      "";
-
+    const temp = document.createElement("div");
+    temp.innerHTML = String(value || "");
+    return temp.textContent || temp.innerText || "";
   }
 
+  function formatDate(value) {
+    if (!value) return "";
 
-  // =====================================
-  // OPEN POST
-  // =====================================
+    try {
+      const date = typeof value.toDate === "function"
+        ? value.toDate()
+        : new Date(value);
+
+      if (Number.isNaN(date.getTime())) return "";
+
+      return date.toLocaleDateString("bn-BD", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
+    } catch {
+      return "";
+    }
+  }
+
+  function getPostTitle(post) {
+    return post.title || post.name || "ইসলামিক পোস্ট";
+  }
+
+  function getPostContent(post) {
+    return post.content || post.description || post.body || post.excerpt || "";
+  }
+
+  function getPostImage(post) {
+    return post.imageUrl || post.imageURL || post.image ||
+      post.photoURL || post.thumbnail || "";
+  }
+
+  async function loadPosts() {
+    postStatus.textContent = "লোড হচ্ছে...";
+
+    try {
+      let snapshot;
+
+      try {
+        snapshot = await getDocs(
+          query(collection(db, "posts"), orderBy("createdAt", "desc"), limit(50))
+        );
+      } catch (orderedError) {
+        // createdAt না থাকলে সাধারণ query দিয়ে আবার চেষ্টা
+        console.warn("Ordered query failed; trying fallback.", orderedError);
+        snapshot = await getDocs(collection(db, "posts"));
+      }
+
+      allPosts = snapshot.docs.map(item => ({
+        id: item.id,
+        ...item.data()
+      }));
+
+      allPosts.sort((a, b) => {
+        const getTime = value => {
+          if (!value) return 0;
+          if (typeof value.toMillis === "function") return value.toMillis();
+          const date = new Date(value);
+          return Number.isNaN(date.getTime()) ? 0 : date.getTime();
+        };
+
+        return getTime(b.createdAt) - getTime(a.createdAt);
+      });
+
+      allPosts = allPosts.slice(0, 50);
+      renderPosts(allPosts);
+      postStatus.textContent = `${allPosts.length}টি পোস্ট`;
+    } catch (error) {
+      console.error("Post loading error:", error);
+
+      postsContainer.replaceChildren();
+      const empty = document.createElement("div");
+      empty.className = "empty";
+      empty.textContent =
+        "পোস্ট লোড করা যায়নি। Firebase connection ও Firestore rules পরীক্ষা করুন।";
+      postsContainer.appendChild(empty);
+
+      postStatus.textContent = "লোড ব্যর্থ";
+    }
+  }
+
+  function renderPosts(posts) {
+    postsContainer.replaceChildren();
+
+    if (!posts.length) {
+      const empty = document.createElement("div");
+      empty.className = "empty";
+      empty.textContent = "এখনো কোনো পোস্ট প্রকাশিত হয়নি অথবা কোনো ফলাফল পাওয়া যায়নি।";
+      postsContainer.appendChild(empty);
+      return;
+    }
+
+    posts.forEach(post => {
+      const card = document.createElement("article");
+      card.className = "post-card";
+
+      const imageUrl = getPostImage(post);
+      const title = getPostTitle(post);
+      const content = stripHtml(getPostContent(post));
+
+      if (imageUrl) {
+        try {
+          const parsedUrl = new URL(imageUrl, window.location.href);
+
+          if (["http:", "https:"].includes(parsedUrl.protocol)) {
+            const image = document.createElement("img");
+            image.className = "post-image";
+            image.src = parsedUrl.href;
+            image.alt = title;
+            image.loading = "lazy";
+            image.onerror = () => image.remove();
+            card.appendChild(image);
+          }
+        } catch (error) {
+          console.warn("Invalid post image URL", error);
+        }
+      }
+
+      const contentBox = document.createElement("div");
+      contentBox.className = "post-content";
+
+      const heading = document.createElement("h3");
+      heading.textContent = title;
+
+      const excerpt = document.createElement("p");
+      excerpt.textContent = content || "পোস্টটি পড়তে নিচের বাটনে চাপুন।";
+
+      const meta = document.createElement("div");
+      meta.className = "post-meta";
+
+      const date = document.createElement("span");
+      date.textContent = formatDate(post.createdAt);
+
+      const views = document.createElement("span");
+      views.textContent = `👁 ${Number(post.views || 0)}`;
+
+      meta.append(date, views);
+
+      const button = document.createElement("button");
+      button.className = "read-btn";
+      button.type = "button";
+      button.textContent = "পোস্ট পড়ুন";
+      button.addEventListener("click", () => openPost(post));
+
+      contentBox.append(heading, excerpt, meta, button);
+      card.appendChild(contentBox);
+      postsContainer.appendChild(card);
+    });
+  }
 
   async function openPost(post) {
+    modalTitle.textContent = getPostTitle(post);
 
-    modalTitle.textContent =
-      post.title ||
-      "Islamic Post";
-
-
-    modalBody.innerHTML =
-      post.content ||
-      post.description ||
-      post.body ||
-      "এই পোস্টে কোনো content নেই।";
-
+    // Text হিসেবে দেখানো হয়, যাতে পোস্টের content দিয়ে অনিরাপদ HTML চালানো না যায়।
+    modalBody.textContent = stripHtml(getPostContent(post)) ||
+      "এই পোস্টে কোনো লেখা পাওয়া যায়নি।";
 
     modalMeta.textContent =
-      `Views: ${
-        Number(post.views || 0) + 1
-      } • ${
-        formatDate(post.createdAt)
-      }`;
-
+      `প্রকাশের তারিখ: ${formatDate(post.createdAt) || "উল্লেখ নেই"} · Views: ${Number(post.views || 0) + 1}`;
 
     modal.classList.add("show");
 
-
     try {
-
-      await updateDoc(
-        doc(
-          db,
-          "posts",
-          post.id
-        ),
-        {
-          views:
-            increment(1)
-        }
-      );
-
-    }
-
-    catch (error) {
-
-      console.warn(
-        "View count update failed:",
-        error
-      );
-
-    }
-
-  }
-
-
-  // =====================================
-  // CLOSE MODAL
-  // =====================================
-
-  closeModal.addEventListener(
-    "click",
-    () => {
-
-      modal.classList.remove(
-        "show"
-      );
-
-    }
-  );
-
-
-  modal.addEventListener(
-    "click",
-    event => {
-
-      if (
-        event.target === modal
-      ) {
-
-        modal.classList.remove(
-          "show"
-        );
-
-      }
-
-    }
-  );
-
-
-  // =====================================
-  // SEARCH
-  // =====================================
-
-  function searchPosts() {
-
-    const keyword =
-      searchInput.value
-        .trim()
-        .toLowerCase();
-
-
-    if (!keyword) {
-
-      renderPosts(allPosts);
-
-      postStatus.textContent =
-        `${allPosts.length} Posts`;
-
-      return;
-
-    }
-
-
-    const results =
-      allPosts.filter(post => {
-
-        const text = [
-
-          post.title,
-
-          post.content,
-
-          post.description,
-
-          post.body,
-
-          post.category
-
-        ]
-          .filter(Boolean)
-          .join(" ")
-          .toLowerCase();
-
-
-        return text.includes(
-          keyword
-        );
-
+      await updateDoc(doc(db, "posts", post.id), {
+        views: increment(1)
       });
 
-
-    renderPosts(results);
-
-
-    postStatus.textContent =
-      `${results.length}টি ফলাফল`;
-
+      post.views = Number(post.views || 0) + 1;
+      modalMeta.textContent =
+        `প্রকাশের তারিখ: ${formatDate(post.createdAt) || "উল্লেখ নেই"} · Views: ${post.views}`;
+    } catch (error) {
+      // View counter permission না থাকলেও পোস্ট পড়া যাবে।
+      console.warn("View count update failed:", error);
+    }
   }
 
+  function closePostModal() {
+    modal.classList.remove("show");
+  }
 
-  searchBtn.addEventListener(
-    "click",
-    searchPosts
-  );
+  $("closeModal").addEventListener("click", closePostModal);
 
+  modal.addEventListener("click", event => {
+    if (event.target === modal) closePostModal();
+  });
 
-  searchInput.addEventListener(
-    "input",
-    searchPosts
-  );
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closePostModal();
+  });
 
+  function searchPosts() {
+    const keyword = searchInput.value.trim().toLocaleLowerCase();
 
-  // =====================================
-  // QUICK ACCESS
-  // =====================================
+    if (!keyword) {
+      renderPosts(allPosts);
+      postStatus.textContent = `${allPosts.length}টি পোস্ট`;
+      return;
+    }
 
-  document
-    .getElementById("quranCard")
-    .addEventListener(
-      "click",
-      () => {
+    const results = allPosts.filter(post => {
+      const searchable = [
+        getPostTitle(post),
+        getPostContent(post),
+        post.category,
+        post.tags
+      ].map(value => Array.isArray(value) ? value.join(" ") : String(value || ""))
+       .join(" ")
+       .toLocaleLowerCase();
 
-        showToast(
-          "Quran PDF Library এখনো প্রস্তুত হচ্ছে।"
-        );
+      return searchable.includes(keyword);
+    });
 
+    renderPosts(results);
+    postStatus.textContent = `${results.length}টি ফলাফল`;
+  }
+
+  $("searchBtn").addEventListener("click", searchPosts);
+  searchInput.addEventListener("input", searchPosts);
+
+  // Quick Access navigation
+  function goTo(url) {
+    window.location.href = url;
+  }
+
+  function addCardNavigation(id, url) {
+    const card = $(id);
+
+    card.addEventListener("click", () => goTo(url));
+    card.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        goTo(url);
       }
-    );
+    });
+  }
 
+  // কোরআন PDF লাইব্রেরি
+  addCardNavigation("quranCard", "./quran.html");
 
-  document
-    .getElementById("hadithCard")
-    .addEventListener(
-      "click",
-      () => {
+  // Hadith page
+  addCardNavigation("hadithCard", "./hadith.html");
 
-        window.location.href =
-          "hadith.html";
+  // Prayer times page
+  addCardNavigation("prayerCard", "./prayer-times.html");
 
-      }
-    );
+  $("postsCard").addEventListener("click", () => {
+    $("postsSection").scrollIntoView({ behavior: "smooth" });
+  });
 
+  $("postsCard").addEventListener("keydown", event => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      $("postsSection").scrollIntoView({ behavior: "smooth" });
+    }
+  });
 
-  document
-    .getElementById("prayerCard")
-    .addEventListener(
-      "click",
-      () => {
+  $("adminBtn").addEventListener("click", () => goTo("./admin.html"));
 
-        window.location.href =
-          "prayer-times.html";
-
-      }
-    );
-
-
-  document
-    .getElementById("postsCard")
-    .addEventListener(
-      "click",
-      () => {
-
-        document
-          .getElementById(
-            "postsSection"
-          )
-          .scrollIntoView({
-            behavior: "smooth"
-          });
-
-      }
-    );
-
-
-  // =====================================
-  // ADMIN BUTTON
-  // =====================================
-
-  document
-    .getElementById("adminBtn")
-    .addEventListener(
-      "click",
-      () => {
-
-        window.location.href =
-          "admin.html";
-
-      }
-    );
-
-
-  // =====================================
-  // PRAYER API
-  // =====================================
-
+  // Prayer API: Dhaka
   const prayerAPI =
     "https://api.aladhan.com/v1/timingsByCity?city=Dhaka&country=Bangladesh&method=1&school=1";
 
+  const prayerList = [
+    { key: "Fajr", name: "ফজর", box: "fajrBox", element: "fajrTime" },
+    { key: "Dhuhr", name: "যোহর", box: "dhuhrBox", element: "dhuhrTime" },
+    { key: "Asr", name: "আসর", box: "asrBox", element: "asrTime" },
+    { key: "Maghrib", name: "মাগরিব", box: "maghribBox", element: "maghribTime" },
+    { key: "Isha", name: "এশা", box: "ishaBox", element: "ishaTime" }
+  ];
 
-  let prayerData = null;
+  function parsePrayerDate(time, dayOffset = 0) {
+    if (!time) return null;
 
+    const clean = String(time).split(" ")[0];
+    const parts = clean.split(":");
+    if (parts.length < 2) return null;
 
-  async function loadPrayerTimes() {
+    const hour = Number(parts[0]);
+    const minute = Number(parts[1]);
 
-    try {
+    if (!Number.isFinite(hour) || !Number.isFinite(minute)) return null;
 
-      const response =
-        await fetch(
-          prayerAPI
-        );
+    const date = new Date();
+    date.setDate(date.getDate() + dayOffset);
+    date.setHours(hour, minute, 0, 0);
 
-
-      if (!response.ok) {
-
-        throw new Error(
-          "Prayer API failed"
-        );
-
-      }
-
-
-      const data =
-        await response.json();
-
-
-      if (
-        !data.data ||
-        !data.data.timings
-      ) {
-
-        throw new Error(
-          "Invalid prayer data"
-        );
-
-      }
-
-
-      prayerData =
-        data.data.timings;
-
-
-      const dateInfo =
-        data.data.date;
-
-
-      document.getElementById(
-        "prayerDate"
-      ).textContent =
-        dateInfo
-          ? `${dateInfo.readable} • Dhaka`
-          : "Dhaka, Bangladesh";
-
-
-      document.getElementById(
-        "fajrTime"
-      ).textContent =
-        formatPrayerTime(
-          prayerData.Fajr
-        );
-
-
-      document.getElementById(
-        "dhuhrTime"
-      ).textContent =
-        formatPrayerTime(
-          prayerData.Dhuhr
-        );
-
-
-      document.getElementById(
-        "asrTime"
-      ).textContent =
-        formatPrayerTime(
-          prayerData.Asr
-        );
-
-
-      document.getElementById(
-        "maghribTime"
-      ).textContent =
-        formatPrayerTime(
-          prayerData.Maghrib
-        );
-
-
-      document.getElementById(
-        "ishaTime"
-      ).textContent =
-        formatPrayerTime(
-          prayerData.Isha
-        );
-
-
-      updateNextPrayer();
-
-    }
-
-    catch (error) {
-
-      console.error(
-        "Prayer loading error:",
-        error
-      );
-
-
-      document.getElementById(
-        "prayerDate"
-      ).textContent =
-        "Prayer time unavailable";
-
-
-      document.getElementById(
-        "nextPrayer"
-      ).textContent =
-        "Unavailable";
-
-
-      document.getElementById(
-        "countdown"
-      ).textContent =
-        "--:--:--";
-
-    }
-
+    return date;
   }
-
-
-  // =====================================
-  // FORMAT TIME
-  // =====================================
 
   function formatPrayerTime(time) {
+    if (!time) return "--";
 
-    if (!time) {
-      return "--";
-    }
+    const clean = String(time).split(" ")[0];
+    const [hourText, minute] = clean.split(":");
+    let hour = Number(hourText);
 
+    if (!Number.isFinite(hour) || !minute) return clean;
 
-    const clean =
-      time
-        .toString()
-        .split(" ")[0];
-
-
-    const parts =
-      clean.split(":");
-
-
-    if (parts.length < 2) {
-      return clean;
-    }
-
-
-    let hour =
-      Number(parts[0]);
-
-
-    const minute =
-      parts[1];
-
-
-    const period =
-      hour >= 12
-        ? "PM"
-        : "AM";
-
-
-    hour =
-      hour % 12 || 12;
-
+    const period = hour >= 12 ? "PM" : "AM";
+    hour = hour % 12 || 12;
 
     return `${hour}:${minute} ${period}`;
-
   }
 
+  function selectNextPrayer() {
+    if (!prayerData) return;
 
-  // =====================================
-  // NEXT PRAYER
-  // =====================================
-
-  function updateNextPrayer() {
-
-    if (!prayerData) {
-      return;
-    }
-
-
-    const prayers = [
-
-      {
-        key: "Fajr",
-        name: "ফজর",
-        box: "fajrBox"
-      },
-
-      {
-        key: "Dhuhr",
-        name: "যোহর",
-        box: "dhuhrBox"
-      },
-
-      {
-        key: "Asr",
-        name: "আসর",
-        box: "asrBox"
-      },
-
-      {
-        key: "Maghrib",
-        name: "মাগরিব",
-        box: "maghribBox"
-      },
-
-      {
-        key: "Isha",
-        name: "এশা",
-        box: "ishaBox"
-      }
-
-    ];
-
-
-    const now =
-      new Date();
-
-
+    const now = new Date();
     let next = null;
 
+    for (const prayer of prayerList) {
+      const date = parsePrayerDate(prayerData[prayer.key]);
 
-    for (
-      const prayer of prayers
-    ) {
-
-      const time =
-        prayerData[
-          prayer.key
-        ];
-
-
-      if (!time) {
-        continue;
-      }
-
-
-      const clean =
-        time
-          .toString()
-          .split(" ")[0];
-
-
-      const [hour, minute] =
-        clean
-          .split(":")
-          .map(Number);
-
-
-      const prayerDate =
-        new Date();
-
-
-      prayerDate.setHours(
-        hour,
-        minute,
-        0,
-        0
-      );
-
-
-      if (
-        prayerDate > now
-      ) {
-
-        next = {
-
-          ...prayer,
-
-          date: prayerDate
-
-        };
-
+      if (date && date > now) {
+        next = { ...prayer, date };
         break;
-
       }
-
     }
-
-
-    // After Isha -> Tomorrow Fajr
 
     if (!next) {
+      const fajrDate = parsePrayerDate(prayerData.Fajr, 1);
 
-      const fajr =
-        prayerData.Fajr
-          .toString()
-          .split(" ")[0];
-
-
-      const [hour, minute] =
-        fajr
-          .split(":")
-          .map(Number);
-
-
-      const tomorrow =
-        new Date();
-
-
-      tomorrow.setDate(
-        tomorrow.getDate() + 1
-      );
-
-
-      tomorrow.setHours(
-        hour,
-        minute,
-        0,
-        0
-      );
-
-
-      next = {
-
-        key: "Fajr",
-
-        name: "ফজর",
-
-        box: "fajrBox",
-
-        date: tomorrow
-
-      };
-
+      if (fajrDate) {
+        next = { ...prayerList[0], date: fajrDate };
+      }
     }
 
+    if (!next) return;
 
-    document.getElementById(
-      "nextPrayer"
-    ).textContent =
-      next.name;
+    nextPrayerTarget = next.date;
+    $("nextPrayer").textContent = next.name;
 
+    document.querySelectorAll(".prayer-item").forEach(item => {
+      item.classList.remove("active");
+    });
 
-    document
-      .querySelectorAll(
-        ".prayer-item"
-      )
-      .forEach(item => {
-
-        item.classList.remove(
-          "active"
-        );
-
-      });
-
-
-    const activeBox =
-      document.getElementById(
-        next.box
-      );
-
-
-    if (activeBox) {
-
-      activeBox.classList.add(
-        "active"
-      );
-
-    }
-
-
-    updateCountdown(
-      next.date
-    );
-
+    $(next.box).classList.add("active");
+    updateCountdown();
   }
 
+  function updateCountdown() {
+    if (!nextPrayerTarget) return;
 
-  // =====================================
-  // COUNTDOWN
-  // =====================================
+    const secondsLeft = Math.max(
+      0,
+      Math.floor((nextPrayerTarget.getTime() - Date.now()) / 1000)
+    );
 
-  function updateCountdown(
-    target
-  ) {
-
-    const now =
-      new Date();
-
-
-    let difference =
-      target.getTime() -
-      now.getTime();
-
-
-    if (
-      difference <= 0
-    ) {
-
-      updateNextPrayer();
-
+    if (secondsLeft === 0) {
+      selectNextPrayer();
       return;
-
     }
 
+    const hours = Math.floor(secondsLeft / 3600);
+    const minutes = Math.floor((secondsLeft % 3600) / 60);
+    const seconds = secondsLeft % 60;
 
-    const totalSeconds =
-      Math.floor(
-        difference / 1000
-      );
-
-
-    const hours =
-      Math.floor(
-        totalSeconds / 3600
-      );
-
-
-    const minutes =
-      Math.floor(
-        (totalSeconds % 3600) / 60
-      );
-
-
-    const seconds =
-      totalSeconds % 60;
-
-
-    document.getElementById(
-      "countdown"
-    ).textContent =
-
+    $("countdown").textContent =
       `${String(hours).padStart(2, "0")}:` +
       `${String(minutes).padStart(2, "0")}:` +
       `${String(seconds).padStart(2, "0")}`;
-
   }
 
+  async function loadPrayerTimes() {
+    try {
+      const response = await fetch(prayerAPI);
 
-  // =====================================
-  // COUNTDOWN REFRESH
-  // =====================================
+      if (!response.ok) throw new Error("Prayer API request failed");
 
-  setInterval(() => {
+      const result = await response.json();
 
-    updateNextPrayer();
+      if (!result.data || !result.data.timings) {
+        throw new Error("Prayer data is unavailable");
+      }
 
-  }, 1000);
+      prayerData = result.data.timings;
 
+      $("prayerDate").textContent =
+        `${result.data.date?.readable || ""} · Dhaka`;
 
-  // =====================================
-  // INITIAL LOAD
-  // =====================================
+      prayerList.forEach(prayer => {
+        $(prayer.element).textContent =
+          formatPrayerTime(prayerData[prayer.key]);
+      });
 
+      selectNextPrayer();
+    } catch (error) {
+      console.error("Prayer loading error:", error);
+      $("prayerDate").textContent = "নামাজের সময় লোড করা যায়নি";
+      $("nextPrayer").textContent = "Unavailable";
+      $("countdown").textContent = "--:--:--";
+    }
+  }
+
+  // Initial load
   loadPosts();
-
   loadPrayerTimes();
 
-
+  // Countdown updates once per second
+  setInterval(updateCountdown, 1000);
 </script>
-
-
-
-<!-- =====================================
-     PWA SERVICE WORKER
-===================================== -->
 
 <script>
-
-  if (
-    "serviceWorker" in navigator
-  ) {
-
-    window.addEventListener(
-      "load",
-      () => {
-
-        navigator.serviceWorker
-          .register(
-            "./service-worker.js"
-          )
-
-          .then(
-            registration => {
-
-              console.log(
-                "Qalb-e-Deen Service Worker registered:",
-                registration.scope
-              );
-
-            }
-          )
-
-          .catch(
-            error => {
-
-              console.error(
-                "Service Worker registration failed:",
-                error
-              );
-
-            }
-          );
-
-      }
-    );
-
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./service-worker.js")
+        .then(registration => {
+          console.log("Qalb-e-Deen PWA ready:", registration.scope);
+        })
+        .catch(error => {
+          console.error("Service Worker registration failed:", error);
+        });
+    });
   }
-
 </script>
-
-
 </body>
-
 </html>
