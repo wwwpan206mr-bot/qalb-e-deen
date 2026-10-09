@@ -406,6 +406,18 @@
       </div>
 
 
+      <!-- DELETE ACCOUNT -->
+      <div class="form-section" id="deleteAccountSection" style="border-top:1px solid #f0c6c2;margin-top:24px;padding-top:22px">
+        <h2 style="color:#b42318">Delete My Account</h2>
+        <p style="color:#6d7d74;line-height:1.7">আপনি নিজের অ্যাকাউন্ট স্থায়ীভাবে ডিলিট করতে পারবেন। নিশ্চিত করতে আপনার বর্তমান পাসওয়ার্ড দিতে হবে। এই কাজ ফেরত আনা যাবে না। Admin অ্যাকাউন্টের জন্য এই অপশন বন্ধ থাকবে।</p>
+        <div class="input-group">
+          <label for="deletePassword">Confirm with your current password</label>
+          <input type="password" id="deletePassword" autocomplete="current-password" placeholder="বর্তমান পাসওয়ার্ড লিখুন">
+        </div>
+        <button id="deleteAccountBtn" type="button" style="background:#b42318;color:white;border:0;border-radius:10px;padding:12px 16px;font-weight:700;cursor:pointer">Permanently Delete My Account</button>
+        <p class="small" style="color:#b42318;margin-top:10px">আপনার প্রোফাইল ডেটাও ডিলিট করার চেষ্টা করা হবে। আগে নিশ্চিত হয়ে নিন যে আপনি সঠিক অ্যাকাউন্টে লগইন করেছেন।</p>
+      </div>
+
       <!-- ACCOUNT INFO -->
 
       <div class="info-box">
@@ -436,7 +448,10 @@
       getAuth,
       onAuthStateChanged,
       signOut,
-      updateProfile
+      updateProfile,
+      EmailAuthProvider,
+      reauthenticateWithCredential,
+      deleteUser
     } from
     "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 
@@ -446,6 +461,7 @@
       doc,
       getDoc,
       setDoc,
+      deleteDoc,
       serverTimestamp
     } from
     "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
@@ -537,6 +553,17 @@
 
     const message =
       document.getElementById("message");
+
+    const deleteAccountSection =
+      document.getElementById("deleteAccountSection");
+
+    const deletePasswordInput =
+      document.getElementById("deletePassword");
+
+    const deleteAccountBtn =
+      document.getElementById("deleteAccountBtn");
+
+    let currentProfileRole = "user";
 
 
     // =====================================
@@ -680,6 +707,13 @@
         const finalRole =
           profileData.role ||
           "user";
+
+        currentProfileRole = finalRole;
+        // Protect the administrator account from self-deletion here.
+        if (deleteAccountSection) {
+          deleteAccountSection.style.display =
+            finalRole === "admin" ? "none" : "block";
+        }
 
 
         displayName.textContent =
@@ -880,6 +914,69 @@
 
       }
     );
+
+
+    // =====================================
+    // DELETE ACCOUNT HANDLER
+    // =====================================
+
+    if (deleteAccountBtn) {
+      deleteAccountBtn.addEventListener("click", async () => {
+        const user = auth.currentUser;
+        const password = deletePasswordInput.value;
+
+        if (!user) {
+          window.location.href = "login.html";
+          return;
+        }
+
+        if (currentProfileRole === "admin") {
+          showMessage("নিরাপত্তার কারণে Admin অ্যাকাউন্ট এই পেজ থেকে ডিলিট করা যাবে না।", "error");
+          return;
+        }
+
+        if (!password) {
+          showMessage("অ্যাকাউন্ট ডিলিট করতে বর্তমান পাসওয়ার্ড দিন।", "error");
+          deletePasswordInput.focus();
+          return;
+        }
+
+        const confirmed = window.confirm(
+          "সতর্কতা: আপনার Qalb-e-Deen অ্যাকাউন্ট এবং প্রোফাইল স্থায়ীভাবে ডিলিট হবে। এই কাজ ফেরত আনা যাবে না। আপনি কি নিশ্চিত?"
+        );
+        if (!confirmed) return;
+
+        deleteAccountBtn.disabled = true;
+        deleteAccountBtn.textContent = "Deleting account...";
+
+        try {
+          // Firebase requires recent authentication for account deletion.
+          const credential = EmailAuthProvider.credential(user.email, password);
+          await reauthenticateWithCredential(user, credential);
+
+          // Delete this signed-in user's own profile document only.
+          await deleteDoc(doc(db, "user", user.uid));
+
+          // Delete only the currently authenticated Firebase Auth account.
+          await deleteUser(user);
+
+          window.location.href = "login.html?accountDeleted=1";
+        } catch (error) {
+          console.error("ACCOUNT DELETE ERROR:", error);
+          showMessage(
+            error.code === "auth/wrong-password" ||
+            error.code === "auth/invalid-credential"
+              ? "পাসওয়ার্ড সঠিক নয়। আবার চেষ্টা করুন।"
+              : "অ্যাকাউন্ট ডিলিট করা যায়নি: " + error.message +
+                "। Firestore Rules-এ নিজের user/" + (auth.currentUser ? auth.currentUser.uid : "") +
+                " ডকুমেন্ট ডিলিটের অনুমতি আছে কি না পরীক্ষা করুন।",
+            "error"
+          );
+          deleteAccountBtn.disabled = false;
+          deleteAccountBtn.textContent = "Permanently Delete My Account";
+        }
+      });
+    }
 
 
     // =====================================
