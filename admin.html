@@ -1,4055 +1,968 @@
+
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Qalb-e-Deen — Admin Panel</title>
-
-<meta name="theme-color" content="#0d2b24">
+<meta name="theme-color" content="#102b22">
+<title>Admin Panel | Qalb-e-Deen</title>
 
 <style>
-
-/* =====================================================
-   RESET
-===================================================== */
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-body{
-  font-family:
-    Arial,
-    "Noto Sans Bengali",
-    sans-serif;
-
-  background:#f4f7f5;
-  color:#18231f;
-  line-height:1.6;
-}
-
-button,
-input,
-textarea,
-select{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-input,
-textarea,
-select{
-  width:100%;
-  padding:12px 14px;
-  border:1px solid #d6e0dc;
-  border-radius:9px;
-  outline:none;
-  background:white;
-}
-
-input:focus,
-textarea:focus,
-select:focus{
-  border-color:#0d5b48;
-  box-shadow:0 0 0 3px rgba(13,91,72,.08);
-}
-
-textarea{
-  min-height:130px;
-  resize:vertical;
-}
-
-
-/* =====================================================
-   HEADER
-===================================================== */
-
-header{
-  background:#0d2b24;
-  color:white;
-  position:sticky;
-  top:0;
-  z-index:1000;
-  box-shadow:0 4px 20px rgba(0,0,0,.15);
-}
-
-.header-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:13px 18px;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-}
-
-.logo{
-  font-size:22px;
-  font-weight:800;
-}
-
-.logo span{
-  color:#d7b56d;
-}
-
-.admin-info{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.admin-email{
-  font-size:12px;
-  color:#cbdad5;
-  max-width:230px;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
-
-.logout-btn{
-  border:0;
-  background:#c94b4b;
-  color:white;
-  padding:8px 13px;
-  border-radius:8px;
-  font-weight:bold;
-}
-
-
-/* =====================================================
-   LAYOUT
-===================================================== */
-
-.layout{
-  max-width:1200px;
-  margin:auto;
-  padding:22px 16px 60px;
-
-  display:grid;
-  grid-template-columns:220px 1fr;
-  gap:20px;
-}
-
-
-/* =====================================================
-   SIDEBAR
-===================================================== */
-
-.sidebar{
-  background:white;
-  border-radius:14px;
-  padding:12px;
-  height:max-content;
-
-  box-shadow:
-    0 5px 22px rgba(0,0,0,.06);
-
-  position:sticky;
-  top:88px;
-}
-
-.sidebar button{
-  width:100%;
-  text-align:left;
-
-  border:0;
-  background:transparent;
-
-  padding:12px 13px;
-  margin-bottom:4px;
-
-  border-radius:9px;
-
-  color:#4d5954;
-  font-weight:bold;
-}
-
-.sidebar button:hover,
-.sidebar button.active{
-  background:#e6f2ed;
-  color:#0d5b48;
-}
-
-
-/* =====================================================
-   MAIN
-===================================================== */
-
-.main{
-  min-width:0;
-}
-
-.panel{
-  display:none;
-}
-
-.panel.active{
-  display:block;
-}
-
-
-/* =====================================================
-   PAGE TITLE
-===================================================== */
-
-.page-title{
-  margin-bottom:18px;
-}
-
-.page-title h1{
-  color:#0d2b24;
-  font-size:27px;
-}
-
-.page-title p{
-  color:#727d78;
-  font-size:13px;
-}
-
-
-/* =====================================================
-   CARDS
-===================================================== */
-
-.card{
-  background:white;
-  border-radius:14px;
-  padding:20px;
-  margin-bottom:20px;
-
-  box-shadow:
-    0 5px 22px rgba(0,0,0,.06);
-}
-
-.card h2{
-  color:#0d2b24;
-  font-size:20px;
-  margin-bottom:15px;
-}
-
-
-/* =====================================================
-   DASHBOARD
-===================================================== */
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-}
-
-.stat{
-  background:white;
-  border-radius:13px;
-  padding:20px;
-
-  box-shadow:
-    0 5px 20px rgba(0,0,0,.06);
-}
-
-.stat-icon{
-  font-size:27px;
-}
-
-.stat-number{
-  font-size:27px;
-  font-weight:800;
-  color:#0d5b48;
-  margin-top:5px;
-}
-
-.stat-label{
-  color:#77827d;
-  font-size:13px;
-}
-
-
-/* =====================================================
-   FORM
-===================================================== */
-
-.form-group{
-  margin-bottom:15px;
-}
-
-.form-group label{
-  display:block;
-  margin-bottom:6px;
-  font-size:13px;
-  font-weight:bold;
-  color:#33413b;
-}
-
-.form-row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-}
-
-.primary-btn{
-  border:0;
-  background:#0d5b48;
-  color:white;
-  padding:11px 18px;
-  border-radius:8px;
-  font-weight:bold;
-}
-
-.primary-btn:hover{
-  background:#084a3b;
-}
-
-.secondary-btn{
-  border:1px solid #cfdad5;
-  background:white;
-  color:#304039;
-  padding:10px 15px;
-  border-radius:8px;
-  font-weight:bold;
-}
-
-.danger-btn{
-  border:0;
-  background:#c94b4b;
-  color:white;
-  padding:8px 12px;
-  border-radius:7px;
-  font-size:12px;
-  font-weight:bold;
-}
-
-.edit-btn{
-  border:0;
-  background:#d7b56d;
-  color:#17251f;
-  padding:8px 12px;
-  border-radius:7px;
-  font-size:12px;
-  font-weight:bold;
-}
-
-.small-btn{
-  border:0;
-  padding:7px 10px;
-  border-radius:7px;
-  font-size:12px;
-  font-weight:bold;
-}
-
-
-/* =====================================================
-   TABLE
-===================================================== */
-
-.table-wrap{
-  overflow-x:auto;
-}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:700px;
-}
-
-th,
-td{
-  padding:12px 10px;
-  border-bottom:1px solid #e7ece9;
-  text-align:left;
-  vertical-align:middle;
-}
-
-th{
-  background:#f4f8f6;
-  color:#405049;
-  font-size:12px;
-}
-
-td{
-  font-size:13px;
-}
-
-.actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:6px;
-}
-
-
-/* =====================================================
-   STATUS
-===================================================== */
-
-.badge{
-  display:inline-block;
-  padding:4px 9px;
-  border-radius:20px;
-  font-size:11px;
-  font-weight:bold;
-}
-
-.badge-published{
-  background:#e2f3e9;
-  color:#187447;
-}
-
-.badge-hidden{
-  background:#f0f0f0;
-  color:#777;
-}
-
-.badge-pending{
-  background:#fff2d9;
-  color:#96630a;
-}
-
-.badge-approved{
-  background:#e2f3e9;
-  color:#187447;
-}
-
-
-/* =====================================================
-   IMAGE PREVIEW
-===================================================== */
-
-.image-preview{
-  display:none;
-  margin-top:10px;
-  max-width:220px;
-  max-height:150px;
-  border-radius:9px;
-  object-fit:cover;
-}
-
-
-/* =====================================================
-   PROGRESS
-===================================================== */
-
-.progress-wrap{
-  display:none;
-  margin-top:15px;
-}
-
-.progress-bar{
-  width:100%;
-  height:10px;
-  background:#e5ebe8;
-  border-radius:20px;
-  overflow:hidden;
-}
-
-.progress-fill{
-  width:0%;
-  height:100%;
-  background:#0d5b48;
-  transition:.2s;
-}
-
-.progress-text{
-  margin-top:5px;
-  color:#69756f;
-  font-size:12px;
-}
-
-
-/* =====================================================
-   PDF LIBRARY
-===================================================== */
-
-.pdf-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-}
-
-.pdf-card{
-  border:1px solid #e1e8e4;
-  border-radius:13px;
-  padding:16px;
-  background:#fff;
-
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.pdf-icon{
-  width:48px;
-  height:48px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  border-radius:10px;
-
-  background:#f6e7e7;
-  color:#a52e2e;
-
-  font-size:25px;
-}
-
-.pdf-title{
-  color:#0d2b24;
-  font-size:17px;
-  font-weight:800;
-}
-
-.pdf-description{
-  color:#6e7974;
-  font-size:13px;
-}
-
-.pdf-meta{
-  color:#8a9490;
-  font-size:11px;
-}
-
-.pdf-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
-  margin-top:auto;
-}
-
-.view-pdf{
-  background:#0d5b48;
-  color:white;
-}
-
-.edit-pdf{
-  background:#d7b56d;
-  color:#17251f;
-}
-
-.delete-pdf{
-  background:#c94b4b;
-  color:white;
-}
-
-
-/* =====================================================
-   EMPTY
-===================================================== */
-
-.empty{
-  text-align:center;
-  padding:35px 20px;
-  color:#7b8581;
-  background:#fafcfb;
-  border-radius:10px;
-}
-
-.loading{
-  text-align:center;
-  padding:30px;
-  color:#777;
-}
-
-
-/* =====================================================
-   MODAL
-===================================================== */
-
-.modal{
-  position:fixed;
-  inset:0;
-  z-index:5000;
-
-  display:none;
-
-  background:rgba(0,0,0,.7);
-
-  overflow-y:auto;
-  padding:15px;
-}
-
-.modal.show{
-  display:block;
-}
-
-.modal-box{
-  max-width:760px;
-  margin:30px auto;
-  background:white;
-  border-radius:15px;
-  overflow:hidden;
-}
-
-.modal-head{
-  padding:15px 18px;
-  background:#0d2b24;
-  color:white;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.modal-head h2{
-  font-size:18px;
-}
-
-.close{
-  border:0;
-  background:transparent;
-  color:white;
-  font-size:27px;
-}
-
-.modal-body{
-  padding:20px;
-}
-
-
-/* =====================================================
-   TOAST
-===================================================== */
-
-.toast{
-  position:fixed;
-  left:50%;
-  bottom:22px;
-
-  transform:translate(-50%,120px);
-
-  background:#17211f;
-  color:white;
-
-  padding:11px 17px;
-  border-radius:8px;
-
-  opacity:0;
-  transition:.3s;
-
-  z-index:9000;
-
-  max-width:calc(100% - 30px);
-  text-align:center;
-}
-
-.toast.show{
-  opacity:1;
-  transform:translate(-50%,0);
-}
-
-
-/* =====================================================
-   LOGIN SCREEN
-===================================================== */
-
-#loginScreen{
-  min-height:100vh;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  padding:20px;
-}
-
-.login-box{
-  width:100%;
-  max-width:420px;
-
-  background:white;
-
-  padding:30px;
-
-  border-radius:17px;
-
-  box-shadow:
-    0 15px 50px rgba(0,0,0,.12);
-
-  text-align:center;
-}
-
-.login-box h1{
-  color:#0d2b24;
-  margin-bottom:5px;
-}
-
-.login-box h1 span{
-  color:#d7b56d;
-}
-
-.login-box p{
-  color:#78827e;
-  font-size:13px;
-  margin-bottom:22px;
-}
-
-.login-box .form-group{
-  text-align:left;
-}
-
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-
-@media(max-width:900px){
-
-  .layout{
-    grid-template-columns:1fr;
-  }
-
-  .sidebar{
-    position:static;
-
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:5px;
-  }
-
-  .stats{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-}
-
-@media(max-width:600px){
-
-  .header-inner{
-    padding:11px 13px;
-  }
-
-  .logo{
-    font-size:18px;
-  }
-
-  .admin-email{
-    display:none;
-  }
-
-  .layout{
-    padding:15px 12px 45px;
-  }
-
-  .sidebar{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .stats{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .form-row{
-    grid-template-columns:1fr;
-  }
-
-  .pdf-grid{
-    grid-template-columns:1fr;
-  }
-
-  .card{
-    padding:15px;
-  }
-
-}
-
+:root{
+  --bg:#f3f6f4;--card:#fff;--green:#123d2d;--green2:#1b6246;
+  --gold:#c9a45c;--text:#20342b;--muted:#6d7d74;
+  --border:#dce6df;--red:#b42318;--blue:#2459a9;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+header{background:var(--green);color:white;padding:20px 16px}
+.header-inner{max-width:1150px;margin:auto;display:flex;
+  justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+header h1{margin:0;font-size:22px}
+header p{margin:5px 0 0;color:#d8e7dc;font-size:13px}
+.container{max-width:1150px;margin:22px auto;padding:0 14px 40px}
+.hidden{display:none!important}
+.card{background:var(--card);border:1px solid var(--border);
+  border-radius:15px;padding:18px;margin-bottom:18px;
+  box-shadow:0 3px 12px #142d1b08}
+h2{font-size:19px;margin:0 0 14px}
+h3{font-size:16px;margin:0 0 12px}
+label{display:block;font-size:13px;font-weight:650;margin:12px 0 6px}
+input,textarea,select{width:100%;padding:12px;border:1px solid #ccd8cf;
+  border-radius:9px;background:#fff;font:inherit;color:var(--text)}
+textarea{min-height:110px;resize:vertical}
+button,.button{border:0;border-radius:9px;padding:11px 15px;
+  background:var(--green2);color:white;font-weight:650;cursor:pointer;
+  font:inherit;font-size:14px;text-decoration:none;display:inline-block}
+button:hover,.button:hover{opacity:.9}
+button:disabled{opacity:.55;cursor:not-allowed}
+.btn-secondary{background:#e7eee9;color:var(--green)}
+.btn-danger{background:#b42318;color:white}
+.btn-gold{background:#a47b2d;color:white}
+.btn-small{padding:7px 10px;font-size:12px;margin:3px 2px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.notice{padding:12px 14px;border-radius:10px;margin:12px 0;
+  background:#edf4ef;border:1px solid var(--border);font-size:14px;
+  overflow-wrap:anywhere}
+.notice.error{background:#fff0ee;color:#8e2017;border-color:#f2c5bf}
+.notice.success{background:#e9f7ed;color:#17603a}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.stat{background:#fff;border:1px solid var(--border);padding:17px;
+  border-radius:13px;min-width:0}
+.stat span{display:block;font-size:13px;color:var(--muted)}
+.stat strong{display:block;font-size:29px;margin-top:5px;color:var(--green)}
+.tabs{display:flex;gap:8px;overflow-x:auto;margin:20px 0}
+.tabs button{white-space:nowrap;flex-shrink:0}
+.tabs button.active{background:var(--gold);color:#fff}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.item{border:1px solid var(--border);border-radius:11px;padding:13px;
+  margin:10px 0;overflow-wrap:anywhere}
+.item p{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px}
+.item small{color:var(--muted)}
+.item img{max-width:120px;max-height:90px;object-fit:cover;border-radius:8px}
+.status{font-size:13px;color:var(--muted);margin:8px 0}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.two-col{grid-template-columns:1fr}.container{margin-top:14px}.card{padding:14px}}
 </style>
-
 </head>
 
 <body>
-
-
-<!-- =====================================================
-     LOGIN SCREEN
-===================================================== -->
-
-<div id="loginScreen">
-
-  <div class="login-box">
-
-    <h1>
-      Qalb<span>-e-Deen</span>
-    </h1>
-
-    <p>
-      Administrator Panel
-    </p>
-
-    <div class="form-group">
-
-      <label>
-        Email
-      </label>
-
-      <input
-        id="loginEmail"
-        type="email"
-        placeholder="Admin email"
-      >
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>
-        Password
-      </label>
-
-      <input
-        id="loginPassword"
-        type="password"
-        placeholder="Password"
-      >
-
-    </div>
-
-
-    <button
-      id="loginSubmit"
-      class="primary-btn"
-      style="width:100%"
-    >
-      Login
-    </button>
-
-  </div>
-
-</div>
-
-
-<!-- =====================================================
-     ADMIN APP
-===================================================== -->
-
-<div id="adminApp" style="display:none">
-
-
 <header>
-
   <div class="header-inner">
-
-    <div class="logo">
-      Qalb<span>-e-Deen</span> Admin
+    <div>
+      <h1>☪ Qalb-e-Deen Admin</h1>
+      <p>The Heart of Deen — Content Management</p>
     </div>
-
-    <div class="admin-info">
-
-      <span
-        id="adminEmail"
-        class="admin-email"
-      ></span>
-
-      <button
-        id="logoutBtn"
-        class="logout-btn"
-      >
-        Logout
-      </button>
-
-    </div>
-
+    <button id="logoutBtn" class="hidden btn-secondary">Logout</button>
   </div>
-
 </header>
 
+<main class="container">
 
-<div class="layout">
+  <div id="globalMessage" class="notice hidden" role="status"></div>
 
-
-<!-- =====================================================
-     SIDEBAR
-===================================================== -->
-
-<aside class="sidebar">
-
-  <button
-    class="nav-btn active"
-    data-panel="dashboardPanel"
-  >
-    📊 Dashboard
-  </button>
-
-  <button
-    class="nav-btn"
-    data-panel="postsPanel"
-  >
-    📝 Posts
-  </button>
-
-  <button
-    class="nav-btn"
-    data-panel="commentsPanel"
-  >
-    💬 Comments
-  </button>
-
-  <button
-    class="nav-btn"
-    data-panel="quranPanel"
-  >
-    📖 Quran PDF Library
-  </button>
-
-</aside>
-
-
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
-<main class="main">
-
-
-<!-- =====================================================
-     DASHBOARD
-===================================================== -->
-
-<section
-  id="dashboardPanel"
-  class="panel active"
->
-
-  <div class="page-title">
-
-    <h1>
-      Dashboard
-    </h1>
-
-    <p>
-      Qalb-e-Deen website overview
-    </p>
-
-  </div>
-
-
-  <div class="stats">
-
-    <div class="stat">
-
-      <div class="stat-icon">
-        📝
+  <!-- LOGIN -->
+  <section id="loginSection" class="card">
+    <h2>Admin Login</h2>
+    <p>শুধু অনুমোদিত অ্যাডমিন অ্যাকাউন্ট দিয়ে লগইন করো।</p>
+    <form id="loginForm">
+      <label for="loginEmail">Email</label>
+      <input id="loginEmail" type="email" autocomplete="username" required>
+      <label for="loginPassword">Password</label>
+      <input id="loginPassword" type="password"
+        autocomplete="current-password" required>
+      <div class="actions">
+        <button id="loginBtn" type="submit">Login to Dashboard</button>
       </div>
+    </form>
+    <div id="loginMessage" class="notice hidden"></div>
+  </section>
 
-      <div
-        id="postStat"
-        class="stat-number"
-      >
-        0
+  <!-- ADMIN APP -->
+  <section id="adminApp" class="hidden">
+
+    <div class="card">
+      <h2>Dashboard Overview</h2>
+      <div id="adminIdentity" class="status">Admin যাচাই করা হচ্ছে…</div>
+      <div class="grid">
+        <div class="stat"><span>মোট পোস্ট</span><strong id="postsCount">—</strong></div>
+        <div class="stat"><span>মোট কমেন্ট</span><strong id="commentsCount">—</strong></div>
+        <div class="stat"><span>Quran PDF Records</span><strong id="pdfCount">—</strong></div>
+        <div class="stat"><span>মোট হাদিস</span><strong id="hadithCount">—</strong></div>
       </div>
-
-      <div class="stat-label">
-        Total Posts
+      <div id="dashboardStatus" class="status">
+        Dashboard-এর তথ্য লোড হচ্ছে…
       </div>
-
+      <button id="refreshDashboard" class="btn-secondary">Refresh Dashboard</button>
     </div>
 
+    <nav class="tabs" aria-label="Admin sections">
+      <button class="active" data-tab="postsPanel">Posts</button>
+      <button data-tab="commentsPanel">Comments</button>
+      <button data-tab="pdfPanel">Quran PDF</button>
+      <button data-tab="hadithPanel">Hadith Management</button>
+    </nav>
 
-    <div class="stat">
+    <!-- POSTS -->
+    <section id="postsPanel" class="tab-panel">
+      <div class="card">
+        <h2 id="postFormTitle">নতুন পোস্ট প্রকাশ</h2>
+        <form id="postForm">
+          <input id="postId" type="hidden">
 
-      <div class="stat-icon">
-        💬
+          <label for="postTitle">পোস্টের শিরোনাম *</label>
+          <input id="postTitle" required maxlength="250"
+            placeholder="পোস্টের শিরোনাম লিখুন">
+
+          <label for="postCategory">বিভাগ</label>
+          <input id="postCategory" maxlength="100"
+            placeholder="যেমন: ইসলামিক জ্ঞান, কোরআন, হাদিস">
+
+          <label for="postImage">ছবির URL (ঐচ্ছিক)</label>
+          <input id="postImage" type="url"
+            placeholder="https://example.com/image.jpg">
+
+          <label for="postExcerpt">সংক্ষিপ্ত বিবরণ</label>
+          <textarea id="postExcerpt" rows="3"
+            placeholder="পোস্টের সংক্ষিপ্ত পরিচিতি"></textarea>
+
+          <label for="postContent">পোস্টের সম্পূর্ণ লেখা *</label>
+          <textarea id="postContent" required
+            placeholder="এখানে পোস্টের লেখা লিখুন"></textarea>
+
+          <div class="actions">
+            <button id="savePostBtn" type="submit">Publish Post</button>
+            <button id="cancelPostEdit" type="button"
+              class="btn-secondary hidden">Cancel Edit</button>
+          </div>
+        </form>
       </div>
 
-      <div
-        id="commentStat"
-        class="stat-number"
-      >
-        0
+      <div class="card">
+        <h2>প্রকাশিত পোস্ট</h2>
+        <div class="actions">
+          <button id="reloadPosts" class="btn-secondary">Reload Posts</button>
+        </div>
+        <div id="postsList" class="status">পোস্ট লোড হচ্ছে…</div>
+      </div>
+    </section>
+
+    <!-- COMMENTS -->
+    <section id="commentsPanel" class="tab-panel hidden">
+      <div class="card">
+        <h2>Comment Moderation</h2>
+        <p>এখানে Firestore-এর <code>comments</code> collection-এর কমেন্ট দেখা ও মুছে ফেলা যাবে।</p>
+        <button id="reloadComments" class="btn-secondary">Reload Comments</button>
+        <div id="commentsList" class="status">কমেন্ট লোড হচ্ছে…</div>
+      </div>
+    </section>
+
+    <!-- QURAN PDF -->
+    <section id="pdfPanel" class="tab-panel hidden">
+      <div class="card">
+        <h2>Quran PDF Library</h2>
+        <p>এই অংশে PDF-এর নাম ও URL সংরক্ষণ করা হয়। এটি সরাসরি PDF ফাইল Firebase Storage-এ আপলোড করে না।</p>
+        <form id="pdfForm">
+          <input id="pdfId" type="hidden">
+          <label for="pdfTitle">PDF-এর নাম *</label>
+          <input id="pdfTitle" required maxlength="200"
+            placeholder="যেমন: পবিত্র কোরআন">
+
+          <label for="pdfUrl">PDF-এর URL *</label>
+          <input id="pdfUrl" type="url" required
+            placeholder="https://... অথবা repository-র relative path">
+
+          <label for="pdfLanguage">ভাষা / বিবরণ</label>
+          <input id="pdfLanguage" maxlength="100"
+            placeholder="যেমন: Arabic-English">
+
+          <div class="actions">
+            <button id="savePdfBtn" type="submit">Save PDF Record</button>
+            <button id="cancelPdfEdit" type="button"
+              class="btn-secondary hidden">Cancel Edit</button>
+          </div>
+        </form>
+        <div class="notice">
+          GitHub repository-তে PDF থাকলে relative path হিসেবে, উদাহরণ:
+          <code>Quranpdfhub-Arabic-English-Text-Quran.pdf</code>
+          ব্যবহার করতে পারো। ফাইলের নাম ও path অবশ্যই মিলতে হবে।
+        </div>
       </div>
 
-      <div class="stat-label">
-        Comments
+      <div class="card">
+        <h2>Saved Quran PDFs</h2>
+        <button id="reloadPdfs" class="btn-secondary">Reload PDF List</button>
+        <div id="pdfList" class="status">PDF রেকর্ড লোড হচ্ছে…</div>
+      </div>
+    </section>
+
+    <!-- HADITH -->
+    <section id="hadithPanel" class="tab-panel hidden">
+      <div class="card">
+        <h2 id="hadithFormTitle">নতুন হাদিস যোগ করুন</h2>
+        <form id="hadithForm">
+          <input id="hadithId" type="hidden">
+
+          <label for="hadithTitle">শিরোনাম</label>
+          <input id="hadithTitle" maxlength="200"
+            placeholder="হাদিসের শিরোনাম">
+
+          <label for="hadithArabic">আরবি *</label>
+          <textarea id="hadithArabic" required
+            placeholder="আরবি হাদিস লিখুন"></textarea>
+
+          <label for="hadithTransliteration">বাংলা উচ্চারণ</label>
+          <textarea id="hadithTransliteration"
+            placeholder="বাংলা উচ্চারণ লিখুন"></textarea>
+
+          <label for="hadithEnglishPronunciation">English Pronunciation</label>
+          <textarea id="hadithEnglishPronunciation"
+            placeholder="English transliteration (optional)"></textarea>
+
+          <label for="hadithTranslation">বাংলা অনুবাদ *</label>
+          <textarea id="hadithTranslation" required
+            placeholder="হাদিসের বাংলা অনুবাদ"></textarea>
+
+          <label for="hadithExplanation">ব্যাখ্যা</label>
+          <textarea id="hadithExplanation"
+            placeholder="হাদিসের ব্যাখ্যা লিখুন"></textarea>
+
+          <label for="hadithLesson">শিক্ষা / করণীয়</label>
+          <textarea id="hadithLesson"
+            placeholder="এই হাদিস থেকে কী শিক্ষা পাওয়া যায়"></textarea>
+
+          <div class="two-col">
+            <div>
+              <label for="hadithSource">সূত্র / গ্রন্থের নাম</label>
+              <input id="hadithSource" maxlength="200"
+                placeholder="যেমন: সহিহ বুখারি">
+            </div>
+            <div>
+              <label for="hadithNumber">হাদিস নম্বর</label>
+              <input id="hadithNumber" maxlength="100"
+                placeholder="হাদিস নম্বর">
+            </div>
+          </div>
+
+          <label for="hadithActive">প্রদর্শনের অবস্থা</label>
+          <select id="hadithActive">
+            <option value="true">সক্রিয় — ব্যবহারকারীরা দেখতে পারবেন</option>
+            <option value="false">নিষ্ক্রিয় — লুকানো থাকবে</option>
+          </select>
+
+          <div class="actions">
+            <button id="saveHadithBtn" type="submit">Save Hadith</button>
+            <button id="cancelHadithEdit" type="button"
+              class="btn-secondary hidden">Cancel Edit</button>
+          </div>
+        </form>
       </div>
 
-    </div>
-
-
-    <div class="stat">
-
-      <div class="stat-icon">
-        📖
+      <div class="card">
+        <h2>Hadith Records</h2>
+        <button id="reloadHadiths" class="btn-secondary">Reload Hadiths</button>
+        <div id="hadithList" class="status">হাদিস লোড হচ্ছে…</div>
       </div>
+    </section>
 
-      <div
-        id="quranStat"
-        class="stat-number"
-      >
-        0
-      </div>
-
-      <div class="stat-label">
-        Quran PDFs
-      </div>
-
-    </div>
-
-
-    <div class="stat">
-
-      <div class="stat-icon">
-        ⏳
-      </div>
-
-      <div
-        id="pendingStat"
-        class="stat-number"
-      >
-        0
-      </div>
-
-      <div class="stat-label">
-        Pending Comments
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     POSTS PANEL
-===================================================== -->
-
-<section
-  id="postsPanel"
-  class="panel"
->
-
-  <div class="page-title">
-
-    <h1>
-      📝 Post Management
-    </h1>
-
-    <p>
-      Create and manage Islamic posts.
-    </p>
-
-  </div>
-
-
-  <div class="card">
-
-    <h2>
-      Create / Edit Post
-    </h2>
-
-
-    <input
-      id="postId"
-      type="hidden"
-    >
-
-
-    <div class="form-group">
-
-      <label>
-        Post Title
-      </label>
-
-      <input
-        id="postTitle"
-        type="text"
-        placeholder="Enter post title"
-      >
-
-    </div>
-
-
-    <div class="form-row">
-
-      <div class="form-group">
-
-        <label>
-          Category
-        </label>
-
-        <input
-          id="postCategory"
-          type="text"
-          placeholder="Hadith / Dua / Quran..."
-        >
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label>
-          Image URL
-        </label>
-
-        <input
-          id="postImage"
-          type="url"
-          placeholder="https://..."
-        >
-
-      </div>
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>
-        Content
-      </label>
-
-      <textarea
-        id="postContent"
-        placeholder="Write your Islamic post..."
-      ></textarea>
-
-    </div>
-
-
-    <div class="actions">
-
-      <button
-        id="savePostBtn"
-        class="primary-btn"
-      >
-        Publish Post
-      </button>
-
-      <button
-        id="cancelPostBtn"
-        class="secondary-btn"
-      >
-        Clear
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <div class="card">
-
-    <h2>
-      Existing Posts
-    </h2>
-
-    <div
-      id="postsAdminList"
-      class="loading"
-    >
-      Loading posts...
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     COMMENTS PANEL
-===================================================== -->
-
-<section
-  id="commentsPanel"
-  class="panel"
->
-
-  <div class="page-title">
-
-    <h1>
-      💬 Comment Moderation
-    </h1>
-
-    <p>
-      Review, approve or delete visitor comments and replies.
-    </p>
-
-  </div>
-
-
-  <div class="card">
-
-    <div
-      id="commentsAdminList"
-      class="loading"
-    >
-      Loading comments...
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     QURAN PDF LIBRARY
-===================================================== -->
-
-<section
-  id="quranPanel"
-  class="panel"
->
-
-  <div class="page-title">
-
-    <h1>
-      📖 Quran PDF Library
-    </h1>
-
-    <p>
-      Upload and manage multiple Quran PDF files.
-    </p>
-
-  </div>
-
-
-  <!-- UPLOAD CARD -->
-
-  <div class="card">
-
-    <h2>
-      ➕ Add Quran PDF
-    </h2>
-
-
-    <div class="form-group">
-
-      <label>
-        Quran PDF Title
-      </label>
-
-      <input
-        id="quranTitle"
-        type="text"
-        placeholder="Example: Quran Arabic Text"
-      >
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>
-        Description
-      </label>
-
-      <textarea
-        id="quranDescription"
-        placeholder="Short description about this Quran PDF..."
-        style="min-height:90px"
-      ></textarea>
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>
-        Select PDF File
-      </label>
-
-      <input
-        id="quranFile"
-        type="file"
-        accept="application/pdf,.pdf"
-      >
-
-      <p
-        id="selectedFile"
-        style="
-          margin-top:7px;
-          color:#77827d;
-          font-size:12px;
-        "
-      >
-        No PDF selected.
-      </p>
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>
-        Publication Status
-      </label>
-
-      <select id="quranPublished">
-
-        <option value="true">
-          Published — Visible to visitors
-        </option>
-
-        <option value="false">
-          Unpublished — Hidden from visitors
-        </option>
-
-      </select>
-
-    </div>
-
-
-    <div
-      id="quranProgress"
-      class="progress-wrap"
-    >
-
-      <div class="progress-bar">
-
-        <div
-          id="quranProgressFill"
-          class="progress-fill"
-        ></div>
-
-      </div>
-
-      <div
-        id="quranProgressText"
-        class="progress-text"
-      >
-        Uploading 0%
-      </div>
-
-    </div>
-
-
-    <div class="actions">
-
-      <button
-        id="uploadQuranBtn"
-        class="primary-btn"
-      >
-        📤 Upload Quran PDF
-      </button>
-
-      <button
-        id="clearQuranBtn"
-        class="secondary-btn"
-      >
-        Clear
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <!-- LIBRARY -->
-
-  <div class="card">
-
-    <h2>
-      📚 Quran PDF Library
-    </h2>
-
-
-    <div
-      id="quranLibrary"
-      class="pdf-grid"
-    >
-
-      <div class="loading">
-        Loading Quran PDFs...
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
+  </section>
 </main>
 
-</div>
-
-</div>
-
-
-<!-- =====================================================
-     EDIT QURAN MODAL
-===================================================== -->
-
-<div
-  id="quranEditModal"
-  class="modal"
->
-
-  <div class="modal-box">
-
-    <div class="modal-head">
-
-      <h2>
-        Edit Quran PDF
-      </h2>
-
-      <button
-        id="closeQuranEdit"
-        class="close"
-      >
-        ×
-      </button>
-
-    </div>
-
-
-    <div class="modal-body">
-
-      <input
-        id="editQuranId"
-        type="hidden"
-      >
-
-
-      <div class="form-group">
-
-        <label>
-          Title
-        </label>
-
-        <input
-          id="editQuranTitle"
-          type="text"
-        >
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label>
-          Description
-        </label>
-
-        <textarea
-          id="editQuranDescription"
-          style="min-height:90px"
-        ></textarea>
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label>
-          Status
-        </label>
-
-        <select id="editQuranPublished">
-
-          <option value="true">
-            Published
-          </option>
-
-          <option value="false">
-            Unpublished
-          </option>
-
-        </select>
-
-      </div>
-
-
-      <button
-        id="saveQuranEdit"
-        class="primary-btn"
-      >
-        Save Changes
-      </button>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<div
-  id="toast"
-  class="toast"
-></div>
-
-
-<!-- =====================================================
-     FIREBASE
-===================================================== -->
+<footer>Qalb-e-Deen — The Heart of Deen</footer>
 
 <script type="module">
+import { initializeApp } from
+  "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
-  initializeApp
-}
-from
-"https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
-
+  getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 import {
-  getAuth,
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-  signOut
-}
-from
-"https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+  getFirestore, collection, doc, getDoc, getDocs, addDoc,
+  updateDoc, deleteDoc, serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-
-import {
-  getFirestore,
-  collection,
-  getDocs,
-  getDoc,
-  doc,
-  addDoc,
-  updateDoc,
-  deleteDoc,
-  query,
-  orderBy,
-  serverTimestamp
-}
-from
-"https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
-
-
-import {
-  getStorage,
-  ref,
-  uploadBytesResumable,
-  getDownloadURL,
-  deleteObject
-}
-from
-"https://www.gstatic.com/firebasejs/12.19.0/firebase-storage.js";
-
-
-/* =====================================================
-   FIREBASE CONFIG
-===================================================== */
-
+/* CURRENT QALB-E-DEEN FIREBASE PROJECT */
 const firebaseConfig = {
-
-  apiKey:
-    "AIzaSyC4sRpUYVLURCkbAbfvUccL5n71Dveiik4",
-
-  authDomain:
-    "qalb-e-deen-b765a.firebaseapp.com",
-
-  projectId:
-    "qalb-e-deen-b765a",
-
-  storageBucket:
-    "qalb-e-deen-b765a.firebasestorage.app",
-
-  messagingSenderId:
-    "226972777842",
-
-  appId:
-    "1:226972777842:web:0d1439b9d4dc66d8bfb1eb"
-
+  apiKey: "AIzaSyC4sRpUYVLURCkbAbfvUcc5Ln71Dveiik4",
+  authDomain: "qalb-e-deen-b765a.firebaseapp.com",
+  projectId: "qalb-e-deen-b765a",
+  storageBucket: "qalb-e-deen-b765a.firebasestorage.app",
+  messagingSenderId: "226972777842",
+  appId: "1:226972777842:web:0d1439b9d4dc66d8bfb1eb"
 };
 
-
-const app =
-  initializeApp(firebaseConfig);
-
-const auth =
-  getAuth(app);
-
-const db =
-  getFirestore(app);
-
-const storage =
-  getStorage(app);
-
-
-/* =====================================================
-   ELEMENTS
-===================================================== */
-
-const loginScreen =
-  document.getElementById("loginScreen");
-
-const adminApp =
-  document.getElementById("adminApp");
-
-const loginEmail =
-  document.getElementById("loginEmail");
-
-const loginPassword =
-  document.getElementById("loginPassword");
-
-const loginSubmit =
-  document.getElementById("loginSubmit");
-
-const adminEmail =
-  document.getElementById("adminEmail");
-
-
-/* =====================================================
-   ADMIN AUTH
-===================================================== */
-
-onAuthStateChanged(
-  auth,
-  async user => {
-
-    if(!user){
-
-      loginScreen.style.display =
-        "flex";
-
-      adminApp.style.display =
-        "none";
-
-      return;
-
-    }
-
-
-    try{
-
-      /*
-        IMPORTANT:
-        Your current project uses:
-        user/{UID}
-      */
-
-      const userSnap =
-        await getDoc(
-          doc(
-            db,
-            "user",
-            user.uid
-          )
-        );
-
-
-      if(
-        !userSnap.exists()
-      ){
-
-        await signOut(auth);
-
-        showToast(
-          "Admin profile not found."
-        );
-
-        return;
-
-      }
-
-
-      const profile =
-        userSnap.data();
-
-
-      if(
-        profile.role !== "admin"
-      ){
-
-        await signOut(auth);
-
-        showToast(
-          "Administrator access required."
-        );
-
-        return;
-
-      }
-
-
-      loginScreen.style.display =
-        "none";
-
-      adminApp.style.display =
-        "block";
-
-      adminEmail.textContent =
-        user.email || "";
-
-
-      loadDashboard();
-
-    }catch(error){
-
-      console.error(error);
-
-      await signOut(auth);
-
-      showToast(
-        "Administrator verification failed: " +
-        error.message
-      );
-
-    }
-
-  }
-);
-
-
-/* =====================================================
-   LOGIN
-===================================================== */
-
-loginSubmit.addEventListener(
-  "click",
-  async () => {
-
-    const email =
-      loginEmail.value.trim();
-
-    const password =
-      loginPassword.value;
-
-
-    if(!email || !password){
-
-      showToast(
-        "Enter email and password."
-      );
-
-      return;
-
-    }
-
-
-    loginSubmit.disabled =
-      true;
-
-    loginSubmit.textContent =
-      "Checking administrator account...";
-
-
-    try{
-
-      await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-    }catch(error){
-
-      showToast(
-        error.message
-      );
-
-    }
-
-
-    loginSubmit.disabled =
-      false;
-
-    loginSubmit.textContent =
-      "Login";
-
-  }
-);
-
-
-/* =====================================================
-   LOGOUT
-===================================================== */
-
-document
-  .getElementById("logoutBtn")
-  .addEventListener(
-    "click",
-    async () => {
-
-      await signOut(auth);
-
-    }
-  );
-
-
-/* =====================================================
-   SIDEBAR
-===================================================== */
-
-document
-  .querySelectorAll(".nav-btn")
-  .forEach(
-    button => {
-
-      button.addEventListener(
-        "click",
-        () => {
-
-          document
-            .querySelectorAll(".nav-btn")
-            .forEach(
-              btn =>
-                btn.classList.remove(
-                  "active"
-                )
-            );
-
-
-          document
-            .querySelectorAll(".panel")
-            .forEach(
-              panel =>
-                panel.classList.remove(
-                  "active"
-                )
-            );
-
-
-          button.classList.add(
-            "active"
-          );
-
-
-          const panel =
-            document.getElementById(
-              button.dataset.panel
-            );
-
-
-          if(panel){
-
-            panel.classList.add(
-              "active"
-            );
-
-          }
-
-
-          if(
-            button.dataset.panel ===
-            "quranPanel"
-          ){
-
-            loadQuranLibrary();
-
-          }
-
-
-          if(
-            button.dataset.panel ===
-            "commentsPanel"
-          ){
-
-            loadCommentsAdmin();
-
-          }
-
-
-          if(
-            button.dataset.panel ===
-            "postsPanel"
-          ){
-
-            loadPostsAdmin();
-
-          }
-
-        }
-      );
-
-    }
-  );
-
-
-/* =====================================================
-   DASHBOARD
-===================================================== */
-
-async function loadDashboard(){
-
-  try{
-
-    const [
-      postsSnapshot,
-      commentsSnapshot,
-      quranSnapshot
-    ] = await Promise.all([
-
-      getDocs(
-        collection(
-          db,
-          "posts"
-        )
-      ),
-
-      getDocs(
-        collection(
-          db,
-          "comments"
-        )
-      ),
-
-      getDocs(
-        collection(
-          db,
-          "quranPDFs"
-        )
-      )
-
-    ]);
-
-
-    let pending =
-      0;
-
-
-    commentsSnapshot.forEach(
-      comment => {
-
-        const data =
-          comment.data();
-
-
-        if(
-          data.approved === false
-        ){
-
-          pending++;
-
-        }
-
-      }
-    );
-
-
-    document.getElementById(
-      "postStat"
-    ).textContent =
-      postsSnapshot.size;
-
-
-    document.getElementById(
-      "commentStat"
-    ).textContent =
-      commentsSnapshot.size;
-
-
-    document.getElementById(
-      "quranStat"
-    ).textContent =
-      quranSnapshot.size;
-
-
-    document.getElementById(
-      "pendingStat"
-    ).textContent =
-      pending;
-
-  }catch(error){
-
-    console.error(
-      "Dashboard error:",
-      error
-    );
-
-  }
-
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+/*
+  IMPORTANT:
+  তোমার বর্তমান Firestore admin document:
+  user/{ADMIN_UID}
+  তাই এখানে "user" singular রাখা হয়েছে।
+  যদি Firestore Rules-এ "users" লেখা থাকে, Rules-এও একই
+  collection name ব্যবহার নিশ্চিত করতে হবে।
+*/
+
+const ADMIN_COLLECTION = "user";
+
+let isAdmin = false;
+let currentUser = null;
+
+const $ = id => document.getElementById(id);
+
+function showMessage(message, type = "") {
+  const box = $("globalMessage");
+  box.textContent = message;
+  box.className = "notice" + (type ? " " + type : "");
+  box.classList.remove("hidden");
+  window.scrollTo({top: 0, behavior: "smooth"});
 }
 
-
-/* =====================================================
-   POSTS ADMIN
-===================================================== */
-
-async function loadPostsAdmin(){
-
-  const container =
-    document.getElementById(
-      "postsAdminList"
-    );
-
-
-  container.innerHTML =
-    `<div class="loading">Loading posts...</div>`;
-
-
-  try{
-
-    const snapshot =
-      await getDocs(
-        collection(
-          db,
-          "posts"
-        )
-      );
-
-
-    if(
-      snapshot.empty
-    ){
-
-      container.innerHTML =
-        `<div class="empty">No posts found.</div>`;
-
-      return;
-
-    }
-
-
-    const table =
-      document.createElement(
-        "div"
-      );
-
-
-    table.className =
-      "table-wrap";
-
-
-    table.innerHTML = `
-
-      <table>
-
-        <thead>
-
-          <tr>
-
-            <th>Title</th>
-            <th>Category</th>
-            <th>Views</th>
-            <th>Actions</th>
-
-          </tr>
-
-        </thead>
-
-        <tbody></tbody>
-
-      </table>
-
-    `;
-
-
-    const tbody =
-      table.querySelector(
-        "tbody"
-      );
-
-
-    snapshot.forEach(
-      postDoc => {
-
-        const data =
-          postDoc.data();
-
-
-        const tr =
-          document.createElement(
-            "tr"
-          );
-
-
-        tr.innerHTML = `
-
-          <td>
-            ${escapeHTML(
-              data.title ||
-              "Untitled"
-            )}
-          </td>
-
-          <td>
-            ${escapeHTML(
-              data.category ||
-              "General"
-            )}
-          </td>
-
-          <td>
-            ${Number(
-              data.views || 0
-            )}
-          </td>
-
-          <td>
-
-            <div class="actions">
-
-              <button
-                class="edit-btn"
-                data-edit="${postDoc.id}"
-              >
-                Edit
-              </button>
-
-              <button
-                class="danger-btn"
-                data-delete="${postDoc.id}"
-              >
-                Delete
-              </button>
-
-            </div>
-
-          </td>
-
-        `;
-
-
-        tbody.appendChild(
-          tr
-        );
-
-      }
-    );
-
-
-    container.innerHTML = "";
-
-    container.appendChild(
-      table
-    );
-
-
-    container
-      .querySelectorAll(
-        "[data-delete]"
-      )
-      .forEach(
-        button => {
-
-          button.addEventListener(
-            "click",
-            () =>
-              deletePost(
-                button.dataset.delete
-              )
-          );
-
-        }
-      );
-
-
-    container
-      .querySelectorAll(
-        "[data-edit]"
-      )
-      .forEach(
-        button => {
-
-          button.addEventListener(
-            "click",
-            () =>
-              editPost(
-                button.dataset.edit
-              )
-          );
-
-        }
-      );
-
-  }catch(error){
-
-    container.innerHTML =
-      `<div class="empty">${escapeHTML(error.message)}</div>`;
-
-  }
-
+function showLoginMessage(message, isError = true) {
+  const box = $("loginMessage");
+  box.textContent = message;
+  box.className = "notice" + (isError ? " error" : " success");
+  box.classList.remove("hidden");
 }
 
+function errorText(error) {
+  const code = error?.code || "";
+  const message = error?.message || String(error);
 
-/* =====================================================
-   SAVE POST
-===================================================== */
+  if (code.includes("permission-denied")) {
+    return "Permission denied: Firestore Rules-এ admin permission পরীক্ষা করো।";
+  }
+  if (code.includes("unauthenticated")) {
+    return "লগইন সেশন শেষ হয়েছে। আবার লগইন করো।";
+  }
+  if (code.includes("network")) {
+    return "নেটওয়ার্ক সমস্যা। ইন্টারনেট সংযোগ পরীক্ষা করো।";
+  }
+  return message;
+}
 
-document
-  .getElementById("savePostBtn")
-  .addEventListener(
-    "click",
-    async () => {
+function escapeHtml(value = "") {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;",
+    '"':"&quot;", "'":"&#39;"
+  })[char]);
+}
 
-      const id =
-        document.getElementById(
-          "postId"
-        ).value;
+function formatDate(value) {
+  if (!value) return "তারিখ নেই";
+  try {
+    const date = value.toDate ? value.toDate() : new Date(value);
+    return Number.isNaN(date.getTime())
+      ? "তারিখ নেই"
+      : date.toLocaleString("bn-BD");
+  } catch {
+    return "তারিখ নেই";
+  }
+}
 
+function requireAdmin() {
+  if (!currentUser || !isAdmin) {
+    throw new Error("অ্যাডমিন অনুমতি নেই। আবার লগইন করে role পরীক্ষা করো।");
+  }
+}
 
-      const title =
-        document.getElementById(
-          "postTitle"
-        ).value.trim();
+async function getCollectionDocs(name) {
+  requireAdmin();
+  const snapshot = await getDocs(collection(db, name));
+  return snapshot.docs.map(item => ({
+    id: item.id,
+    ...item.data()
+  }));
+}
 
+/* AUTHENTICATION */
+$("loginForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  $("loginBtn").disabled = true;
+  $("loginBtn").textContent = "Logging in…";
 
-      const category =
-        document.getElementById(
-          "postCategory"
-        ).value.trim();
+  try {
+    await signInWithEmailAndPassword(
+      auth,
+      $("loginEmail").value.trim(),
+      $("loginPassword").value
+    );
+  } catch (error) {
+    showLoginMessage("Login failed: " + errorText(error));
+  } finally {
+    $("loginBtn").disabled = false;
+    $("loginBtn").textContent = "Login to Dashboard";
+  }
+});
 
+$("logoutBtn").addEventListener("click", async () => {
+  await signOut(auth);
+});
 
-      const imageURL =
-        document.getElementById(
-          "postImage"
-        ).value.trim();
+onAuthStateChanged(auth, async user => {
+  currentUser = user;
+  isAdmin = false;
 
+  $("adminApp").classList.add("hidden");
+  $("logoutBtn").classList.add("hidden");
+  $("loginSection").classList.remove("hidden");
 
-      const content =
-        document.getElementById(
-          "postContent"
-        ).value.trim();
+  if (!user) {
+    $("adminIdentity").textContent = "লগইন করা হয়নি";
+    return;
+  }
 
+  $("loginSection").classList.add("hidden");
+  $("adminApp").classList.remove("hidden");
+  $("logoutBtn").classList.remove("hidden");
+  $("adminIdentity").textContent = "অ্যাডমিন অনুমতি যাচাই করা হচ্ছে…";
 
-      if(!title || !content){
+  try {
+    const adminRef = doc(db, ADMIN_COLLECTION, user.uid);
+    const adminSnap = await getDoc(adminRef);
 
-        showToast(
-          "Title and content are required."
-        );
-
-        return;
-
-      }
-
-
-      const button =
-        document.getElementById(
-          "savePostBtn"
-        );
-
-
-      button.disabled =
-        true;
-
-
-      try{
-
-        if(id){
-
-          await updateDoc(
-
-            doc(
-              db,
-              "posts",
-              id
-            ),
-
-            {
-
-              title,
-              category:
-                category ||
-                "General",
-
-              imageURL,
-              content,
-
-              updatedAt:
-                serverTimestamp()
-
-            }
-
-          );
-
-
-          showToast(
-            "Post updated successfully."
-          );
-
-        }else{
-
-          await addDoc(
-
-            collection(
-              db,
-              "posts"
-            ),
-
-            {
-
-              title,
-
-              category:
-                category ||
-                "General",
-
-              imageURL,
-
-              content,
-
-              views:0,
-
-              createdAt:
-                serverTimestamp(),
-
-              authorName:
-                "Qalb-e-Deen"
-
-            }
-
-          );
-
-
-          showToast(
-            "Post published successfully."
-          );
-
-        }
-
-
-        clearPostForm();
-
-        loadPostsAdmin();
-
-        loadDashboard();
-
-      }catch(error){
-
-        showToast(
-          "Post failed: " +
-          error.message
-        );
-
-      }
-
-
-      button.disabled =
-        false;
-
+    if (!adminSnap.exists() || adminSnap.data().role !== "admin") {
+      throw new Error(
+        "এই অ্যাকাউন্ট অ্যাডমিন নয়। Firestore-এ user/" +
+        user.uid + " ডকুমেন্টের role: admin আছে কি না পরীক্ষা করো।"
+      );
     }
+
+    isAdmin = true;
+    $("adminIdentity").textContent =
+      "Logged in: " + (user.email || user.uid) + " — Admin verified";
+
+    await loadDashboard();
+    await loadPosts();
+  } catch (error) {
+    isAdmin = false;
+    $("adminIdentity").textContent = "Admin verification failed";
+    showMessage(errorText(error), "error");
+    $("adminApp").classList.add("hidden");
+    $("loginSection").classList.remove("hidden");
+    $("loginEmail").value = user.email || "";
+  }
+});
+
+/* DASHBOARD: EACH COLLECTION LOADS INDEPENDENTLY */
+async function loadDashboard() {
+  requireAdmin();
+  const status = $("dashboardStatus");
+  status.textContent = "সংখ্যাগুলো লোড হচ্ছে…";
+
+  const jobs = [
+    ["posts", "postsCount"],
+    ["comments", "commentsCount"],
+    ["quranPDFs", "pdfCount"],
+    ["hadiths", "hadithCount"]
+  ];
+
+  const results = await Promise.allSettled(
+    jobs.map(([name]) => getDocs(collection(db, name)))
   );
 
+  const problems = [];
 
-/* =====================================================
-   EDIT POST
-===================================================== */
+  results.forEach((result, index) => {
+    const [name, countId] = jobs[index];
 
-async function editPost(id){
+    if (result.status === "fulfilled") {
+      $(countId).textContent = result.value.size;
+    } else {
+      $(countId).textContent = "—";
+      problems.push(name + ": " + errorText(result.reason));
+    }
+  });
 
-  try{
+  status.textContent = problems.length
+    ? "কিছু collection পড়া যায়নি — " + problems.join(" | ")
+    : "Dashboard সফলভাবে আপডেট হয়েছে।";
+}
 
-    const snap =
-      await getDoc(
-        doc(
-          db,
-          "posts",
-          id
-        )
-      );
+$("refreshDashboard").addEventListener("click", async () => {
+  try {
+    await loadDashboard();
+  } catch (error) {
+    showMessage(errorText(error), "error");
+  }
+});
 
+/* TABS */
+document.querySelectorAll("[data-tab]").forEach(button => {
+  button.addEventListener("click", async () => {
+    document.querySelectorAll("[data-tab]").forEach(item =>
+      item.classList.toggle("active", item === button)
+    );
 
-    if(
-      !snap.exists()
-    ){
+    document.querySelectorAll(".tab-panel").forEach(panel =>
+      panel.classList.toggle("hidden", panel.id !== button.dataset.tab)
+    );
 
-      showToast(
-        "Post not found."
-      );
+    try {
+      if (button.dataset.tab === "postsPanel") await loadPosts();
+      if (button.dataset.tab === "commentsPanel") await loadComments();
+      if (button.dataset.tab === "pdfPanel") await loadPdfs();
+      if (button.dataset.tab === "hadithPanel") await loadHadiths();
+    } catch (error) {
+      showMessage(errorText(error), "error");
+    }
+  });
+});
 
-      return;
+/* POSTS */
+function resetPostForm() {
+  $("postForm").reset();
+  $("postId").value = "";
+  $("postFormTitle").textContent = "নতুন পোস্ট প্রকাশ";
+  $("savePostBtn").textContent = "Publish Post";
+  $("cancelPostEdit").classList.add("hidden");
+}
 
+$("cancelPostEdit").addEventListener("click", resetPostForm);
+
+$("postForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  try {
+    requireAdmin();
+
+    const id = $("postId").value;
+    const payload = {
+      title: $("postTitle").value.trim(),
+      category: $("postCategory").value.trim(),
+      image: $("postImage").value.trim(),
+      excerpt: $("postExcerpt").value.trim(),
+      content: $("postContent").value.trim(),
+      updatedAt: serverTimestamp()
+    };
+
+    if (!payload.title || !payload.content) {
+      throw new Error("শিরোনাম ও পোস্টের লেখা দিতে হবে।");
     }
 
+    $("savePostBtn").disabled = true;
 
-    const data =
-      snap.data();
+    if (id) {
+      await updateDoc(doc(db, "posts", id), payload);
+      showMessage("পোস্ট আপডেট হয়েছে।", "success");
+    } else {
+      payload.createdAt = serverTimestamp();
+      payload.views = 0;
+      await addDoc(collection(db, "posts"), payload);
+      showMessage("নতুন পোস্ট প্রকাশ হয়েছে।", "success");
+    }
 
+    resetPostForm();
+    await Promise.all([loadPosts(), loadDashboard()]);
+  } catch (error) {
+    showMessage("পোস্ট সংরক্ষণ করা যায়নি: " + errorText(error), "error");
+  } finally {
+    $("savePostBtn").disabled = false;
+  }
+});
 
-    document.getElementById(
-      "postId"
-    ).value =
-      id;
+async function loadPosts() {
+  requireAdmin();
+  const box = $("postsList");
+  box.textContent = "পোস্ট লোড হচ্ছে…";
 
-
-    document.getElementById(
-      "postTitle"
-    ).value =
-      data.title || "";
-
-
-    document.getElementById(
-      "postCategory"
-    ).value =
-      data.category || "";
-
-
-    document.getElementById(
-      "postImage"
-    ).value =
-      data.imageURL || "";
-
-
-    document.getElementById(
-      "postContent"
-    ).value =
-      data.content || "";
-
-
-    document.getElementById(
-      "savePostBtn"
-    ).textContent =
-      "Update Post";
-
-
-    window.scrollTo({
-      top:0,
-      behavior:"smooth"
+  try {
+    const items = await getCollectionDocs("posts");
+    items.sort((a, b) => {
+      const ta = a.createdAt?.seconds || 0;
+      const tb = b.createdAt?.seconds || 0;
+      return tb - ta;
     });
 
-  }catch(error){
-
-    showToast(
-      error.message
-    );
-
-  }
-
-}
-
-
-/* =====================================================
-   DELETE POST
-===================================================== */
-
-async function deletePost(id){
-
-  if(
-    !confirm(
-      "Delete this post permanently?"
-    )
-  ){
-
-    return;
-
-  }
-
-
-  try{
-
-    await deleteDoc(
-      doc(
-        db,
-        "posts",
-        id
-      )
-    );
-
-
-    showToast(
-      "Post deleted."
-    );
-
-
-    loadPostsAdmin();
-    loadDashboard();
-
-  }catch(error){
-
-    showToast(
-      error.message
-    );
-
-  }
-
-}
-
-
-/* =====================================================
-   CLEAR POST
-===================================================== */
-
-function clearPostForm(){
-
-  document.getElementById(
-    "postId"
-  ).value = "";
-
-
-  document.getElementById(
-    "postTitle"
-  ).value = "";
-
-
-  document.getElementById(
-    "postCategory"
-  ).value = "";
-
-
-  document.getElementById(
-    "postImage"
-  ).value = "";
-
-
-  document.getElementById(
-    "postContent"
-  ).value = "";
-
-
-  document.getElementById(
-    "savePostBtn"
-  ).textContent =
-    "Publish Post";
-
-}
-
-
-document
-  .getElementById("cancelPostBtn")
-  .addEventListener(
-    "click",
-    clearPostForm
-  );
-
-
-/* =====================================================
-   COMMENT MODERATION
-===================================================== */
-
-async function loadCommentsAdmin(){
-
-  const container =
-    document.getElementById(
-      "commentsAdminList"
-    );
-
-
-  container.innerHTML =
-    `<div class="loading">Loading comments...</div>`;
-
-
-  try{
-
-    const snapshot =
-      await getDocs(
-        collection(
-          db,
-          "comments"
-        )
-      );
-
-
-    if(
-      snapshot.empty
-    ){
-
-      container.innerHTML =
-        `<div class="empty">No comments found.</div>`;
-
+    if (!items.length) {
+      box.textContent = "এখনো কোনো পোস্ট নেই।";
       return;
-
     }
 
-
-    const table =
-      document.createElement(
-        "div"
-      );
-
-
-    table.className =
-      "table-wrap";
-
-
-    table.innerHTML = `
-
-      <table>
-
-        <thead>
-
-          <tr>
-
-            <th>User</th>
-            <th>Comment</th>
-            <th>Type</th>
-            <th>Status</th>
-            <th>Actions</th>
-
-          </tr>
-
-        </thead>
-
-        <tbody></tbody>
-
-      </table>
-
-    `;
-
-
-    const tbody =
-      table.querySelector(
-        "tbody"
-      );
-
-
-    snapshot.forEach(
-      commentDoc => {
-
-        const data =
-          commentDoc.data();
-
-
-        const isReply =
-          !!data.parentId;
-
-
-        const approved =
-          data.approved !== false;
-
-
-        const tr =
-          document.createElement(
-            "tr"
-          );
-
-
-        tr.innerHTML = `
-
-          <td>
-            ${escapeHTML(
-              data.userName ||
-              "User"
-            )}
-          </td>
-
-          <td>
-            ${escapeHTML(
-              data.text || ""
-            )}
-          </td>
-
-          <td>
-            ${
-              isReply
-                ? "↩ Reply"
-                : "💬 Comment"
-            }
-          </td>
-
-          <td>
-
-            <span class="badge ${
-              approved
-                ? "badge-approved"
-                : "badge-pending"
-            }">
-
-              ${
-                approved
-                  ? "Approved"
-                  : "Pending"
-              }
-
-            </span>
-
-          </td>
-
-          <td>
-
-            <div class="actions">
-
-              ${
-                !approved
-                  ? `
-                    <button
-                      class="small-btn primary-btn"
-                      data-approve="${commentDoc.id}"
-                    >
-                      Approve
-                    </button>
-                  `
-                  : ""
-              }
-
-              <button
-                class="danger-btn"
-                data-comment-delete="${commentDoc.id}"
-              >
-                Delete
-              </button>
-
-            </div>
-
-          </td>
-
-        `;
-
-
-        tbody.appendChild(
-          tr
-        );
-
-      }
-    );
-
-
-    container.innerHTML = "";
-
-    container.appendChild(
-      table
-    );
-
-
-    container
-      .querySelectorAll(
-        "[data-approve]"
-      )
-      .forEach(
-        button => {
-
-          button.addEventListener(
-            "click",
-            () =>
-              approveComment(
-                button.dataset.approve
-              )
-          );
-
-        }
-      );
-
-
-    container
-      .querySelectorAll(
-        "[data-comment-delete]"
-      )
-      .forEach(
-        button => {
-
-          button.addEventListener(
-            "click",
-            () =>
-              deleteComment(
-                button.dataset.commentDelete
-              )
-          );
-
-        }
-      );
-
-  }catch(error){
-
-    container.innerHTML =
-      `<div class="empty">${escapeHTML(error.message)}</div>`;
-
-  }
-
-}
-
-
-/* =====================================================
-   APPROVE COMMENT
-===================================================== */
-
-async function approveComment(id){
-
-  try{
-
-    await updateDoc(
-
-      doc(
-        db,
-        "comments",
-        id
-      ),
-
-      {
-        approved:true
-      }
-
-    );
-
-
-    showToast(
-      "Comment approved."
-    );
-
-
-    loadCommentsAdmin();
-    loadDashboard();
-
-  }catch(error){
-
-    showToast(
-      error.message
-    );
-
-  }
-
-}
-
-
-/* =====================================================
-   DELETE COMMENT
-===================================================== */
-
-async function deleteComment(id){
-
-  if(
-    !confirm(
-      "Delete this comment permanently?"
-    )
-  ){
-
-    return;
-
-  }
-
-
-  try{
-
-    await deleteDoc(
-
-      doc(
-        db,
-        "comments",
-        id
-      )
-
-    );
-
-
-    showToast(
-      "Comment deleted."
-    );
-
-
-    loadCommentsAdmin();
-    loadDashboard();
-
-  }catch(error){
-
-    showToast(
-      error.message
-    );
-
-  }
-
-}
-
-
-/* =====================================================
-   QURAN FILE SELECT
-===================================================== */
-
-document
-  .getElementById("quranFile")
-  .addEventListener(
-    "change",
-    event => {
-
-      const file =
-        event.target.files[0];
-
-
-      const output =
-        document.getElementById(
-          "selectedFile"
-        );
-
-
-      if(!file){
-
-        output.textContent =
-          "No PDF selected.";
-
-        return;
-
-      }
-
-
-      if(
-        file.type !==
-        "application/pdf"
-      ){
-
-        event.target.value =
-          "";
-
-        output.textContent =
-          "Please select a PDF file.";
-
-        showToast(
-          "Only PDF files are allowed."
-        );
-
-        return;
-
-      }
-
-
-      const sizeMB =
-        file.size /
-        (1024 * 1024);
-
-
-      output.textContent =
-        file.name +
-        " • " +
-        sizeMB.toFixed(2) +
-        " MB";
-
-    }
-  );
-
-
-/* =====================================================
-   UPLOAD QURAN PDF
-===================================================== */
-
-document
-  .getElementById("uploadQuranBtn")
-  .addEventListener(
-    "click",
-    uploadQuranPDF
-  );
-
-
-async function uploadQuranPDF(){
-
-  const title =
-    document.getElementById(
-      "quranTitle"
-    ).value.trim();
-
-
-  const description =
-    document.getElementById(
-      "quranDescription"
-    ).value.trim();
-
-
-  const fileInput =
-    document.getElementById(
-      "quranFile"
-    );
-
-
-  const published =
-    document.getElementById(
-      "quranPublished"
-    ).value === "true";
-
-
-  const file =
-    fileInput.files[0];
-
-
-  if(!title){
-
-    showToast(
-      "Please enter Quran PDF title."
-    );
-
-    return;
-
-  }
-
-
-  if(!file){
-
-    showToast(
-      "Please select a PDF file."
-    );
-
-    return;
-
-  }
-
-
-  if(
-    file.type !==
-    "application/pdf"
-  ){
-
-    showToast(
-      "Only PDF files are allowed."
-    );
-
-    return;
-
-  }
-
-
-  const button =
-    document.getElementById(
-      "uploadQuranBtn"
-    );
-
-
-  button.disabled =
-    true;
-
-
-  button.textContent =
-    "Uploading...";
-
-
-  const progressWrap =
-    document.getElementById(
-      "quranProgress"
-    );
-
-
-  const progressFill =
-    document.getElementById(
-      "quranProgressFill"
-    );
-
-
-  const progressText =
-    document.getElementById(
-      "quranProgressText"
-    );
-
-
-  progressWrap.style.display =
-    "block";
-
-
-  try{
-
-    const safeName =
-      file.name
-        .replace(
-          /[^a-zA-Z0-9._-]/g,
-          "_"
-        );
-
-
-    const uniqueName =
-      Date.now() +
-      "_" +
-      safeName;
-
-
-    const storagePath =
-      "quran-pdfs/" +
-      uniqueName;
-
-
-    const storageRef =
-      ref(
-        storage,
-        storagePath
-      );
-
-
-    const uploadTask =
-      uploadBytesResumable(
-        storageRef,
-        file,
-        {
-          contentType:
-            "application/pdf"
-        }
-      );
-
-
-    uploadTask.on(
-
-      "state_changed",
-
-      snapshot => {
-
-        const percent =
-          Math.round(
-            (
-              snapshot.bytesTransferred /
-              snapshot.totalBytes
-            ) * 100
-          );
-
-
-        progressFill.style.width =
-          percent + "%";
-
-
-        progressText.textContent =
-          "Uploading " +
-          percent +
-          "%";
-
-      },
-
-      error => {
-
-        console.error(
-          "PDF upload error:",
-          error
-        );
-
-
-        showToast(
-          "PDF upload failed: " +
-          error.message
-        );
-
-
-        button.disabled =
-          false;
-
-        button.textContent =
-          "📤 Upload Quran PDF";
-
-      },
-
-      async () => {
-
-        try{
-
-          const downloadURL =
-            await getDownloadURL(
-              uploadTask.snapshot.ref
-            );
-
-
-          await addDoc(
-
-            collection(
-              db,
-              "quranPDFs"
-            ),
-
-            {
-
-              title,
-
-              description,
-
-              fileName:
-                file.name,
-
-              fileSize:
-                file.size,
-
-              fileURL:
-                downloadURL,
-
-              storagePath,
-
-              published,
-
-              createdAt:
-                serverTimestamp(),
-
-              updatedAt:
-                serverTimestamp(),
-
-              uploadedBy:
-                auth.currentUser.uid
-
-            }
-
-          );
-
-
-          showToast(
-            "Quran PDF uploaded successfully."
-          );
-
-
-          clearQuranForm();
-
-          await loadQuranLibrary();
-
-          await loadDashboard();
-
-        }catch(error){
-
-          console.error(error);
-
-          showToast(
-            "Saving PDF information failed: " +
-            error.message
-          );
-
-        }
-
-
-        button.disabled =
-          false;
-
-        button.textContent =
-          "📤 Upload Quran PDF";
-
-
-        progressFill.style.width =
-          "100%";
-
-        progressText.textContent =
-          "Upload complete";
-
-      }
-
-    );
-
-  }catch(error){
-
-    console.error(error);
-
-    showToast(
-      "Upload failed: " +
-      error.message
-    );
-
-
-    button.disabled =
-      false;
-
-    button.textContent =
-      "📤 Upload Quran PDF";
-
-  }
-
-}
-
-
-/* =====================================================
-   LOAD QURAN LIBRARY
-===================================================== */
-
-async function loadQuranLibrary(){
-
-  const container =
-    document.getElementById(
-      "quranLibrary"
-    );
-
-
-  container.innerHTML =
-    `<div class="loading">Loading Quran PDFs...</div>`;
-
-
-  try{
-
-    const snapshot =
-      await getDocs(
-        collection(
-          db,
-          "quranPDFs"
-        )
-      );
-
-
-    if(
-      snapshot.empty
-    ){
-
-      container.innerHTML = `
-
-        <div
-          class="empty"
-          style="grid-column:1/-1"
-        >
-
-          <h3>
-            No Quran PDFs yet
-          </h3>
-
-          <p>
-            Upload your first Quran PDF above.
-          </p>
-
+    box.innerHTML = items.map(item => `
+      <article class="item">
+        <strong>${escapeHtml(item.title || "শিরোনাম নেই")}</strong>
+        <p>${escapeHtml(item.excerpt || item.content || "").slice(0, 350)}</p>
+        <small>বিভাগ: ${escapeHtml(item.category || "নির্ধারিত নয়")}
+          · Views: ${Number(item.views) || 0}
+          · ${escapeHtml(formatDate(item.createdAt))}</small>
+        <div class="actions">
+          <button class="btn-small" data-edit-post="${escapeHtml(item.id)}">Edit</button>
+          <button class="btn-small btn-danger" data-delete-post="${escapeHtml(item.id)}">Delete</button>
         </div>
-
-      `;
-
-      return;
-
-    }
-
-
-    const items = [];
-
-
-    snapshot.forEach(
-      pdfDoc => {
-
-        items.push({
-
-          id:
-            pdfDoc.id,
-
-          ...pdfDoc.data()
-
-        });
-
-      }
-    );
-
-
-    items.sort(
-      (a,b) =>
-        getTimestampMillis(
-          b.createdAt
-        ) -
-        getTimestampMillis(
-          a.createdAt
-        )
-    );
-
-
-    container.innerHTML =
-      "";
-
-
-    items.forEach(
-      pdf => {
-
-        const card =
-          document.createElement(
-            "div"
-          );
-
-
-        card.className =
-          "pdf-card";
-
-
-        const size =
-          formatFileSize(
-            pdf.fileSize
-          );
-
-
-        card.innerHTML = `
-
-          <div class="pdf-icon">
-            📕
-          </div>
-
-
-          <div class="pdf-title">
-
-            ${escapeHTML(
-              pdf.title ||
-              "Quran PDF"
-            )}
-
-          </div>
-
-
-          <div class="pdf-description">
-
-            ${escapeHTML(
-              pdf.description ||
-              "No description."
-            )}
-
-          </div>
-
-
-          <div class="pdf-meta">
-
-            📄
-            ${escapeHTML(
-              pdf.fileName ||
-              "PDF"
-            )}
-
-            <br>
-
-            💾 ${size}
-
-          </div>
-
-
-          <div>
-
-            <span class="badge ${
-              pdf.published
-                ? "badge-published"
-                : "badge-hidden"
-            }">
-
-              ${
-                pdf.published
-                  ? "Published"
-                  : "Unpublished"
-              }
-
-            </span>
-
-          </div>
-
-
-          <div class="pdf-actions">
-
-            <button
-              class="small-btn view-pdf"
-              data-view-pdf="${escapeAttribute(
-                pdf.fileURL || ""
-              )}"
-            >
-              👁️ View
-            </button>
-
-            <button
-              class="small-btn edit-pdf"
-              data-edit-pdf="${pdf.id}"
-            >
-              ✏️ Edit
-            </button>
-
-            <button
-              class="small-btn delete-pdf"
-              data-delete-pdf="${pdf.id}"
-            >
-              🗑️ Delete
-            </button>
-
-          </div>
-
-        `;
-
-
-        container.appendChild(
-          card
-        );
-
-      }
-    );
-
-
-    container
-      .querySelectorAll(
-        "[data-view-pdf]"
-      )
-      .forEach(
-        button => {
-
-          button.addEventListener(
-            "click",
-            () => {
-
-              const url =
-                button.dataset.viewPdf;
-
-              if(url){
-
-                window.open(
-                  url,
-                  "_blank"
-                );
-
-              }
-
-            }
-          );
-
+      </article>
+    `).join("");
+
+    box.querySelectorAll("[data-edit-post]").forEach(button => {
+      button.addEventListener("click", () => {
+        const item = items.find(x => x.id === button.dataset.editPost);
+        if (!item) return;
+
+        $("postId").value = item.id;
+        $("postTitle").value = item.title || "";
+        $("postCategory").value = item.category || "";
+        $("postImage").value = item.image || "";
+        $("postExcerpt").value = item.excerpt || "";
+        $("postContent").value = item.content || "";
+        $("postFormTitle").textContent = "পোস্ট সম্পাদনা";
+        $("savePostBtn").textContent = "Update Post";
+        $("cancelPostEdit").classList.remove("hidden");
+        $("postForm").scrollIntoView({behavior:"smooth"});
+      });
+    });
+
+    box.querySelectorAll("[data-delete-post]").forEach(button => {
+      button.addEventListener("click", async () => {
+        if (!confirm("এই পোস্টটি স্থায়ীভাবে মুছে ফেলবে?")) return;
+        try {
+          requireAdmin();
+          await deleteDoc(doc(db, "posts", button.dataset.deletePost));
+          showMessage("পোস্ট মুছে ফেলা হয়েছে।", "success");
+          await Promise.all([loadPosts(), loadDashboard()]);
+        } catch (error) {
+          showMessage("পোস্ট মুছতে সমস্যা: " + errorText(error), "error");
         }
-      );
-
-
-    container
-      .querySelectorAll(
-        "[data-edit-pdf]"
-      )
-      .forEach(
-        button => {
-
-          button.addEventListener(
-            "click",
-            () =>
-              openQuranEdit(
-                button.dataset.editPdf
-              )
-          );
-
-        }
-      );
-
-
-    container
-      .querySelectorAll(
-        "[data-delete-pdf]"
-      )
-      .forEach(
-        button => {
-
-          button.addEventListener(
-            "click",
-            () =>
-              deleteQuranPDF(
-                button.dataset.deletePdf
-              )
-          );
-
-        }
-      );
-
-  }catch(error){
-
-    console.error(
-      "Quran library error:",
-      error
-    );
-
-
-    container.innerHTML = `
-
-      <div
-        class="empty"
-        style="grid-column:1/-1"
-      >
-
-        <h3>
-          Could not load Quran PDFs
-        </h3>
-
-        <p>
-          ${escapeHTML(
-            error.message
-          )}
-        </p>
-
-      </div>
-
-    `;
-
+      });
+    });
+  } catch (error) {
+    box.textContent = "পোস্ট লোড করা যায়নি: " + errorText(error);
   }
-
 }
 
+$("reloadPosts").addEventListener("click", loadPosts);
 
-/* =====================================================
-   EDIT QURAN
-===================================================== */
+/* COMMENTS */
+async function loadComments() {
+  requireAdmin();
+  const box = $("commentsList");
+  box.textContent = "কমেন্ট লোড হচ্ছে…";
 
-async function openQuranEdit(id){
+  try {
+    const items = await getCollectionDocs("comments");
+    items.sort((a, b) =>
+      (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0)
+    );
 
-  try{
-
-    const snap =
-      await getDoc(
-        doc(
-          db,
-          "quranPDFs",
-          id
-        )
-      );
-
-
-    if(
-      !snap.exists()
-    ){
-
-      showToast(
-        "Quran PDF not found."
-      );
-
+    if (!items.length) {
+      box.textContent = "কোনো কমেন্ট পাওয়া যায়নি।";
       return;
-
     }
 
+    box.innerHTML = items.map(item => `
+      <article class="item">
+        <strong>${escapeHtml(item.name || item.userName || item.email || "ব্যবহারকারী")}</strong>
+        <p>${escapeHtml(item.text || item.comment || item.content || item.message || "কমেন্টের লেখা পাওয়া যায়নি")}</p>
+        <small>Post ID: ${escapeHtml(item.postId || "উল্লেখ নেই")}
+          · ${escapeHtml(formatDate(item.createdAt))}</small>
+        <div class="actions">
+          <button class="btn-small btn-danger"
+            data-delete-comment="${escapeHtml(item.id)}">Delete Comment</button>
+        </div>
+      </article>
+    `).join("");
 
-    const data =
-      snap.data();
-
-
-    document.getElementById(
-      "editQuranId"
-    ).value =
-      id;
-
-
-    document.getElementById(
-      "editQuranTitle"
-    ).value =
-      data.title || "";
-
-
-    document.getElementById(
-      "editQuranDescription"
-    ).value =
-      data.description || "";
-
-
-    document.getElementById(
-      "editQuranPublished"
-    ).value =
-      String(
-        data.published !== false
-      );
-
-
-    document
-      .getElementById(
-        "quranEditModal"
-      )
-      .classList.add(
-        "show"
-      );
-
-  }catch(error){
-
-    showToast(
-      error.message
-    );
-
+    box.querySelectorAll("[data-delete-comment]").forEach(button => {
+      button.addEventListener("click", async () => {
+        if (!confirm("এই কমেন্টটি মুছে ফেলবে?")) return;
+        try {
+          requireAdmin();
+          await deleteDoc(doc(db, "comments", button.dataset.deleteComment));
+          showMessage("কমেন্ট মুছে ফেলা হয়েছে।", "success");
+          await Promise.all([loadComments(), loadDashboard()]);
+        } catch (error) {
+          showMessage("কমেন্ট মুছতে সমস্যা: " + errorText(error), "error");
+        }
+      });
+    });
+  } catch (error) {
+    box.textContent = "কমেন্ট লোড করা যায়নি: " + errorText(error);
   }
-
 }
 
+$("reloadComments").addEventListener("click", loadComments);
 
-/* =====================================================
-   CLOSE EDIT
-===================================================== */
-
-document
-  .getElementById("closeQuranEdit")
-  .addEventListener(
-    "click",
-    closeQuranEdit
-  );
-
-
-document
-  .getElementById("quranEditModal")
-  .addEventListener(
-    "click",
-    event => {
-
-      if(
-        event.target.id ===
-        "quranEditModal"
-      ){
-
-        closeQuranEdit();
-
-      }
-
-    }
-  );
-
-
-function closeQuranEdit(){
-
-  document
-    .getElementById(
-      "quranEditModal"
-    )
-    .classList.remove(
-      "show"
-    );
-
+/* QURAN PDF RECORDS */
+function resetPdfForm() {
+  $("pdfForm").reset();
+  $("pdfId").value = "";
+  $("savePdfBtn").textContent = "Save PDF Record";
+  $("cancelPdfEdit").classList.add("hidden");
 }
 
+$("cancelPdfEdit").addEventListener("click", resetPdfForm);
 
-/* =====================================================
-   SAVE QURAN EDIT
-===================================================== */
+$("pdfForm").addEventListener("submit", async event => {
+  event.preventDefault();
 
-document
-  .getElementById("saveQuranEdit")
-  .addEventListener(
-    "click",
-    async () => {
+  try {
+    requireAdmin();
+    const id = $("pdfId").value;
+    const payload = {
+      title: $("pdfTitle").value.trim(),
+      url: $("pdfUrl").value.trim(),
+      language: $("pdfLanguage").value.trim(),
+      updatedAt: serverTimestamp()
+    };
 
-      const id =
-        document.getElementById(
-          "editQuranId"
-        ).value;
-
-
-      const title =
-        document.getElementById(
-          "editQuranTitle"
-        ).value.trim();
-
-
-      const description =
-        document.getElementById(
-          "editQuranDescription"
-        ).value.trim();
-
-
-      const published =
-        document.getElementById(
-          "editQuranPublished"
-        ).value === "true";
-
-
-      if(!id || !title){
-
-        showToast(
-          "Title is required."
-        );
-
-        return;
-
-      }
-
-
-      try{
-
-        await updateDoc(
-
-          doc(
-            db,
-            "quranPDFs",
-            id
-          ),
-
-          {
-
-            title,
-
-            description,
-
-            published,
-
-            updatedAt:
-              serverTimestamp()
-
-          }
-
-        );
-
-
-        closeQuranEdit();
-
-        showToast(
-          "Quran PDF updated."
-        );
-
-
-        loadQuranLibrary();
-        loadDashboard();
-
-      }catch(error){
-
-        showToast(
-          "Update failed: " +
-          error.message
-        );
-
-      }
-
+    if (!payload.title || !payload.url) {
+      throw new Error("PDF-এর নাম ও URL দিতে হবে।");
     }
-  );
 
+    $("savePdfBtn").disabled = true;
 
-/* =====================================================
-   DELETE QURAN PDF
-===================================================== */
+    if (id) {
+      await updateDoc(doc(db, "quranPDFs", id), payload);
+      showMessage("PDF রেকর্ড আপডেট হয়েছে।", "success");
+    } else {
+      payload.createdAt = serverTimestamp();
+      await addDoc(collection(db, "quranPDFs"), payload);
+      showMessage("PDF রেকর্ড সংরক্ষিত হয়েছে।", "success");
+    }
 
-async function deleteQuranPDF(id){
-
-  if(
-    !confirm(
-      "Delete this Quran PDF permanently?"
-    )
-  ){
-
-    return;
-
+    resetPdfForm();
+    await Promise.all([loadPdfs(), loadDashboard()]);
+  } catch (error) {
+    showMessage("PDF রেকর্ড সংরক্ষণ হয়নি: " + errorText(error), "error");
+  } finally {
+    $("savePdfBtn").disabled = false;
   }
+});
 
+async function loadPdfs() {
+  requireAdmin();
+  const box = $("pdfList");
+  box.textContent = "PDF রেকর্ড লোড হচ্ছে…";
 
-  try{
+  try {
+    const items = await getCollectionDocs("quranPDFs");
 
-    const snap =
-      await getDoc(
-        doc(
-          db,
-          "quranPDFs",
-          id
-        )
-      );
-
-
-    if(
-      !snap.exists()
-    ){
-
-      showToast(
-        "PDF record not found."
-      );
-
+    if (!items.length) {
+      box.textContent = "কোনো PDF রেকর্ড নেই।";
       return;
-
     }
 
+    box.innerHTML = items.map(item => `
+      <article class="item">
+        <strong>${escapeHtml(item.title || "নাম নেই")}</strong>
+        <p>${escapeHtml(item.language || "")}</p>
+        <p>${escapeHtml(item.url || "")}</p>
+        <div class="actions">
+          <button class="btn-small" data-edit-pdf="${escapeHtml(item.id)}">Edit</button>
+          <a class="button btn-small" href="${escapeHtml(item.url || "#")}"
+            target="_blank" rel="noopener noreferrer">Open PDF</a>
+          <button class="btn-small btn-danger" data-delete-pdf="${escapeHtml(item.id)}">Delete</button>
+        </div>
+      </article>
+    `).join("");
 
-    const data =
-      snap.data();
+    box.querySelectorAll("[data-edit-pdf]").forEach(button => {
+      button.addEventListener("click", () => {
+        const item = items.find(x => x.id === button.dataset.editPdf);
+        if (!item) return;
+        $("pdfId").value = item.id;
+        $("pdfTitle").value = item.title || "";
+        $("pdfUrl").value = item.url || "";
+        $("pdfLanguage").value = item.language || "";
+        $("savePdfBtn").textContent = "Update PDF Record";
+        $("cancelPdfEdit").classList.remove("hidden");
+        $("pdfForm").scrollIntoView({behavior:"smooth"});
+      });
+    });
 
+    box.querySelectorAll("[data-delete-pdf]").forEach(button => {
+      button.addEventListener("click", async () => {
+        if (!confirm("এই PDF রেকর্ড মুছে ফেলবে?")) return;
+        try {
+          requireAdmin();
+          await deleteDoc(doc(db, "quranPDFs", button.dataset.deletePdf));
+          showMessage("PDF রেকর্ড মুছে ফেলা হয়েছে।", "success");
+          await Promise.all([loadPdfs(), loadDashboard()]);
+        } catch (error) {
+          showMessage("PDF রেকর্ড মুছতে সমস্যা: " + errorText(error), "error");
+        }
+      });
+    });
+  } catch (error) {
+    box.textContent = "PDF রেকর্ড লোড করা যায়নি: " + errorText(error);
+  }
+}
 
-    /*
-      Delete Storage file first.
-      If the old record does not have
-      storagePath, Firestore record
-      will still be deleted.
-    */
+$("reloadPdfs").addEventListener("click", loadPdfs);
 
-    if(
-      data.storagePath
-    ){
+/* HADITH MANAGEMENT */
+function resetHadithForm() {
+  $("hadithForm").reset();
+  $("hadithId").value = "";
+  $("hadithActive").value = "true";
+  $("hadithFormTitle").textContent = "নতুন হাদিস যোগ করুন";
+  $("saveHadithBtn").textContent = "Save Hadith";
+  $("cancelHadithEdit").classList.add("hidden");
+}
 
-      try{
+$("cancelHadithEdit").addEventListener("click", resetHadithForm);
 
-        await deleteObject(
-          ref(
-            storage,
-            data.storagePath
-          )
-        );
+$("hadithForm").addEventListener("submit", async event => {
+  event.preventDefault();
 
-      }catch(storageError){
+  try {
+    requireAdmin();
+    const id = $("hadithId").value;
 
-        console.log(
-          "Storage delete skipped:",
-          storageError
-        );
+    const payload = {
+      title: $("hadithTitle").value.trim(),
+      arabic: $("hadithArabic").value.trim(),
+      transliteration: $("hadithTransliteration").value.trim(),
+      englishPronunciation: $("hadithEnglishPronunciation").value.trim(),
+      translation: $("hadithTranslation").value.trim(),
+      explanation: $("hadithExplanation").value.trim(),
+      lesson: $("hadithLesson").value.trim(),
+      source: $("hadithSource").value.trim(),
+      hadithNumber: $("hadithNumber").value.trim(),
+      active: $("hadithActive").value === "true",
+      updatedAt: serverTimestamp()
+    };
 
-      }
-
+    if (!payload.arabic || !payload.translation) {
+      throw new Error("আরবি ও বাংলা অনুবাদ পূরণ করো।");
     }
 
-
-    await deleteDoc(
-
-      doc(
-        db,
-        "quranPDFs",
-        id
-      )
-
-    );
-
-
-    showToast(
-      "Quran PDF deleted."
-    );
-
-
-    loadQuranLibrary();
-    loadDashboard();
-
-  }catch(error){
-
-    showToast(
-      "Delete failed: " +
-      error.message
-    );
-
-  }
-
-}
-
-
-/* =====================================================
-   CLEAR QURAN FORM
-===================================================== */
-
-function clearQuranForm(){
-
-  document.getElementById(
-    "quranTitle"
-  ).value = "";
-
-
-  document.getElementById(
-    "quranDescription"
-  ).value = "";
-
-
-  document.getElementById(
-    "quranFile"
-  ).value = "";
-
-
-  document.getElementById(
-    "quranPublished"
-  ).value =
-    "true";
-
-
-  document.getElementById(
-    "selectedFile"
-  ).textContent =
-    "No PDF selected.";
-
-
-  document.getElementById(
-    "quranProgress"
-  ).style.display =
-    "none";
-
-
-  document.getElementById(
-    "quranProgressFill"
-  ).style.width =
-    "0%";
-
-}
-
-
-document
-  .getElementById("clearQuranBtn")
-  .addEventListener(
-    "click",
-    clearQuranForm
-  );
-
-
-/* =====================================================
-   HELPERS
-===================================================== */
-
-function escapeHTML(value){
-
-  return String(value)
-
-    .replaceAll(
-      "&",
-      "&amp;"
-    )
-
-    .replaceAll(
-      "<",
-      "&lt;"
-    )
-
-    .replaceAll(
-      ">",
-      "&gt;"
-    )
-
-    .replaceAll(
-      '"',
-      "&quot;"
-    )
-
-    .replaceAll(
-      "'",
-      "&#039;"
-    );
-
-}
-
-
-function escapeAttribute(value){
-
-  return escapeHTML(
-    value
-  );
-
-}
-
-
-function formatFileSize(bytes){
-
-  const size =
-    Number(bytes || 0);
-
-
-  if(size <= 0){
-
-    return "Unknown size";
-
-  }
-
-
-  if(size < 1024){
-
-    return size + " B";
-
-  }
-
-
-  if(size < 1024 * 1024){
-
-    return (
-      size / 1024
-    ).toFixed(1) +
-    " KB";
-
-  }
-
-
-  if(size < 1024 * 1024 * 1024){
-
-    return (
-      size /
-      (1024 * 1024)
-    ).toFixed(2) +
-    " MB";
-
-  }
-
-
-  return (
-    size /
-    (1024 * 1024 * 1024)
-  ).toFixed(2) +
-  " GB";
-
-}
-
-
-function getTimestampMillis(timestamp){
-
-  try{
-
-    if(
-      timestamp &&
-      typeof timestamp.toMillis ===
-      "function"
-    ){
-
-      return timestamp.toMillis();
-
+    $("saveHadithBtn").disabled = true;
+
+    if (id) {
+      await updateDoc(doc(db, "hadiths", id), payload);
+      showMessage("হাদিস আপডেট হয়েছে।", "success");
+    } else {
+      payload.createdAt = serverTimestamp();
+      await addDoc(collection(db, "hadiths"), payload);
+      showMessage("নতুন হাদিস যোগ হয়েছে।", "success");
     }
 
-  }catch(error){
-
-    console.log(error);
-
+    resetHadithForm();
+    await Promise.all([loadHadiths(), loadDashboard()]);
+  } catch (error) {
+    showMessage("হাদিস সংরক্ষণ হয়নি: " + errorText(error), "error");
+  } finally {
+    $("saveHadithBtn").disabled = false;
   }
+});
 
+async function loadHadiths() {
+  requireAdmin();
+  const box = $("hadithList");
+  box.textContent = "হাদিস লোড হচ্ছে…";
 
-  return 0;
+  try {
+    const items = await getCollectionDocs("hadiths");
 
+    if (!items.length) {
+      box.textContent = "কোনো হাদিস পাওয়া যায়নি।";
+      return;
+    }
+
+    box.innerHTML = items.map(item => `
+      <article class="item">
+        <strong>${escapeHtml(item.title || "হাদিস")}</strong>
+        <p dir="rtl">${escapeHtml(item.arabic || "")}</p>
+        <p>${escapeHtml(item.translation || "")}</p>
+        <small>সূত্র: ${escapeHtml(item.source || "উল্লেখ নেই")}
+          · নম্বর: ${escapeHtml(item.hadithNumber || "—")}
+          · ${item.active === false ? "নিষ্ক্রিয়" : "সক্রিয়"}</small>
+        <div class="actions">
+          <button class="btn-small" data-edit-hadith="${escapeHtml(item.id)}">Edit</button>
+          <button class="btn-small btn-gold"
+            data-toggle-hadith="${escapeHtml(item.id)}">
+            ${item.active === false ? "Activate" : "Deactivate"}
+          </button>
+          <button class="btn-small btn-danger"
+            data-delete-hadith="${escapeHtml(item.id)}">Delete</button>
+        </div>
+      </article>
+    `).join("");
+
+    box.querySelectorAll("[data-edit-hadith]").forEach(button => {
+      button.addEventListener("click", () => {
+        const item = items.find(x => x.id === button.dataset.editHadith);
+        if (!item) return;
+
+        $("hadithId").value = item.id;
+        $("hadithTitle").value = item.title || "";
+        $("hadithArabic").value = item.arabic || "";
+        $("hadithTransliteration").value = item.transliteration || "";
+        $("hadithEnglishPronunciation").value = item.englishPronunciation || "";
+        $("hadithTranslation").value = item.translation || "";
+        $("hadithExplanation").value = item.explanation || "";
+        $("hadithLesson").value = item.lesson || "";
+        $("hadithSource").value = item.source || "";
+        $("hadithNumber").value = item.hadithNumber || "";
+        $("hadithActive").value = item.active === false ? "false" : "true";
+        $("hadithFormTitle").textContent = "হাদিস সম্পাদনা";
+        $("saveHadithBtn").textContent = "Update Hadith";
+        $("cancelHadithEdit").classList.remove("hidden");
+        $("hadithForm").scrollIntoView({behavior:"smooth"});
+      });
+    });
+
+    box.querySelectorAll("[data-toggle-hadith]").forEach(button => {
+      button.addEventListener("click", async () => {
+        const item = items.find(x => x.id === button.dataset.toggleHadith);
+        if (!item) return;
+        try {
+          requireAdmin();
+          await updateDoc(doc(db, "hadiths", item.id), {
+            active: item.active === false,
+            updatedAt: serverTimestamp()
+          });
+          showMessage("হাদিসের অবস্থা পরিবর্তন হয়েছে।", "success");
+          await Promise.all([loadHadiths(), loadDashboard()]);
+        } catch (error) {
+          showMessage("হাদিস আপডেট হয়নি: " + errorText(error), "error");
+        }
+      });
+    });
+
+    box.querySelectorAll("[data-delete-hadith]").forEach(button => {
+      button.addEventListener("click", async () => {
+        if (!confirm("এই হাদিসটি স্থায়ীভাবে মুছে ফেলবে?")) return;
+        try {
+          requireAdmin();
+          await deleteDoc(doc(db, "hadiths", button.dataset.deleteHadith));
+          showMessage("হাদিস মুছে ফেলা হয়েছে।", "success");
+          await Promise.all([loadHadiths(), loadDashboard()]);
+        } catch (error) {
+          showMessage("হাদিস মুছতে সমস্যা: " + errorText(error), "error");
+        }
+      });
+    });
+  } catch (error) {
+    box.textContent = "হাদিস লোড করা যায়নি: " + errorText(error);
+  }
 }
 
-
-/* =====================================================
-   TOAST
-===================================================== */
-
-function showToast(message){
-
-  const toast =
-    document.getElementById(
-      "toast"
-    );
-
-
-  toast.textContent =
-    message;
-
-
-  toast.classList.add(
-    "show"
-  );
-
-
-  setTimeout(
-    () => {
-
-      toast.classList.remove(
-        "show"
-      );
-
-    },
-    3000
-  );
-
-}
-
-
-/* =====================================================
-   INITIAL
-===================================================== */
-
+$("reloadHadiths").addEventListener("click", loadHadiths);
 </script>
-
 </body>
 </html>
