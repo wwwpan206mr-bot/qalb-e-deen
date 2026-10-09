@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b6b50">
+  <meta name="description" content="Qalb-e-Deen Quran PDF Library. কোরআন পড়ুন।">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./logo.png" type="image/png">
+  <title>Quran PDF Library — Qalb-e-Deen</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      color: #172033;
+      background: #f0fdfa;
+    }
+
+    header {
+      background: #0b6b50;
+      color: white;
+      padding: 20px 16px;
+    }
+
+    .header-inner, main {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+    }
+
+    header h1 {
+      font-size: 25px;
+      margin: 12px 0 5px;
+    }
+
+    header p {
+      margin: 0;
+      opacity: .9;
+      line-height: 1.6;
+    }
+
+    main { padding: 22px 15px 45px; }
+
+    .search {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      font: inherit;
+      background: white;
+      margin-bottom: 18px;
+    }
+
+    .book {
+      background: white;
+      border: 1px solid #dbe7e3;
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 14px;
+      box-shadow: 0 5px 18px #0f766e0a;
+    }
+
+    .book h2 {
+      font-size: 19px;
+      margin: 0 0 8px;
+    }
+
+    .book p {
+      color: #64748b;
+      font-size: 14px;
+      line-height: 1.7;
+      overflow-wrap: anywhere;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      border: 0;
+      border-radius: 10px;
+      padding: 11px 15px;
+      text-decoration: none;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .primary {
+      background: #0b6b50;
+      color: white;
+    }
+
+    .secondary {
+      background: #ccfbf1;
+      color: #065f46;
+    }
+
+    #reader {
+      display: none;
+      margin-top: 25px;
+      background: white;
+      border-radius: 16px;
+      padding: 12px;
+      border: 1px solid #dbe7e3;
+    }
+
+    #reader h2 {
+      font-size: 18px;
+      overflow-wrap: anywhere;
+    }
+
+    #pdfFrame {
+      display: block;
+      width: 100%;
+      height: 72vh;
+      min-height: 420px;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 25px;
+      color: #64748b;
+      background: white;
+      border-radius: 12px;
+    }
+
+    footer {
+      padding: 22px 15px;
+      text-align: center;
+      color: #64748b;
+      font-size: 13px;
+      background: white;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="./index.html">← Qalb-e-Deen হোমপেজ</a>
+      <h1>📖 কোরআন PDF লাইব্রেরি</h1>
+      <p>আল-কোরআন পড়ুন, খুলুন এবং প্রয়োজনে PDF ডাউনলোড করুন।</p>
+    </div>
+  </header>
+
+  <main>
+    <input
+      class="search"
+      id="searchInput"
+      type="search"
+      placeholder="কোরআনের PDF খুঁজুন..."
+      aria-label="PDF খুঁজুন"
+    >
+
+    <div id="bookList"></div>
+
+    <section id="reader">
+      <h2 id="readerTitle">কোরআন পড়ুন</h2>
+
+      <div class="actions">
+        <a
+          id="openPdf"
+          class="btn secondary"
+          href="#"
+          target="_blank"
+          rel="noopener"
+        >নতুন ট্যাবে খুলুন</a>
+
+        <button id="closeReader" class="btn secondary">
+          রিডার বন্ধ করুন
+        </button>
+      </div>
+
+      <p>
+        PDF না দেখা গেলে “নতুন ট্যাবে খুলুন” চাপুন।
+      </p>
+
+      <iframe
+        id="pdfFrame"
+        title="Quran PDF Reader"
+      ></iframe>
+    </section>
+  </main>
+
+  <footer>
+    Qalb-e-Deen — The Heart of Deen
+  </footer>
+
+  <script>
+    /*
+      PDF ফাইলগুলো এই HTML ফাইলের একই GitHub
+      repository-তে আপলোড করতে হবে।
+
+      নতুন PDF যোগ করতে BOOKS তালিকায় আরেকটি
+      object যোগ করুন।
+    */
+
+    const BOOKS = [
+      {
+        id: "quran-arabic",
+        title: "আল-কোরআন — Arabic Text",
+        description: "আরবি কোরআনের PDF সংস্করণ।",
+        file: "./Quranpdfhub-Arabic-Text-Quran.pdf"
+      }
+    ];
+
+    const bookList = document.getElementById("bookList");
+    const searchInput = document.getElementById("searchInput");
+    const reader = document.getElementById("reader");
+    const readerTitle = document.getElementById("readerTitle");
+    const pdfFrame = document.getElementById("pdfFrame");
+    const openPdf = document.getElementById("openPdf");
+
+    function renderBooks() {
+      const keyword = searchInput.value.trim().toLowerCase();
+
+      const filtered = BOOKS.filter(book =>
+        (book.title + " " + book.description)
+          .toLowerCase()
+          .includes(keyword)
+      );
+
+      bookList.replaceChildren();
+
+      if (!filtered.length) {
+        const empty = document.createElement("div");
+        empty.className = "empty";
+        empty.textContent = "কোনো PDF পাওয়া যায়নি।";
+        bookList.appendChild(empty);
+        return;
+      }
+
+      filtered.forEach(book => {
+        const card = document.createElement("article");
+        card.className = "book";
+
+        const title = document.createElement("h2");
+        title.textContent = "📗 " + book.title;
+
+        const description = document.createElement("p");
+        description.textContent = book.description;
+
+        const actions = document.createElement("div");
+        actions.className = "actions";
+
+        const readButton = document.createElement("button");
+        readButton.className = "btn primary";
+        readButton.textContent = "এখানেই পড়ুন";
+        readButton.addEventListener("click", () => openBook(book));
+
+        const downloadLink = document.createElement("a");
+        downloadLink.className = "btn secondary";
+        downloadLink.href = book.file;
+        downloadLink.download = "";
+        downloadLink.textContent = "PDF ডাউনলোড";
+
+        actions.append(readButton, downloadLink);
+        card.append(title, description, actions);
+        bookList.appendChild(card);
+      });
+    }
+
+    function openBook(book) {
+      readerTitle.textContent = book.title;
+      pdfFrame.src = book.file;
+      openPdf.href = book.file;
+      reader.style.display = "block";
+      reader.scrollIntoView({ behavior: "smooth" });
+    }
+
+    document.getElementById("closeReader").addEventListener("click", () => {
+      pdfFrame.src = "about:blank";
+      reader.style.display = "none";
+    });
+
+    searchInput.addEventListener("input", renderBooks);
+
+    renderBooks();
+  </script>
+</body>
+</html>
