@@ -753,6 +753,8 @@
     let db = null;
     let firebaseReady = false;
     let allPosts = [];
+    let allHadiths = [];
+    let hadithRotationTimer = null;
     let currentPost = null;
     let prayerTimes = null;
     let nextPrayerTimestamp = null;
@@ -859,18 +861,20 @@
         const snapshot = await db.collection("hadiths").get();
 
         if (snapshot.empty) {
+          allHadiths = [];
+          stopHadithRotation();
           $("hadithStatus").textContent =
             "এখনো কোনো হাদিস যোগ করা হয়নি। Admin Panel থেকে হাদিস যোগ করুন।";
           $("hadithContent").hidden = true;
           return;
         }
 
-        const hadiths = snapshot.docs.map(doc => ({
+        allHadiths = snapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data()
         }));
 
-        hadiths.sort((a, b) => {
+        allHadiths.sort((a, b) => {
           const aDate = a.createdAt?.toMillis
             ? a.createdAt.toMillis()
             : new Date(a.createdAt || 0).getTime();
@@ -882,42 +886,9 @@
           return aDate - bDate;
         });
 
-        // Change hadith hourly; same hour gives same selection.
-        const hourKey = Math.floor(Date.now() / 3600000);
-        const selected = hadiths[hourKey % hadiths.length];
-
-        const arabic = selected.arabic || selected.arabicText || "";
-        const pronunciation =
-          selected.pronunciation || selected.transliteration || "";
-        const translation =
-          selected.translation || selected.bangla || selected.banglaTranslation || "";
-        const explanation =
-          selected.explanation || selected.banglaExplanation || selected.description || "";
-        const source =
-          selected.source || selected.reference || selected.book || "";
-
-        setText("hadithArabic", arabic || "আরবি পাঠ যোগ করা হয়নি");
-        setText("hadithPronunciation", pronunciation || "উচ্চারণ যোগ করা হয়নি");
-        setText("hadithTranslation", translation || "অনুবাদ যোগ করা হয়নি");
-        setText("hadithExplanation", explanation || "ব্যাখ্যা যোগ করা হয়নি");
-        setText("hadithSource", source ? "সূত্র: " + source : "সূত্র যোগ করা হয়নি");
-
-        $("hadithStatus").textContent = "";
-        $("hadithContent").hidden = false;
-
-        $("shareHadith").onclick = async () => {
-          const text = [
-            "Qalb-e-Deen — আজকের হাদিস",
-            arabic,
-            "বাংলা উচ্চারণ: " + pronunciation,
-            "অনুবাদ: " + translation,
-            "ব্যাখ্যা: " + explanation,
-            "সূত্র: " + source,
-            location.href
-          ].filter(Boolean).join("\n\n");
-
-          await shareContent("Qalb-e-Deen — আজকের হাদিস", text);
-        };
+        // Show the same hadith to everyone during the same clock-hour.
+        renderHourlyHadith();
+        scheduleHadithRotation();
 
       } catch (error) {
         console.error("Hadith loading error:", error);
@@ -925,6 +896,77 @@
           "হাদিস লোড করা যায়নি। Firebase connection এবং Firestore rules পরীক্ষা করুন।";
       }
     }
+
+    function renderHourlyHadith() {
+      if (!allHadiths.length) return;
+
+      // The selection changes at each new hour and is consistent within that hour.
+      const hourKey = Math.floor(Date.now() / 3600000);
+      const selected = allHadiths[hourKey % allHadiths.length];
+
+      const arabic = selected.arabic || selected.arabicText || "";
+      const pronunciation =
+        selected.pronunciation || selected.transliteration || "";
+      const translation =
+        selected.translation || selected.bangla || selected.banglaTranslation || "";
+      const explanation =
+        selected.explanation || selected.banglaExplanation || selected.description || "";
+      const source =
+        selected.source || selected.reference || selected.book || "";
+
+      setText("hadithArabic", arabic || "আরবি পাঠ যোগ করা হয়নি");
+      setText("hadithPronunciation", pronunciation || "উচ্চারণ যোগ করা হয়নি");
+      setText("hadithTranslation", translation || "অনুবাদ যোগ করা হয়নি");
+      setText("hadithExplanation", explanation || "ব্যাখ্যা যোগ করা হয়নি");
+      setText("hadithSource", source ? "সূত্র: " + source : "সূত্র যোগ করা হয়নি");
+
+      $("hadithStatus").textContent = "";
+      $("hadithContent").hidden = false;
+
+      $("shareHadith").onclick = async () => {
+        const text = [
+          "Qalb-e-Deen — আজকের হাদিস",
+          arabic,
+          "বাংলা উচ্চারণ: " + pronunciation,
+          "অনুবাদ: " + translation,
+          "ব্যাখ্যা: " + explanation,
+          "সূত্র: " + source,
+          location.href
+        ].filter(Boolean).join("\n\n");
+
+        await shareContent("Qalb-e-Deen — আজকের হাদিস", text);
+      };
+    }
+
+    function stopHadithRotation() {
+      if (hadithRotationTimer !== null) {
+        clearTimeout(hadithRotationTimer);
+        clearInterval(hadithRotationTimer);
+        hadithRotationTimer = null;
+      }
+    }
+
+    function scheduleHadithRotation() {
+      stopHadithRotation();
+      if (allHadiths.length < 2) return;
+
+      // First update exactly at the next hour boundary, then once per hour.
+      const millisecondsUntilNextHour =
+        3600000 - (Date.now() % 3600000) + 50;
+
+      hadithRotationTimer = setTimeout(() => {
+        renderHourlyHadith();
+        hadithRotationTimer = setInterval(renderHourlyHadith, 3600000);
+      }, millisecondsUntilNextHour);
+    }
+
+    // If the browser throttles timers while in the background, refresh when visible.
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden && allHadiths.length) {
+        renderHourlyHadith();
+        scheduleHadithRotation();
+      }
+    });
 
     // Posts: collection name = posts
     async function loadPosts() {
