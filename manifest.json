@@ -1,20 +1,25 @@
 
 {
-  "id": "/",
+  "id": "./",
   "name": "Qalb-e-Deen — The Heart of Deen",
   "short_name": "Qalb-e-Deen",
-  "description": "Quran, Hadith, Islamic Knowledge and Daily Deen.",
+  "description": "Quran, Hadith, Islamic Knowledge, Dua and Islamic Posts.",
   "lang": "bn",
   "dir": "ltr",
-  "start_url": "./",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#003b2e",
-  "theme_color": "#003b2e",
+  "background_color": "#071c18",
+  "theme_color": "#0b6b50",
+  "categories": [
+    "education",
+    "books",
+    "lifestyle"
+  ],
   "icons": [
     {
-      "src": "./icon-192.png",
+      "src": "./logo.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
@@ -24,6 +29,12 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
