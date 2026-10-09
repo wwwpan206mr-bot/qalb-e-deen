@@ -1,5 +1,5 @@
 
-const CACHE_NAME = "qalb-e-deen-v1";
+const CACHE_NAME = "qalb-e-deen-v2";
 
 const APP_FILES = [
   "./",
