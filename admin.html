@@ -330,6 +330,7 @@ const db = getFirestore(app);
   collection নাম মিলিয়ে নিতে হবে।
 */
 const ADMIN_COLLECTION = "user";
+const ADMIN_UID = "hREk0TSVoaRvt6Wglk5Xr12vKNW2";
 
 let currentUser = null;
 let isAdmin = false;
@@ -435,12 +436,16 @@ onAuthStateChanged(auth, async user => {
     return;
   }
 
-  $("loginSection").classList.add("hidden");
-  $("adminApp").classList.remove("hidden");
-  $("logoutBtn").classList.remove("hidden");
+  $("adminApp").classList.add("hidden");
+  $("loginSection").classList.remove("hidden");
+  $("logoutBtn").classList.add("hidden");
   $("adminIdentity").textContent = "Admin যাচাই করা হচ্ছে…";
 
   try {
+    if (user.uid !== ADMIN_UID) {
+      throw new Error("এই Admin Panel শুধু নির্ধারিত মালিকের অ্যাকাউন্টের জন্য।");
+    }
+
     const adminSnap = await getDoc(doc(db, ADMIN_COLLECTION, user.uid));
 
     if (!adminSnap.exists() || adminSnap.data().role !== "admin") {
@@ -451,6 +456,9 @@ onAuthStateChanged(auth, async user => {
     }
 
     isAdmin = true;
+    $("loginSection").classList.add("hidden");
+    $("adminApp").classList.remove("hidden");
+    $("logoutBtn").classList.remove("hidden");
     $("adminIdentity").textContent =
       "Logged in: " + (user.email || user.uid) + " — Admin verified";
 
