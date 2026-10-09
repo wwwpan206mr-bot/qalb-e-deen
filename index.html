@@ -1,903 +1,748 @@
-
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="google-adsense-account" content="ca-pub-5749498815321682">
-  
-  <!-- Google AdSense Auto Ads -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5749498815321682"
-    crossorigin="anonymous"></script>
-
   <title>Qalb-e-Deen — The Heart of Deen</title>
-  <meta name="description" content="Qalb-e-Deen — কোরআন, হাদিস, ইসলামী জ্ঞান, নামাজের সময়সূচি ও ইসলামিক পোস্ট।">
-  <meta name="theme-color" content="#0b6b50">
+
+  <meta name="description"
+    content="Qalb-e-Deen — কোরআন, হাদিস, ইসলামিক জ্ঞান, দোয়া, নামাজের সময়সূচি এবং ইসলামিক পোস্টের নির্ভরযোগ্য প্ল্যাটফর্ম।">
+
+  <meta name="theme-color" content="#064e3b">
+  <meta name="google-adsense-account"
+    content="ca-pub-5749498815321682">
+
+  <meta property="og:title" content="Qalb-e-Deen — The Heart of Deen">
+  <meta property="og:description"
+    content="কোরআন, হাদিস ও ইসলামিক জ্ঞানের সুন্দর একটি প্ল্যাটফর্ম।">
+  <meta property="og:type" content="website">
+  <meta property="og:url"
+    content="https://wwwpan206mr-bot.github.io/qalb-e-deen/">
+
+  <link rel="canonical"
+    href="https://wwwpan206mr-bot.github.io/qalb-e-deen/">
 
   <link rel="manifest" href="./manifest.json">
-  <link rel="icon" href="./logo.png" type="image/png">
+  <link rel="icon" href="./logo.png">
   <link rel="apple-touch-icon" href="./icon-512.png">
+
+  <!-- Google AdSense verification -->
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5749498815321682"
+    crossorigin="anonymous"></script>
 
   <style>
     :root {
-      --green: #0b6b50;
-      --green-dark: #071c18;
-      --green-light: #e8f7f1;
-      --gold: #d5a84f;
-      --text: #172033;
-      --muted: #64748b;
+      --green: #064e3b;
+      --green2: #047857;
+      --gold: #d4af37;
+      --bg: #f4f8f5;
       --white: #ffffff;
-      --border: #e2e8f0;
-      --background: #f5f8f7;
-      --radius: 18px;
-      --shadow: 0 8px 26px rgba(15, 45, 36, 0.07);
+      --text: #19352b;
+      --muted: #64756d;
+      --border: #dce8df;
+      --shadow: 0 8px 25px rgba(6, 78, 59, .08);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
-      background: var(--background);
+      font-family: Arial, "Noto Sans Bengali", sans-serif;
+      background: var(--bg);
       color: var(--text);
-      font-family: system-ui, -apple-system, "Noto Sans Bengali",
-        "Hind Siliguri", sans-serif;
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
-    button, input { font: inherit; }
-    button, a { -webkit-tap-highlight-color: transparent; }
-    a { color: inherit; }
+    button, input {
+      font: inherit;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .topbar {
+      background: #033b2d;
+      color: #fff;
+      text-align: center;
+      padding: 7px 12px;
+      font-size: 13px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.97);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+      max-width: 1150px;
+      margin: auto;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 47px;
+      height: 47px;
+      border-radius: 14px;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      color: var(--green);
+      font-size: 19px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .brand-sub {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .menu-btn {
+      border: 0;
+      background: var(--green);
+      color: white;
+      border-radius: 10px;
+      padding: 8px 13px;
+      font-size: 20px;
+    }
+
+    nav {
+      display: none;
+      padding: 8px 16px 16px;
+      border-top: 1px solid var(--border);
+      background: white;
+    }
+
+    nav.open {
+      display: block;
+    }
+
+    nav a {
+      display: block;
+      padding: 8px 4px;
+      font-weight: 600;
+      color: var(--green);
+    }
 
     .container {
       width: min(1100px, 92%);
       margin: auto;
     }
 
-    .topbar {
-      background: var(--green-dark);
-      color: white;
-      font-size: 12px;
-      padding: 7px 0;
-    }
-
-    .topbar .container {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    header {
-      background: white;
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav {
-      min-height: 76px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      text-decoration: none;
-      min-width: 0;
-    }
-
-    .brand img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-      border-radius: 13px;
-    }
-
-    .brand-name {
-      color: var(--green);
-      font-size: 18px;
-      font-weight: 850;
-      line-height: 1.25;
-    }
-
-    .brand-subtitle {
-      color: var(--muted);
-      font-size: 11px;
-      display: block;
-      margin-top: 3px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .nav-links a:hover { color: var(--green); }
-
     .hero {
-      background:
-        radial-gradient(circle at 90% 10%, rgba(213,168,79,.19), transparent 30%),
-        linear-gradient(135deg, #071c18, #0b6b50 75%, #13775b);
+      margin: 22px auto;
+      padding: 34px 23px;
+      border-radius: 22px;
       color: white;
-      padding: 54px 0 48px;
-      overflow: hidden;
+      background:
+        radial-gradient(circle at top right, #168363, transparent 45%),
+        linear-gradient(135deg, #033b2d, #087451);
+      box-shadow: var(--shadow);
+      text-align: center;
     }
 
-    .hero-content { max-width: 760px; }
-
-    .eyebrow {
-      color: #f4d99c;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1px;
+    .hero .bismillah {
+      color: #f4d77b;
+      font-size: 25px;
+      margin-bottom: 5px;
     }
 
     .hero h1 {
-      font-size: clamp(30px, 5vw, 48px);
+      font-size: clamp(27px, 5vw, 42px);
       line-height: 1.3;
-      margin: 12px 0;
+      margin: 8px 0;
     }
 
     .hero p {
-      color: #d6eee5;
-      max-width: 620px;
-      margin: 0 0 23px;
-      font-size: 15px;
+      max-width: 650px;
+      margin: 10px auto 20px;
+      color: #e1f5e9;
     }
 
-    .search-box {
-      display: flex;
-      gap: 8px;
-      max-width: 600px;
-      background: white;
-      padding: 7px;
-      border-radius: 14px;
-    }
-
-    .search-box input {
-      width: 100%;
-      min-width: 0;
-      border: 0;
-      outline: none;
-      padding: 10px 12px;
-      color: var(--text);
-      background: transparent;
-    }
-
-    .primary-btn {
-      background: var(--gold);
-      color: #172016;
-      border: 0;
-      border-radius: 10px;
+    .btn {
+      display: inline-block;
       padding: 10px 17px;
-      font-weight: 800;
-      cursor: pointer;
-      white-space: nowrap;
+      border: 0;
+      border-radius: 11px;
+      font-weight: 700;
+      text-align: center;
+      margin: 4px;
     }
 
-    .section { padding: 30px 0; }
+    .btn-gold {
+      background: var(--gold);
+      color: #173b2d;
+    }
 
-    .section-title {
+    .btn-white {
+      background: white;
+      color: var(--green);
+    }
+
+    .btn-green {
+      background: var(--green);
+      color: white;
+    }
+
+    .section {
+      margin: 30px auto;
+    }
+
+    .section-heading {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 17px;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
     }
 
-    .section-title h2 {
-      font-size: 22px;
-      line-height: 1.4;
+    .section-heading h2 {
       margin: 0;
+      color: var(--green);
+      font-size: 22px;
     }
 
-    .section-title span {
-      font-size: 12px;
+    .muted {
       color: var(--muted);
+      font-size: 13px;
     }
 
-    .quick-grid {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      min-width: 0;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      padding: 17px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      color: var(--green);
+      font-size: 18px;
     }
 
     .quick-card {
-      display: block;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 19px 15px;
-      text-decoration: none;
-      box-shadow: var(--shadow);
-      transition: transform .2s, border-color .2s;
-    }
-
-    .quick-card:hover {
-      transform: translateY(-3px);
-      border-color: #a8d9c7;
+      text-align: center;
+      padding: 20px 10px;
     }
 
     .quick-icon {
-      width: 43px;
-      height: 43px;
-      display: grid;
-      place-items: center;
-      border-radius: 13px;
-      background: var(--green-light);
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    .quick-card strong {
+      font-size: 29px;
       display: block;
-      color: var(--green-dark);
-      font-size: 14px;
     }
 
-    .quick-card small {
+    .quick-card p {
+      margin: 3px 0 0;
       color: var(--muted);
-      display: block;
-      font-size: 11px;
-      margin-top: 4px;
-    }
-
-    .prayer-card {
-      background: linear-gradient(135deg, #071c18, #0b6b50);
-      border-radius: 22px;
-      color: white;
-      padding: 23px;
-      box-shadow: var(--shadow);
-    }
-
-    .prayer-heading {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .prayer-heading h2 { margin: 0; font-size: 22px; }
-
-    .prayer-heading p {
-      margin: 4px 0 0;
-      color: #d0e9df;
       font-size: 12px;
     }
 
-    .countdown {
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.15);
-      border-radius: 12px;
-      padding: 10px 14px;
-      font-weight: 800;
-      font-size: 14px;
+    .hadith-card {
+      background: linear-gradient(145deg, #fffdf3, #fff);
+      border: 1px solid #eadba4;
     }
 
-    .prayer-grid {
+    .arabic {
+      direction: rtl;
+      text-align: right;
+      font-family: "Noto Naskh Arabic", "Traditional Arabic", serif;
+      font-size: 26px;
+      line-height: 2;
+      color: #173b2d;
+      margin: 12px 0;
+    }
+
+    .hadith-label {
+      display: inline-block;
+      background: #e8f4e9;
+      color: var(--green);
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .prayer-card {
+      background: linear-gradient(140deg, #064e3b, #087451);
+      color: white;
+    }
+
+    .prayer-card h2,
+    .prayer-card h3 {
+      color: white;
+    }
+
+    .countdown {
+      font-size: 28px;
+      font-weight: 800;
+      color: #f4d77b;
+      text-align: center;
+      margin: 8px 0;
+    }
+
+    .prayer-list {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 22px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 12px;
     }
 
     .prayer-item {
-      text-align: center;
-      background: rgba(255,255,255,.09);
-      padding: 13px 5px;
-      border-radius: 13px;
-      border: 1px solid rgba(255,255,255,.08);
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.08);
+      border-radius: 11px;
     }
 
     .prayer-item.active {
       background: var(--gold);
-      color: #172016;
+      color: #183b2d;
+      border-color: var(--gold);
     }
 
-    .prayer-item strong { display: block; font-size: 13px; }
+    .prayer-item strong {
+      display: block;
+    }
 
     .prayer-item span {
-      display: block;
       font-size: 13px;
-      font-weight: 800;
-      margin-top: 5px;
     }
 
-    .prayer-note {
-      margin: 15px 0 0;
-      color: #d0e9df;
-      font-size: 11px;
+    .search-box {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: white;
+      padding: 13px 15px;
+      border-radius: 12px;
+      outline: none;
+      margin-bottom: 14px;
     }
 
-    .hourly-hadith-card {
-      background: linear-gradient(145deg, #fff, #f0fdfa);
-      border: 1px solid #ccece2;
-      border-radius: 20px;
-      padding: 22px;
-      box-shadow: var(--shadow);
-      overflow-wrap: anywhere;
-    }
-
-    .hourly-hadith-label {
-      display: inline-block;
-      background: #ccfbf1;
-      color: var(--green);
-      padding: 6px 12px;
-      border-radius: 30px;
-      font-size: 11px;
-      font-weight: 800;
-      margin-bottom: 15px;
-    }
-
-    #hourlyHadithTitle {
-      font-size: 20px;
-      line-height: 1.6;
-      margin: 0 0 12px;
-      color: var(--green);
-    }
-
-    .hourly-hadith-arabic {
-      font-family: "Noto Naskh Arabic", "Amiri", serif;
-      font-size: 27px;
-      line-height: 2;
-      text-align: right;
-      direction: rtl;
-      color: #172033;
-      padding: 14px 0;
-      white-space: pre-wrap;
-    }
-
-    .hadith-field {
-      font-size: 14px;
-      line-height: 1.9;
-      color: #334155;
-      white-space: pre-wrap;
-      margin: 12px 0;
-    }
-
-    .hadith-field strong { color: var(--green-dark); }
-
-    #hourlyHadithSource {
-      display: block;
-      color: var(--muted);
-      margin-top: 15px;
-      font-size: 12px;
-    }
-
-    .hourly-hadith-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      border-top: 1px solid #dbeee7;
-      margin-top: 18px;
-      padding-top: 15px;
-      font-size: 12px;
-    }
-
-    .hourly-hadith-footer a {
-      color: var(--green);
-      font-weight: 800;
-      text-decoration: none;
-    }
-
-    .posts-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 17px;
+    .search-box:focus {
+      border-color: var(--green2);
+      box-shadow: 0 0 0 3px rgba(4,120,87,.1);
     }
 
     .post-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
       overflow: hidden;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
+      padding: 0;
     }
 
-    .post-image {
+    .post-card img {
+      display: block;
       width: 100%;
       aspect-ratio: 16 / 9;
       object-fit: cover;
-      background: #e5eee9;
-    }
-
-    .post-image-placeholder {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, #e5f5ee, #f5f8f7);
-      font-size: 36px;
+      background: #e4eee7;
     }
 
     .post-body {
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .post-category {
-      font-size: 10px;
-      font-weight: 800;
-      color: var(--green);
-      margin-bottom: 6px;
+      padding: 14px;
     }
 
     .post-body h3 {
-      margin: 0 0 9px;
       font-size: 17px;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
-    .post-body p {
+    .post-excerpt {
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.8;
-      margin: 0 0 13px;
-      white-space: pre-wrap;
+      font-size: 14px;
       overflow-wrap: anywhere;
     }
 
     .post-meta {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
       color: var(--muted);
-      font-size: 11px;
-      margin-top: auto;
-      padding-top: 8px;
+      font-size: 12px;
+      margin: 8px 0;
     }
 
     .post-actions {
       display: flex;
-      gap: 8px;
-      margin-top: 14px;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
     }
 
-    .post-actions button {
+    .small-btn {
       border: 1px solid var(--border);
       background: white;
       color: var(--green);
-      padding: 8px 12px;
+      padding: 7px 10px;
       border-radius: 9px;
-      font-size: 12px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .post-actions button:first-child {
-      background: var(--green);
-      color: white;
-      border-color: var(--green);
-    }
-
-    .empty-state {
-      background: white;
-      border: 1px dashed #b8d6cb;
-      border-radius: 16px;
-      padding: 25px;
-      text-align: center;
-      color: var(--muted);
-      grid-column: 1 / -1;
       font-size: 13px;
+      font-weight: 700;
     }
 
-    footer {
-      background: var(--green-dark);
-      color: #d0e9df;
-      padding: 30px 0;
-      margin-top: 25px;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    footer strong { color: white; }
-    footer p { font-size: 12px; margin: 5px 0; }
-
-    footer a {
-      color: #f4d99c;
-      text-decoration: none;
-      font-size: 12px;
-      margin-left: 12px;
+    .message {
+      padding: 15px;
+      border-radius: 12px;
+      background: white;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+      grid-column: 1 / -1;
     }
 
     .modal {
+      display: none;
       position: fixed;
       inset: 0;
       z-index: 100;
-      background: rgba(2, 15, 12, .72);
-      display: none;
-      align-items: center;
-      justify-content: center;
+      background: rgba(0,0,0,.65);
       padding: 15px;
-    }
-
-    .modal.open { display: flex; }
-
-    .modal-panel {
-      background: white;
-      width: min(720px, 100%);
-      max-height: 90vh;
       overflow-y: auto;
-      border-radius: 20px;
+    }
+
+    .modal.show {
+      display: block;
+    }
+
+    .modal-content {
+      position: relative;
+      width: min(760px, 100%);
+      margin: 20px auto;
       padding: 22px;
+      border-radius: 17px;
+      background: white;
+      overflow-wrap: anywhere;
     }
-
-    .modal-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
-      gap: 15px;
-    }
-
-    .modal-top h2 { margin: 0; font-size: 22px; }
 
     .close-btn {
-      border: 0;
-      background: #edf3f0;
-      border-radius: 10px;
-      width: 38px;
-      height: 38px;
-      font-size: 21px;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-
-    #modalContent {
-      overflow-wrap: anywhere;
-      white-space: pre-wrap;
-      line-height: 1.9;
-      font-size: 14px;
-      margin-top: 16px;
-    }
-
-    #modalContent img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
-    }
-
-    .modal-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 18px;
-    }
-
-    .modal-buttons button {
-      background: var(--green);
-      color: white;
+      float: right;
       border: 0;
       border-radius: 9px;
-      padding: 10px 14px;
-      font-weight: 700;
-      cursor: pointer;
+      padding: 5px 11px;
+      background: #edf3ef;
+      color: var(--green);
+      font-size: 20px;
     }
 
-    .toast {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #071c18;
-      color: white;
+    .full-post-image {
+      width: 100%;
+      max-height: 420px;
+      object-fit: contain;
       border-radius: 12px;
-      padding: 11px 17px;
-      font-size: 13px;
-      z-index: 150;
-      display: none;
-      max-width: 90%;
+      background: #f3f5f3;
+    }
+
+    .full-post-content {
+      white-space: pre-wrap;
+      line-height: 1.95;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 28px 15px;
+      background: #033b2d;
+      color: #e3f4e9;
       text-align: center;
     }
 
-    .toast.show { display: block; }
+    footer a {
+      color: #f4d77b;
+    }
 
-    @media (max-width: 760px) {
-      .nav { min-height: 68px; }
-      .nav-links { gap: 10px; }
-      .nav-links a { font-size: 11px; }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 12px 0;
+    }
+
+    @media (min-width: 700px) {
+      .menu-btn {
+        display: none;
+      }
+
+      nav {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        padding: 8px 15px;
+      }
+
+      nav a {
+        display: inline-block;
+      }
+
+      .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
 
       .quick-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
 
-      .posts-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .prayer-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+      .prayer-list {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
       }
     }
 
-    @media (max-width: 500px) {
-      .brand img { width: 40px; height: 40px; }
-      .brand-name { font-size: 15px; }
-      .brand-subtitle { font-size: 10px; }
-      .nav-links { gap: 8px; }
-      .nav-links a { font-size: 10px; }
-      .hero { padding: 40px 0; }
-      .hero h1 { font-size: 30px; }
+    @media (max-width: 360px) {
+      .brand-name {
+        font-size: 16px;
+      }
 
-      .search-box { flex-direction: column; }
-      .search-box .primary-btn { width: 100%; }
-      .section { padding: 24px 0; }
-      .section-title h2 { font-size: 20px; }
-      .posts-grid { grid-template-columns: 1fr; }
-      .hourly-hadith-card { padding: 17px; }
-      .hourly-hadith-arabic { font-size: 23px; }
-      .prayer-card { padding: 17px; }
-      .prayer-grid { gap: 7px; }
-      .prayer-item { padding: 11px 3px; }
+      .brand img {
+        width: 39px;
+        height: 39px;
+      }
 
-      .prayer-item strong,
-      .prayer-item span { font-size: 12px; }
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="topbar">
-    <div class="container">
-      <span>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>
-      <span id="todayDate">তারিখ লোড হচ্ছে...</span>
-    </div>
+    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ — আল্লাহর নামে শুরু
   </div>
 
   <header>
-    <div class="container nav">
-      <a class="brand" href="./index.html">
+    <div class="header-inner">
+      <a class="brand" href="./" aria-label="Qalb-e-Deen Home">
         <img src="./logo.png" alt="Qalb-e-Deen Logo"
-             onerror="this.style.display='none'">
-        <span>
-          <span class="brand-name">Qalb-e-Deen</span>
-          <span class="brand-subtitle">The Heart of Deen</span>
-        </span>
+          onerror="this.style.display='none'">
+        <div>
+          <div class="brand-name">Qalb-e-Deen</div>
+          <div class="brand-sub">The Heart of Deen</div>
+        </div>
       </a>
 
-      <nav class="nav-links">
-        <a href="./index.html">হোম</a>
-        <a href="./quran.html">কোরআন</a>
-        <a href="./hadith.html">হাদিস</a>
-        <a href="./prayer-times.html">নামাজ</a>
-      </nav>
+      <button class="menu-btn" id="menuBtn"
+        aria-label="মেনু খুলুন" aria-expanded="false">☰</button>
     </div>
+
+    <nav id="mainNav">
+      <a href="#home">হোম</a>
+      <a href="#quick-links">ইসলামিক সেবা</a>
+      <a href="#prayer">নামাজের সময়</a>
+      <a href="#today-hadith">আজকের হাদিস</a>
+      <a href="#posts">ইসলামিক পোস্ট</a>
+      <a href="./admin.html">Admin</a>
+    </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-content">
-        <span class="eyebrow">THE HEART OF DEEN</span>
-        <h1>দ্বীনের আলোয় আলোকিত হোক হৃদয়</h1>
-        <p>
-          কোরআন, হাদিস, ইসলামী জ্ঞান, নামাজের সময়সূচি
-          এবং উপকারী ইসলামিক পোস্ট—সব এক জায়গায়।
+  <main class="container">
+    <section class="hero" id="home">
+      <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+      <h1>Qalb-e-Deen</h1>
+      <p>
+        হৃদয়ে ইসলামের আলো ছড়িয়ে দিন। কোরআন, হাদিস, ইসলামিক জ্ঞান
+        এবং দৈনন্দিন ইবাদতের তথ্য এক জায়গায়।
+      </p>
+      <a class="btn btn-gold" href="#today-hadith">আজকের হাদিস পড়ুন</a>
+      <a class="btn btn-white" href="#posts">ইসলামিক পোস্ট দেখুন</a>
+    </section>
+
+    <section class="section" id="quick-links">
+      <div class="section-heading">
+        <h2>ইসলামিক সেবা</h2>
+      </div>
+
+      <div class="grid quick-grid">
+        <a class="card quick-card" href="#today-hadith">
+          <span class="quick-icon">📖</span>
+          <strong>আজকের হাদিস</strong>
+          <p>হাদিস ও ব্যাখ্যা পড়ুন</p>
+        </a>
+
+        <a class="card quick-card" href="./prayer-times.html">
+          <span class="quick-icon">🕌</span>
+          <strong>নামাজের সময়</strong>
+          <p>পাঁচ ওয়াক্তের সময়সূচি</p>
+        </a>
+
+        <a class="card quick-card" href="#posts">
+          <span class="quick-icon">🌙</span>
+          <strong>ইসলামিক পোস্ট</strong>
+          <p>জ্ঞান ও উপদেশ পড়ুন</p>
+        </a>
+
+        <a class="card quick-card" href="#quran">
+          <span class="quick-icon">📚</span>
+          <strong>কোরআন পড়ুন</strong>
+          <p>কোরআন লাইব্রেরি</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="prayer">
+      <div class="section-heading">
+        <h2>🕌 পাঁচ ওয়াক্ত নামাজের সময়</h2>
+        <a href="./prayer-times.html" class="muted">বিস্তারিত →</a>
+      </div>
+
+      <div class="card prayer-card">
+        <h3>ঢাকা, বাংলাদেশ</h3>
+        <div id="prayerDate">সময়সূচি লোড হচ্ছে...</div>
+        <div class="muted" style="color:#d7eee2">
+          পরবর্তী নামাজের সময় বাকি
+        </div>
+        <div class="countdown" id="prayerCountdown">--:--:--</div>
+        <div id="nextPrayerName">নামাজের সময় হিসাব করা হচ্ছে...</div>
+        <div class="prayer-list" id="prayerList">
+          <div class="prayer-item">সময়সূচি লোড হচ্ছে...</div>
+        </div>
+        <p class="muted" style="color:#d7eee2;margin-bottom:0">
+          সময়সূচি AlAdhan API থেকে আনা হয়। স্থানীয় মসজিদের সময়ের
+          সঙ্গে প্রয়োজনে মিলিয়ে নিন।
         </p>
-
-        <form class="search-box" id="searchForm">
-          <input id="searchInput" type="search"
-                 placeholder="ইসলামিক পোস্ট খুঁজুন..."
-                 aria-label="পোস্ট খুঁজুন">
-          <button class="primary-btn" type="submit">খুঁজুন</button>
-        </form>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-title">
-          <h2>দ্রুত প্রবেশ</h2>
-          <span>আপনার প্রয়োজনীয় বিভাগ</span>
-        </div>
+    <section class="section" id="today-hadith">
+      <div class="section-heading">
+        <h2>📜 আজকের হাদিস</h2>
+        <span class="hadith-label">Hadith of the Day</span>
+      </div>
 
-        <div class="quick-grid">
-          <a class="quick-card" href="./quran.html">
-            <div class="quick-icon">📖</div>
-            <strong>কোরআন পড়ুন</strong>
-            <small>Quran Reader</small>
-          </a>
+      <div class="card hadith-card" id="hadithCard">
+        <div id="hadithStatus">হাদিস লোড হচ্ছে...</div>
+        <div id="hadithContent" hidden>
+          <div class="arabic" id="hadithArabic" lang="ar"></div>
 
-          <a class="quick-card" href="./hadith.html">
-            <div class="quick-icon">📜</div>
-            <strong>হাদিস পড়ুন</strong>
-            <small>Hadith Collection</small>
-          </a>
+          <h3>বাংলা উচ্চারণ</h3>
+          <p id="hadithPronunciation"></p>
 
-          <a class="quick-card" href="#prayerSection">
-            <div class="quick-icon">🕌</div>
-            <strong>নামাজের সময়</strong>
-            <small>Prayer Times</small>
-          </a>
+          <h3>বাংলা অনুবাদ</h3>
+          <p id="hadithTranslation"></p>
 
-          <a class="quick-card" href="#postsSection">
-            <div class="quick-icon">🌿</div>
-            <strong>ইসলামিক পোস্ট</strong>
-            <small>Islamic Knowledge</small>
-          </a>
+          <h3>ব্যাখ্যা</h3>
+          <p id="hadithExplanation"></p>
+
+          <div class="muted" id="hadithSource"></div>
+
+          <button class="btn btn-green" id="shareHadith">
+            হাদিস শেয়ার করুন
+          </button>
         </div>
       </div>
     </section>
 
-    <!-- Prayer Times -->
-    <section class="section" id="prayerSection">
-      <div class="container">
-        <div class="prayer-card">
-          <div class="prayer-heading">
-            <div>
-              <h2>🕌 পাঁচ ওয়াক্ত নামাজের সময়</h2>
-              <p id="prayerLocation">ঢাকা, বাংলাদেশ · সময় লোড হচ্ছে...</p>
-            </div>
-            <div class="countdown" id="prayerCountdown">
-              পরবর্তী নামাজের সময় হিসাব হচ্ছে...
-            </div>
-          </div>
-
-          <div class="prayer-grid" id="prayerGrid">
-            <div class="prayer-item"><strong>ফজর</strong><span>--:--</span></div>
-            <div class="prayer-item"><strong>যোহর</strong><span>--:--</span></div>
-            <div class="prayer-item"><strong>আসর</strong><span>--:--</span></div>
-            <div class="prayer-item"><strong>মাগরিব</strong><span>--:--</span></div>
-            <div class="prayer-item"><strong>এশা</strong><span>--:--</span></div>
-          </div>
-
-          <p class="prayer-note" id="prayerNote">
-            সময়সূচি লোড হচ্ছে। স্থানীয় মসজিদের সময়ের সঙ্গে মিলিয়ে নিন।
-          </p>
-
-          <a href="./prayer-times.html"
-             style="display:inline-block;color:#f4d99c;font-size:12px;font-weight:800;margin-top:12px;text-decoration:none;">
-            বিস্তারিত নামাজের সময় দেখুন →
-          </a>
-        </div>
+    <section class="section" id="quran">
+      <div class="section-heading">
+        <h2>📚 কোরআন লাইব্রেরি</h2>
+      </div>
+      <div class="card">
+        <p>
+          কোরআনের PDF লাইব্রেরি প্রস্তুত হলে এখানে একাধিক PDF থেকে
+          কোরআন পড়ার সুবিধা যুক্ত করা যাবে।
+        </p>
+        <p class="muted">
+          আপাতত PDF আপলোডের জন্য Firebase Storage সংযোগ ও Admin Panel
+          সেটআপ সম্পূর্ণ করা প্রয়োজন।
+        </p>
       </div>
     </section>
 
-    <!-- Automatic Hourly Hadith -->
-    <section class="section" id="hourlyHadithSection">
-      <div class="container">
-        <div class="section-title">
-          <h2>📜 আজকের হাদিস</h2>
-          <span id="hourlyHadithStatus">হাদিস লোড হচ্ছে...</span>
-        </div>
-
-        <div class="hourly-hadith-card">
-          <div class="hourly-hadith-label">HADITH OF THE HOUR</div>
-          <h3 id="hourlyHadithTitle">হাদিস লোড হচ্ছে...</h3>
-
-          <div id="hourlyHadithArabic" class="hourly-hadith-arabic"></div>
-
-          <div class="hadith-field">
-            <strong>উচ্চারণ:</strong>
-            <div id="hourlyHadithPronunciation">লোড হচ্ছে...</div>
-          </div>
-
-          <div class="hadith-field">
-            <strong>অনুবাদ:</strong>
-            <div id="hourlyHadithTranslation">লোড হচ্ছে...</div>
-          </div>
-
-          <div class="hadith-field">
-            <strong>ব্যাখ্যা ও শিক্ষা:</strong>
-            <div id="hourlyHadithExplanation">লোড হচ্ছে...</div>
-          </div>
-
-          <small id="hourlyHadithSource"></small>
-
-          <div class="hourly-hadith-footer">
-            <span id="hourlyHadithNextChange">
-              বাংলাদেশ সময় অনুযায়ী প্রতি ঘণ্টায় পরিবর্তিত হবে
-            </span>
-            <a href="./hadith.html">সব হাদিস দেখুন →</a>
-          </div>
-        </div>
+    <section class="section" id="posts">
+      <div class="section-heading">
+        <h2>📝 ইসলামিক পোস্ট</h2>
+        <span class="muted" id="postCount">লোড হচ্ছে...</span>
       </div>
-    </section>
 
-    <!-- Latest Posts -->
-    <section class="section" id="postsSection">
-      <div class="container">
-        <div class="section-title">
-          <h2>🌿 সর্বশেষ ইসলামিক পোস্ট</h2>
-          <span id="postsStatus">পোস্ট লোড হচ্ছে...</span>
-        </div>
+      <input type="search" id="postSearch" class="search-box"
+        placeholder="পোস্ট খুঁজুন..." aria-label="ইসলামিক পোস্ট খুঁজুন">
 
-        <div class="posts-grid" id="postsGrid">
-          <div class="empty-state">পোস্ট লোড হচ্ছে...</div>
-        </div>
+      <div class="grid" id="postsContainer">
+        <div class="message">Firebase থেকে পোস্ট লোড হচ্ছে...</div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container footer-inner">
-      <div>
-        <strong>Qalb-e-Deen — The Heart of Deen</strong>
-        <p>ইসলামী জ্ঞান ছড়িয়ে পড়ুক সবার হৃদয়ে।</p>
-        <p>© <span id="footerYear"></span> Qalb-e-Deen</p>
-      </div>
+    <h2>Qalb-e-Deen</h2>
+    <p>The Heart of Deen — হৃদয়ে ইসলামের আলো</p>
 
-      <div>
-        <a href="./quran.html">কোরআন</a>
-        <a href="./hadith.html">হাদিস</a>
-        <a href="./prayer-times.html">নামাজ</a>
-        <a href="./admin.html">অ্যাডমিন</a>
-      </div>
+    <div class="footer-links">
+      <a href="./">হোম</a>
+      <a href="#today-hadith">হাদিস</a>
+      <a href="#posts">পোস্ট</a>
+      <a href="./admin.html">Admin Panel</a>
     </div>
+
+    <p class="muted" style="color:#c8ded2">
+      © <span id="currentYear"></span> Qalb-e-Deen. All rights reserved.
+    </p>
   </footer>
 
-  <!-- Post Details Modal -->
+  <!-- Full post modal -->
   <div class="modal" id="postModal" role="dialog"
-       aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-panel">
-      <div class="modal-top">
-        <h2 id="modalTitle">পোস্ট</h2>
-        <button class="close-btn" id="closeModal"
-                aria-label="বন্ধ করুন">×</button>
-      </div>
+    aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <button class="close-btn" id="closeModal"
+        aria-label="বন্ধ করুন">×</button>
 
-      <div id="modalMeta" class="post-meta"></div>
-      <div id="modalContent"></div>
+      <div style="clear:both"></div>
+      <div id="modalPostContent"></div>
 
-      <div class="modal-buttons">
-        <button id="sharePostBtn" type="button">শেয়ার করুন</button>
-        <button id="copyPostBtn" type="button">লেখা কপি করুন</button>
+      <div class="post-actions">
+        <button class="btn btn-green" id="sharePostBtn">
+          পোস্ট শেয়ার করুন
+        </button>
+        <button class="small-btn" id="copyPostBtn">
+          লেখা কপি করুন
+        </button>
       </div>
     </div>
   </div>
 
-  <div class="toast" id="toast"></div>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
-  <script type="module">
-    import { initializeApp }
-      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  <script>
+    "use strict";
 
-    import {
-      getFirestore,
-      collection,
-      getDocs,
-      query,
-      orderBy,
-      limit,
-      doc,
-      updateDoc,
-      increment,
-      where
-    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-    // FIREBASE CONFIGURATION
+    // Firebase project configuration
     const firebaseConfig = {
-      apiKey: "AIzaSyC4sRpUYVLURCkbAbfvUcc5Ln71Dveiik4",
+      apiKey: "PASTE_YOUR_EXISTING_FIREBASE_API_KEY_HERE",
       authDomain: "qalb-e-deen-b765a.firebaseapp.com",
       projectId: "qalb-e-deen-b765a",
       storageBucket: "qalb-e-deen-b765a.firebasestorage.app",
@@ -905,43 +750,19 @@
       appId: "1:226972777842:web:0d1439b9d4dc66d8bfb1eb"
     };
 
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    const $ = (id) => document.getElementById(id);
-
+    let db = null;
+    let firebaseReady = false;
     let allPosts = [];
-    let selectedPost = null;
-    let hourlyHadithList = [];
-    let lastHadithHourKey = "";
+    let currentPost = null;
+    let prayerTimes = null;
+    let nextPrayerTimestamp = null;
+    let prayerTimer = null;
 
-    // GENERAL HELPERS
-    function showToast(message) {
-      const toast = $("toast");
-      toast.textContent = message;
-      toast.classList.add("show");
-      clearTimeout(showToast.timer);
-      showToast.timer = setTimeout(() => {
-        toast.classList.remove("show");
-      }, 2800);
-    }
+    const $ = id => document.getElementById(id);
 
-    function textValue(value, fallback = "") {
-      if (value === undefined || value === null || value === "") {
-        return fallback;
-      }
-      if (Array.isArray(value)) return value.join("، ");
-      if (typeof value === "object") return "";
-      return String(value);
-    }
-
-    function firstValue(object, keys, fallback = "") {
-      for (const key of keys) {
-        const value = object?.[key];
-        if (value !== undefined && value !== null && value !== "") {
-          return textValue(value);
-        }
-      }
-      return fallback;
+    function setText(id, value) {
+      const el = $(id);
+      if (el) el.textContent = value ?? "";
     }
 
     function escapeHTML(value) {
@@ -954,9 +775,10 @@
       })[char]);
     }
 
-    function safeURL(value) {
+    function safeImageURL(value) {
+      if (!value) return "";
       try {
-        const url = new URL(String(value), window.location.href);
+        const url = new URL(value, location.href);
         if (url.protocol === "https:" || url.protocol === "http:") {
           return url.href;
         }
@@ -964,413 +786,340 @@
       return "";
     }
 
-    function getDateText() {
-      return new Intl.DateTimeFormat("bn-BD", {
-        timeZone: "Asia/Dhaka",
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-      }).format(new Date());
-    }
-
-    $("todayDate").textContent = getDateText();
-    $("footerYear").textContent = new Date().getFullYear();
-
-    // AUTOMATIC HOURLY HADITH — DHAKA TIME
-    function getDhakaTimeParts() {
-      const parts = new Intl.DateTimeFormat("en-GB", {
-        timeZone: "Asia/Dhaka",
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-        hour: "2-digit",
-        hourCycle: "h23"
-      }).formatToParts(new Date());
-
-      const result = {};
-      for (const part of parts) {
-        if (part.type !== "literal") {
-          result[part.type] = Number(part.value);
-        }
-      }
-      return result;
-    }
-
-    function getDhakaHourInfo() {
-      const p = getDhakaTimeParts();
-      const dateUtc = Date.UTC(p.year, p.month - 1, p.day);
-      const yearStartUtc = Date.UTC(p.year, 0, 1);
-      const dayOfYear =
-        Math.floor((dateUtc - yearStartUtc) / 86400000) + 1;
-
-      return {
-        key: `${p.year}-${p.month}-${p.day}-${p.hour}`,
-        index: (dayOfYear - 1) * 24 + p.hour
-      };
-    }
-
-    function setHadithText(id, value, fallback = "") {
-      const element = $(id);
-      if (element) element.textContent = value || fallback;
-    }
-
-    function renderHourlyHadith(force = false) {
-      if (!hourlyHadithList.length) return;
-
-      const hourInfo = getDhakaHourInfo();
-      if (!force && hourInfo.key === lastHadithHourKey) return;
-
-      lastHadithHourKey = hourInfo.key;
-
-      const index = hourInfo.index % hourlyHadithList.length;
-      const hadith = hourlyHadithList[index];
-
-      setHadithText(
-        "hourlyHadithTitle",
-        firstValue(hadith, ["title", "name", "heading"]),
-        "আজকের হাদিস"
-      );
-
-      setHadithText(
-        "hourlyHadithArabic",
-        firstValue(hadith, ["arabic", "arabicText", "hadithArabic"]),
-        "আরবি লেখা দেওয়া হয়নি।"
-      );
-
-      setHadithText(
-        "hourlyHadithPronunciation",
-        firstValue(hadith, [
-          "transliteration",
-          "bengaliPronunciation",
-          "englishPronunciation",
-          "pronunciation"
-        ]),
-        "উচ্চারণ দেওয়া হয়নি।"
-      );
-
-      setHadithText(
-        "hourlyHadithTranslation",
-        firstValue(hadith, [
-          "translation",
-          "bengaliTranslation",
-          "bangla",
-          "meaning"
-        ]),
-        "অনুবাদ দেওয়া হয়নি।"
-      );
-
-      setHadithText(
-        "hourlyHadithExplanation",
-        firstValue(hadith, ["explanation", "description", "lesson"]),
-        "ব্যাখ্যা বা শিক্ষা দেওয়া হয়নি।"
-      );
-
-      const source = firstValue(hadith, ["source", "book", "reference"]);
-      const number = firstValue(hadith, ["hadithNumber", "number"]);
-
-      setHadithText(
-        "hourlyHadithSource",
-        [
-          source,
-          number ? `হাদিস নম্বর: ${number}` : ""
-        ].filter(Boolean).join(" · "),
-        "সূত্র উল্লেখ করা হয়নি।"
-      );
-
-      setHadithText(
-        "hourlyHadithStatus",
-        `হাদিস ${index + 1} / ${hourlyHadithList.length}`
-      );
-
-      setHadithText(
-        "hourlyHadithNextChange",
-        "বাংলাদেশ সময় অনুযায়ী প্রতি ঘণ্টায় পরিবর্তিত হবে"
-      );
-    }
-
-    async function loadHourlyHadiths() {
-      try {
-        setHadithText("hourlyHadithStatus", "হাদিস লোড হচ্ছে...");
-
-        const snapshot = await getDocs(
-          query(
-            collection(db, "hadiths"),
-            where("active", "==", true)
-          )
-        );
-
-        hourlyHadithList = snapshot.docs.map(item => ({
-          id: item.id,
-          ...item.data()
-        }));
-
-        if (!hourlyHadithList.length) {
-          setHadithText("hourlyHadithTitle", "এখনো কোনো সক্রিয় হাদিস পাওয়া যায়নি।");
-          setHadithText("hourlyHadithArabic", "");
-          setHadithText("hourlyHadithPronunciation", "");
-          setHadithText("hourlyHadithTranslation", "");
-          setHadithText("hourlyHadithExplanation", "");
-          setHadithText("hourlyHadithSource", "");
-          setHadithText("hourlyHadithStatus", "সক্রিয় হাদিস নেই");
-          return;
-        }
-
-        renderHourlyHadith(true);
-      } catch (error) {
-        console.error("Hourly Hadith loading error:", error);
-        setHadithText("hourlyHadithTitle", "হাদিস লোড করা যায়নি।");
-        setHadithText("hourlyHadithArabic", "");
-        setHadithText("hourlyHadithStatus", "Firebase সংযোগ বা Firestore rules পরীক্ষা করুন");
-      }
-    }
-
-    setInterval(() => renderHourlyHadith(), 15000);
-
-    document.addEventListener("visibilitychange", () => {
-      if (!document.hidden) renderHourlyHadith();
-    });
-
-    // POSTS — FIRESTORE
-    function getPostTitle(post) {
-      return firstValue(post, ["title", "name", "heading"], "শিরোনাম নেই");
-    }
-
-    function getPostBody(post) {
-      return firstValue(
-        post,
-        ["content", "body", "text", "description", "postContent"],
-        "এই পোস্টে এখনো কোনো লেখা যোগ করা হয়নি।"
-      );
-    }
-
-    function getPostImage(post) {
-      return safeURL(firstValue(
-        post,
-        ["imageUrl", "imageURL", "image", "photoURL", "photo"],
-        ""
-      ));
-    }
-
-    function getPostCategory(post) {
-      return firstValue(post, ["category", "type", "tag"], "ইসলামিক পোস্ট");
-    }
-
-    function getPostViews(post) {
-      const views = Number(post.views ?? post.viewCount ?? 0);
-      return Number.isFinite(views) ? views : 0;
-    }
-
     function formatDate(value) {
       if (!value) return "";
 
-      try {
-        let date;
-
-        if (typeof value.toDate === "function") {
-          date = value.toDate();
-        } else if (value.seconds) {
-          date = new Date(value.seconds * 1000);
-        } else {
-          date = new Date(value);
-        }
-
-        if (Number.isNaN(date.getTime())) return "";
-
-        return new Intl.DateTimeFormat("bn-BD", {
-          timeZone: "Asia/Dhaka",
-          day: "numeric",
-          month: "short",
-          year: "numeric"
-        }).format(date);
-      } catch (_) {
-        return "";
-      }
-    }
-
-    async function loadPosts() {
-      const grid = $("postsGrid");
-      const status = $("postsStatus");
-
-      grid.innerHTML = '<div class="empty-state">পোস্ট লোড হচ্ছে...</div>';
-
-      try {
-        let snapshot;
-
-        try {
-          snapshot = await getDocs(
-            query(
-              collection(db, "posts"),
-              orderBy("createdAt", "desc"),
-              limit(30)
-            )
-          );
-        } catch (orderedError) {
-          console.warn("createdAt query failed; trying basic query:", orderedError);
-          snapshot = await getDocs(collection(db, "posts"));
-        }
-
-        allPosts = snapshot.docs.map(item => ({
-          id: item.id,
-          ...item.data()
-        }));
-
-        allPosts = allPosts.filter(post => {
-          if (post.published === false) return false;
-          if (post.status === "draft") return false;
-          if (post.active === false) return false;
-          return true;
-        });
-
-        allPosts.sort((a, b) => {
-          const getTime = value => {
-            if (!value) return 0;
-            if (typeof value.toDate === "function") return value.toDate().getTime();
-            if (value.seconds) return value.seconds * 1000;
-            const parsed = new Date(value).getTime();
-            return Number.isNaN(parsed) ? 0 : parsed;
-          };
-
-          return getTime(b.createdAt) - getTime(a.createdAt);
-        });
-
-        status.textContent = `${allPosts.length}টি পোস্ট`;
-        renderPosts(allPosts);
-      } catch (error) {
-        console.error("Post loading error:", error);
-        status.textContent = "পোস্ট লোড হয়নি";
-
-        grid.innerHTML = `
-          <div class="empty-state">
-            পোস্ট লোড করা যায়নি। Firebase Firestore rules,
-            project configuration এবং posts collection পরীক্ষা করুন।
-          </div>`;
-      }
-    }
-
-    function renderPosts(posts) {
-      const grid = $("postsGrid");
-
-      if (!posts.length) {
-        grid.innerHTML = '<div class="empty-state">এখনো কোনো পোস্ট পাওয়া যায়নি।</div>';
-        return;
+      let date;
+      if (typeof value.toDate === "function") {
+        date = value.toDate();
+      } else if (typeof value === "number") {
+        date = new Date(value);
+      } else {
+        date = new Date(value);
       }
 
-      grid.innerHTML = "";
+      if (Number.isNaN(date.getTime())) return "";
 
-      posts.forEach(post => {
-        const card = document.createElement("article");
-        card.className = "post-card";
-
-        const image = getPostImage(post);
-        const title = getPostTitle(post);
-        const category = getPostCategory(post);
-        const body = getPostBody(post);
-        const date = formatDate(post.createdAt);
-        const views = getPostViews(post);
-
-        if (image) {
-          const img = document.createElement("img");
-          img.className = "post-image";
-          img.src = image;
-          img.alt = title;
-          img.loading = "lazy";
-
-          img.onerror = () => {
-            const placeholder = document.createElement("div");
-            placeholder.className = "post-image-placeholder";
-            placeholder.textContent = "📖";
-            img.replaceWith(placeholder);
-          };
-
-          card.appendChild(img);
-        } else {
-          const placeholder = document.createElement("div");
-          placeholder.className = "post-image-placeholder";
-          placeholder.textContent = "📖";
-          card.appendChild(placeholder);
-        }
-
-        const bodyElement = document.createElement("div");
-        bodyElement.className = "post-body";
-
-        const categoryElement = document.createElement("div");
-        categoryElement.className = "post-category";
-        categoryElement.textContent = category;
-
-        const heading = document.createElement("h3");
-        heading.textContent = title;
-
-        const excerpt = document.createElement("p");
-        excerpt.textContent = body.length > 150 ? body.slice(0, 150) + "…" : body;
-
-        const meta = document.createElement("div");
-        meta.className = "post-meta";
-        meta.textContent = `${date ? date + " · " : ""}👁 ${views} বার দেখা`;
-
-        const actions = document.createElement("div");
-        actions.className = "post-actions";
-
-        const readButton = document.createElement("button");
-        readButton.type = "button";
-        readButton.textContent = "পোস্ট পড়ুন";
-        readButton.addEventListener("click", () => openPost(post));
-
-        const shareButton = document.createElement("button");
-        shareButton.type = "button";
-        shareButton.textContent = "শেয়ার";
-        shareButton.addEventListener("click", () => sharePost(post));
-
-        actions.append(readButton, shareButton);
-        bodyElement.append(categoryElement, heading, excerpt, meta, actions);
-        card.appendChild(bodyElement);
-        grid.appendChild(card);
+      return date.toLocaleDateString("bn-BD", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
       });
     }
 
-    async function openPost(post) {
-      selectedPost = post;
+    // Mobile navigation
+    $("menuBtn").addEventListener("click", () => {
+      const nav = $("mainNav");
+      const opened = nav.classList.toggle("open");
+      $("menuBtn").setAttribute("aria-expanded", String(opened));
+    });
 
-      $("modalTitle").textContent = getPostTitle(post);
+    document.querySelectorAll("#mainNav a").forEach(link => {
+      link.addEventListener("click", () => {
+        $("mainNav").classList.remove("open");
+        $("menuBtn").setAttribute("aria-expanded", "false");
+      });
+    });
 
-      const date = formatDate(post.createdAt);
-      const views = getPostViews(post);
+    $("currentYear").textContent = new Date().getFullYear();
 
-      $("modalMeta").textContent =
-        `${getPostCategory(post)}${date ? " · " + date : ""} · 👁 ${views + 1} বার দেখা`;
+    // Firebase initialization
+    function initializeFirebase() {
+      try {
+        if (firebaseConfig.apiKey.includes("PASTE_YOUR")) {
+          throw new Error(
+            "Firebase API key বসানো হয়নি। তোমার Firebase Console-এর Web App config থেকে apiKey কপি করে বসাও।"
+          );
+        }
 
-      const content = $("modalContent");
-      content.replaceChildren();
+        if (!firebase.apps.length) {
+          firebase.initializeApp(firebaseConfig);
+        }
 
-      const imageURL = getPostImage(post);
+        db = firebase.firestore();
+        firebaseReady = true;
 
-      if (imageURL) {
-        const image = document.createElement("img");
-        image.src = imageURL;
-        image.alt = getPostTitle(post);
-        image.loading = "lazy";
-        content.appendChild(image);
+        loadHadiths();
+        loadPosts();
+      } catch (error) {
+        console.error("Firebase initialization:", error);
+        $("hadithStatus").textContent =
+          "হাদিস লোড করা যায়নি। Firebase configuration পরীক্ষা করুন।";
+
+        $("postsContainer").innerHTML =
+          '<div class="message">Firebase সংযোগ করা যায়নি। index.html-এর Firebase apiKey পরীক্ষা করুন।</div>';
+
+        setText("postCount", "সংযোগ সমস্যা");
+      }
+    }
+
+    // Hadith: collection name = hadiths
+    async function loadHadiths() {
+      try {
+        const snapshot = await db.collection("hadiths").get();
+
+        if (snapshot.empty) {
+          $("hadithStatus").textContent =
+            "এখনো কোনো হাদিস যোগ করা হয়নি। Admin Panel থেকে হাদিস যোগ করুন।";
+          $("hadithContent").hidden = true;
+          return;
+        }
+
+        const hadiths = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+
+        hadiths.sort((a, b) => {
+          const aDate = a.createdAt?.toMillis
+            ? a.createdAt.toMillis()
+            : new Date(a.createdAt || 0).getTime();
+
+          const bDate = b.createdAt?.toMillis
+            ? b.createdAt.toMillis()
+            : new Date(b.createdAt || 0).getTime();
+
+          return aDate - bDate;
+        });
+
+        // Change hadith hourly; same hour gives same selection.
+        const hourKey = Math.floor(Date.now() / 3600000);
+        const selected = hadiths[hourKey % hadiths.length];
+
+        const arabic = selected.arabic || selected.arabicText || "";
+        const pronunciation =
+          selected.pronunciation || selected.transliteration || "";
+        const translation =
+          selected.translation || selected.bangla || selected.banglaTranslation || "";
+        const explanation =
+          selected.explanation || selected.banglaExplanation || selected.description || "";
+        const source =
+          selected.source || selected.reference || selected.book || "";
+
+        setText("hadithArabic", arabic || "আরবি পাঠ যোগ করা হয়নি");
+        setText("hadithPronunciation", pronunciation || "উচ্চারণ যোগ করা হয়নি");
+        setText("hadithTranslation", translation || "অনুবাদ যোগ করা হয়নি");
+        setText("hadithExplanation", explanation || "ব্যাখ্যা যোগ করা হয়নি");
+        setText("hadithSource", source ? "সূত্র: " + source : "সূত্র যোগ করা হয়নি");
+
+        $("hadithStatus").textContent = "";
+        $("hadithContent").hidden = false;
+
+        $("shareHadith").onclick = async () => {
+          const text = [
+            "Qalb-e-Deen — আজকের হাদিস",
+            arabic,
+            "বাংলা উচ্চারণ: " + pronunciation,
+            "অনুবাদ: " + translation,
+            "ব্যাখ্যা: " + explanation,
+            "সূত্র: " + source,
+            location.href
+          ].filter(Boolean).join("\n\n");
+
+          await shareContent("Qalb-e-Deen — আজকের হাদিস", text);
+        };
+
+      } catch (error) {
+        console.error("Hadith loading error:", error);
+        $("hadithStatus").textContent =
+          "হাদিস লোড করা যায়নি। Firebase connection এবং Firestore rules পরীক্ষা করুন।";
+      }
+    }
+
+    // Posts: collection name = posts
+    async function loadPosts() {
+      try {
+        const snapshot = await db.collection("posts").get();
+
+        allPosts = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+
+        allPosts.sort((a, b) => {
+          const aDate = a.createdAt?.toMillis
+            ? a.createdAt.toMillis()
+            : new Date(a.createdAt || 0).getTime();
+
+          const bDate = b.createdAt?.toMillis
+            ? b.createdAt.toMillis()
+            : new Date(b.createdAt || 0).getTime();
+
+          return bDate - aDate;
+        });
+
+        renderPosts(allPosts);
+
+      } catch (error) {
+        console.error("Posts loading error:", error);
+
+        $("postsContainer").innerHTML =
+          '<div class="message">পোস্ট লোড করা যায়নি। Firestore-এর posts collection এবং read rules পরীক্ষা করুন।</div>';
+
+        setText("postCount", "লোড ব্যর্থ");
+      }
+    }
+
+    function getPostTitle(post) {
+      return post.title || post.heading || post.name || "শিরোনাম নেই";
+    }
+
+    function getPostBody(post) {
+      return post.content || post.body || post.text ||
+        post.description || post.details || "";
+    }
+
+    function getPostImage(post) {
+      return safeImageURL(
+        post.imageUrl || post.imageURL || post.image ||
+        post.photoURL || post.photo || ""
+      );
+    }
+
+    function getPostViews(post) {
+      return Number(post.views || post.viewCount || 0);
+    }
+
+    function renderPosts(posts) {
+      setText("postCount", posts.length + "টি পোস্ট");
+
+      const container = $("postsContainer");
+
+      if (!posts.length) {
+        container.innerHTML =
+          '<div class="message">কোনো পোস্ট পাওয়া যায়নি। Admin Panel থেকে নতুন পোস্ট প্রকাশ করুন।</div>';
+        return;
       }
 
-      const paragraph = document.createElement("p");
-      paragraph.textContent = getPostBody(post);
-      content.appendChild(paragraph);
+      container.innerHTML = posts.map(post => {
+        const title = getPostTitle(post);
+        const body = getPostBody(post);
+        const image = getPostImage(post);
+        const excerpt = body.length > 150
+          ? body.slice(0, 150) + "..."
+          : body;
 
-      $("postModal").classList.add("open");
+        return `
+          <article class="card post-card">
+            ${image ? `
+              <img src="${escapeHTML(image)}"
+                alt="${escapeHTML(title)}"
+                loading="lazy"
+                onerror="this.style.display='none'">
+            ` : ""}
+
+            <div class="post-body">
+              <h3>${escapeHTML(title)}</h3>
+
+              <div class="post-meta">
+                ${escapeHTML(formatDate(post.createdAt) || "Qalb-e-Deen")}
+                · 👁 ${getPostViews(post)} views
+              </div>
+
+              <div class="post-excerpt">${escapeHTML(excerpt)}</div>
+
+              <div class="post-actions">
+                <button class="small-btn"
+                  data-open-post="${escapeHTML(post.id)}">
+                  সম্পূর্ণ পোস্ট পড়ুন
+                </button>
+
+                <button class="small-btn"
+                  data-share-post="${escapeHTML(post.id)}">
+                  শেয়ার
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      container.querySelectorAll("[data-open-post]").forEach(button => {
+        button.addEventListener("click", () => {
+          openPost(button.getAttribute("data-open-post"));
+        });
+      });
+
+      container.querySelectorAll("[data-share-post]").forEach(button => {
+        button.addEventListener("click", () => {
+          const post = allPosts.find(
+            item => item.id === button.getAttribute("data-share-post")
+          );
+          if (post) sharePost(post);
+        });
+      });
+    }
+
+    // Live search
+    $("postSearch").addEventListener("input", event => {
+      const query = event.target.value.trim().toLocaleLowerCase();
+
+      const filtered = allPosts.filter(post => {
+        const searchable = [
+          getPostTitle(post),
+          getPostBody(post),
+          post.category || "",
+          post.tags || ""
+        ].join(" ").toLocaleLowerCase();
+
+        return searchable.includes(query);
+      });
+
+      renderPosts(filtered);
+    });
+
+    // Full post and view counter
+    async function openPost(id) {
+      const post = allPosts.find(item => item.id === id);
+      if (!post) return;
+
+      currentPost = post;
+
+      const title = getPostTitle(post);
+      const body = getPostBody(post);
+      const image = getPostImage(post);
+      const category = post.category || "ইসলামিক পোস্ট";
+
+      const content = $("modalPostContent");
+
+      content.innerHTML = `
+        <h2 id="modalTitle">${escapeHTML(title)}</h2>
+
+        <div class="post-meta">
+          ${escapeHTML(category)}
+          ${formatDate(post.createdAt)
+            ? " · " + escapeHTML(formatDate(post.createdAt))
+            : ""}
+        </div>
+
+        ${image ? `
+          <img class="full-post-image"
+            src="${escapeHTML(image)}"
+            alt="${escapeHTML(title)}">
+        ` : ""}
+
+        <div class="full-post-content">${escapeHTML(body)}</div>
+      `;
+
+      $("postModal").classList.add("show");
       document.body.style.overflow = "hidden";
 
+      // Increment view count, if allowed by Firestore rules.
       try {
-        await updateDoc(doc(db, "posts", post.id), {
-          views: increment(1)
+        await db.collection("posts").doc(id).update({
+          views: firebase.firestore.FieldValue.increment(1)
         });
+
         post.views = getPostViews(post) + 1;
+        renderPosts(allPosts);
       } catch (error) {
-        console.warn("View counter update skipped:", error);
+        // Reading a post should still work if view updates are denied.
+        console.warn("View counter was not updated:", error);
       }
     }
 
     function closePostModal() {
-      $("postModal").classList.remove("open");
+      $("postModal").classList.remove("show");
       document.body.style.overflow = "";
     }
 
@@ -1384,104 +1133,68 @@
       if (event.key === "Escape") closePostModal();
     });
 
-    async function sharePost(post) {
-      const title = getPostTitle(post);
-      const url = window.location.href.split("#")[0] +
-        "#post-" + encodeURIComponent(post.id);
-
+    // Share content
+    async function shareContent(title, text) {
       try {
         if (navigator.share) {
-          await navigator.share({
-            title,
-            text: getPostBody(post).slice(0, 200),
-            url
-          });
+          await navigator.share({ title, text });
         } else if (navigator.clipboard?.writeText) {
-          await navigator.clipboard.writeText(url);
-          showToast("পোস্টের লিংক কপি হয়েছে।");
+          await navigator.clipboard.writeText(text);
+          alert("লেখা কপি হয়েছে। এখন শেয়ার করতে পারবেন।");
         } else {
-          showToast("এই ব্রাউজারে শেয়ার সুবিধা পাওয়া যাচ্ছে না।");
+          prompt("লেখাটি কপি করুন:", text);
         }
       } catch (error) {
         if (error.name !== "AbortError") {
-          console.warn("Share error:", error);
-          showToast("শেয়ার করা যায়নি।");
+          console.error("Share error:", error);
         }
       }
     }
 
-    $("sharePostBtn").addEventListener("click", () => {
-      if (selectedPost) sharePost(selectedPost);
+    async function sharePost(post) {
+      const title = getPostTitle(post);
+      const url = new URL("./", location.href);
+      url.hash = "posts";
+
+      const text = title + "\n\n" +
+        getPostBody(post).slice(0, 500) +
+        "\n\nQalb-e-Deen: " + url.href;
+
+      await shareContent(title, text);
+    }
+
+    $("sharePostBtn").addEventListener("click", async () => {
+      if (currentPost) await sharePost(currentPost);
     });
 
     $("copyPostBtn").addEventListener("click", async () => {
-      if (!selectedPost) return;
+      if (!currentPost) return;
 
-      const text = `${getPostTitle(selectedPost)}\n\n${getPostBody(selectedPost)}`;
+      const text = getPostTitle(currentPost) + "\n\n" +
+        getPostBody(currentPost);
 
       try {
         await navigator.clipboard.writeText(text);
-        showToast("পোস্টের লেখা কপি হয়েছে।");
+        alert("পোস্টের লেখা কপি হয়েছে।");
       } catch (_) {
-        showToast("কপি করা যায়নি।");
+        prompt("পোস্টের লেখা কপি করুন:", text);
       }
     });
 
-    // POST SEARCH
-    function searchPosts(searchTerm) {
-      const term = searchTerm.trim().toLocaleLowerCase("bn");
-
-      if (!term) {
-        renderPosts(allPosts);
-        $("postsStatus").textContent = `${allPosts.length}টি পোস্ট`;
-        return;
-      }
-
-      const filtered = allPosts.filter(post => {
-        const searchable = [
-          getPostTitle(post),
-          getPostBody(post),
-          getPostCategory(post)
-        ].join(" ").toLocaleLowerCase("bn");
-
-        return searchable.includes(term);
-      });
-
-      renderPosts(filtered);
-      $("postsStatus").textContent = `${filtered.length}টি ফলাফল`;
-
-      $("postsSection").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }
-
-    $("searchForm").addEventListener("submit", event => {
-      event.preventDefault();
-      searchPosts($("searchInput").value);
-    });
-
-    $("searchInput").addEventListener("input", event => {
-      if (!event.target.value.trim()) {
-        renderPosts(allPosts);
-        $("postsStatus").textContent = `${allPosts.length}টি পোস্ট`;
-      }
-    });
-
-    // PRAYER TIMES — ALADHAN API
+    // Prayer times using AlAdhan API
     const prayerNames = [
-      { key: "Fajr", bn: "ফজর" },
-      { key: "Dhuhr", bn: "যোহর" },
-      { key: "Asr", bn: "আসর" },
-      { key: "Maghrib", bn: "মাগরিব" },
-      { key: "Isha", bn: "এশা" }
+      ["Fajr", "ফজর"],
+      ["Dhuhr", "যোহর"],
+      ["Asr", "আসর"],
+      ["Maghrib", "মাগরিব"],
+      ["Isha", "ইশা"]
     ];
 
-    let prayerSchedule = [];
-    let prayerTimer = null;
-    let prayerDayKey = "";
+    function cleanTime(value) {
+      return String(value || "").split(" ")[0];
+    }
 
-    function dhakaDateKey() {
+    function getDhakaToday() {
       const parts = new Intl.DateTimeFormat("en-CA", {
         timeZone: "Asia/Dhaka",
         year: "numeric",
@@ -1489,193 +1202,136 @@
         day: "2-digit"
       }).formatToParts(new Date());
 
-      const values = {};
-      parts.forEach(part => {
-        if (part.type !== "literal") values[part.type] = part.value;
-      });
+      const result = {};
+      parts.forEach(part => result[part.type] = part.value);
 
-      return `${values.year}-${values.month}-${values.day}`;
+      return `${result.year}-${result.month}-${result.day}`;
     }
 
-    function prayerDateTime(timeText, dayOffset = 0) {
-      const match = String(timeText).match(/(\d{1,2}):(\d{2})/);
-      if (!match) return null;
+    function dhakaDateTime(time) {
+      const [hours, minutes] = cleanTime(time).split(":").map(Number);
+      const parts = getDhakaToday().split("-").map(Number);
 
-      const hour = Number(match[1]);
-      const minute = Number(match[2]);
-
-      const now = new Date();
-      const dhakaParts = new Intl.DateTimeFormat("en-GB", {
-        timeZone: "Asia/Dhaka",
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit"
-      }).formatToParts(now);
-
-      const values = {};
-      dhakaParts.forEach(part => {
-        if (part.type !== "literal") values[part.type] = Number(part.value);
-      });
-
-      return new Date(Date.UTC(
-        values.year,
-        values.month - 1,
-        values.day + dayOffset,
-        hour - 6,
-        minute
-      ));
-    }
-
-    function convertPrayerTime(value) {
-      const match = String(value || "").match(/(\d{1,2}):(\d{2})/);
-      if (!match) return "--:--";
-
-      let hour = Number(match[1]);
-      const minute = match[2];
-      const suffix = hour >= 12 ? "PM" : "AM";
-
-      hour = hour % 12 || 12;
-      return `${String(hour).padStart(2, "0")}:${minute} ${suffix}`;
+      // Bangladesh uses UTC+06:00.
+      return Date.UTC(parts[0], parts[1] - 1, parts[2], hours - 6, minutes);
     }
 
     async function loadPrayerTimes() {
       try {
-        $("prayerLocation").textContent =
-          "ঢাকা, বাংলাদেশ · সময়সূচি লোড হচ্ছে...";
-
-        const date = new Date();
-        const day = date.getDate();
-        const month = date.getMonth() + 1;
-        const year = date.getFullYear();
-
+        const date = getDhakaToday().replaceAll("-", "-");
         const url =
-          `https://api.aladhan.com/v1/timings/${day}-${month}-${year}` +
-          `?latitude=23.8103&longitude=90.4125&method=1`;
+          "https://api.aladhan.com/v1/timingsByCity/" +
+          date +
+          "?city=Dhaka&country=Bangladesh&method=1";
 
         const response = await fetch(url);
 
-        if (!response.ok) {
-          throw new Error("Prayer time API returned an error");
+        if (!response.ok) throw new Error("Prayer API response failed");
+
+        const json = await response.json();
+        if (json.code !== 200 || !json.data?.timings) {
+          throw new Error("Prayer time data unavailable");
         }
 
-        const result = await response.json();
+        prayerTimes = json.data.timings;
 
-        if (result.code !== 200 || !result.data?.timings) {
-          throw new Error("Prayer time data missing");
-        }
+        setText("prayerDate",
+          "তারিখ: " + (json.data.date?.readable || date));
 
-        const timings = result.data.timings;
-
-        prayerSchedule = prayerNames.map(prayer => ({
-          key: prayer.key,
-          name: prayer.bn,
-          time: timings[prayer.key],
-          date: prayerDateTime(timings[prayer.key])
-        }));
-
-        $("prayerLocation").textContent =
-          `ঢাকা, বাংলাদেশ · ${getDateText()}`;
-
-        $("prayerGrid").innerHTML = prayerSchedule.map(prayer => `
-          <div class="prayer-item" id="prayer-${prayer.key}">
-            <strong>${escapeHTML(prayer.name)}</strong>
-            <span>${escapeHTML(convertPrayerTime(prayer.time))}</span>
-          </div>
-        `).join("");
-
-        $("prayerNote").textContent =
-          "AlAdhan API থেকে সময় নেওয়া হয়েছে। স্থানীয় মসজিদের সময়ের সঙ্গে মিলিয়ে নিন।";
-
-        prayerDayKey = dhakaDateKey();
+        renderPrayerTimes();
         updatePrayerCountdown();
+
+        if (prayerTimer) clearInterval(prayerTimer);
+        prayerTimer = setInterval(updatePrayerCountdown, 1000);
+
       } catch (error) {
-        console.error("Prayer time loading error:", error);
-
-        $("prayerLocation").textContent =
-          "ঢাকা, বাংলাদেশ · সময়সূচি পাওয়া যায়নি";
-
-        $("prayerCountdown").textContent = "সময় লোড করা যায়নি";
-
-        $("prayerNote").textContent =
-          "ইন্টারনেট সংযোগ পরীক্ষা করুন অথবা বিস্তারিত নামাজের সময়ের পেজ দেখুন।";
+        console.error("Prayer time error:", error);
+        setText("prayerDate", "নামাজের সময়সূচি লোড করা যায়নি।");
+        setText("nextPrayerName", "ইন্টারনেট সংযোগ পরীক্ষা করুন।");
+        setText("prayerCountdown", "--:--:--");
+        $("prayerList").innerHTML =
+          '<div class="prayer-item">সময়সূচি পাওয়া যায়নি</div>';
       }
+    }
+
+    function renderPrayerTimes() {
+      if (!prayerTimes) return;
+
+      $("prayerList").innerHTML = prayerNames.map(([key, bn]) => `
+        <div class="prayer-item" id="prayer-${key}">
+          <strong>${bn}</strong>
+          <span>${escapeHTML(cleanTime(prayerTimes[key]))}</span>
+        </div>
+      `).join("");
     }
 
     function updatePrayerCountdown() {
-      if (!prayerSchedule.length) return;
+      if (!prayerTimes) return;
 
-      if (dhakaDateKey() !== prayerDayKey) {
-        loadPrayerTimes();
-        return;
-      }
+      const now = Date.now();
+      const upcoming = [];
 
-      const now = new Date();
+      prayerNames.forEach(([key, bn]) => {
+        const timestamp = dhakaDateTime(prayerTimes[key]);
 
-      const nextPrayer = prayerSchedule.find(prayer =>
-        prayer.date && prayer.date.getTime() > now.getTime()
-      );
-
-      let nextDate;
-      let nextName;
-
-      if (nextPrayer) {
-        nextDate = nextPrayer.date;
-        nextName = nextPrayer.name;
-      } else {
-        nextName = "ফজর";
-        nextDate = prayerDateTime(prayerSchedule[0].time, 1);
-      }
-
-      if (!nextDate) return;
-
-      prayerSchedule.forEach(prayer => {
-        const element = $(`prayer-${prayer.key}`);
-        if (element) element.classList.remove("active");
+        if (timestamp > now) {
+          upcoming.push({ key, bn, timestamp });
+        }
       });
 
-      if (nextPrayer) {
-        const element = $(`prayer-${nextPrayer.key}`);
-        if (element) element.classList.add("active");
+      let next;
+
+      if (upcoming.length) {
+        next = upcoming[0];
       } else {
-        const element = $("prayer-Fajr");
-        if (element) element.classList.add("active");
+        // All today's prayers have passed; show tomorrow's Fajr.
+        const tomorrowFajr = dhakaDateTime(prayerTimes.Fajr) +
+          24 * 60 * 60 * 1000;
+
+        next = {
+          key: "Fajr",
+          bn: "ফজর",
+          timestamp: tomorrowFajr
+        };
       }
 
-      const remaining = Math.max(
-        0,
-        Math.floor((nextDate.getTime() - now.getTime()) / 1000)
-      );
+      nextPrayerTimestamp = next.timestamp;
 
-      const hours = Math.floor(remaining / 3600);
-      const minutes = Math.floor((remaining % 3600) / 60);
-      const seconds = remaining % 60;
+      const difference = Math.max(0, next.timestamp - now);
+      const totalSeconds = Math.floor(difference / 1000);
 
-      $("prayerCountdown").textContent =
-        `${nextName} শুরু হতে ${String(hours).padStart(2, "0")}:` +
-        `${String(minutes).padStart(2, "0")}:` +
-        `${String(seconds).padStart(2, "0")}`;
+      const hours = Math.floor(totalSeconds / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      setText("prayerCountdown",
+        [hours, minutes, seconds]
+          .map(value => String(value).padStart(2, "0"))
+          .join(":"));
+
+      setText("nextPrayerName",
+        "পরবর্তী নামাজ: " + next.bn);
+
+      prayerNames.forEach(([key]) => {
+        const item = $("prayer-" + key);
+        if (item) item.classList.toggle("active", key === next.key);
+      });
     }
 
-    if (prayerTimer) clearInterval(prayerTimer);
-    prayerTimer = setInterval(updatePrayerCountdown, 1000);
-
-    // INITIAL LOAD
-    loadPosts();
+    // Start the homepage features.
+    initializeFirebase();
     loadPrayerTimes();
-    loadHourlyHadiths();
 
-    // PWA SERVICE WORKER
+    // Progressive Web App service worker
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
         navigator.serviceWorker.register("./service-worker.js")
           .then(registration => {
-            console.log(
-              "Qalb-e-Deen Service Worker registered:",
-              registration.scope
-            );
+            console.log("PWA service worker registered:",
+              registration.scope);
           })
           .catch(error => {
-            console.error("Service Worker registration failed:", error);
+            console.warn("Service worker registration failed:", error);
           });
       });
     }
