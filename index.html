@@ -545,6 +545,7 @@
 
   <header>
     <div class="header-inner">
+      <div id="languageWidget" aria-label="Translate this website" style="margin-left:auto;max-width:150px;overflow:hidden"><div id="google_translate_element"></div></div>
       <a class="brand" href="./" aria-label="Qalb-e-Deen Home">
         <img src="./logo.png" alt="Qalb-e-Deen Logo"
           onerror="this.style.display='none'">
@@ -701,6 +702,7 @@
       <a href="#posts">পোস্ট</a>
       <a href="./login.html">অ্যাকাউন্ট তৈরি / লগইন</a>
       <a href="./profile.html">আমার প্রোফাইল</a>
+      <a href="./privacy-policy.html">গোপনীয়তা নীতি</a>
     </div>
 
     <p class="muted" style="color:#c8ded2">
@@ -1355,6 +1357,22 @@
         if (item) item.classList.toggle("active", key === next.key);
       });
     }
+
+    // Multilingual interface powered by Google Translate.
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'bn',
+        includedLanguages: 'bn,en,ar,hi,ur,id,ms',
+        autoDisplay: false,
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+    (function loadGoogleTranslate() {
+      const script = document.createElement('script');
+      script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      script.async = true;
+      document.head.appendChild(script);
+    })();
 
     // Start the homepage features.
     initializeFirebase();
