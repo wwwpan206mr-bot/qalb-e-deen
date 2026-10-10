@@ -32,5 +32,4 @@ jobs:
       - name: Fetch HadithAPI and sync to Firestore
         env:
           HADITH_API_KEY: ${{ secrets.HADITH_API_KEY }}
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ steps.auth.outputs.credentials_file_path }}
         run: node scripts/sync-hadiths.mjs
