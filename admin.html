@@ -233,6 +233,8 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
     <section id="hadithPanel" class="tab-panel hidden">
       <div class="card">
         <h2 id="hadithFormTitle">নতুন হাদিস যোগ করুন</h2>
+        <p class="status">এখান থেকে নতুন হাদিস যোগ, পুরোনো হাদিস সম্পাদনা, সক্রিয়/নিষ্ক্রিয় এবং মুছে ফেলতে পারবেন। সংরক্ষিত হাদিস ওয়েবসাইটের হাদিস পাতায় দেখাতে “সক্রিয়” নির্বাচন করুন।</p>
+        <div class="actions"><button id="newHadithBtn" type="button" class="btn-secondary">＋ নতুন হাদিস লিখুন</button></div>
 
         <form id="hadithForm">
           <input id="hadithId" type="hidden">
@@ -276,7 +278,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
           </select>
 
           <div class="actions">
-            <button id="saveHadithBtn" type="submit">Save Hadith</button>
+            <button id="saveHadithBtn" type="submit">হাদিস সংরক্ষণ করুন</button>
             <button id="cancelHadithEdit" type="button"
               class="btn-secondary hidden">Cancel Edit</button>
           </div>
@@ -284,8 +286,8 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
       </div>
 
       <div class="card">
-        <h2>Hadith Records</h2>
-        <button id="reloadHadiths" class="btn-secondary">Reload Hadiths</button>
+        <h2>সংরক্ষিত হাদিস পরিচালনা</h2>
+        <button id="reloadHadiths" class="btn-secondary">হাদিসের তালিকা রিফ্রেশ</button>
         <div id="hadithList" class="status">হাদিস লোড হচ্ছে…</div>
       </div>
     </section>
@@ -801,10 +803,15 @@ function resetHadithForm() {
   $("hadithId").value = "";
   $("hadithActive").value = "true";
   $("hadithFormTitle").textContent = "নতুন হাদিস যোগ করুন";
-  $("saveHadithBtn").textContent = "Save Hadith";
+  $("saveHadithBtn").textContent = "হাদিস সংরক্ষণ করুন";
   $("cancelHadithEdit").classList.add("hidden");
 }
 $("cancelHadithEdit").addEventListener("click",resetHadithForm);
+$("newHadithBtn").addEventListener("click",() => {
+  resetHadithForm();
+  $("hadithForm").scrollIntoView({behavior:"smooth",block:"start"});
+  $("hadithTitle").focus();
+});
 
 $("hadithForm").addEventListener("submit",async event => {
   event.preventDefault();
@@ -893,7 +900,7 @@ async function loadHadiths() {
         $("hadithNumber").value = item.hadithNumber||"";
         $("hadithActive").value = item.active===false?"false":"true";
         $("hadithFormTitle").textContent = "হাদিস সম্পাদনা";
-        $("saveHadithBtn").textContent = "Update Hadith";
+        $("saveHadithBtn").textContent = "হাদিস আপডেট করুন";
         $("cancelHadithEdit").classList.remove("hidden");
         $("hadithForm").scrollIntoView({behavior:"smooth"});
       });
