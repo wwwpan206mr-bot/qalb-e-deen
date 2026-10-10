@@ -265,7 +265,8 @@ function renderHadith(hadith) {
   const arabic = hadith.arabic || "আরবি হাদিস যোগ করা হয়নি।";
   const transliteration = hadith.transliteration || "বাংলা উচ্চারণ যোগ করা হয়নি।";
   const englishPronunciation = hadith.englishPronunciation || "English pronunciation is not available.";
-  const translation = hadith.translation || "বাংলা অর্থ যোগ করা হয়নি।";
+  const translationLanguage = hadith.translationLanguage === "English" ? "English meaning" : "বাংলা অর্থ";
+  const translation = hadith.translation || (translationLanguage === "English meaning" ? "English meaning is not available." : "বাংলা অর্থ যোগ করা হয়নি।");
   const explanation = hadith.explanation || "ব্যাখ্যা এখনো যোগ করা হয়নি।";
   const lesson = hadith.lesson || "মূল শিক্ষা এখনো যোগ করা হয়নি।";
   const source = hadith.source || "উৎস উল্লেখ করা হয়নি।";
@@ -277,7 +278,7 @@ function renderHadith(hadith) {
     <div class="arabic" dir="rtl" lang="ar">${escapeHtml(arabic)}</div>
     <div class="info-box"><div class="info-label">বাংলা উচ্চারণ</div><div class="info-text">${escapeHtml(transliteration)}</div></div>
     <div class="info-box"><div class="info-label">English Pronunciation</div><div class="info-text">${escapeHtml(englishPronunciation)}</div></div>
-    <div class="info-box"><div class="info-label">বাংলা অর্থ</div><div class="info-text">${escapeHtml(translation)}</div></div>
+    <div class="info-box"><div class="info-label">${escapeHtml(translationLanguage)}</div><div class="info-text">${escapeHtml(translation)}</div></div>
     <div class="info-box"><div class="info-label">হাদিসের ব্যাখ্যা</div><div class="info-text">${escapeHtml(explanation)}</div></div>
     <div class="info-box"><div class="info-label">মূল শিক্ষা</div><div class="info-text">${escapeHtml(lesson)}</div></div>
     <div class="source">
@@ -304,7 +305,7 @@ ${h.transliteration || ""}
 English Pronunciation:
 ${h.englishPronunciation || ""}
 
-বাংলা অর্থ:
+${h.translationLanguage === "English" ? "English meaning:" : "বাংলা অর্থ:"}
 ${h.translation || ""}
 
 ব্যাখ্যা:
